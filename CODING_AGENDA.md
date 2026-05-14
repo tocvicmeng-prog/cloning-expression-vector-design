@@ -1082,7 +1082,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
 - **Files:** `src/engine/codon/types.py`, `algorithms.py`, `optimiser.py`, tests.
 - **Model tier:** Opus. **Context budget:** ≤ 60 k tokens.
 - **SOP:** See § 1.7 example brief. Implement CAI, %MinMax, CHARMING, `avoid_only`. Lexicographic-priority fixed-point with `N=5` cap. Honour `protected_intervals` and `functional_rna_features` (MR-09 / MR-17).
-- **Implementation status (2026-05-14).** Complete locally. Converted the T-203 `engine.codon` placeholder into a package with `CodingSequenceDesign`, protected intervals, functional-RNA feature protection, CAI / MinMax / CHARMING / avoid-only algorithms, sequence metrics, and `CodonOptimiser` fixed-point execution capped at five iterations. Focused verification: 9 tests passed. Full local gates are green with 418 passed and 2 skipped. T-702 is next.
+- **Implementation status (2026-05-14).** Complete locally. Converted the T-203 `engine.codon` placeholder into a package with `CodingSequenceDesign`, protected intervals, functional-RNA feature protection, CAI / MinMax / CHARMING / avoid-only algorithms, sequence metrics, and `CodonOptimiser` fixed-point execution capped at five iterations. Focused verification: 9 tests passed. Full local gates are green with 418 passed and 2 skipped. T-702 is also complete locally; T-703 is next.
 
 #### 2.7.2 `T-702` — `engine.overhang` (Golden Gate fidelity optimiser)
 - **Files:** `src/engine/overhang/dataset.py` (Potapov 2018 + Pryor 2020 matrices), `optimiser.py`, tests.
@@ -1092,6 +1092,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
   2. Implement branch-and-bound search for non-cross-reactive overhang sets.
   3. Score sets by on-target ligation propensity, off-target cross-ligation minimisation, palindrome avoidance, reverse-complement-conflict avoidance.
 - **Acceptance:** reproduce Pryor 2020 24-fragment benchmark assembly; performance budget < 60 s for 20 fragments.
+- **Implementation status (2026-05-14).** Complete locally. Converted the T-203 `engine.overhang` placeholder into a pure package with Potapov 2018 / Pryor 2020 labelled fidelity matrices, canonical overhang enumeration, reverse-complement and palindrome guards, product-of-per-overhang fidelity scoring, cross-reaction diagnostics, a typed `OverhangDesignRequest` / result contract, bounded branch-and-bound search, exact benchmark-set scoring, and a 24-fragment benchmark fixture. Focused verification: 8 tests passed. Full local gates are green with 426 passed and 2 skipped. T-703 is next.
 
 #### 2.7.3 `T-703` — `engine.assembly` (strategy hierarchy; v1.1 — added T-703e SLIC per M-02)
 - **Files:** `src/engine/assembly/base.py`, `restriction_ligation.py`, `gibson.py`, `golden_gate.py` + kit subclasses, `gateway.py`, `lic.py`, `slic.py` (**new in v1.1 per M-02**), `user.py`, `iva.py`, `yeast_tar.py`, tests.
@@ -2694,7 +2695,7 @@ This coding agenda is **Finalised v1.5** after the fifth-round mechanical consis
 
 **v1.5 audit history.** 4 internal adversarial-falsification rounds (v1.0) + 21/21 first-round Codex audit findings accepted (v1.1) + 29/29 second-round Codex audit findings accepted (v1.2) + 27/27 third-round Codex audit findings accepted (v1.3) + **27/27 fourth-round Codex audit findings accepted (v1.4)** + fifth-round mechanical consistency remediation (v1.5). Zero defenses raised across all external coding-agenda audits.
 
-Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-702 `engine.overhang` now that T-701 is complete locally.
+Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-703 `engine.assembly` now that T-702 is complete locally.
 
 ---
 

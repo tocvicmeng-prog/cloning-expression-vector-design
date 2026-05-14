@@ -78,7 +78,7 @@ When the v2.0 KB and the white paper appear to disagree, the citation chain in v
 
 ## 5. Next milestones
 
-Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, and T-701 are complete locally. T-701 added the pure `engine.codon` package with CAI, MinMax, CHARMING, and avoid-only optimisation plus protected-interval and functional-RNA preservation. Before opening T-702, run `python tools/agenda_consistency_check.py`, then use:
+Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, T-701, and T-702 are complete locally. T-702 added the pure `engine.overhang` package with Potapov/Pryor-labelled fidelity matrices, overhang-set scoring, benchmark fixtures, and bounded branch-and-bound search for Golden Gate overhang selection. Before opening T-703, run `python tools/agenda_consistency_check.py`, then use:
 
 ```powershell
 python -m uv sync --frozen --no-editable --group dev --extra io
