@@ -1134,7 +1134,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
   1. `DesignRealisationPlan` generator: assembly route + fragment inputs + QC checkpoints + expected verification artefacts + institutional-approvals-required + biosafety classification + reviewer-packet summary. **Cannot contain a `ProtocolStep`** — verified by type and by `import-linter` (the package cannot import `domain.types.sop_protected`).
   2. **(v1.2 M2-04) Renderer files explicit.** `renderers/markdown.py` uses `markdown-it-py` (pinned); `renderers/pdf.py` uses `weasyprint` (pinned) with the **deterministic-rendering policy** in `docs/rendering_determinism.md` — pinned font (Noto Sans / Noto Mono), no system-font fallback, no embedded timestamps in PDFs (use `derivation_environment.created_at_utc` as canonical `/CreationDate`), `/ID` and `/Producer` overridden to fixed canonical values; `renderers/json.py` uses the canonical-JSON serialiser from T-307.
   3. Acceptance includes the § 4.6a renderer test class.
-- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with an `engine.design_plan` package containing `DesignPlanInput`, `DesignPlanGenerator`, deterministic QC checkpoint / verification artefact / approval synthesis, reviewer-packet evidence hashing, canonical JSON rendering, ordered Markdown rendering, deterministic PDF rendering with fixed metadata and no `/CreationDate`, and static tests proving the package does not import the gated operational protocol namespace or reference `ProtocolStep`. Focused verification: 3 tests passed. Full local gates are green with 450 passed and 2 skipped. T-804 is next.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with an `engine.design_plan` package containing `DesignPlanInput`, `DesignPlanGenerator`, deterministic QC checkpoint / verification artefact / approval synthesis, reviewer-packet evidence hashing, canonical JSON rendering, ordered Markdown rendering, deterministic PDF rendering with fixed metadata and no `/CreationDate`, and static tests proving the package does not import the gated operational protocol namespace or reference `ProtocolStep`. Focused verification: 3 tests passed. Full local gates are green with 450 passed and 2 skipped. T-804 is also complete locally; T-805a is next.
 
 *(v1.1 placeholder T-803 / T-805 `MOVED` headings — removed in v1.2 H2-01. T-803 lives in Phase 8b; T-805 was split in v1.2 B2-09 into T-805a [Phase 8a, this phase, immediately below] and T-805b [Phase 8b, `app.sop_protocol_orchestrator`]. The agenda's task parser sees only one heading per task ID; cross-references to the new home appear as prose paragraphs in Appendix B's traceability matrix.)*
 
@@ -1142,6 +1142,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
 - **Files:** `src/engine/controls/generator.py`, `validation.py`, tests.
 - **Model tier:** Sonnet. **Context budget:** ≤ 40 k tokens.
 - **SOP:** Generate `ControlSet` (positive / negative / process / library-specific). Validation rules (N8) tied to host role + chemistry + cargo class: positive-control suitability matched, negative-control absence-of-signal, vehicle/mock controls, replicate-structure recommendation.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with an `engine.controls` package containing `ControlGenerationInput`, `ControlSetGenerator`, deterministic positive / negative / process / vehicle / library-specific control synthesis, host/readout-aware positive controls, absence-of-signal negative controls, replicate recommendations, and `validate_control_set()` findings for missing vehicle, library-specific, process, replicate, host-match, and negative-baseline coverage. Focused verification: 4 tests passed. Full local gates are green with 454 passed and 2 skipped. T-805a is next.
 
 #### 2.8a.4 `T-805a` — `app.design_plan_orchestrator` (v1.2 — new, per B2-09)
 - **Files:** `src/app/design_plan_orchestrator.py`, tests.
@@ -2700,7 +2701,7 @@ This coding agenda is **Finalised v1.5** after the fifth-round mechanical consis
 
 **v1.5 audit history.** 4 internal adversarial-falsification rounds (v1.0) + 21/21 first-round Codex audit findings accepted (v1.1) + 29/29 second-round Codex audit findings accepted (v1.2) + 27/27 third-round Codex audit findings accepted (v1.3) + **27/27 fourth-round Codex audit findings accepted (v1.4)** + fifth-round mechanical consistency remediation (v1.5). Zero defenses raised across all external coding-agenda audits.
 
-Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-804 `engine.controls` now that T-802 is complete locally.
+Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-805a `app.design_plan_orchestrator` now that T-804 is complete locally.
 
 ---
 

@@ -78,7 +78,7 @@ When the v2.0 KB and the white paper appear to disagree, the citation chain in v
 
 ## 5. Next milestones
 
-Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, and Phase 7 are complete locally. Phase 8a is in progress with T-801 and T-802 complete locally: `engine.risk_classification` generates deterministic active risk-advisory reports, and `engine.design_plan` now emits always-renderable `DesignRealisationPlan` objects with deterministic JSON, Markdown, and PDF renderers while keeping gated operational protocol types unreachable. Before opening T-804, run `python tools/agenda_consistency_check.py`, then use:
+Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, and Phase 7 are complete locally. Phase 8a is in progress with T-801, T-802, and T-804 complete locally: risk advisories, always-renderable design plans, deterministic renderers, and first-class control-set generation are now implemented while gated operational protocol types remain unreachable. Before opening T-805a, run `python tools/agenda_consistency_check.py`, then use:
 
 ```powershell
 python -m uv sync --frozen --no-editable --group dev --extra io
