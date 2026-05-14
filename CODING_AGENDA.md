@@ -1206,6 +1206,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
   2. Consume the MS-* rules from `catalogues/rules/MS.yaml`; emit structured `VlpPolicyReport` referenced by the design plan.
   3. Integration with `engine.risk_classification` (T-801): VLP / phage / viral-vector constructs trigger the appropriate advisory categories.
 - **Acceptance:** fixtures covering all four system classes; MS-* rule registry integration verified; MS2/VLP UAT (Phase 13) consumes the policy module.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-807 placeholder with a package exposing `VlpSystemClass`, `VlpPolicyRequest`, `VlpPolicyFinding`, `VlpPolicyReport`, and `VlpPolicyEngine`; implemented MS2 RNA-display, phage-derived VLP, AAV, and lentiviral policy distinctions; enforced packaging-signal declarations, cargo-capacity limits, helper/capsid separation, replication/infectivity boundaries, controls, and assembly-readout metadata; aligned the supported MS-01..MS-07 rule IDs with `catalogues/rules/MS.yaml`; and added risk-classification trigger-tag integration for MS2/VLP and AAV/lentiviral advisories. Focused verification: 7 tests passed. Full local gates are green with 470 passed and 2 skipped. T-808 is next.
 
 #### 2.8a.7 `T-808` — `app.plugin_governance` (v1.1 — new, per B-02)
 - **Files:** `src/app/plugin_governance.py`, tests + adversarial-test integration.
