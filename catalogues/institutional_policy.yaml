@@ -1,0 +1,65 @@
+# Institution-controlled policy catalogue. T-406 baseline; deployments must override locally.
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "ARCHITECTURE.md#4-4"
+  review_required_after: "2026-11-14"
+policy_set_id: "institutional.default_2026_05"
+policy_version: "2026.05"
+defaults:
+  administrator_controlled_authorisation: true
+  developer_bootstrap_allowed_until_admin_seeded: true
+  user_self_authorisation_allowed: false
+  reviewer_can_mutate_authorisation_profile: false
+  administrator_can_act_as_reviewer: true
+  require_signed_profile_on_load: true
+  require_signed_decision_record: true
+  unsupported_biosafety_tiers: ["BSL-4"]
+  unsupported_tier_blocks: ["BlockCompile", "BlockOperationalProtocol", "BlockVendorSubmission"]
+  require_screening_before_sop: true
+  require_active_advisory_acknowledgement: true
+dual_control_defaults:
+  enabled: false
+  institution_can_enable: true
+  required_when:
+    - "replication_competent_viral_vector"
+    - "risk_group_2_or_higher_component"
+    - "environmental_release_intent"
+    - "clinical_grade_manufacturing"
+authorization_profiles:
+  - id: "default_bsl1_research"
+    name: "Default BSL-1 research scope"
+    allowed_biosafety_tiers: ["BSL-1"]
+    allowed_downstream_uses: ["cloning", "expression", "screening_assay", "other"]
+    requires_biosafety_approval_id: false
+    requires_reviewer_for_screening_watchlist: true
+    citation:
+      text: "NIH Guidelines for Research Involving Recombinant or Synthetic Nucleic Acid Molecules, April 2024."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "https://osp.od.nih.gov/wp-content/uploads/NIH_Guidelines.pdf"
+  - id: "default_bsl2_reviewed"
+    name: "Default BSL-2 reviewed scope"
+    allowed_biosafety_tiers: ["BSL-1", "BSL-2", "BSL-2+"]
+    allowed_downstream_uses: ["cloning", "expression", "screening_assay", "vlp_or_phage_display", "other"]
+    requires_biosafety_approval_id: true
+    requires_reviewer_for_screening_watchlist: true
+    citation:
+      text: "WHO Laboratory Biosafety Manual, fourth edition, risk-assessment framing."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "https://www.who.int/publications/i/item/9789240011311"
+advisory_acknowledgement:
+  severities_requiring_signed_acknowledgement: ["caution", "strong_caution"]
+  passive_dismissal_allowed: false
+  allowed_actions: ["acknowledge_with_justification", "decline", "escalate"]
+  blocks_until_acknowledged: ["BlockOperationalProtocol"]
+citations:
+  - text: "ARCHITECTURE v1.5 administrator-controlled gate and active advisory acknowledgement model."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "ARCHITECTURE.md#4-4"
+  - text: "REQUIREMENTS UR-09, UR-10, UR-11 and BR-11 through BR-14."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "REQUIREMENTS.md#4-4"

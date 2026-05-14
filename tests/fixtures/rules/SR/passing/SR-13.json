@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-13",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for SR-13: Synthesis-vendor-side sequence screening (IGSC v3.0 compliant). The user is informed that the vendor will screen and may reject.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-13.passing",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

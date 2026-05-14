@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MS-03",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MS-03: MS2 pac/hairpin cargo tag is present, copy number is declared, and the consensus-critical residues are preserved.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MS-03.triggering",
+    "category": "MS",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

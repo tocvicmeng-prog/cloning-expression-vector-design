@@ -1,0 +1,2087 @@
+catalogue_id: cev.rules.molecular
+schema_version: 1.0.0
+maintenance:
+  retrieved_at: '2026-05-14'
+  valid_until: '2027-05-14'
+  source_url: REQUIREMENTS.md#4.1
+  review_required_after: '2026-11-14'
+rules:
+- rule_id: MR-01
+  predicate_name: mr_01
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-01.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-01: v2.0 \xA7 5.3, \xA7 5.4. A CMV promoter does not transcribe in E.\
+      \ coli; a T7 promoter does not transcribe in a mammalian cell without exogenous\
+      \ T7 RNAP. Source rule from REQUIREMENTS.md#4.1; calibrated against KB v2.0\
+      \ section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-01.json
+    passing: tests/fixtures/rules/MR/passing/MR-01.json
+  suggested_remediation: Review MR-01 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Promoter \u2194 host class compatibility (bacterial / eukaryotic Pol\
+    \ II / Pol III / phage)."
+- rule_id: MR-02
+  predicate_name: mr_02
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-02.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-02: v2.0 \xA7 5.1. pUC ori works in E. coli but not yeast; CEN/ARS works\
+      \ in S. cerevisiae but not bacteria. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-02.json
+    passing: tests/fixtures/rules/MR/passing/MR-02.json
+  suggested_remediation: Review MR-02 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Origin \u2194 host compatibility."
+- rule_id: MR-03
+  predicate_name: mr_03
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-03.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-03: del Solar 1998 (PMC98921). Warn when a second plasmid is supplied
+      with the same Inc group. Source rule from REQUIREMENTS.md#4.1; calibrated against
+      KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-03.json
+    passing: tests/fixtures/rules/MR/passing/MR-03.json
+  suggested_remediation: Review MR-03 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Origin incompatibility groups: two plasmids in the same Inc group
+    cannot co-exist stably.'
+- rule_id: MR-04
+  predicate_name: mr_04
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-04.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-04: v2.0 \xA7 5.2. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-04.json
+    passing: tests/fixtures/rules/MR/passing/MR-04.json
+  suggested_remediation: Review MR-04 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Selectable marker not already encoded in host genome (e.g., host kanR
+    + plasmid kan = no selection).
+- rule_id: MR-05
+  predicate_name: mr_05
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-05.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-05: v2.0 \xA7 5.2 (E. coli vs mammalian concentrations differ by orders\
+      \ of magnitude). Source rule from REQUIREMENTS.md#4.1; calibrated against KB\
+      \ v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-05.json
+    passing: tests/fixtures/rules/MR/passing/MR-05.json
+  suggested_remediation: Review MR-05 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Selectable marker working concentration appropriate for the chosen
+    host.
+- rule_id: MR-06
+  predicate_name: mr_06
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-06.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-06: v2.0 \xA7 5.1. Warn when a high-copy ori is combined with a leaky-promoter\
+      \ + toxic-cargo configuration. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-06.json
+    passing: tests/fixtures/rules/MR/passing/MR-06.json
+  suggested_remediation: Review MR-06 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Copy number consistent with cargo toxicity and stability.
+- rule_id: MR-07
+  predicate_name: mr_07
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-07.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-07: Sharp & Li 1987; Mauro & Chappell 2014. Avoid overshoot (saturated
+      CAI can disturb co-translational folding). Source rule from REQUIREMENTS.md#4.1;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-07.json
+    passing: tests/fixtures/rules/MR/passing/MR-07.json
+  suggested_remediation: Review MR-07 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Codon optimisation: CAI in [0.7, 0.95] for the chosen host.'
+- rule_id: MR-08
+  predicate_name: mr_08
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-08.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-08: Clarke & Clark 2008. Preserve rare-codon pause structure where it
+      affects folding. Source rule from REQUIREMENTS.md#4.1; calibrated against KB
+      v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-08.json
+    passing: tests/fixtures/rules/MR/passing/MR-08.json
+  suggested_remediation: Review MR-08 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Codon optimisation: %MinMax distance from native \u2264 0.2."
+- rule_id: MR-09
+  predicate_name: mr_09
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-09.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-09: v2.0 \xA7 6.5. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-09.json
+    passing: tests/fixtures/rules/MR/passing/MR-09.json
+  suggested_remediation: Review MR-09 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Codon optimisation MUST preserve user-marked functional RNA regions
+    (IRES, frameshift signal, riboswitch).
+- rule_id: MR-10
+  predicate_name: mr_10
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-10.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-10: central dogma. Source rule from REQUIREMENTS.md#4.1; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-10.json
+    passing: tests/fixtures/rules/MR/passing/MR-10.json
+  suggested_remediation: Review MR-10 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Reading frame: every annotated ORF starts with ATG (or GTG/TTG in
+    E. coli when explicitly declared) and ends with TAA/TAG/TGA; no internal stops.'
+- rule_id: MR-11
+  predicate_name: mr_11
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-11.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-11: Reduces readthrough; especially for C-terminal-tagged constructs.
+      Source rule from REQUIREMENTS.md#4.1; calibrated against KB v2.0 section 18
+      where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-11.json
+    passing: tests/fixtures/rules/MR/passing/MR-11.json
+  suggested_remediation: Review MR-11 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Stop codon strategy: tandem stop codons (TAA TAA) preferred for high-fidelity
+    termination.'
+- rule_id: MR-12
+  predicate_name: mr_12
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-12.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-12: Salis 2009; Reis & Salis 2020. Source rule from REQUIREMENTS.md#4.1;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-12.json
+    passing: tests/fixtures/rules/MR/passing/MR-12.json
+  suggested_remediation: Review MR-12 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Bacterial SD/RBS: Shine\u2013Dalgarno-like motif (consensus AGGAGG)\
+    \ within 5\u201313 nt of the AUG; \u0394G(\u221230..+30) > \u221210 kcal/mol."
+- rule_id: MR-13
+  predicate_name: mr_13
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-13.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-13: v2.0 \xA7 5.6. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-13.json
+    passing: tests/fixtures/rules/MR/passing/MR-13.json
+  suggested_remediation: Review MR-13 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Mammalian Kozak: PWM score above threshold (Noderer 2014).'
+- rule_id: MR-14
+  predicate_name: mr_14
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-14.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-14: Kozak 1987. Source rule from REQUIREMENTS.md#4.1; calibrated against
+      KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-14.json
+    passing: tests/fixtures/rules/MR/passing/MR-14.json
+  suggested_remediation: Review MR-14 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "uORF scan: any AUG in the 5\u2032 UTR with Kozak PWM \u2265 threshold\
+    \ \u2192 flag."
+- rule_id: MR-15
+  predicate_name: mr_15
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-15.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-15: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-15.json
+    passing: tests/fixtures/rules/MR/passing/MR-15.json
+  suggested_remediation: Review MR-15 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Premature polyadenylation scan: AAUAAA or strong variant in 5\u2032\
+    \ UTR or within ORF \u2192 flag."
+- rule_id: MR-16
+  predicate_name: mr_16
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-16.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-16: Jaganathan 2019. Source rule from REQUIREMENTS.md#4.1; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-16.json
+    passing: tests/fixtures/rules/MR/passing/MR-16.json
+  suggested_remediation: Review MR-16 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Splice-site scan: SpliceAI score above threshold within ORF \u2192\
+    \ flag (mammalian designs)."
+- rule_id: MR-17
+  predicate_name: mr_17
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-17.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-17: v2.0 \xA7 5.7. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-17.json
+    passing: tests/fixtures/rules/MR/passing/MR-17.json
+  suggested_remediation: Review MR-17 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Terminator presence and strength: every transcription unit must end
+    in a terminator (bacterial) or polyadenylation signal (eukaryotic).'
+- rule_id: MR-18
+  predicate_name: mr_18
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-18.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-18: v2.0 \xA7 9 V022. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-18.json
+    passing: tests/fixtures/rules/MR/passing/MR-18.json
+  suggested_remediation: Review MR-18 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Cargo size within host capacity: AAV \u2264 4.7 kb between ITRs; lentivirus\
+    \ \u2264 ~9 kb between LTRs; baculovirus \u2264 ~38 kb; E. coli high-copy \u2264\
+    \ ~30 kb; BAC \u2264 ~300 kb."
+- rule_id: MR-19
+  predicate_name: mr_19
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-19.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-19: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-19.json
+    passing: tests/fixtures/rules/MR/passing/MR-19.json
+  suggested_remediation: Review MR-19 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'AAV ITR integrity: 145-nt ITR sequences identical to canonical AAV2
+    (or other declared serotype) on both flanks.'
+- rule_id: MR-20
+  predicate_name: mr_20
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-20.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-20: v2.0 \xA7 5.x (plant). Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-20.json
+    passing: tests/fixtures/rules/MR/passing/MR-20.json
+  suggested_remediation: Review MR-20 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Plant T-DNA: LB and RB borders flank the cassette in correct orientation;
+    nothing outside is part of the transfer.'
+- rule_id: MR-21
+  predicate_name: mr_21
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-21.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-21: Dull 1998 PMID 9811723; Zanta-Boussif 2009 (WPRE3). Source rule
+      from REQUIREMENTS.md#4.1; calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-21.json
+    passing: tests/fixtures/rules/MR/passing/MR-21.json
+  suggested_remediation: Review MR-21 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Lentiviral 3rd-gen SIN structure: \u03A8, RRE, cPPT/CTS, internal\
+    \ promoter, WPRE3 (not wild-type WPRE), SIN-deleted 3\u2032 LTR."
+- rule_id: MR-22
+  predicate_name: mr_22
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-22.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-22: Zanta-Boussif 2009; Schambach 2006. Source rule from REQUIREMENTS.md#4.1;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-22.json
+    passing: tests/fixtures/rules/MR/passing/MR-22.json
+  suggested_remediation: Review MR-22 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "If wild-type WPRE detected \u2192 recommend WPRE3 (mut6) variant."
+- rule_id: MR-23
+  predicate_name: mr_23
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-23.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-23: v2.0 \xA7 9. Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-23.json
+    passing: tests/fixtures/rules/MR/passing/MR-23.json
+  suggested_remediation: Review MR-23 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Inducible-system completeness: Tet-On requires TRE + rtTA; T7lac requires
+    DE3 lysogen + (optionally) pLysS; pBAD requires AraC.'
+- rule_id: MR-24
+  predicate_name: mr_24
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-24.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-24: NIH Guidelines 2024. Source rule from REQUIREMENTS.md#4.1; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-24.json
+    passing: tests/fixtures/rules/MR/passing/MR-24.json
+  suggested_remediation: Review MR-24 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Mobilisation-element scan: oriT / mob genes flagged unless the design
+    is intentionally mobilisable and biosafety tier allows it.'
+- rule_id: MR-25
+  predicate_name: mr_25
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-25.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-25: NIH Guidelines 2024. Source rule from REQUIREMENTS.md#4.1; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-25.json
+    passing: tests/fixtures/rules/MR/passing/MR-25.json
+  suggested_remediation: Review MR-25 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Viral replication elements (gag/pol/env, complete viral ORFs, replication-competent
+    sequences) excluded unless explicitly approved.
+- rule_id: MR-26
+  predicate_name: mr_26
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-26.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-26: WHO antibiotic priority list. Source rule from REQUIREMENTS.md#4.1;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-26.json
+    passing: tests/fixtures/rules/MR/passing/MR-26.json
+  suggested_remediation: Review MR-26 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Antibiotic-resistance marker risk for translational / in-vivo / environmental
+    use: WHO highest-priority antibiotics flagged.'
+- rule_id: MR-27
+  predicate_name: mr_27
+  severity: INFO
+  severity_policy: report_only
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-27.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-27: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-27.json
+    passing: tests/fixtures/rules/MR/passing/MR-27.json
+  suggested_remediation: Review MR-27 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "CpG content: in mammalian designs, very high CpG count \u2192 flag\
+    \ (silencing risk)."
+- rule_id: MR-28
+  predicate_name: mr_28
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-28.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-28: v2.0 \xA7 5.9. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-28.json
+    passing: tests/fixtures/rules/MR/passing/MR-28.json
+  suggested_remediation: Review MR-28 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Signal peptide \u2194 compartment consistency: predicted SignalP cleavage\
+    \ site matches declared compartment; KDEL/HDEL only on intended ER-resident proteins."
+- rule_id: MR-29
+  predicate_name: mr_29
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-29.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-29: basic translation. Source rule from REQUIREMENTS.md#4.1; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-29.json
+    passing: tests/fixtures/rules/MR/passing/MR-29.json
+  suggested_remediation: Review MR-29 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Frame-preservation across every fusion junction (N-tag\u2013linker,\
+    \ linker\u2013ORF, ORF\u2013linker, linker\u2013C-tag, scar\u2013residue boundaries\
+    \ for Gateway / TEV / SUMO / etc.)."
+- rule_id: MR-30
+  predicate_name: mr_30
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-30.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-30: v2.0 \xA7 5.2, \xA7 8.3. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-30.json
+    passing: tests/fixtures/rules/MR/passing/MR-30.json
+  suggested_remediation: Review MR-30 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Negative-selection cassettes (ccdB, sacB, MazF, tse2) flagged if host
+    is not the appropriate tolerant strain.
+- rule_id: MR-31
+  predicate_name: mr_31
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-31.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-31: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-31.json
+    passing: tests/fixtures/rules/MR/passing/MR-31.json
+  suggested_remediation: Review MR-31 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Intron presence on a bacterial expression vector \u2192 flag (introns\
+    \ not processed in E. coli)."
+- rule_id: MR-32
+  predicate_name: mr_32
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-32.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-32: Kozak 1986. Source rule from REQUIREMENTS.md#4.1; calibrated against
+      KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-32.json
+    passing: tests/fixtures/rules/MR/passing/MR-32.json
+  suggested_remediation: Review MR-32 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Multiple in-frame AUGs upstream of the intended start in a mammalian\
+    \ ORF \u2192 flag (ribosome will use the first one)."
+- rule_id: MR-33
+  predicate_name: mr_33
+  severity: INFO
+  severity_policy: report_only
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-33.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-33: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-33.json
+    passing: tests/fixtures/rules/MR/passing/MR-33.json
+  suggested_remediation: Review MR-33 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Synthetic poly(A) signal on a bacterial expression vector \u2192 flag\
+    \ (no effect, wastes space)."
+- rule_id: MR-34
+  predicate_name: mr_34
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-34.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-34: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-34.json
+    passing: tests/fixtures/rules/MR/passing/MR-34.json
+  suggested_remediation: Review MR-34 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Hairpin near junctions: \u0394G \u2264 -9 kcal/mol within 30 nt of\
+    \ a cloning junction \u2192 flag (assembly failure risk)."
+- rule_id: MR-35
+  predicate_name: mr_35
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-35.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-35: basic restriction biology. Source rule from REQUIREMENTS.md#4.1;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-35.json
+    passing: tests/fixtures/rules/MR/passing/MR-35.json
+  suggested_remediation: Review MR-35 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Two compatible-end restriction sites used in non-directional cloning\
+    \ \u2192 flag (high background of self-ligated empty vector)."
+- rule_id: MR-36
+  predicate_name: mr_36
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-36.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-36: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-36.json
+    passing: tests/fixtures/rules/MR/passing/MR-36.json
+  suggested_remediation: Review MR-36 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Single-cut linearisation with non-phosphatased ends \u2192 flag (high\
+    \ background of religated empty vector)."
+- rule_id: MR-37
+  predicate_name: mr_37
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-37.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-37: Hartley 2000. Source rule from REQUIREMENTS.md#4.1; calibrated against
+      KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-37.json
+    passing: tests/fixtures/rules/MR/passing/MR-37.json
+  suggested_remediation: Review MR-37 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Gateway: attB1/attB2 reading frame compatibility verified.'
+- rule_id: MR-38
+  predicate_name: mr_38
+  severity: INFO
+  severity_policy: report_only
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-38.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-38: v2.0 \xA7 7.6. Source rule from REQUIREMENTS.md#4.1; calibrated\
+      \ against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-38.json
+    passing: tests/fixtures/rules/MR/passing/MR-38.json
+  suggested_remediation: Review MR-38 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Gateway attB1 N-terminal scar contributes 8\u201310 aa; attB2 C-terminal\
+    \ (no-stop) contributes ~25 aa \u2014 these MUST appear in the final translated\
+    \ sequence and the user is informed."
+- rule_id: MR-39
+  predicate_name: mr_39
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-39.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-39: Weber 2011. Source rule from REQUIREMENTS.md#4.1; calibrated against
+      KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-39.json
+    passing: tests/fixtures/rules/MR/passing/MR-39.json
+  suggested_remediation: Review MR-39 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Type IIS site domestication: internal Type IIS recognition sites of
+    the chosen kit absent from every part destined for Golden Gate.'
+- rule_id: MR-40
+  predicate_name: mr_40
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-40.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-40: Pryor 2020 PMID 32877448. Source rule from REQUIREMENTS.md#4.1;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-40.json
+    passing: tests/fixtures/rules/MR/passing/MR-40.json
+  suggested_remediation: Review MR-40 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'Golden Gate overhang fidelity: chosen overhang set ranked by Pryor
+    2020 / Potapov 2018 score above kit-recommended threshold.'
+- rule_id: MR-41
+  predicate_name: mr_41
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-41.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-41: basic Type IIS biology. Source rule from REQUIREMENTS.md#4.1; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-41.json
+    passing: tests/fixtures/rules/MR/passing/MR-41.json
+  suggested_remediation: Review MR-41 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Two-fragment Golden Gate "junction" between cohesive overhangs at every
+    step MUST not contain palindromic self-complementary overhangs.
+- rule_id: MR-42
+  predicate_name: mr_42
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-42.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-42: Davis 2011 (insulated promoters). Source rule from REQUIREMENTS.md#4.1;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-42.json
+    passing: tests/fixtures/rules/MR/passing/MR-42.json
+  suggested_remediation: Review MR-42 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Promoter\u2013promoter / terminator\u2013terminator double-up (two\
+    \ transcription units back-to-back) requires insulator or strong terminator between\
+    \ them."
+- rule_id: MR-43
+  predicate_name: mr_43
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-43.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-43: NEB synthesis guidelines. Source rule from REQUIREMENTS.md#4.1;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-43.json
+    passing: tests/fixtures/rules/MR/passing/MR-43.json
+  suggested_remediation: Review MR-43 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Direct repeats \u2265 100 bp \u2192 block (recombination risk); \u2265\
+    \ 20 bp \u2192 warn."
+- rule_id: MR-44
+  predicate_name: mr_44
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-44.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-44: v2.0 \xA7 11. Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-44.json
+    passing: tests/fixtures/rules/MR/passing/MR-44.json
+  suggested_remediation: Review MR-44 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Homopolymer runs > 9 nt (A/T/G/C) \u2192 warn; > 14 nt \u2192 block."
+- rule_id: MR-45
+  predicate_name: mr_45
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-45.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-45: v2.0 \xA7 11. Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-45.json
+    passing: tests/fixtures/rules/MR/passing/MR-45.json
+  suggested_remediation: Review MR-45 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Global GC content < 25 % or > 65 % \u2192 warn."
+- rule_id: MR-46
+  predicate_name: mr_46
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-46.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-46: v2.0 \xA7 11. Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-46.json
+    passing: tests/fixtures/rules/MR/passing/MR-46.json
+  suggested_remediation: Review MR-46 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "GC in any 50-bp window < 15 % or > 80 % \u2192 warn."
+- rule_id: MR-47
+  predicate_name: mr_47
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-47.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-47: host-class mismatch. Source rule from REQUIREMENTS.md#4.1; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-47.json
+    passing: tests/fixtures/rules/MR/passing/MR-47.json
+  suggested_remediation: Review MR-47 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Plant 35S promoter on a mammalian construct \u2192 flag (works only\
+    \ weakly in mammalian cells)."
+- rule_id: MR-48
+  predicate_name: mr_48
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-48.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-48: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-48.json
+    passing: tests/fixtures/rules/MR/passing/MR-48.json
+  suggested_remediation: Review MR-48 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Bacterial signal peptide (pelB, OmpA, DsbA) on a mammalian construct\
+    \ \u2192 flag (does not target ER)."
+- rule_id: MR-49
+  predicate_name: mr_49
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-49.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-49: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-49.json
+    passing: tests/fixtures/rules/MR/passing/MR-49.json
+  suggested_remediation: Review MR-49 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "T7 terminator on a non-T7 transcription unit \u2192 flag (does not\
+    \ terminate \u03C3\u2077\u2070-transcribed mRNA)."
+- rule_id: MR-50
+  predicate_name: mr_50
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-50.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: 'MR-50: Tsai 2014; Nissim 2014. Source rule from REQUIREMENTS.md#4.1; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-50.json
+    passing: tests/fixtures/rules/MR/passing/MR-50.json
+  suggested_remediation: Review MR-50 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "CRISPR gRNA cassette under a Pol-II promoter without ribozyme / Csy4\
+    \ flanks \u2192 flag (5\u2032 cap and polyA disrupt gRNA function)."
+- rule_id: MR-51
+  predicate_name: mr_51
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-51.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-51: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-51.json
+    passing: tests/fixtures/rules/MR/passing/MR-51.json
+  suggested_remediation: Review MR-51 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: 'U6 / H1 / 7SK promoters: spacer must begin with G (or append a G)
+    for transcription initiation.'
+- rule_id: MR-52
+  predicate_name: mr_52
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-52.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-52: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-52.json
+    passing: tests/fixtures/rules/MR/passing/MR-52.json
+  suggested_remediation: Review MR-52 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Mammalian polyA signal absent on a Pol-II-driven mRNA cassette \u2192\
+    \ flag."
+- rule_id: MR-53
+  predicate_name: mr_53
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-53.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-53: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-53.json
+    passing: tests/fixtures/rules/MR/passing/MR-53.json
+  suggested_remediation: Review MR-53 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Bacterial terminator absent on a Pol-II-driven transcription unit\
+    \ \u2192 flag."
+- rule_id: MR-54
+  predicate_name: mr_54
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-54.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-54: \u2013 Source rule from REQUIREMENTS.md#4.1; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - MR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-54.json
+    passing: tests/fixtures/rules/MR/passing/MR-54.json
+  suggested_remediation: Review MR-54 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: "Mismatch between marker concentration in protocol vs database default\
+    \ for the host \u2192 flag."

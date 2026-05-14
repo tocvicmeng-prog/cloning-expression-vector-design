@@ -1,0 +1,963 @@
+# Host catalogue populated from KB v2.0 section 6.
+catalogue_id: "cev.hosts"
+schema_version: "1.0.0"
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#6"
+  review_required_after: "2026-11-14"
+item_maintenance: &item_maintenance
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#6"
+  review_required_after: "2026-11-14"
+citation_presets:
+  bacterial_hosts: &cite_bacterial_hosts
+    text: "KB v2.0 section 6 bacterial host catalogue; source registry retained entries include Makrides 2004, Francis 2010, Shilling 2020, and standard vendor strain references."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1"]
+  cell_free_hosts: &cite_cell_free_hosts
+    text: "Shimizu 2001 PURE and Garamella 2016 myTXTL entries in KB v2.0 section 18.2."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "11479568"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["SHIMIZU-2001-PURE", "GARAMELLA-2016-TXTL"]
+  yeast_hosts: &cite_yeast_hosts
+    text: "KB v2.0 section 6 yeast host catalogue; source registry retained entries include Mumberg 1995 and Cregg 2000."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1"]
+  mammalian_hosts: &cite_mammalian_hosts
+    text: "KB v2.0 section 6 mammalian host catalogue with Qin 2010 and Norrman 2010 promoter-context sources in section 18.2."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "20485554"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["QIN-2010", "NORRMAN-2010", "KB18.1"]
+  insect_hosts: &cite_insect_hosts
+    text: "KB v2.0 section 6 insect host catalogue; source registry retained entries include Jarvis 2009 baculovirus-expression references."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1"]
+  plant_hosts: &cite_plant_hosts
+    text: "KB v2.0 section 6 plant host catalogue; source registry retained entries include Bevan 1984 and Komari 2006 plant transformation references."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1"]
+  phage_vlp_hosts: &cite_phage_vlp_hosts
+    text: "KB v2.0 section 6 phage/VLP production host catalogue with MS2/VLP advisory context from section 17 and source registry retained entries."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1"]
+items:
+  - id: "host.ecoli_dh5alpha"
+    name: "E. coli DH5alpha"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "recA-, endA- propagation strain; verify supplier genotype."
+    supplier_reference: "common commercial cloning strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["high-quality miniprep", "general propagation"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard E. coli propagation conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_top10"
+    name: "E. coli TOP10"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "recA-, endA- cloning strain; verify supplier genotype."
+    supplier_reference: "common commercial cloning strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["general cloning", "high transformation efficiency"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard E. coli propagation conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_xl1_blue"
+    name: "E. coli XL1-Blue"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "recA-, endA- cloning strain with F-prime context; verify supplier genotype."
+    supplier_reference: "common commercial cloning strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["blue-white screening support", "general propagation"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard E. coli propagation conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_jm109"
+    name: "E. coli JM109"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "recA-, endA- cloning strain; verify supplier genotype."
+    supplier_reference: "common commercial cloning strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["general cloning", "blue-white screening support"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard E. coli propagation conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_stbl3"
+    name: "E. coli Stbl3"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "repeat-tolerant cloning strain; verify supplier genotype."
+    supplier_reference: "commercial stable-cloning strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["repeat-tolerant propagation", "lentiviral LTR-containing construct support"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard stable-cloning conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_stbl4"
+    name: "E. coli Stbl4"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "repeat-tolerant cloning strain; verify supplier genotype."
+    supplier_reference: "commercial stable-cloning strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["repeat-tolerant propagation", "unstable/repetitive construct support"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard stable-cloning conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_neb_stable"
+    name: "E. coli NEB Stable"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "stable-cloning strain; verify supplier genotype."
+    supplier_reference: "NEB Stable or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["repeat-tolerant propagation", "unstable construct support"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard stable-cloning conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_hb101"
+    name: "E. coli HB101"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "general cloning strain; verify supplier genotype."
+    supplier_reference: "common commercial cloning strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["general propagation"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard E. coli propagation conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_ccdb_survival"
+    name: "E. coli ccdB Survival"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "gyrA462 ccdB-tolerant strain; verify supplier genotype."
+    supplier_reference: "commercial ccdB-tolerant cloning strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["Gateway destination-vector propagation", "ccdB tolerance"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard ccdB-tolerant propagation conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_db3_1"
+    name: "E. coli DB3.1"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "gyrA462 ccdB-tolerant strain; verify supplier genotype."
+    supplier_reference: "Gateway-compatible ccdB-tolerant strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
+    expression_features: ["Gateway destination-vector propagation", "ccdB tolerance"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard ccdB-tolerant propagation conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_pir_plus"
+    name: "E. coli Pir-positive propagation host"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "storage"]
+    genotype: "pir or pir-116 host-supplied pi protein; verify supplier genotype."
+    supplier_reference: "Pir-positive R6K-compatible strain; verify supplier lot."
+    replicons_supported: ["R6K"]
+    expression_features: ["R6K gamma-origin propagation"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard E. coli propagation conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+
+  - id: "host.ecoli_bl21_de3"
+    name: "E. coli BL21(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3 lysogen T7 RNA polymerase host; verify supplier genotype."
+    supplier_reference: "common commercial expression strain; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "T7 expression"]
+    codon_usage_table_id: "ecoli_b"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_bl21_star_de3"
+    name: "E. coli BL21 Star(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3 lysogen with rne131; verify supplier genotype."
+    supplier_reference: "commercial BL21 Star(DE3) or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "T7 expression", "rne131 mRNA stability"]
+    codon_usage_table_id: "ecoli_b"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_bl21_de3_plyss"
+    name: "E. coli BL21(DE3)pLysS"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3 lysogen with pLysS T7 lysozyme context; verify supplier genotype."
+    supplier_reference: "commercial BL21(DE3)pLysS or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "T7 lysozyme", "reduced T7 leak"]
+    codon_usage_table_id: "ecoli_b"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_bl21_de3_plyse"
+    name: "E. coli BL21(DE3)pLysE"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3 lysogen with pLysE T7 lysozyme context; verify supplier genotype."
+    supplier_reference: "commercial BL21(DE3)pLysE or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "higher T7 lysozyme", "strong leak suppression"]
+    codon_usage_table_id: "ecoli_b"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_rosetta_de3"
+    name: "E. coli Rosetta(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3 lysogen with rare-codon tRNA support; verify supplier genotype."
+    supplier_reference: "commercial Rosetta(DE3) or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "rare-codon support"]
+    codon_usage_table_id: "ecoli_b_rosetta"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_rosetta_gami_de3"
+    name: "E. coli Rosetta-gami(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3 lysogen with rare-codon and oxidative-cytoplasm support; verify supplier genotype."
+    supplier_reference: "commercial Rosetta-gami(DE3) or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "rare-codon support", "disulfide-supporting cytoplasm"]
+    codon_usage_table_id: "ecoli_b_rosetta"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_origami_de3"
+    name: "E. coli Origami(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3 lysogen with oxidative cytoplasm; verify supplier genotype."
+    supplier_reference: "commercial Origami(DE3) or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "oxidative cytoplasm", "disulfide-supporting expression"]
+    codon_usage_table_id: "ecoli_b"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_shuffle_t7"
+    name: "E. coli SHuffle T7"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "T7 expression host with oxidative cytoplasm and disulfide support; verify supplier genotype."
+    supplier_reference: "commercial SHuffle T7 or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["T7 expression", "oxidative cytoplasm", "disulfide-supporting expression"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_c41_de3"
+    name: "E. coli C41(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3-derived expression host selected for toxic/membrane proteins; verify supplier genotype."
+    supplier_reference: "commercial C41(DE3) or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "toxic protein tolerance", "membrane protein support"]
+    codon_usage_table_id: "ecoli_b"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_c43_de3"
+    name: "E. coli C43(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3-derived expression host selected for toxic/membrane proteins; verify supplier genotype."
+    supplier_reference: "commercial C43(DE3) or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "toxic protein tolerance", "membrane protein support"]
+    codon_usage_table_id: "ecoli_b"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+  - id: "host.ecoli_lemo21_de3"
+    name: "E. coli Lemo21(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "DE3-derived tunable T7 expression host; verify supplier genotype."
+    supplier_reference: "commercial Lemo21(DE3) or equivalent; verify supplier lot."
+    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
+    expression_features: ["DE3 lysogen", "tunable T7 expression", "membrane/toxic protein support"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "standard E. coli expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_bacterial_hosts
+    maintenance: *item_maintenance
+
+  - id: "host.cell_free_pure"
+    name: "PURE cell-free system"
+    chassis_class: "cell_free"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "not applicable; purified reconstituted translation system."
+    supplier_reference: "commercial or in-house PURE preparation; verify lot."
+    replicons_supported: ["linear DNA", "circular DNA"]
+    expression_features: ["T7 expression", "native E. coli promoter support depends on extract design"]
+    codon_usage_table_id: "cell_free_ecoli"
+    growth_conditions: "not applicable; in vitro expression context"
+    biosafety_tier: "BSL-1"
+    citation: *cite_cell_free_hosts
+    maintenance: *item_maintenance
+  - id: "host.cell_free_s30"
+    name: "S30 extract cell-free system"
+    chassis_class: "cell_free"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "not applicable; extract-based expression system."
+    supplier_reference: "commercial or in-house S30 extract; verify lot."
+    replicons_supported: ["linear DNA", "circular DNA"]
+    expression_features: ["T7 expression", "native E. coli promoter support"]
+    codon_usage_table_id: "cell_free_ecoli"
+    growth_conditions: "not applicable; in vitro expression context"
+    biosafety_tier: "BSL-1"
+    citation: *cite_cell_free_hosts
+    maintenance: *item_maintenance
+  - id: "host.cell_free_txtl_mytxtl"
+    name: "TXTL myTXTL cell-free system"
+    chassis_class: "cell_free"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "not applicable; extract-based expression system."
+    supplier_reference: "myTXTL or equivalent; verify lot."
+    replicons_supported: ["linear DNA", "circular DNA"]
+    expression_features: ["T7 expression", "native E. coli promoter support"]
+    codon_usage_table_id: "cell_free_ecoli"
+    growth_conditions: "not applicable; in vitro expression context"
+    biosafety_tier: "BSL-1"
+    citation: *cite_cell_free_hosts
+    maintenance: *item_maintenance
+
+  - id: "host.scerevisiae_by4741"
+    name: "S. cerevisiae BY4741"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "expression"]
+    genotype: "S288C-derived haploid auxotrophic background; verify source genotype."
+    supplier_reference: "EUROSCARF/ATCC/vendor equivalent; verify source."
+    replicons_supported: ["2micron", "CEN/ARS"]
+    expression_features: ["auxotrophic-marker compatibility", "GAL1/TEF1/PGK1 expression"]
+    codon_usage_table_id: "s_cerevisiae"
+    growth_conditions: "standard S. cerevisiae culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+  - id: "host.scerevisiae_by4742"
+    name: "S. cerevisiae BY4742"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "expression"]
+    genotype: "S288C-derived haploid auxotrophic background; verify source genotype."
+    supplier_reference: "EUROSCARF/ATCC/vendor equivalent; verify source."
+    replicons_supported: ["2micron", "CEN/ARS"]
+    expression_features: ["auxotrophic-marker compatibility", "GAL1/TEF1/PGK1 expression"]
+    codon_usage_table_id: "s_cerevisiae"
+    growth_conditions: "standard S. cerevisiae culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+  - id: "host.scerevisiae_w303"
+    name: "S. cerevisiae W303"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "expression"]
+    genotype: "W303 lab background; verify source genotype."
+    supplier_reference: "academic/vendor source; verify source."
+    replicons_supported: ["2micron", "CEN/ARS"]
+    expression_features: ["auxotrophic-marker compatibility", "GAL1/TEF1/PGK1 expression"]
+    codon_usage_table_id: "s_cerevisiae"
+    growth_conditions: "standard S. cerevisiae culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+  - id: "host.scerevisiae_s288c"
+    name: "S. cerevisiae S288C"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "expression"]
+    genotype: "S288C reference background; verify source genotype."
+    supplier_reference: "academic/vendor source; verify source."
+    replicons_supported: ["2micron", "CEN/ARS"]
+    expression_features: ["reference yeast background", "GAL1/TEF1/PGK1 expression"]
+    codon_usage_table_id: "s_cerevisiae"
+    growth_conditions: "standard S. cerevisiae culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+  - id: "host.scerevisiae_invsc1"
+    name: "S. cerevisiae INVSc1"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["cloning_propagation", "expression"]
+    genotype: "commercial auxotrophic expression background; verify supplier genotype."
+    supplier_reference: "commercial INVSc1 or equivalent; verify supplier lot."
+    replicons_supported: ["2micron", "CEN/ARS"]
+    expression_features: ["auxotrophic-marker compatibility", "GAL1 expression"]
+    codon_usage_table_id: "s_cerevisiae"
+    growth_conditions: "standard S. cerevisiae culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+  - id: "host.scerevisiae_eby100"
+    name: "S. cerevisiae EBY100"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["expression", "screening_assay"]
+    genotype: "yeast surface-display strain; verify source genotype."
+    supplier_reference: "academic/vendor source; verify source."
+    replicons_supported: ["2micron", "CEN/ARS"]
+    expression_features: ["surface display", "Aga2 fusion compatibility"]
+    codon_usage_table_id: "s_cerevisiae"
+    growth_conditions: "standard S. cerevisiae culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+
+  - id: "host.kphaffii_gs115"
+    name: "Komagataella phaffii GS115"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "Pichia/Komagataella expression background; verify supplier genotype."
+    supplier_reference: "commercial GS115 or equivalent; verify supplier lot."
+    replicons_supported: ["AOX1 integration", "pPICZ", "pPIC9"]
+    expression_features: ["AOX1 methanol induction", "alpha-factor secretion compatibility"]
+    codon_usage_table_id: "k_phaffii"
+    growth_conditions: "standard K. phaffii expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+  - id: "host.kphaffii_x33"
+    name: "Komagataella phaffii X-33"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "wild-type-like Pichia/Komagataella expression background; verify supplier genotype."
+    supplier_reference: "commercial X-33 or equivalent; verify supplier lot."
+    replicons_supported: ["AOX1 integration", "pPICZ", "pPIC9"]
+    expression_features: ["AOX1 methanol induction", "alpha-factor secretion compatibility"]
+    codon_usage_table_id: "k_phaffii"
+    growth_conditions: "standard K. phaffii expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+  - id: "host.kphaffii_km71h"
+    name: "Komagataella phaffii KM71H"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "MutS methanol-utilisation phenotype; verify supplier genotype."
+    supplier_reference: "commercial KM71H or equivalent; verify supplier lot."
+    replicons_supported: ["AOX1 integration", "pPICZ", "pPIC9"]
+    expression_features: ["AOX1 methanol induction", "MutS phenotype", "alpha-factor secretion compatibility"]
+    codon_usage_table_id: "k_phaffii"
+    growth_conditions: "standard K. phaffii expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+  - id: "host.kphaffii_smd1168"
+    name: "Komagataella phaffii SMD1168"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "protease-deficient Pichia/Komagataella expression background; verify supplier genotype."
+    supplier_reference: "commercial SMD1168 or equivalent; verify supplier lot."
+    replicons_supported: ["AOX1 integration", "pPICZ", "pPIC9"]
+    expression_features: ["AOX1 methanol induction", "protease-deficient secretion support"]
+    codon_usage_table_id: "k_phaffii"
+    growth_conditions: "standard K. phaffii expression conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_yeast_hosts
+    maintenance: *item_maintenance
+
+  - id: "host.mammalian_hek293"
+    name: "HEK293"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "human embryonic kidney-derived line; verify authenticated cell bank source."
+    supplier_reference: "ATCC/vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["episomal CMV", "integrating vectors"]
+    expression_features: ["mammalian transient expression", "broad promoter compatibility"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "authenticated mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_hek293t"
+    name: "HEK293T"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "HEK293 derivative expressing SV40 Large T-antigen; verify authenticated cell bank source."
+    supplier_reference: "ATCC/vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["episomal CMV", "SV40-amplified episome", "integrating vectors"]
+    expression_features: ["SV40 Large T-antigen", "high transient expression"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "authenticated mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_hek293f"
+    name: "HEK293F"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "suspension HEK293 derivative; verify authenticated cell bank source."
+    supplier_reference: "vendor suspension 293F source; verify lot."
+    replicons_supported: ["episomal CMV", "EBV oriP+EBNA1 context when provided", "integrating vectors"]
+    expression_features: ["suspension culture", "high-titre transient protein production"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "authenticated suspension mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_expi293f"
+    name: "Expi293F"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "high-density suspension HEK293 derivative; verify authenticated vendor source."
+    supplier_reference: "vendor Expi293F source; verify lot."
+    replicons_supported: ["episomal CMV", "EBV oriP+EBNA1 context when provided", "integrating vectors"]
+    expression_features: ["high-density suspension culture", "high-titre transient protein production"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "authenticated suspension mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_cho_s"
+    name: "CHO-S"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "suspension CHO derivative; verify authenticated cell bank source."
+    supplier_reference: "vendor CHO-S source; verify lot."
+    replicons_supported: ["episomal CMV", "integrating vectors"]
+    expression_features: ["suspension culture", "transient protein production"]
+    codon_usage_table_id: "c_griseus"
+    growth_conditions: "authenticated CHO cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_cos1"
+    name: "COS-1"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "SV40 Large T-antigen monkey kidney-derived line; verify authenticated cell bank source."
+    supplier_reference: "ATCC/vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["SV40-amplified episome", "episomal CMV", "integrating vectors"]
+    expression_features: ["SV40 Large T-antigen", "transient expression"]
+    codon_usage_table_id: "chlorocebus_sabaeus"
+    growth_conditions: "authenticated mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_cos7"
+    name: "COS-7"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "SV40 Large T-antigen monkey kidney-derived line; verify authenticated cell bank source."
+    supplier_reference: "ATCC/vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["SV40-amplified episome", "episomal CMV", "integrating vectors"]
+    expression_features: ["SV40 Large T-antigen", "transient expression"]
+    codon_usage_table_id: "chlorocebus_sabaeus"
+    growth_conditions: "authenticated mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_cho_k1"
+    name: "CHO-K1"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "CHO adherent/stable production background; verify authenticated cell bank source."
+    supplier_reference: "ATCC/vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["integrating vectors", "episomal CMV"]
+    expression_features: ["stable clone generation", "bioproduction host"]
+    codon_usage_table_id: "c_griseus"
+    growth_conditions: "authenticated CHO cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_cho_dg44"
+    name: "CHO-DG44"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "DHFR-deficient CHO background; verify authenticated cell bank source."
+    supplier_reference: "vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["integrating vectors"]
+    expression_features: ["stable clone generation", "DHFR/MTX amplification compatibility"]
+    codon_usage_table_id: "c_griseus"
+    growth_conditions: "authenticated CHO cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_cho_gs"
+    name: "CHO-GS / GS-null"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "glutamine synthetase-null CHO background; verify authenticated source."
+    supplier_reference: "vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["integrating vectors"]
+    expression_features: ["stable clone generation", "GS/MSX selection compatibility"]
+    codon_usage_table_id: "c_griseus"
+    growth_conditions: "authenticated CHO cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_hek293_stable"
+    name: "HEK293 stable-expression host"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "HEK293 background for stable integration; verify authenticated source."
+    supplier_reference: "ATCC/vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["integrating vectors", "episomal EBV"]
+    expression_features: ["stable clone generation", "broad promoter compatibility"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "authenticated mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_hela"
+    name: "HeLa"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "screening_assay"]
+    genotype: "human cervical carcinoma-derived line; verify authenticated cell bank source."
+    supplier_reference: "ATCC/vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["integrating vectors", "episomal CMV"]
+    expression_features: ["stable clone generation", "screening-assay compatibility"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "authenticated mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_ns0"
+    name: "NS0"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "mouse myeloma-derived production line; verify authenticated source."
+    supplier_reference: "vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["integrating vectors"]
+    expression_features: ["stable clone generation", "antibody production context"]
+    codon_usage_table_id: "m_musculus"
+    growth_conditions: "authenticated mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_sp2_0"
+    name: "Sp2/0"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "mouse myeloma-derived production line; verify authenticated source."
+    supplier_reference: "vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["integrating vectors"]
+    expression_features: ["stable clone generation", "antibody production context"]
+    codon_usage_table_id: "m_musculus"
+    growth_conditions: "authenticated mammalian cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_h1_hesc"
+    name: "H1 human ES cell"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["target", "expression"]
+    genotype: "human embryonic stem-cell line; verify authenticated source and approvals."
+    supplier_reference: "authenticated stem-cell bank; verify permissions."
+    replicons_supported: ["episomal EBV", "AAVS1-targeted integration", "transposon"]
+    expression_features: ["high promoter-silencing risk", "prefer EF1alpha/CAG/UBC over CMV"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "approved stem-cell culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_h9_hesc"
+    name: "H9 human ES cell"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["target", "expression"]
+    genotype: "human embryonic stem-cell line; verify authenticated source and approvals."
+    supplier_reference: "authenticated stem-cell bank; verify permissions."
+    replicons_supported: ["episomal EBV", "AAVS1-targeted integration", "transposon"]
+    expression_features: ["high promoter-silencing risk", "prefer EF1alpha/CAG/UBC over CMV"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "approved stem-cell culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_wibr3_hesc"
+    name: "WIBR3 human ES cell"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["target", "expression"]
+    genotype: "human embryonic stem-cell line; verify authenticated source and approvals."
+    supplier_reference: "authenticated stem-cell bank; verify permissions."
+    replicons_supported: ["episomal EBV", "AAVS1-targeted integration", "transposon"]
+    expression_features: ["high promoter-silencing risk", "prefer EF1alpha/CAG/UBC over CMV"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "approved stem-cell culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_mel1_hesc"
+    name: "Mel1 human ES cell"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["target", "expression"]
+    genotype: "human embryonic stem-cell line; verify authenticated source and approvals."
+    supplier_reference: "authenticated stem-cell bank; verify permissions."
+    replicons_supported: ["episomal EBV", "AAVS1-targeted integration", "transposon"]
+    expression_features: ["high promoter-silencing risk", "prefer EF1alpha/CAG/UBC over CMV"]
+    codon_usage_table_id: "h_sapiens"
+    growth_conditions: "approved stem-cell culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+  - id: "host.mammalian_mouse_e14_esc"
+    name: "Mouse E14 ES cell"
+    chassis_class: "mammalian"
+    source_section: "6"
+    host_roles: ["target", "expression"]
+    genotype: "mouse embryonic stem-cell line; verify authenticated source."
+    supplier_reference: "authenticated stem-cell bank or institutional stock."
+    replicons_supported: ["episomal EBV context when engineered", "targeted integration", "transposon"]
+    expression_features: ["promoter-silencing risk", "prefer EF1alpha/CAG/UBC over CMV-only designs"]
+    codon_usage_table_id: "m_musculus"
+    growth_conditions: "approved stem-cell culture conditions per institution SOP"
+    biosafety_tier: "BSL-2"
+    citation: *cite_mammalian_hosts
+    maintenance: *item_maintenance
+
+  - id: "host.insect_sf9"
+    name: "Sf9 insect cell"
+    chassis_class: "insect"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "Spodoptera frugiperda-derived insect line; verify authenticated source."
+    supplier_reference: "ATCC/vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["baculovirus BEVS"]
+    expression_features: ["baculovirus expression", "pauci-mannose glycosylation"]
+    codon_usage_table_id: "spodoptera_frugiperda"
+    growth_conditions: "authenticated insect cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_insect_hosts
+    maintenance: *item_maintenance
+  - id: "host.insect_sf21"
+    name: "Sf21 insect cell"
+    chassis_class: "insect"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "Spodoptera frugiperda-derived insect line; verify authenticated source."
+    supplier_reference: "ATCC/vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["baculovirus BEVS"]
+    expression_features: ["baculovirus expression", "pauci-mannose glycosylation"]
+    codon_usage_table_id: "spodoptera_frugiperda"
+    growth_conditions: "authenticated insect cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_insect_hosts
+    maintenance: *item_maintenance
+  - id: "host.insect_high_five"
+    name: "High Five insect cell"
+    chassis_class: "insect"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "Trichoplusia ni-derived insect line; verify authenticated source."
+    supplier_reference: "vendor cell bank or authenticated institutional stock."
+    replicons_supported: ["baculovirus BEVS"]
+    expression_features: ["baculovirus expression", "pauci-mannose glycosylation"]
+    codon_usage_table_id: "trichoplusia_ni"
+    growth_conditions: "authenticated insect cell-culture conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_insect_hosts
+    maintenance: *item_maintenance
+
+  - id: "host.plant_n_benthamiana"
+    name: "Nicotiana benthamiana"
+    chassis_class: "plant"
+    source_section: "6"
+    host_roles: ["expression", "producer"]
+    genotype: "transient plant-expression host; verify cultivar/source."
+    supplier_reference: "authenticated plant stock or institutional greenhouse source."
+    replicons_supported: ["T-DNA binary"]
+    expression_features: ["Agrobacterium-mediated transient expression", "p19 co-infiltration context"]
+    codon_usage_table_id: "nicotiana_benthamiana"
+    growth_conditions: "approved plant growth and containment conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_plant_hosts
+    maintenance: *item_maintenance
+  - id: "host.plant_a_thaliana"
+    name: "Arabidopsis thaliana"
+    chassis_class: "plant"
+    source_section: "6"
+    host_roles: ["expression", "target"]
+    genotype: "Arabidopsis lab accession; verify accession/source."
+    supplier_reference: "ABRC/NASC/vendor or authenticated institutional stock."
+    replicons_supported: ["T-DNA binary"]
+    expression_features: ["floral-dip transformation context", "plant stable/transient expression"]
+    codon_usage_table_id: "arabidopsis_thaliana"
+    growth_conditions: "approved plant growth and containment conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_plant_hosts
+    maintenance: *item_maintenance
+  - id: "host.plant_rice"
+    name: "Rice"
+    chassis_class: "plant"
+    source_section: "6"
+    host_roles: ["expression", "target"]
+    genotype: "rice cultivar; verify cultivar/source."
+    supplier_reference: "authenticated seed or tissue-culture source."
+    replicons_supported: ["T-DNA binary", "biolistic integration"]
+    expression_features: ["Agrobacterium-mediated or biolistic transformation context"]
+    codon_usage_table_id: "oryza_sativa"
+    growth_conditions: "approved plant growth and containment conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_plant_hosts
+    maintenance: *item_maintenance
+  - id: "host.plant_maize"
+    name: "Maize"
+    chassis_class: "plant"
+    source_section: "6"
+    host_roles: ["expression", "target"]
+    genotype: "maize cultivar; verify cultivar/source."
+    supplier_reference: "authenticated seed or tissue-culture source."
+    replicons_supported: ["T-DNA binary", "biolistic integration"]
+    expression_features: ["Agrobacterium-mediated or biolistic transformation context"]
+    codon_usage_table_id: "zea_mays"
+    growth_conditions: "approved plant growth and containment conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_plant_hosts
+    maintenance: *item_maintenance
+
+  - id: "host.phage_vlp_ecoli_ms2"
+    name: "E. coli MS2 VLP production host context"
+    chassis_class: "viral_or_phage"
+    source_section: "6"
+    host_roles: ["producer", "vlp_or_phage_display"]
+    genotype: "E. coli production host carrying separated capsid and cargo plasmids; verify strain/source."
+    supplier_reference: "institutional E. coli host with approved MS2 VLP plasmid system."
+    replicons_supported: ["host plasmid capsid", "reporter/cargo plasmid"]
+    expression_features: ["MS2 coat-protein expression", "capsid and cargo separated"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "approved VLP production conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_phage_vlp_hosts
+    maintenance: *item_maintenance
+  - id: "host.phage_vlp_ecoli_pp7"
+    name: "E. coli PP7 VLP production host context"
+    chassis_class: "viral_or_phage"
+    source_section: "6"
+    host_roles: ["producer", "vlp_or_phage_display"]
+    genotype: "E. coli production host carrying separated capsid and cargo plasmids; verify strain/source."
+    supplier_reference: "institutional E. coli host with approved PP7 VLP plasmid system."
+    replicons_supported: ["host plasmid capsid", "reporter/cargo plasmid"]
+    expression_features: ["PP7 coat-protein expression", "capsid and cargo separated"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "approved VLP production conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_phage_vlp_hosts
+    maintenance: *item_maintenance
+  - id: "host.phage_vlp_ecoli_qbeta"
+    name: "E. coli Qbeta VLP production host context"
+    chassis_class: "viral_or_phage"
+    source_section: "6"
+    host_roles: ["producer", "vlp_or_phage_display"]
+    genotype: "E. coli production host carrying separated capsid and cargo plasmids; verify strain/source."
+    supplier_reference: "institutional E. coli host with approved Qbeta VLP plasmid system."
+    replicons_supported: ["host plasmid capsid", "reporter/cargo plasmid"]
+    expression_features: ["Qbeta coat-protein expression", "capsid and cargo separated"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "approved VLP production conditions per institution SOP"
+    biosafety_tier: "BSL-1"
+    citation: *cite_phage_vlp_hosts
+    maintenance: *item_maintenance

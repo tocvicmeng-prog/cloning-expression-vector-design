@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-02",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for SR-02: Global GC content within vendor bounds. Twist: 25\u201365 %. IDT: 25\u201375 %. GenScript: 30\u201370 %.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-02.passing",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

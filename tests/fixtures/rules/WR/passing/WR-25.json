@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-25",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for WR-25: For lentivirus packaging, use HEK293T at 70\u201390 % confluence; co-transfect transfer + psPAX2 + pMD2.G; collect supernatant 48\u201372 h post-transfection.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-25.passing",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

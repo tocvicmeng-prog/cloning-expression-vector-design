@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-20",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-20: Plant T-DNA: LB and RB borders flank the cassette in correct orientation; nothing outside is part of the transfer.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-20.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

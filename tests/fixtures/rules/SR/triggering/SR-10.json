@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-10",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for SR-10: Sequence complexity / linguistic complexity (vendor ML-based scoring; for software, a low-complexity windowed filter approximation).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-10.triggering",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

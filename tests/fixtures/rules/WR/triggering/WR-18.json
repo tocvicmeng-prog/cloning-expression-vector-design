@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-18",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for WR-18: For lentiviral and AAV transfer plasmid amplification, use a recombination-deficient host (Stbl3, Stbl4, NEB Stable).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-18.triggering",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

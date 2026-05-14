@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-18",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-18: Cargo size within host capacity: AAV \u2264 4.7 kb between ITRs; lentivirus \u2264 ~9 kb between LTRs; baculovirus \u2264 ~38 kb; E. coli high-copy \u2264 ~30 kb; BAC \u2264 ~300 kb.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-18.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

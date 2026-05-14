@@ -1,0 +1,609 @@
+catalogue_id: cev.rules.biosafety
+schema_version: 1.0.0
+maintenance:
+  retrieved_at: '2026-05-14'
+  valid_until: '2027-05-14'
+  source_url: REQUIREMENTS.md#4.4
+  review_required_after: '2026-11-14'
+rules:
+- rule_id: BR-01
+  predicate_name: br_01
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-01.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-01: v2.0 \xA7 12. Source rule from REQUIREMENTS.md#4.4; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-01.json
+    passing: tests/fixtures/rules/BR/passing/BR-01.json
+  suggested_remediation: Review BR-01 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Every construct MUST be routed through a configured screening adaptor
+    (IGSC v3.0 / IBBIS Common Mechanism / SecureDNA / institutional blacklist).
+- rule_id: BR-02
+  predicate_name: br_02
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-02.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-02: \u2013 Source rule from REQUIREMENTS.md#4.4; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-02.json
+    passing: tests/fixtures/rules/BR/passing/BR-02.json
+  suggested_remediation: Review BR-02 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: A hit result from the screening adaptor MUST block ordering and route
+    the construct to a designated reviewer (institutional biosafety officer / IBC).
+- rule_id: BR-03
+  predicate_name: br_03
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-03.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-03: \u2013 Source rule from REQUIREMENTS.md#4.4; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-03.json
+    passing: tests/fixtures/rules/BR/passing/BR-03.json
+  suggested_remediation: Review BR-03 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: A watchlist result MUST require explicit reviewer sign-off, recorded
+    in provenance, before ordering.
+- rule_id: BR-04
+  predicate_name: br_04
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-04.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-04: \u2013 Source rule from REQUIREMENTS.md#4.4; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-04.json
+    passing: tests/fixtures/rules/BR/passing/BR-04.json
+  suggested_remediation: Review BR-04 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: The screening verdict MUST be persisted in the construct's metadata
+    with timestamp and adaptor version.
+- rule_id: BR-05
+  predicate_name: br_05
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-05.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: 'BR-05: NIH Guidelines 2024; HHS list. Source rule from REQUIREMENTS.md#4.4;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-05.json
+    passing: tests/fixtures/rules/BR/passing/BR-05.json
+  suggested_remediation: Review BR-05 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Constructs containing any sequence from a Select Agent / pathogen on
+    the HHS / USDA Select Agent list MUST trigger an automatic block regardless of
+    screening verdict.
+- rule_id: BR-06
+  predicate_name: br_06
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-06.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: 'BR-06: NIH Guidelines 2024. Source rule from REQUIREMENTS.md#4.4; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-06.json
+    passing: tests/fixtures/rules/BR/passing/BR-06.json
+  suggested_remediation: Review BR-06 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Constructs intended for in-vivo use, environmental release, or clinical-grade
+    manufacturing MUST also undergo a stricter NIH Guidelines section IIIA/IIIB classification
+    pass.
+- rule_id: BR-07
+  predicate_name: br_07
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-07.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-07: \u2013 Source rule from REQUIREMENTS.md#4.4; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-07.json
+    passing: tests/fixtures/rules/BR/passing/BR-07.json
+  suggested_remediation: Review BR-07 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: The user MUST declare biosafety tier at design time; the system MUST
+    refuse to compile if tier is unset.
+- rule_id: BR-08
+  predicate_name: br_08
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-08.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-08: \u2013 Source rule from REQUIREMENTS.md#4.4; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-08.json
+    passing: tests/fixtures/rules/BR/passing/BR-08.json
+  suggested_remediation: Review BR-08 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Replication-competent viral vectors MUST be explicitly justified, flagged,
+    and require dual sign-off.
+- rule_id: BR-09
+  predicate_name: br_09
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-09.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: 'BR-09: WHO LBM 4th ed. Source rule from REQUIREMENTS.md#4.4; calibrated
+      against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-09.json
+    passing: tests/fixtures/rules/BR/passing/BR-09.json
+  suggested_remediation: Review BR-09 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: The user MUST declare whether the construct uses any Risk Group 2+
+    organism component; if yes, dual sign-off required.
+- rule_id: BR-10
+  predicate_name: br_10
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-10.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-10: \u2013 Source rule from REQUIREMENTS.md#4.4; calibrated against\
+      \ KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-10.json
+    passing: tests/fixtures/rules/BR/passing/BR-10.json
+  suggested_remediation: Review BR-10 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: The full biosafety / screening trail MUST be exportable as an audit
+    document for institutional review.
+- rule_id: BR-11
+  predicate_name: br_11
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-11.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-11: UR-09; ARCHITECTURE v1.2 \xA74.4 authorisation model. Source rule\
+      \ from REQUIREMENTS.md#4.4; calibrated against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-11.json
+    passing: tests/fixtures/rules/BR/passing/BR-11.json
+  suggested_remediation: Review BR-11 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: engine.sop_protocol MUST NOT render an operational wet-lab protocol
+    unless the user's administrator-granted AuthorisationProfile covers (a) the construct's
+    biosafety tier, (b) the construct's host classes, (c) the construct's assembly
+    chemistry, (d) the construct's downstream-use class, and the user's UserDeclaration
+    (SOP library, biosafety approval ID, role-of-operation) lies inside the granted
+    profile. Self-declaration by a User role MUST NOT lift this gate.
+- rule_id: BR-12
+  predicate_name: br_12
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-12.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-12: UR-09; ARCHITECTURE v1.2 \xA74.4. Source rule from REQUIREMENTS.md#4.4;\
+      \ calibrated against KB v2.0 section 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-12.json
+    passing: tests/fixtures/rules/BR/passing/BR-12.json
+  suggested_remediation: Review BR-12 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Authorisation-profile mutation MUST require AdminPrincipal or DeveloperBootstrapPrincipal
+    credentials and MUST emit an AdminActionMinted / Modified / Revoked event to the
+    immutable audit log. User and Reviewer roles MUST NOT mutate any AuthorisationProfile.
+- rule_id: BR-13
+  predicate_name: br_13
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-13.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: 'BR-13: UR-09; ARCHITECTURE v1.2 R-16. Source rule from REQUIREMENTS.md#4.4;
+      calibrated against KB v2.0 section 18 where applicable.'
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-13.json
+    passing: tests/fixtures/rules/BR/passing/BR-13.json
+  suggested_remediation: Review BR-13 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: Tampered or expired AuthorisationProfile records MUST be rejected by
+    the engine on load; integrity is enforced by institutional signature.
+- rule_id: BR-14
+  predicate_name: br_14
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockVendorSubmission
+  - BlockOperationalProtocol
+  reads:
+  - construct
+  - screening_verdict
+  - authorisation_profile
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.br-14.result
+  invalidates: []
+  preconditions: []
+  target_context: screening
+  external_adapters:
+  - screening_adapter
+  - authorisation_store
+  threshold_profile: thresholds.biosafety.default
+  citation:
+    text: "BR-14: UR-11; ARCHITECTURE v1.5 \xA71 objective 9 + \xA74.4 advisory gate\
+      \ + R-21. Source rule from REQUIREMENTS.md#4.4; calibrated against KB v2.0 section\
+      \ 18 where applicable."
+    grade: B2
+    accessed: '2026-05-14'
+    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+    source_registry_ids:
+    - KB18.1
+    - KB18.2
+    - BR
+  last_reviewed: '2026-05-14'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/BR/triggering/BR-14.json
+    passing: tests/fixtures/rules/BR/passing/BR-14.json
+  suggested_remediation: Review BR-14 violation against the design context and adjust
+    the affected construct, host, workflow, vendor, or governance declaration before
+    proceeding.
+  description: The BlockOperationalProtocol gate MUST fire whenever the construct's
+    RiskAdvisoryReport contains an advisory of severity caution or strong_caution
+    that has not been explicitly acknowledged by a signed RiskAdvisoryAcknowledgement
+    whose report_content_hash and construct_checksum match the current versions. Passive
+    UI dismissal MUST NOT satisfy this requirement. Declines and escalations route
+    the construct to alternative workflows but do NOT unblock authorisation on their
+    own.

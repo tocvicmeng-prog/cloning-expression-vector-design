@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-14",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-14: uORF scan: any AUG in the 5\u2032 UTR with Kozak PWM \u2265 threshold \u2192 flag.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-14.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

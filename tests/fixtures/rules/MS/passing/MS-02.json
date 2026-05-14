@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MS-02",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MS-02: Single-chain MS2 dimer insertions are restricted to the tolerated AB-loop half and preserve the V75E/A81G variant declaration.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MS-02.passing",
+    "category": "MS",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

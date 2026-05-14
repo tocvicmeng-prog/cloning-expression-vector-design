@@ -1,0 +1,78 @@
+# GenScript vendor profile. T-406 baseline; runtime adapters may override.
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "https://www.genscript.com/high-throughput-gene-synthesis.html"
+  review_required_after: "2026-11-14"
+vendor_id: "genscript"
+name: "GenScript"
+profile_version: "2026.05"
+profile_kind: "synthesis_vendor"
+default_currency: "USD"
+screening_protocol: "igsc_v3"
+submission_policy:
+  direct_order_supported_by_platform: false
+  submission_mode: "human_submission_file"
+  requires_external_vendor_account: true
+  requires_vendor_screening_acknowledgement: true
+  order_blocking_verdicts: ["watchlist", "hit", "unavailable"]
+services:
+  - id: "genscript.flash_gene"
+    name: "FLASH Gene"
+    delivery_format: "plasmid_or_linear_dsDNA"
+    min_bp: 300
+    max_bp: 3000
+    typical_lead_time_days:
+      min: 4
+      max: 7
+    service_tier: "rapid"
+    quote_required_over_bp: 3000
+    sequence_constraints:
+      global_gc_min_pct: 25
+      global_gc_max_pct: 75
+      local_gc_window_bp: 50
+      local_gc_min_pct: 25
+      local_gc_max_pct: 75
+      max_homopolymer_bp: 13
+      direct_repeat_warn_bp: 20
+      direct_repeat_block_bp: 40
+      low_complexity_policy: "warn_or_quote_review"
+      forbidden_pattern_policy: "vendor_specific_review"
+    rescue_policy:
+      allow_synonymous_rescue: true
+      retry_after_rescue: true
+      preserve_orf_translation: true
+  - id: "genscript.premium_gene"
+    name: "Premium Gene"
+    delivery_format: "plasmid_or_linear_dsDNA"
+    min_bp: 3001
+    max_bp: 200000
+    typical_lead_time_days:
+      min: 10
+      max: 30
+    service_tier: "long_or_complex"
+    quote_required_over_bp: 8000
+    sequence_constraints:
+      global_gc_min_pct: 25
+      global_gc_max_pct: 75
+      local_gc_window_bp: 50
+      local_gc_min_pct: 25
+      local_gc_max_pct: 75
+      max_homopolymer_bp: 13
+      direct_repeat_warn_bp: 20
+      direct_repeat_block_bp: 40
+      low_complexity_policy: "quote_review"
+      forbidden_pattern_policy: "vendor_specific_review"
+    rescue_policy:
+      allow_synonymous_rescue: true
+      retry_after_rescue: true
+      preserve_orf_translation: true
+citations:
+  - text: "GenScript high-throughput gene synthesis service page, accessed 2026-05-14."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "https://www.genscript.com/high-throughput-gene-synthesis.html"
+  - text: "CEV KB v2.0 section 11 vendor-constraint synthesis baseline."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#11"

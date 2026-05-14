@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-16",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for WR-16: Constructs > 8 kb or containing repeats > 100 bp are sequenced by long-read (Nanopore / PacBio whole plasmid).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-16.triggering",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

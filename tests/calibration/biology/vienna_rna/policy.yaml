@@ -1,0 +1,6 @@
+adapter_id: vienna_rna
+tolerance:
+  relative_error: 0.05
+baseline_fixture_hash: "1111111111111111111111111111111111111111111111111111111111111111"
+baseline_captured_at: "2026-05-14"
+escalation_path: "/scientific-advisor"

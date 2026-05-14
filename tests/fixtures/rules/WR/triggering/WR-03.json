@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-03",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for WR-03: If template is plasmid, DpnI digestion of the PCR product is included before transformation to remove template carry-over.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-03.triggering",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

@@ -1,0 +1,8 @@
+site_name: Cloning Expression Vector Design
+docs_dir: docs
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Platform Caveats: platform_caveats.md
+  - Rendering Determinism: rendering_determinism.md

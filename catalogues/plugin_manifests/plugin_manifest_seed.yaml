@@ -1,0 +1,15 @@
+# Seed plugin-manifest catalogue. T-808/T-1201 own full plugin governance content.
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "ARCHITECTURE.md"
+  review_required_after: "2026-11-14"
+manifests:
+  - id: "plugin.seed"
+    name: "Seed plugin manifest"
+    version: "seed-v1"
+    citation:
+      text: "ARCHITECTURE v1.5 plugin-manifest seed traceability citation."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "ARCHITECTURE.md#4-5"

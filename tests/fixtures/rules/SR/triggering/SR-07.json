@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-07",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for SR-07: Vendor-mandated 5\u2032 / 3\u2032 adapter sequences for certain products (e.g., Twist eBlocks have universal flanking; IDT gBlocks have no fixed flanking; clonal genes have vendor-specific cloning-site flanks). The system MUST include or strip these flanks based on vendor profile and intended assembly chemistry.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-07.triggering",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

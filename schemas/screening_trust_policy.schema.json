@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CEV screening trust policy",
+  "type": "object",
+  "required": ["maintenance", "policy_id", "policy_version", "screening_scope", "verdict_policy", "providers", "citations"],
+  "properties": {
+    "maintenance": {
+      "type": "object",
+      "required": ["retrieved_at", "valid_until", "source_url", "review_required_after"]
+    },
+    "policy_id": {"type": "string", "minLength": 1},
+    "policy_version": {"type": "string", "minLength": 1},
+    "screening_scope": {
+      "type": "object",
+      "required": ["minimum_synthetic_na_nt", "screen_assembled_product", "screen_order_fragments"],
+      "properties": {
+        "minimum_synthetic_na_nt": {"type": "integer"},
+        "screen_assembled_product": {"type": "boolean"},
+        "screen_order_fragments": {"type": "boolean"},
+        "screen_translated_orfs_when_applicable": {"type": "boolean"},
+        "preserve_query_privacy_when_supported": {"type": "boolean"}
+      }
+    },
+    "verdict_policy": {"type": "object"},
+    "providers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "custodian", "trust_level", "citation"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "custodian": {"type": "string", "minLength": 1},
+          "trust_level": {"type": "string", "minLength": 1},
+          "citation": {"type": "object", "required": ["text", "grade", "accessed"]}
+        }
+      }
+    },
+    "citations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "object", "required": ["text", "grade", "accessed"]}
+    }
+  }
+}

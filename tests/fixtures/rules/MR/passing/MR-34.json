@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-34",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-34: Hairpin near junctions: \u0394G \u2264 -9 kcal/mol within 30 nt of a cloning junction \u2192 flag (assembly failure risk).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-34.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

@@ -1,0 +1,255 @@
+# Seed port manifest for the 50 canonical ports in CODING_AGENDA.md v1.5.
+generated_from: CODING_AGENDA.md
+agenda_version: v1.5
+canonical_port_count: 50
+ports:
+  - port_id: 1
+    port_name: "PartCatalogue"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 2
+    port_name: "HostCatalogue"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 3
+    port_name: "EnzymeCatalogue"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 4
+    port_name: "RuleRegistry"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 5
+    port_name: "SopTemplateReadPort"
+    category: "catalogue"
+    owning_task: "T-316a"
+    architecture_section: "4.5"
+  - port_id: 6
+    port_name: "RiskAdvisoryCatalogue"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 7
+    port_name: "ScreeningProviderTrustPolicy"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 8
+    port_name: "InstitutionalPolicy"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 9
+    port_name: "ExportProfileCatalogue"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 10
+    port_name: "PluginManifestRegistry"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 11
+    port_name: "ThresholdProfileCatalogue"
+    category: "catalogue"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 12
+    port_name: "AuthorisationReadPort"
+    category: "authorisation"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 13
+    port_name: "AuthorisationAdminWritePort"
+    category: "authorisation"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 14
+    port_name: "AuthorisationBootstrapPort"
+    category: "authorisation"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 15
+    port_name: "ProjectStore"
+    category: "persistence"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 16
+    port_name: "EventLog"
+    category: "persistence"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 17
+    port_name: "AuditLog"
+    category: "persistence"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 18
+    port_name: "SnapshotStore"
+    category: "persistence"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 19
+    port_name: "AuditKeyProvider"
+    category: "audit"
+    owning_task: "T-312a"
+    architecture_section: "4.5"
+  - port_id: 20
+    port_name: "DecisionRecordSigner"
+    category: "signature"
+    owning_task: "T-314a"
+    architecture_section: "4.5"
+  - port_id: 21
+    port_name: "DecisionRecordVerifier"
+    category: "signature"
+    owning_task: "T-314a"
+    architecture_section: "4.5"
+  - port_id: 22
+    port_name: "AuditAppendPort"
+    category: "audit"
+    owning_task: "T-313a"
+    architecture_section: "4.5"
+  - port_id: 23
+    port_name: "AuditLogReadPort"
+    category: "audit"
+    owning_task: "T-313a"
+    architecture_section: "4.5"
+  - port_id: 24
+    port_name: "AdminAuditAppendPort"
+    category: "audit"
+    owning_task: "T-313a"
+    architecture_section: "4.5"
+  - port_id: 25
+    port_name: "AuthorisationProfileSigner"
+    category: "signature"
+    owning_task: "T-314a"
+    architecture_section: "4.5"
+  - port_id: 26
+    port_name: "AuthorisationProfileVerifier"
+    category: "signature"
+    owning_task: "T-314a"
+    architecture_section: "4.5"
+  - port_id: 27
+    port_name: "AdminServiceClientPort"
+    category: "admin_service"
+    owning_task: "T-1103a"
+    architecture_section: "4.5"
+  - port_id: 28
+    port_name: "SopTemplateAdminWritePort"
+    category: "sop_template"
+    owning_task: "T-316a"
+    architecture_section: "4.5"
+  - port_id: 29
+    port_name: "SopTemplateBootstrapPort"
+    category: "sop_template"
+    owning_task: "T-316a"
+    architecture_section: "4.5"
+  - port_id: 30
+    port_name: "SopTemplateSigner"
+    category: "sop_template"
+    owning_task: "T-316a"
+    architecture_section: "4.5"
+  - port_id: 31
+    port_name: "SopTemplateVerifier"
+    category: "sop_template"
+    owning_task: "T-316a"
+    architecture_section: "4.5"
+  - port_id: 32
+    port_name: "ReviewQueueStore"
+    category: "review_queue"
+    owning_task: "T-315"
+    architecture_section: "4.5"
+  - port_id: 33
+    port_name: "ReviewQueueAdminPort"
+    category: "review_queue"
+    owning_task: "T-315"
+    architecture_section: "4.5"
+  - port_id: 34
+    port_name: "SequenceReader"
+    category: "io"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 35
+    port_name: "SequenceWriter"
+    category: "io"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 36
+    port_name: "SnapGeneChannel"
+    category: "io"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 37
+    port_name: "SnapGeneDnaReader"
+    category: "io"
+    owning_task: "T-308"
+    architecture_section: "4.5"
+  - port_id: 38
+    port_name: "RnaFolder"
+    category: "biology"
+    owning_task: "T-601a..k"
+    architecture_section: "4.5"
+  - port_id: 39
+    port_name: "SplicePredictor"
+    category: "biology"
+    owning_task: "T-601a..k"
+    architecture_section: "4.5"
+  - port_id: 40
+    port_name: "SignalPeptidePredictor"
+    category: "biology"
+    owning_task: "T-601a..k"
+    architecture_section: "4.5"
+  - port_id: 41
+    port_name: "TIRPredictor"
+    category: "biology"
+    owning_task: "T-601a..k"
+    architecture_section: "4.5"
+  - port_id: 42
+    port_name: "KozakScorer"
+    category: "biology"
+    owning_task: "T-601a..k"
+    architecture_section: "4.5"
+  - port_id: 43
+    port_name: "CodonAlgorithm"
+    category: "biology"
+    owning_task: "T-601a..k"
+    architecture_section: "4.5"
+  - port_id: 44
+    port_name: "WorkerPoolFactory"
+    category: "engine"
+    owning_task: "T-502"
+    architecture_section: "4.5"
+  - port_id: 45
+    port_name: "SynthesisVendorAdapter"
+    category: "vendor"
+    owning_task: "T-1001"
+    architecture_section: "4.5"
+  - port_id: 46
+    port_name: "ScreeningAdapter"
+    category: "screening"
+    owning_task: "T-1002"
+    architecture_section: "4.5"
+  - port_id: 47
+    port_name: "LLMConstraintTranslator"
+    category: "llm"
+    owning_task: "T-1201"
+    architecture_section: "4.5"
+  - port_id: 48
+    port_name: "AdvisoryTextPolicy"
+    category: "llm"
+    owning_task: "T-1201"
+    architecture_section: "4.5"
+  - port_id: 49
+    port_name: "Lifecycle"
+    category: "runtime"
+    owning_task: "T-203"
+    architecture_section: "4.5"
+  - port_id: 50
+    port_name: "RefreshableAdapter"
+    category: "runtime"
+    owning_task: "T-203"
+    architecture_section: "4.5"

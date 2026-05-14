@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-23",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-23: Inducible-system completeness: Tet-On requires TRE + rtTA; T7lac requires DE3 lysogen + (optionally) pLysS; pBAD requires AraC.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-23.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

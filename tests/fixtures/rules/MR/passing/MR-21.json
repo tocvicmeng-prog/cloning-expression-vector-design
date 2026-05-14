@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-21",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-21: Lentiviral 3rd-gen SIN structure: \u03a8, RRE, cPPT/CTS, internal promoter, WPRE3 (not wild-type WPRE), SIN-deleted 3\u2032 LTR.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-21.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

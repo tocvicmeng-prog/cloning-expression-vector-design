@@ -1,0 +1,58 @@
+# MR rule fixtures
+
+Generated from Molecular-genetics rules for T-405.
+
+- MR-01: Promoter ↔ host class compatibility (bacterial / eukaryotic Pol II / Pol III / phage).
+- MR-02: Origin ↔ host compatibility.
+- MR-03: Origin incompatibility groups: two plasmids in the same Inc group cannot co-exist stably.
+- MR-04: Selectable marker not already encoded in host genome (e.g., host kanR + plasmid kan = no selection).
+- MR-05: Selectable marker working concentration appropriate for the chosen host.
+- MR-06: Copy number consistent with cargo toxicity and stability.
+- MR-07: Codon optimisation: CAI in [0.7, 0.95] for the chosen host.
+- MR-08: Codon optimisation: %MinMax distance from native ≤ 0.2.
+- MR-09: Codon optimisation MUST preserve user-marked functional RNA regions (IRES, frameshift signal, riboswitch).
+- MR-10: Reading frame: every annotated ORF starts with ATG (or GTG/TTG in E. coli when explicitly declared) and ends with TAA/TAG/TGA; no internal stops.
+- MR-11: Stop codon strategy: tandem stop codons (TAA TAA) preferred for high-fidelity termination.
+- MR-12: Bacterial SD/RBS: Shine–Dalgarno-like motif (consensus AGGAGG) within 5–13 nt of the AUG; ΔG(−30..+30) > −10 kcal/mol.
+- MR-13: Mammalian Kozak: PWM score above threshold (Noderer 2014).
+- MR-14: uORF scan: any AUG in the 5′ UTR with Kozak PWM ≥ threshold → flag.
+- MR-15: Premature polyadenylation scan: AAUAAA or strong variant in 5′ UTR or within ORF → flag.
+- MR-16: Splice-site scan: SpliceAI score above threshold within ORF → flag (mammalian designs).
+- MR-17: Terminator presence and strength: every transcription unit must end in a terminator (bacterial) or polyadenylation signal (eukaryotic).
+- MR-18: Cargo size within host capacity: AAV ≤ 4.7 kb between ITRs; lentivirus ≤ ~9 kb between LTRs; baculovirus ≤ ~38 kb; E. coli high-copy ≤ ~30 kb; BAC ≤ ~300 kb.
+- MR-19: AAV ITR integrity: 145-nt ITR sequences identical to canonical AAV2 (or other declared serotype) on both flanks.
+- MR-20: Plant T-DNA: LB and RB borders flank the cassette in correct orientation; nothing outside is part of the transfer.
+- MR-21: Lentiviral 3rd-gen SIN structure: Ψ, RRE, cPPT/CTS, internal promoter, WPRE3 (not wild-type WPRE), SIN-deleted 3′ LTR.
+- MR-22: If wild-type WPRE detected → recommend WPRE3 (mut6) variant.
+- MR-23: Inducible-system completeness: Tet-On requires TRE + rtTA; T7lac requires DE3 lysogen + (optionally) pLysS; pBAD requires AraC.
+- MR-24: Mobilisation-element scan: oriT / mob genes flagged unless the design is intentionally mobilisable and biosafety tier allows it.
+- MR-25: Viral replication elements (gag/pol/env, complete viral ORFs, replication-competent sequences) excluded unless explicitly approved.
+- MR-26: Antibiotic-resistance marker risk for translational / in-vivo / environmental use: WHO highest-priority antibiotics flagged.
+- MR-27: CpG content: in mammalian designs, very high CpG count → flag (silencing risk).
+- MR-28: Signal peptide ↔ compartment consistency: predicted SignalP cleavage site matches declared compartment; KDEL/HDEL only on intended ER-resident proteins.
+- MR-29: Frame-preservation across every fusion junction (N-tag–linker, linker–ORF, ORF–linker, linker–C-tag, scar–residue boundaries for Gateway / TEV / SUMO / etc.).
+- MR-30: Negative-selection cassettes (ccdB, sacB, MazF, tse2) flagged if host is not the appropriate tolerant strain.
+- MR-31: Intron presence on a bacterial expression vector → flag (introns not processed in E. coli).
+- MR-32: Multiple in-frame AUGs upstream of the intended start in a mammalian ORF → flag (ribosome will use the first one).
+- MR-33: Synthetic poly(A) signal on a bacterial expression vector → flag (no effect, wastes space).
+- MR-34: Hairpin near junctions: ΔG ≤ -9 kcal/mol within 30 nt of a cloning junction → flag (assembly failure risk).
+- MR-35: Two compatible-end restriction sites used in non-directional cloning → flag (high background of self-ligated empty vector).
+- MR-36: Single-cut linearisation with non-phosphatased ends → flag (high background of religated empty vector).
+- MR-37: Gateway: attB1/attB2 reading frame compatibility verified.
+- MR-38: Gateway attB1 N-terminal scar contributes 8–10 aa; attB2 C-terminal (no-stop) contributes ~25 aa — these MUST appear in the final translated sequence and the user is informed.
+- MR-39: Type IIS site domestication: internal Type IIS recognition sites of the chosen kit absent from every part destined for Golden Gate.
+- MR-40: Golden Gate overhang fidelity: chosen overhang set ranked by Pryor 2020 / Potapov 2018 score above kit-recommended threshold.
+- MR-41: Two-fragment Golden Gate "junction" between cohesive overhangs at every step MUST not contain palindromic self-complementary overhangs.
+- MR-42: Promoter–promoter / terminator–terminator double-up (two transcription units back-to-back) requires insulator or strong terminator between them.
+- MR-43: Direct repeats ≥ 100 bp → block (recombination risk); ≥ 20 bp → warn.
+- MR-44: Homopolymer runs > 9 nt (A/T/G/C) → warn; > 14 nt → block.
+- MR-45: Global GC content < 25 % or > 65 % → warn.
+- MR-46: GC in any 50-bp window < 15 % or > 80 % → warn.
+- MR-47: Plant 35S promoter on a mammalian construct → flag (works only weakly in mammalian cells).
+- MR-48: Bacterial signal peptide (pelB, OmpA, DsbA) on a mammalian construct → flag (does not target ER).
+- MR-49: T7 terminator on a non-T7 transcription unit → flag (does not terminate σ⁷⁰-transcribed mRNA).
+- MR-50: CRISPR gRNA cassette under a Pol-II promoter without ribozyme / Csy4 flanks → flag (5′ cap and polyA disrupt gRNA function).
+- MR-51: U6 / H1 / 7SK promoters: spacer must begin with G (or append a G) for transcription initiation.
+- MR-52: Mammalian polyA signal absent on a Pol-II-driven mRNA cassette → flag.
+- MR-53: Bacterial terminator absent on a Pol-II-driven transcription unit → flag.
+- MR-54: Mismatch between marker concentration in protocol vs database default for the host → flag.

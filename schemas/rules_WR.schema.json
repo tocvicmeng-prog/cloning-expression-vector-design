@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CEV validation rule catalogue",
+  "type": "object",
+  "required": [
+    "catalogue_id",
+    "schema_version",
+    "maintenance",
+    "rules"
+  ],
+  "properties": {
+    "catalogue_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "maintenance": {
+      "type": "object",
+      "required": [
+        "retrieved_at",
+        "valid_until",
+        "source_url",
+        "review_required_after"
+      ]
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "predicate_name",
+          "severity",
+          "severity_policy",
+          "blocks",
+          "reads",
+          "depends_on_metrics",
+          "produces_metrics",
+          "invalidates",
+          "preconditions",
+          "target_context",
+          "external_adapters",
+          "threshold_profile",
+          "citation",
+          "last_reviewed",
+          "reviewed_by",
+          "implementation_status",
+          "test_fixtures",
+          "suggested_remediation"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "predicate_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "HARD",
+              "SOFT",
+              "INFO"
+            ]
+          },
+          "severity_policy": {
+            "type": "string",
+            "enum": [
+              "block",
+              "warn_acknowledge",
+              "report_only"
+            ]
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "reads": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "depends_on_metrics": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "produces_metrics": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "invalidates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "preconditions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "target_context": {
+            "type": "string",
+            "minLength": 1
+          },
+          "external_adapters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "threshold_profile": {
+            "type": "string",
+            "minLength": 1
+          },
+          "citation": {
+            "type": "object",
+            "required": [
+              "text",
+              "grade",
+              "accessed"
+            ]
+          },
+          "last_reviewed": {
+            "type": "string",
+            "format": "date"
+          },
+          "reviewed_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "implementation_status": {
+            "type": "string",
+            "enum": [
+              "stub",
+              "real"
+            ]
+          },
+          "test_fixtures": {
+            "type": "object",
+            "required": [
+              "triggering",
+              "passing"
+            ]
+          },
+          "suggested_remediation": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

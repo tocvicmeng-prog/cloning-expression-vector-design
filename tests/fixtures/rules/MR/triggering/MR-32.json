@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-32",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-32: Multiple in-frame AUGs upstream of the intended start in a mammalian ORF \u2192 flag (ribosome will use the first one).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-32.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

@@ -1,0 +1,1 @@
+"""Admin action handler tests."""

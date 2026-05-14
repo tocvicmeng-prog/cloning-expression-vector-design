@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "BR-09",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for BR-09: The user MUST declare whether the construct uses any Risk Group 2+ organism component; if yes, dual sign-off required.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.BR-09.triggering",
+    "category": "BR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

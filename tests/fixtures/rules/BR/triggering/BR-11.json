@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "BR-11",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for BR-11: engine.sop_protocol MUST NOT render an operational wet-lab protocol unless the user's administrator-granted AuthorisationProfile covers (a) the construct's biosafety tier, (b) the construct's host classes, (c) the construct's assembly chemistry, (d) the construct's downstream-use class, and the user's UserDeclaration (SOP library, biosafety approval ID, role-of-operation) lies inside the granted profile. Self-declaration by a User role MUST NOT lift this gate.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.BR-11.triggering",
+    "category": "BR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

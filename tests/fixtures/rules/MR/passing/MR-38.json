@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-38",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-38: Gateway attB1 N-terminal scar contributes 8\u201310 aa; attB2 C-terminal (no-stop) contributes ~25 aa \u2014 these MUST appear in the final translated sequence and the user is informed.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-38.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

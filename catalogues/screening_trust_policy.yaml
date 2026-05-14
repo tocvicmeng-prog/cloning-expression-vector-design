@@ -1,0 +1,93 @@
+# Screening trust policy catalogue. T-406 baseline; T-1002 owns live adapter use.
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#12"
+  review_required_after: "2026-11-14"
+policy_id: "screening_trust.default_2026_05"
+policy_version: "2026.05"
+screening_scope:
+  minimum_synthetic_na_nt: 200
+  screen_assembled_product: true
+  screen_order_fragments: true
+  screen_translated_orfs_when_applicable: true
+  preserve_query_privacy_when_supported: true
+verdict_policy:
+  clear:
+    blocks: []
+    requires_reviewer: false
+    exportable: true
+    vendor_submission_allowed: true
+  watchlist:
+    blocks: ["BlockVendorSubmission", "BlockOperationalProtocol"]
+    requires_reviewer: true
+    exportable: true
+    vendor_submission_allowed: false
+  hit:
+    blocks: ["BlockVendorSubmission", "BlockOperationalProtocol"]
+    requires_reviewer: true
+    exportable: true
+    vendor_submission_allowed: false
+  unavailable:
+    blocks: ["BlockVendorSubmission", "BlockOperationalProtocol"]
+    requires_reviewer: true
+    exportable: false
+    vendor_submission_allowed: false
+providers:
+  - id: "igsc_v3"
+    name: "IGSC Harmonized Screening Protocol v3.0"
+    custodian: "International Gene Synthesis Consortium"
+    trust_level: "industry_standard"
+    query_privacy_mode: "provider_controlled"
+    accepted_verdicts: ["clear", "watchlist", "hit"]
+    default_for_vendor_profiles: true
+    citation:
+      text: "IGSC Harmonized Screening Protocol v3.0, released 2024-09-03."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "https://genesynthesisconsortium.org/wp-content/uploads/IGSC-Harmonized-Screening-Protocol-v3.0-1.pdf"
+  - id: "ibbis_common_mechanism"
+    name: "IBBIS Common Mechanism"
+    custodian: "International Biosecurity and Biosafety Initiative for Science"
+    trust_level: "nonprofit_screening_tool"
+    query_privacy_mode: "distributed_or_provider_controlled"
+    accepted_verdicts: ["clear", "watchlist", "hit", "unavailable"]
+    default_for_vendor_profiles: false
+    citation:
+      text: "IBBIS Common Mechanism public overview, accessed 2026-05-14."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "https://ibbis.bio/our-work/common-mechanism/"
+  - id: "securedna"
+    name: "SecureDNA"
+    custodian: "SecureDNA"
+    trust_level: "privacy_preserving_screening_platform"
+    query_privacy_mode: "cryptographically_blinded"
+    accepted_verdicts: ["clear", "watchlist", "hit", "unavailable"]
+    default_for_vendor_profiles: false
+    citation:
+      text: "SecureDNA public screening platform overview, accessed 2026-05-14."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "https://securedna.org"
+  - id: "institutional_blacklist"
+    name: "Institutional sequence blacklist"
+    custodian: "Deploying institution"
+    trust_level: "institution_controlled"
+    query_privacy_mode: "local_only"
+    accepted_verdicts: ["clear", "watchlist", "hit", "unavailable"]
+    default_for_vendor_profiles: false
+    citation:
+      text: "CEV architecture v1.5 screening-adapter hook and institution-controlled registry."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "ARCHITECTURE.md#4-5"
+citations:
+  - text: "OSTP/HHS Framework for Nucleic Acid Synthesis Screening, September 2024."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "https://www.whitehouse.gov/wp-content/uploads/2024/10/OSTP-Nucleic-Acid_Synthesis_Screening_Framework-Sep2024-Final.pdf"
+  - text: "CEV KB v2.0 section 12 biosafety and sequence-screening framework."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#12"

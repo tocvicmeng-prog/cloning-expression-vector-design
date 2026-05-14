@@ -1,0 +1,128 @@
+# Risk-advisory catalogue. T-406 baseline; T-801 owns risk-classification engine use.
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "ARCHITECTURE.md#4-4"
+  review_required_after: "2026-11-14"
+advisory_set_id: "risk_advisories.default_2026_05"
+advisory_version: "2026.05"
+acknowledgement_policy:
+  passive_dismissal_allowed: false
+  severities_requiring_signed_acknowledgement: ["caution", "strong_caution"]
+  blocks_until_acknowledged: ["BlockOperationalProtocol"]
+advisories:
+  - id: "risk.rg2_or_higher_component"
+    name: "Risk Group 2+ component present"
+    severity: "strong_caution"
+    trigger_tags: ["risk_group_2_or_higher_component", "BR-09"]
+    recommended_action: "escalate_to_institutional_reviewer"
+    blocks: ["BlockOperationalProtocol"]
+    citation:
+      text: "WHO Laboratory Biosafety Manual fourth edition risk-assessment framing."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "https://www.who.int/publications/i/item/9789240011311"
+  - id: "risk.replication_competent_viral_vector"
+    name: "Replication-competent viral vector"
+    severity: "strong_caution"
+    trigger_tags: ["replication_competent", "viral_vector", "BR-08"]
+    recommended_action: "dual_control_or_institutional_signoff"
+    blocks: ["BlockOperationalProtocol", "BlockVendorSubmission"]
+    citation:
+      text: "REQUIREMENTS BR-08 replication-competent viral vector sign-off rule."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "REQUIREMENTS.md#4-4"
+  - id: "risk.select_agent_or_pathogen_homology"
+    name: "Select-agent or pathogen-associated homology"
+    severity: "strong_caution"
+    trigger_tags: ["select_agent_homology", "screening_hit", "BR-05"]
+    recommended_action: "block_and_route_to_reviewer"
+    blocks: ["BlockVendorSubmission", "BlockOperationalProtocol"]
+    citation:
+      text: "NIH Guidelines April 2024 and CEV BR-05 select-agent block requirement."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "https://osp.od.nih.gov/wp-content/uploads/NIH_Guidelines.pdf"
+  - id: "risk.in_vivo_or_environmental_release"
+    name: "In-vivo, environmental release, or clinical manufacturing intent"
+    severity: "strong_caution"
+    trigger_tags: ["in_vivo_use", "environmental_release", "clinical_grade_manufacturing", "BR-06"]
+    recommended_action: "require_stricter_classification"
+    blocks: ["BlockOperationalProtocol"]
+    citation:
+      text: "REQUIREMENTS BR-06 stricter NIH classification pass requirement."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "REQUIREMENTS.md#4-4"
+  - id: "risk.unsupported_bsl4"
+    name: "Unsupported BSL-4 tier"
+    severity: "strong_caution"
+    trigger_tags: ["BSL-4", "unsupported_tier"]
+    recommended_action: "hard_block_compile_and_export"
+    blocks: ["BlockCompile", "BlockVendorSubmission", "BlockOperationalProtocol"]
+    citation:
+      text: "ARCHITECTURE v1.5 explicit BSL-4 unsupported-tier hard block."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "ARCHITECTURE.md#4-4"
+  - id: "risk.ai_screening_evasion_watch"
+    name: "Potential AI-designed screening-evasion pattern"
+    severity: "caution"
+    trigger_tags: ["ai_evasion_watch", "BR-01", "R-11"]
+    recommended_action: "manual_review_even_if_adapter_clear"
+    blocks: ["BlockVendorSubmission"]
+    citation:
+      text: "CEV KB v2.0 section 12 watch item for AI-designed evasion and current IGSC/IBBIS mitigations."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#12"
+  - id: "risk.ms2_vlp_delivery"
+    name: "MS2 or related VLP delivery design"
+    severity: "caution"
+    trigger_tags: ["MS2", "VLP", "delivery_vehicle", "MS-01"]
+    recommended_action: "present_advisory_and_require_acknowledgement"
+    blocks: ["BlockOperationalProtocol"]
+    citation:
+      text: "CEV KB v2.0 section 17 MS2/VLP-specific design and policy notes."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17"
+  - id: "risk.lentiviral_or_aav_packaging"
+    name: "Lentiviral or AAV packaging workflow"
+    severity: "caution"
+    trigger_tags: ["lentiviral", "AAV", "producer_host", "packaging"]
+    recommended_action: "require_role_keyed_multihost_review"
+    blocks: ["BlockOperationalProtocol"]
+    citation:
+      text: "CEV architecture v1.5 multi-host workflow and screening-first sequencing."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "ARCHITECTURE.md#1"
+  - id: "risk.antibiotic_resistance_marker_export"
+    name: "Antibiotic-resistance marker in externally shared construct"
+    severity: "caution"
+    trigger_tags: ["antibiotic_resistance_marker", "external_export"]
+    recommended_action: "include_marker_and_licence_disclosure"
+    blocks: ["BlockExport"]
+    citation:
+      text: "REQUIREMENTS provenance, licence, and export compliance requirements."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "REQUIREMENTS.md#5"
+  - id: "risk.component_lineage_untrusted"
+    name: "Untrusted component lineage or missing provenance"
+    severity: "caution"
+    trigger_tags: ["missing_provenance", "untrusted_lineage", "DR-01"]
+    recommended_action: "complete_source_provenance_before_export"
+    blocks: ["BlockExport"]
+    citation:
+      text: "CEV KB v2.0 section 13 provenance and metadata requirements."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#13"
+citations:
+  - text: "ARCHITECTURE v1.5 active, auditable risk-advisory acknowledgement model."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "ARCHITECTURE.md#4-4"

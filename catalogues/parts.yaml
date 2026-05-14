@@ -1,0 +1,2026 @@
+# Parts catalogue populated from KB v2.0 section 5.
+catalogue_id: "cev.parts"
+schema_version: "1.0.0"
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#5"
+  review_required_after: "2026-11-14"
+item_maintenance: &item_maintenance
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#5"
+  review_required_after: "2026-11-14"
+citation_presets:
+  origins: &cite_origins
+    text: "KB v2.0 section 5.1 origin catalogue; source registry retained entries include del Solar 1998, Friehs 2004, Bowers 2004, Sikorski and Hieter 1989, and Dull 1998."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1"]
+  markers: &cite_markers
+    text: "KB v2.0 section 5.2 selectable-marker catalogue; source registry retained entries include Williams 2009, Carnes 2010, and Mignon 2015."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1"]
+  bacterial_promoters: &cite_bacterial_promoters
+    text: "KB v2.0 section 5.3 bacterial promoter strength catalogue with retained Studier T7 and Davis 2011/Kosuri 2013 entries."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1", "KOSURI-2013"]
+  mammalian_promoters: &cite_mammalian_promoters
+    text: "Qin 2010 and Norrman 2010 quantitative mammalian promoter comparisons as registered in KB v2.0 section 18.2."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "20485554"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["QIN-2010", "NORRMAN-2010"]
+  yeast_plant_insect_promoters: &cite_yeast_plant_insect_promoters
+    text: "KB v2.0 section 5.4 non-mammalian promoter catalogue; source registry retained entries include Mumberg 1995, Bevan 1984, and Jarvis 2009."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1"]
+  rbs: &cite_rbs
+    text: "Reis and Salis 2020 RBS Calculator v2 plus retained Salis 2009/2011 entries in KB v2.0 section 18."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "33054181"
+    doi: "10.1021/acssynbio.0c00394"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["REIS-SALIS-2020", "KB18.1"]
+  kozak: &cite_kozak
+    text: "Kozak 1986/1987 and Noderer 2014 mammalian translation-initiation sources in KB v2.0 section 18.2."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "3943125"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["KOZAK-1986", "KOZAK-1987-NAR", "NODERER-2014"]
+  terminators: &cite_terminators
+    text: "Cambray 2013 bacterial terminator library and retained terminator entries in KB v2.0 section 18."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "23275534"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["CAMBRAY-2013-TERM", "KB18.1"]
+  polya_wpre: &cite_polya_wpre
+    text: "Polyadenylation and WPRE safety sources from KB v2.0 section 18.2."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "2872023"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["PFARR-1986", "LEVITT-1989-SPA", "YEW-2007", "ZANTA-BOUSSIF-2009", "SCHAMBACH-2006-WPREmut", "KINGSMAN-2005-WPRE"]
+  tags: &cite_tags
+    text: "KB v2.0 section 5.8 tag and linker catalogue with retained Young 2012, Kimple 2013, Costa 2014, Koppl 2022, Webster 2017, and Kapust-Waugh 2000 entries."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1", "KAPUST-WAUGH-2000"]
+  localisation: &cite_localisation
+    text: "KB v2.0 section 5.9 localisation and secretion signal catalogue with SignalP 5.0 source registered in section 18.2."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "30778233"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["ALMAGRO-2019-SIGNALP", "KB18.1"]
+  reporters: &cite_reporters
+    text: "KB v2.0 section 5.10 reporter-gene catalogue with retained reporter-source registry entries."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+    source_registry_ids: ["KB18.1"]
+  recombinases: &cite_recombinases
+    text: "KB v2.0 section 5.11 recombinase and integrating-system catalogue with Sleeping Beauty and PiggyBac sources in section 18."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "9390559"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["IVICS-1997-SB", "WILSON-2007-PB", "KB18.1"]
+  crispr: &cite_crispr
+    text: "KB v2.0 section 5.12 CRISPR/RNA-guided cassette catalogue with gRNA, specificity, base-editor, and prime-editor sources in section 18.2."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "26077853"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["DANG-2015-GRNA", "HSU-2013", "KOMOR-2016-CBE", "GAUDELLI-2017-ABE", "ANZALONE-2019-PE"]
+  inducible: &cite_inducible
+    text: "KB v2.0 section 5.13 inducible mammalian-system catalogue with Qin 2010 Tet-inducible promoter source in section 18.2."
+    grade: "A1"
+    accessed: "2026-05-14"
+    pmid: "20485554"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.2"
+    source_registry_ids: ["QIN-2010", "KB18.1"]
+items:
+  - id: "origin.cole1_pbr322"
+    name: "ColE1 origin (pBR322)"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["bacterial"]
+    quantitative: {copy_number_per_cell: "15-20"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.pmb1_puc"
+    name: "pMB1 mutant origin (pUC)"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["bacterial"]
+    quantitative: {copy_number_per_cell: "500-700"}
+    notes: ["High-copy pUC-family pMB1 mutant."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.p15a"
+    name: "p15A origin"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["bacterial"]
+    quantitative: {copy_number_per_cell: "10-12"}
+    compatibility_notes: ["Compatible with ColE1-family replicons."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.psc101"
+    name: "pSC101 origin"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["bacterial"]
+    quantitative: {copy_number_per_cell: "approximately 5"}
+    notes: ["Low copy; useful for large or toxic inserts."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.r6k_gamma"
+    name: "R6K gamma origin"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["bacterial"]
+    quantitative: {copy_number_per_cell: "15-20 in pi-positive hosts"}
+    required_host_features: ["pir"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.rk2_rp4"
+    name: "RK2 / RP4 origin"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["bacterial"]
+    quantitative: {copy_number_per_cell: "4-7"}
+    notes: ["Broad Gram-negative host range; mobilisable; apply biosafety scrutiny."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.pbbr1"
+    name: "pBBR1 origin"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["bacterial"]
+    quantitative: {copy_number_per_cell: "10-30"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.f_factor_bac"
+    name: "F-factor / BAC origin"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["bacterial"]
+    quantitative: {copy_number_per_cell: "1-2", insert_capacity: "up to approximately 300 kb"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.psc101_par_minus"
+    name: "pSC101 par-minus derivative"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["bacterial"]
+    quantitative: {copy_number_per_cell: "approximately 5"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.2micron"
+    name: "2 micron yeast origin"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["yeast"]
+    quantitative: {copy_number_per_cell: "30-50"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.cen_ars"
+    name: "CEN/ARS yeast origin"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["yeast"]
+    quantitative: {copy_number_per_cell: "1-2"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.sv40"
+    name: "SV40 origin with Large T-antigen"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["mammalian"]
+    required_host_features: ["SV40 Large T-antigen"]
+    quantitative: {copy_number_per_cell: "episomal transient amplification"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.ebv_orip"
+    name: "EBV oriP with EBNA1"
+    role: "SO:0000296"
+    role_label: "origin_of_replication"
+    source_section: "5.1"
+    host_compatibility: ["mammalian"]
+    required_host_features: ["EBNA1"]
+    quantitative: {copy_number_per_cell: "episomal stable"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.aav_itr"
+    name: "AAV ITR flanking element"
+    role: "SO:0000110"
+    role_label: "viral_flanking_sequence"
+    source_section: "5.1"
+    host_compatibility: ["mammalian", "viral_or_phage"]
+    quantitative: {copy_number_per_cell: "not applicable template flank"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+  - id: "origin.hiv_sin_ltr"
+    name: "SIN lentiviral LTR / packaging-context element"
+    role: "SO:0000110"
+    role_label: "viral_vector_flanking_feature"
+    source_section: "5.1"
+    host_compatibility: ["mammalian", "viral_or_phage"]
+    quantitative: {copy_number_per_cell: "integrated, approximately 1-5 copies per cell"}
+    notes: ["Self-inactivating 3-prime LTR delta-U3 standard."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.1"
+    citation: *cite_origins
+    maintenance: *item_maintenance
+
+  - id: "marker.ampicillin_bla"
+    name: "Ampicillin resistance (bla beta-lactamase)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial"]
+    quantitative: {working_concentration: "50-100 ug/mL liquid; 100 ug/mL plate"}
+    notes: ["Carbenicillin at 50 ug/mL is more stable for many applications."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.kanamycin_neo_aph3"
+    name: "Kanamycin / G418 resistance (neo / aph-3-prime)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial", "mammalian"]
+    quantitative: {working_concentration: "25-50 ug/mL E. coli; 0.4-1 mg/mL active G418 mammalian"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.chloramphenicol_cat"
+    name: "Chloramphenicol resistance (cat)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial"]
+    quantitative: {working_concentration: "25-34 ug/mL"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.tetracycline_teta_tetr"
+    name: "Tetracycline resistance (tetA/tetR)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial"]
+    quantitative: {working_concentration: "10-15 ug/mL"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.spectinomycin_streptomycin_aada"
+    name: "Spectinomycin / streptomycin resistance (aadA)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial", "plant"]
+    quantitative: {working_concentration: "50-100 ug/mL"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.gentamicin_aacc1"
+    name: "Gentamicin resistance (aacC1)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial", "mammalian"]
+    quantitative: {working_concentration: "10-15 ug/mL E. coli; 50-400 ug/mL mammalian"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.zeocin_sh_ble"
+    name: "Zeocin resistance (sh ble)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial", "yeast", "mammalian"]
+    quantitative: {working_concentration: "25 ug/mL bacteria; 50-500 ug/mL mammalian"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.hygromycin_hph"
+    name: "Hygromycin B resistance (hph)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial", "mammalian"]
+    quantitative: {working_concentration: "200 ug/mL bacteria; 100-600 ug/mL mammalian"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.puromycin_pac"
+    name: "Puromycin resistance (pac)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["mammalian"]
+    quantitative: {working_concentration: "0.5-10 ug/mL mammalian"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.blasticidin_bsr"
+    name: "Blasticidin resistance (bsr)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["mammalian"]
+    quantitative: {working_concentration: "2-25 ug/mL mammalian"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.g418_geneticin_neo"
+    name: "G418 / Geneticin resistance (neo)"
+    role: "SO:0000316"
+    role_label: "selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["mammalian"]
+    quantitative: {working_concentration: "200-1000 ug/mL mammalian"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.yeast_auxotrophic_panel"
+    name: "Yeast auxotrophic marker panel"
+    role: "SO:0000316"
+    role_label: "auxotrophic_selectable_marker"
+    source_section: "5.2"
+    host_compatibility: ["yeast", "bacterial"]
+    variants: ["URA3", "LEU2", "HIS3", "TRP1", "LYS2", "ADE2"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.antibiotic_free_rna_out_ort"
+    name: "Antibiotic-free RNA-OUT / ORT selection"
+    role: "SO:0000110"
+    role_label: "antibiotic_free_selection_system"
+    source_section: "5.2"
+    host_compatibility: ["bacterial"]
+    notes: ["Used in NTC vector designs; verify implementation-specific licence."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.negative_selection_ccdb"
+    name: "ccdB negative-selection cassette"
+    role: "SO:0000316"
+    role_label: "negative_selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial"]
+    required_host_features: ["gyrA462 tolerance strain such as DB3.1 or Survival 2"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+  - id: "marker.negative_selection_sacb"
+    name: "sacB sucrose negative-selection cassette"
+    role: "SO:0000316"
+    role_label: "negative_selectable_marker_cds"
+    source_section: "5.2"
+    host_compatibility: ["bacterial"]
+    quantitative: {counter_selection: "5-10% sucrose"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.2"
+    citation: *cite_markers
+    maintenance: *item_maintenance
+
+  - id: "promoter.t7"
+    name: "T7 promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial", "cell_free"]
+    quantitative: {relative_strength_t7_reference: "1.0"}
+    required_host_features: ["T7 RNA polymerase"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.t7lac"
+    name: "T7lac promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    quantitative: {relative_strength_t7_reference: "0.7-1.0"}
+    regulation: ["IPTG", "lac operator"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.trc"
+    name: "trc promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    quantitative: {relative_strength_t7_reference: "0.3-0.5"}
+    regulation: ["IPTG"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.tac"
+    name: "tac promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    quantitative: {relative_strength_t7_reference: "0.3-0.5"}
+    regulation: ["IPTG"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.lacuv5"
+    name: "lacUV5 promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    quantitative: {relative_strength_t7_reference: "0.05-0.1"}
+    regulation: ["IPTG"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.arabad_pbad"
+    name: "araBAD / pBAD promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    quantitative: {relative_strength_t7_reference: "0.05-0.5"}
+    regulation: ["L-arabinose 0.0002-0.2%", "glucose repression"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.rhabad"
+    name: "rhaBAD promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    quantitative: {relative_strength_t7_reference: "0.1-0.3"}
+    regulation: ["L-rhamnose 0.1-0.4%"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.teta_tetr"
+    name: "tetA promoter controlled by TetR"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    quantitative: {relative_strength_t7_reference: "0.1-0.5"}
+    regulation: ["anhydrotetracycline 10-100 ng/mL"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.lambda_pl_pr"
+    name: "lambda pL/pR promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    quantitative: {relative_strength_t7_reference: "0.5-1.0"}
+    regulation: ["cI857 temperature induction"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.sigma32_heatshock"
+    name: "sigma32 heat-shock promoter panel"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    variants: ["htpG", "ibpA"]
+    regulation: ["heat stress"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.anderson_j231xx"
+    name: "Anderson BBa_J231xx constitutive promoter series"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    quantitative: {relative_strength_t7_reference: "spans approximately 3 orders of magnitude"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.prod_proc_prob"
+    name: "proD / proC / proB insulated constitutive promoter set"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.3"
+    host_compatibility: ["bacterial"]
+    variants: ["proD", "proC", "proB"]
+    notes: ["Synthetic insulated promoter set with lower context dependence."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.3"
+    citation: *cite_bacterial_promoters
+    maintenance: *item_maintenance
+
+  - id: "promoter.cmv_hcmv_ie"
+    name: "CMV immediate-early promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    quantitative: {relative_strength: "high reference in 293T; variable across lines"}
+    notes: ["High silencing risk in stem-cell and differentiated-cell contexts."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.ef1alpha_intronic"
+    name: "EF1alpha full intronic promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    quantitative: {relative_strength: "0.6-1.0"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.cag"
+    name: "CAG promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    quantitative: {relative_strength: "1.0-1.5", approximate_size: "1.6 kb"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.pgk_mammalian"
+    name: "Mammalian PGK promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    quantitative: {relative_strength: "0.2-0.4"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.ubc"
+    name: "Ubiquitin C promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    quantitative: {relative_strength: "0.1-0.3"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.sv40_early"
+    name: "SV40 early promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    quantitative: {relative_strength: "0.1-0.3"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.synapsin"
+    name: "Synapsin tissue-specific promoter"
+    role: "SO:0000167"
+    role_label: "tissue_specific_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    target_context: "neural"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.camkii"
+    name: "CaMKII tissue-specific promoter"
+    role: "SO:0000167"
+    role_label: "tissue_specific_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    target_context: "neural"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.mbp_neural"
+    name: "MBP tissue-specific promoter"
+    role: "SO:0000167"
+    role_label: "tissue_specific_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    target_context: "neural"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.gfap"
+    name: "GFAP tissue-specific promoter"
+    role: "SO:0000167"
+    role_label: "tissue_specific_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    target_context: "neural"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.albumin"
+    name: "Albumin tissue-specific promoter"
+    role: "SO:0000167"
+    role_label: "tissue_specific_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    target_context: "hepatic"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.cd68"
+    name: "CD68 tissue-specific promoter"
+    role: "SO:0000167"
+    role_label: "tissue_specific_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    target_context: "macrophage"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.ctnt"
+    name: "cTnT tissue-specific promoter"
+    role: "SO:0000167"
+    role_label: "tissue_specific_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    target_context: "cardiac"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.u6"
+    name: "U6 Pol-III promoter"
+    role: "SO:0000167"
+    role_label: "pol_iii_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    use_case: "short RNA expression"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.h1"
+    name: "H1 Pol-III promoter"
+    role: "SO:0000167"
+    role_label: "pol_iii_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    use_case: "short RNA expression"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.7sk"
+    name: "7SK Pol-III promoter"
+    role: "SO:0000167"
+    role_label: "pol_iii_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    use_case: "short RNA expression"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.tre_tet_on_off"
+    name: "TRE Tet-On/Tet-Off promoter system"
+    role: "SO:0000167"
+    role_label: "inducible_promoter"
+    source_section: "5.4"
+    host_compatibility: ["mammalian"]
+    regulation: ["doxycycline", "rtTA", "tTA"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_mammalian_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.gal1"
+    name: "GAL1 yeast promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["yeast"]
+    regulation: ["galactose induction", "glucose repression"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_yeast_plant_insect_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.tef1"
+    name: "TEF1 yeast promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["yeast"]
+    quantitative: {relative_strength: "strong constitutive"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_yeast_plant_insect_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.pgk1_yeast"
+    name: "PGK1 yeast promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["yeast"]
+    quantitative: {relative_strength: "strong constitutive"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_yeast_plant_insect_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.adh1"
+    name: "ADH1 yeast promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["yeast"]
+    quantitative: {relative_strength: "strong constitutive full length; weaker short variant"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_yeast_plant_insect_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.aox1"
+    name: "AOX1 methylotrophic yeast promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["yeast"]
+    regulation: ["methanol induction"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_yeast_plant_insect_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.camv_35s"
+    name: "CaMV 35S plant promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["plant"]
+    quantitative: {relative_strength: "high constitutive"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_yeast_plant_insect_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.polyhedrin"
+    name: "Baculovirus polyhedrin promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["insect"]
+    quantitative: {relative_strength: "very late, very strong"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_yeast_plant_insect_promoters
+    maintenance: *item_maintenance
+  - id: "promoter.p10_baculovirus"
+    name: "Baculovirus p10 promoter"
+    role: "SO:0000167"
+    role_label: "promoter"
+    source_section: "5.4"
+    host_compatibility: ["insect"]
+    quantitative: {relative_strength: "very late, very strong"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.4"
+    citation: *cite_yeast_plant_insect_promoters
+    maintenance: *item_maintenance
+
+  - id: "rbs.shine_dalgarno_consensus"
+    name: "Shine-Dalgarno consensus"
+    role: "SO:0000139"
+    role_label: "ribosome_entry_site"
+    source_section: "5.5"
+    host_compatibility: ["bacterial"]
+    sequence: {type: "rna_consensus", value: "AGGAGG"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.5"
+    citation: *cite_rbs
+    maintenance: *item_maintenance
+  - id: "rbs.optimal_spacing"
+    name: "Bacterial RBS optimal spacing rule"
+    role: "SO:0000139"
+    role_label: "ribosome_entry_site_design_constraint"
+    source_section: "5.5"
+    host_compatibility: ["bacterial"]
+    quantitative: {spacing_nt_to_start_codon: "5-13; 7-8 most common in E. coli"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.5"
+    citation: *cite_rbs
+    maintenance: *item_maintenance
+  - id: "rbs.ecoli_start_codon_usage"
+    name: "E. coli start-codon usage profile"
+    role: "SO:0000110"
+    role_label: "translation_start_context"
+    source_section: "5.5"
+    host_compatibility: ["bacterial"]
+    quantitative: {AUG: "approximately 83%", GUG: "approximately 14%", UUG: "approximately 3%"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.5"
+    citation: *cite_rbs
+    maintenance: *item_maintenance
+  - id: "rbs.calculator_v2_model"
+    name: "RBS Calculator v2 TIR model reference"
+    role: "SO:0000139"
+    role_label: "ribosome_entry_site_model"
+    source_section: "5.5"
+    host_compatibility: ["bacterial"]
+    quantitative: {training_systems: "9862 characterised systems"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.5"
+    citation: *cite_rbs
+    maintenance: *item_maintenance
+  - id: "rbs.folding_energy_window"
+    name: "RBS/ORF folding-energy warning window"
+    role: "SO:0000110"
+    role_label: "translation_context_constraint"
+    source_section: "5.5"
+    host_compatibility: ["bacterial"]
+    quantitative: {rnafold_window: "-30 to +30 nt around AUG", warning_threshold: "deltaG < -10 kcal/mol"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.5"
+    citation: *cite_rbs
+    maintenance: *item_maintenance
+  - id: "rbs.anderson_b003x"
+    name: "Anderson BBa_B003x RBS series"
+    role: "SO:0000139"
+    role_label: "ribosome_entry_site"
+    source_section: "5.5"
+    host_compatibility: ["bacterial"]
+    variants: ["BBa_B0030", "BBa_B0031", "BBa_B0032", "BBa_B0033", "BBa_B0034"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.5"
+    citation: *cite_rbs
+    maintenance: *item_maintenance
+  - id: "rbs.context_dependence_note"
+    name: "RBS first-codon context-dependence rule"
+    role: "SO:0000110"
+    role_label: "translation_context_constraint"
+    source_section: "5.5"
+    host_compatibility: ["bacterial"]
+    notes: ["Score RBS together with the first approximately 15 ORF codons."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.5"
+    citation: *cite_rbs
+    maintenance: *item_maintenance
+
+  - id: "kozak.consensus"
+    name: "Kozak consensus"
+    role: "SO:0000110"
+    role_label: "translation_start_context"
+    source_section: "5.6"
+    host_compatibility: ["mammalian"]
+    sequence: {type: "rna_consensus", value: "GCCRCCAUGG"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+  - id: "kozak.pwm_noderer_2014"
+    name: "Noderer 2014 Kozak PWM context"
+    role: "SO:0000110"
+    role_label: "translation_start_context_model"
+    source_section: "5.6"
+    host_compatibility: ["mammalian"]
+    sequence: {type: "rna_consensus", value: "RYMRMVAUGGC"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+  - id: "kozak.uorf_scan_constraint"
+    name: "Upstream ORF / upstream ATG warning rule"
+    role: "SO:0000110"
+    role_label: "five_prime_utr_constraint"
+    source_section: "5.6"
+    host_compatibility: ["mammalian"]
+    notes: ["Flag upstream ATG in good Kozak context."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+  - id: "utr.five_prime_length_window_mammalian"
+    name: "Mammalian 5-prime UTR length window"
+    role: "SO:0000204"
+    role_label: "five_prime_UTR"
+    source_section: "5.6"
+    host_compatibility: ["mammalian"]
+    quantitative: {typical_length_nt: "50-300"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+  - id: "utr.five_prime_cap_context"
+    name: "Pol-II 5-prime cap context requirement"
+    role: "SO:0000110"
+    role_label: "transcript_context_constraint"
+    source_section: "5.6"
+    host_compatibility: ["mammalian"]
+    notes: ["Protein expression should reject Pol-I/Pol-III promoters when cap-dependent translation is required."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+  - id: "ires.emcv"
+    name: "EMCV IRES"
+    role: "SO:0000243"
+    role_label: "internal_ribosome_entry_site"
+    source_section: "5.6"
+    host_compatibility: ["mammalian"]
+    quantitative: {approximate_length_nt: "588", downstream_cistron_expression: "30-70% of cap-dependent"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+  - id: "peptide.p2a"
+    name: "P2A ribosomal-skipping peptide"
+    role: "SO:0000110"
+    role_label: "ribosomal_skipping_peptide"
+    source_section: "5.6"
+    host_compatibility: ["mammalian", "insect", "plant"]
+    quantitative: {cleavage_efficiency: "approximately 95-98%; strongest common 2A in KB summary"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+  - id: "peptide.t2a"
+    name: "T2A ribosomal-skipping peptide"
+    role: "SO:0000110"
+    role_label: "ribosomal_skipping_peptide"
+    source_section: "5.6"
+    host_compatibility: ["mammalian", "insect", "plant"]
+    quantitative: {relative_order: "P2A > T2A > E2A > F2A"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+  - id: "peptide.e2a"
+    name: "E2A ribosomal-skipping peptide"
+    role: "SO:0000110"
+    role_label: "ribosomal_skipping_peptide"
+    source_section: "5.6"
+    host_compatibility: ["mammalian", "insect", "plant"]
+    quantitative: {relative_order: "P2A > T2A > E2A > F2A"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+  - id: "peptide.f2a"
+    name: "F2A ribosomal-skipping peptide"
+    role: "SO:0000110"
+    role_label: "ribosomal_skipping_peptide"
+    source_section: "5.6"
+    host_compatibility: ["mammalian", "insect", "plant"]
+    quantitative: {relative_order: "P2A > T2A > E2A > F2A"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.6"
+    citation: *cite_kozak
+    maintenance: *item_maintenance
+
+  - id: "terminator.rrnb_t1"
+    name: "rrnB T1 terminator"
+    role: "SO:0000141"
+    role_label: "terminator"
+    source_section: "5.7"
+    host_compatibility: ["bacterial"]
+    quantitative: {termination_efficiency: "0.91"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_terminators
+    maintenance: *item_maintenance
+  - id: "terminator.rrnb_t1t2"
+    name: "rrnB T1T2 tandem terminator"
+    role: "SO:0000141"
+    role_label: "terminator"
+    source_section: "5.7"
+    host_compatibility: ["bacterial"]
+    quantitative: {termination_efficiency: "0.99+"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_terminators
+    maintenance: *item_maintenance
+  - id: "terminator.t7_phi"
+    name: "T7 terminator"
+    role: "SO:0000141"
+    role_label: "terminator"
+    source_section: "5.7"
+    host_compatibility: ["bacterial", "cell_free"]
+    quantitative: {termination_efficiency: "0.93"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_terminators
+    maintenance: *item_maintenance
+  - id: "terminator.bba_b0015"
+    name: "BBa_B0015 double terminator"
+    role: "SO:0000141"
+    role_label: "terminator"
+    source_section: "5.7"
+    host_compatibility: ["bacterial"]
+    quantitative: {termination_efficiency: "0.98"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_terminators
+    maintenance: *item_maintenance
+  - id: "terminator.cambray_2013_library"
+    name: "Cambray 2013 bacterial terminator library"
+    role: "SO:0000141"
+    role_label: "terminator_library"
+    source_section: "5.7"
+    host_compatibility: ["bacterial"]
+    quantitative: {termination_efficiency_range: "0.1-0.99"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_terminators
+    maintenance: *item_maintenance
+  - id: "polya.bgh"
+    name: "bGH polyadenylation signal"
+    role: "SO:0000551"
+    role_label: "polyA_signal_sequence"
+    source_section: "5.7"
+    host_compatibility: ["mammalian"]
+    quantitative: {approximate_length_nt: "225", relative_strength: "1.0 reference"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_polya_wpre
+    maintenance: *item_maintenance
+  - id: "polya.rabbit_beta_globin"
+    name: "Rabbit beta-globin polyadenylation signal"
+    role: "SO:0000551"
+    role_label: "polyA_signal_sequence"
+    source_section: "5.7"
+    host_compatibility: ["mammalian"]
+    quantitative: {approximate_length_nt: "400", relative_strength: "0.8-1.0"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_polya_wpre
+    maintenance: *item_maintenance
+  - id: "polya.synthetic_spa"
+    name: "Synthetic SPA polyadenylation signal"
+    role: "SO:0000551"
+    role_label: "polyA_signal_sequence"
+    source_section: "5.7"
+    host_compatibility: ["mammalian"]
+    quantitative: {approximate_length_nt: "50", relative_strength: "0.8-1.0 when exonic"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_polya_wpre
+    maintenance: *item_maintenance
+  - id: "polya.sv40_late"
+    name: "SV40 late polyadenylation signal"
+    role: "SO:0000551"
+    role_label: "polyA_signal_sequence"
+    source_section: "5.7"
+    host_compatibility: ["mammalian"]
+    quantitative: {approximate_length_nt: "240", relative_strength: "0.7-1.0"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_polya_wpre
+    maintenance: *item_maintenance
+  - id: "polya.sv40_early"
+    name: "SV40 early polyadenylation signal"
+    role: "SO:0000551"
+    role_label: "polyA_signal_sequence"
+    source_section: "5.7"
+    host_compatibility: ["mammalian"]
+    quantitative: {approximate_length_nt: "135", relative_strength: "0.4-0.5"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_polya_wpre
+    maintenance: *item_maintenance
+  - id: "polya.hgh"
+    name: "hGH polyadenylation signal"
+    role: "SO:0000551"
+    role_label: "polyA_signal_sequence"
+    source_section: "5.7"
+    host_compatibility: ["mammalian"]
+    quantitative: {approximate_length_nt: "626", relative_strength: "0.4-0.7"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_polya_wpre
+    maintenance: *item_maintenance
+  - id: "wpre.wpre3_mut6"
+    name: "WPRE3 / mut6 post-transcriptional regulatory element"
+    role: "SO:0000110"
+    role_label: "post_transcriptional_regulatory_element"
+    source_section: "5.7"
+    host_compatibility: ["mammalian", "viral_or_phage"]
+    quantitative: {approximate_length_nt: "247 WPRE3; 591 full WPRE", expression_boost: "2-5x"}
+    notes: ["Use WPRE3 or mut6 to remove X-ORF translation potential."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.7"
+    citation: *cite_polya_wpre
+    maintenance: *item_maintenance
+
+  - id: "tag.his6"
+    name: "His6 tag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "HHHHHH"}
+    quantitative: {size_aa: "6"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.his8"
+    name: "His8 tag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "HHHHHHHH"}
+    quantitative: {size_aa: "8"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.his10"
+    name: "His10 tag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "HHHHHHHHHH"}
+    quantitative: {size_aa: "10"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.flag"
+    name: "FLAG tag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "DYKDDDDK"}
+    quantitative: {size_aa: "8"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.ha"
+    name: "HA tag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "YPYDVPDYA"}
+    quantitative: {size_aa: "9"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.myc"
+    name: "Myc tag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "EQKLISEEDL"}
+    quantitative: {size_aa: "10"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.v5"
+    name: "V5 tag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    quantitative: {size_aa: "14"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.strep_ii"
+    name: "Strep-II tag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "WSHPQFEK"}
+    quantitative: {size_aa: "8"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.twin_strep"
+    name: "Twin-Strep tag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    quantitative: {size_aa: "28"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.avitag"
+    name: "AviTag"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "GLNDIFEAQKIEWHE"}
+    quantitative: {size_aa: "15"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.sbp"
+    name: "Streptavidin-binding peptide"
+    role: "SO:0000110"
+    role_label: "protein_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    quantitative: {size_aa: "38"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.mbp"
+    name: "MBP solubility tag"
+    role: "SO:0000316"
+    role_label: "fusion_cds"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "cell_free"]
+    quantitative: {size_aa: "396"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.gst"
+    name: "GST tag"
+    role: "SO:0000316"
+    role_label: "fusion_cds"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "cell_free"]
+    quantitative: {size_aa: "220"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.sumo"
+    name: "SUMO solubility tag"
+    role: "SO:0000316"
+    role_label: "fusion_cds"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "cell_free"]
+    quantitative: {size_aa: "100"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.nusa"
+    name: "NusA solubility tag"
+    role: "SO:0000316"
+    role_label: "fusion_cds"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "cell_free"]
+    quantitative: {size_aa: "495"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.trigger_factor"
+    name: "Trigger factor solubility tag"
+    role: "SO:0000316"
+    role_label: "fusion_cds"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "cell_free"]
+    quantitative: {size_aa: "432"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.trx"
+    name: "Thioredoxin solubility tag"
+    role: "SO:0000316"
+    role_label: "fusion_cds"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "cell_free"]
+    quantitative: {size_aa: "109"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.snap"
+    name: "SNAP tag"
+    role: "SO:0000316"
+    role_label: "self_labelling_tag_cds"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    quantitative: {size_aa: "182-297 family range"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.clip"
+    name: "CLIP tag"
+    role: "SO:0000316"
+    role_label: "self_labelling_tag_cds"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    quantitative: {size_aa: "182-297 family range"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.halo"
+    name: "HaloTag"
+    role: "SO:0000316"
+    role_label: "self_labelling_tag_cds"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    quantitative: {size_aa: "182-297 family range"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.spytag_spycatcher"
+    name: "SpyTag / SpyCatcher pair"
+    role: "SO:0000110"
+    role_label: "covalent_conjugation_tag"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    quantitative: {size_aa: "SpyTag 13; SpyCatcher 116"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "tag.sortase_lpetg"
+    name: "Sortase A LPETG motif"
+    role: "SO:0000110"
+    role_label: "enzymatic_conjugation_motif"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "LPETG"}
+    quantitative: {size_aa: "5-7"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "linker.flexible_ggggs"
+    name: "Flexible Gly-Ser linker"
+    role: "SO:0000110"
+    role_label: "peptide_linker"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_repeat", value: "(GGGGS)n", typical_n: "1-4"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "linker.rigid_eaaak"
+    name: "Rigid EAAAK alpha-helical linker"
+    role: "SO:0000110"
+    role_label: "peptide_linker"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_repeat", value: "(EAAAK)n"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "linker.mixed_gsg"
+    name: "Mixed GSG linker"
+    role: "SO:0000110"
+    role_label: "peptide_linker"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_repeat", value: "(GSG)n"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "cleavage.tev"
+    name: "TEV protease cleavage site"
+    role: "SO:0000110"
+    role_label: "protease_cleavage_site"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "ENLYFQG_or_ENLYFQS"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "cleavage.precission_3c"
+    name: "PreScission / 3C protease cleavage site"
+    role: "SO:0000110"
+    role_label: "protease_cleavage_site"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "LEVLFQGP"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "cleavage.thrombin"
+    name: "Thrombin cleavage site"
+    role: "SO:0000110"
+    role_label: "protease_cleavage_site"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "LVPRGS"}
+    notes: ["Less specific than TEV."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+  - id: "cleavage.enterokinase"
+    name: "Enterokinase cleavage site"
+    role: "SO:0000110"
+    role_label: "protease_cleavage_site"
+    source_section: "5.8"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "cell_free"]
+    sequence: {type: "amino_acid_motif", value: "DDDDKX"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.8"
+    citation: *cite_tags
+    maintenance: *item_maintenance
+
+  - id: "signal.igg_secretory"
+    name: "IgG signal peptide"
+    role: "SO:0000418"
+    role_label: "signal_peptide"
+    source_section: "5.9"
+    host_compatibility: ["mammalian"]
+    use_case: "ER secretion"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "signal.il2_secretory"
+    name: "IL-2 signal peptide"
+    role: "SO:0000418"
+    role_label: "signal_peptide"
+    source_section: "5.9"
+    host_compatibility: ["mammalian"]
+    use_case: "ER secretion"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "signal.alpha_factor_leader"
+    name: "S. cerevisiae alpha-factor leader"
+    role: "SO:0000418"
+    role_label: "signal_peptide"
+    source_section: "5.9"
+    host_compatibility: ["yeast"]
+    use_case: "yeast secretion"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "signal.pelb"
+    name: "pelB periplasmic export signal"
+    role: "SO:0000418"
+    role_label: "signal_peptide"
+    source_section: "5.9"
+    host_compatibility: ["bacterial"]
+    use_case: "E. coli periplasm export"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "signal.ompa"
+    name: "OmpA periplasmic export signal"
+    role: "SO:0000418"
+    role_label: "signal_peptide"
+    source_section: "5.9"
+    host_compatibility: ["bacterial"]
+    use_case: "E. coli periplasm export"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "signal.dsba"
+    name: "DsbA periplasmic export signal"
+    role: "SO:0000418"
+    role_label: "signal_peptide"
+    source_section: "5.9"
+    host_compatibility: ["bacterial"]
+    use_case: "E. coli periplasm export"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "localisation.nls_sv40"
+    name: "SV40 NLS"
+    role: "SO:0000110"
+    role_label: "nuclear_localisation_signal"
+    source_section: "5.9"
+    host_compatibility: ["mammalian"]
+    sequence: {type: "amino_acid_motif", value: "PKKKRKV"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "localisation.nes_hiv_rev"
+    name: "HIV-Rev NES"
+    role: "SO:0000110"
+    role_label: "nuclear_export_signal"
+    source_section: "5.9"
+    host_compatibility: ["mammalian"]
+    sequence: {type: "amino_acid_motif", value: "LPPLERLTL"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "localisation.mito_cox8"
+    name: "COX8 mitochondrial presequence"
+    role: "SO:0000418"
+    role_label: "mitochondrial_targeting_signal"
+    source_section: "5.9"
+    host_compatibility: ["mammalian", "yeast"]
+    use_case: "mitochondrial matrix import"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "localisation.er_retention_kdel_hdel"
+    name: "KDEL / HDEL ER-retention motif"
+    role: "SO:0000110"
+    role_label: "er_retention_signal"
+    source_section: "5.9"
+    host_compatibility: ["mammalian", "yeast", "plant"]
+    sequence: {type: "amino_acid_motif", value: "KDEL_or_HDEL"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "localisation.gpi_anchor_signal"
+    name: "GPI anchor signal"
+    role: "SO:0000110"
+    role_label: "membrane_anchor_signal"
+    source_section: "5.9"
+    host_compatibility: ["mammalian", "yeast", "plant"]
+    use_case: "GPI-anchored plasma membrane localisation"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+  - id: "localisation.lipidation_motifs"
+    name: "Palmitoylation / myristoylation motif panel"
+    role: "SO:0000110"
+    role_label: "membrane_attachment_motif"
+    source_section: "5.9"
+    host_compatibility: ["mammalian", "yeast"]
+    use_case: "N-terminal or site-specific lipid-mediated membrane attachment"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.9"
+    citation: *cite_localisation
+    maintenance: *item_maintenance
+
+  - id: "reporter.egfp"
+    name: "eGFP reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    output: "fluorescence"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.mneongreen"
+    name: "mNeonGreen reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    output: "fluorescence"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.mscarlet"
+    name: "mScarlet reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    output: "fluorescence"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.mcherry"
+    name: "mCherry reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    output: "fluorescence"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.mtagbfp2"
+    name: "mTagBFP2 reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    output: "fluorescence"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.irfp"
+    name: "iRFP reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    output: "fluorescence"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.firefly_luciferase"
+    name: "Firefly luciferase reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    output: "luminescence"
+    substrate: "D-luciferin + ATP"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.renilla_luciferase"
+    name: "Renilla luciferase reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    output: "luminescence"
+    substrate: "coelenterazine"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.nanoluc"
+    name: "NanoLuc reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    quantitative: {size: "19 kDa"}
+    output: "luminescence"
+    substrate: "furimazine"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.lacz"
+    name: "lacZ beta-galactosidase reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "plant"]
+    output: "colorimetric"
+    substrate: "X-gal"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.gus"
+    name: "GUS beta-glucuronidase reporter"
+    role: "SO:0000316"
+    role_label: "reporter_cds"
+    source_section: "5.10"
+    host_compatibility: ["plant", "bacterial"]
+    output: "histochemical"
+    substrate: "X-Gluc"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+  - id: "reporter.hibit_split_nanoluc"
+    name: "HiBiT / split-NanoLuc tag"
+    role: "SO:0000110"
+    role_label: "split_reporter_tag"
+    source_section: "5.10"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "insect", "plant", "cell_free"]
+    output: "split luminescence"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.10"
+    citation: *cite_reporters
+    maintenance: *item_maintenance
+
+  - id: "recombinase.cre_lox"
+    name: "Cre-lox landing-pad system"
+    role: "SO:0000299"
+    role_label: "recombination_feature"
+    source_section: "5.11"
+    host_compatibility: ["bacterial", "mammalian", "plant"]
+    recognition_sites: ["loxP", "lox2272", "loxN", "lox511"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.11"
+    citation: *cite_recombinases
+    maintenance: *item_maintenance
+  - id: "recombinase.flp_frt"
+    name: "Flp-FRT landing-pad system"
+    role: "SO:0000299"
+    role_label: "recombination_feature"
+    source_section: "5.11"
+    host_compatibility: ["bacterial", "yeast", "mammalian", "plant"]
+    recognition_sites: ["FRT"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.11"
+    citation: *cite_recombinases
+    maintenance: *item_maintenance
+  - id: "recombinase.bxb1"
+    name: "Bxb1 integrase landing-pad system"
+    role: "SO:0000299"
+    role_label: "recombination_feature"
+    source_section: "5.11"
+    host_compatibility: ["bacterial", "mammalian"]
+    recognition_sites: ["attP", "attB"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.11"
+    citation: *cite_recombinases
+    maintenance: *item_maintenance
+  - id: "recombinase.phic31"
+    name: "phiC31 integrase landing-pad system"
+    role: "SO:0000299"
+    role_label: "recombination_feature"
+    source_section: "5.11"
+    host_compatibility: ["bacterial", "mammalian"]
+    recognition_sites: ["attP", "attB"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.11"
+    citation: *cite_recombinases
+    maintenance: *item_maintenance
+  - id: "transposon.piggybac"
+    name: "PiggyBac transposon system"
+    role: "SO:0000110"
+    role_label: "transposon_feature"
+    source_section: "5.11"
+    host_compatibility: ["mammalian"]
+    recognition_sites: ["terminal repeats", "TTAA target site"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.11"
+    citation: *cite_recombinases
+    maintenance: *item_maintenance
+  - id: "transposon.sleeping_beauty_sb100x"
+    name: "Sleeping Beauty SB100X transposon system"
+    role: "SO:0000110"
+    role_label: "transposon_feature"
+    source_section: "5.11"
+    host_compatibility: ["mammalian"]
+    recognition_sites: ["ITRs", "TA target site"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.11"
+    citation: *cite_recombinases
+    maintenance: *item_maintenance
+  - id: "transposon.tol2"
+    name: "Tol2 transposon system"
+    role: "SO:0000110"
+    role_label: "transposon_feature"
+    source_section: "5.11"
+    host_compatibility: ["mammalian"]
+    recognition_sites: ["terminal sequences"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.11"
+    citation: *cite_recombinases
+    maintenance: *item_maintenance
+
+  - id: "crispr.grna_spcas9_standard_scaffold"
+    name: "SpCas9 standard gRNA scaffold"
+    role: "SO:0000110"
+    role_label: "guide_rna_scaffold"
+    source_section: "5.12"
+    host_compatibility: ["bacterial", "mammalian", "plant", "yeast", "cell_free"]
+    quantitative: {approximate_length_nt: "76"}
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.12"
+    citation: *cite_crispr
+    maintenance: *item_maintenance
+  - id: "crispr.grna_spcas9_dang2015_optimized"
+    name: "Dang 2015 optimized SpCas9 gRNA scaffold"
+    role: "SO:0000110"
+    role_label: "guide_rna_scaffold"
+    source_section: "5.12"
+    host_compatibility: ["bacterial", "mammalian", "plant", "yeast", "cell_free"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.12"
+    citation: *cite_crispr
+    maintenance: *item_maintenance
+  - id: "crispr.grna_pol3_expression"
+    name: "Pol-III gRNA expression cassette"
+    role: "SO:0000110"
+    role_label: "guide_rna_expression_cassette"
+    source_section: "5.12"
+    host_compatibility: ["mammalian"]
+    compatible_promoters: ["U6", "H1", "7SK"]
+    notes: ["U6 requires G at position +1; prepend G when needed with mismatch tolerance."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.12"
+    citation: *cite_crispr
+    maintenance: *item_maintenance
+  - id: "crispr.grna_pol2_processing"
+    name: "Pol-II multiplex gRNA processing cassette"
+    role: "SO:0000110"
+    role_label: "guide_rna_expression_cassette"
+    source_section: "5.12"
+    host_compatibility: ["mammalian", "plant", "yeast"]
+    processing_modes: ["Csy4", "RNase Z", "HH-HDV ribozymes"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.12"
+    citation: *cite_crispr
+    maintenance: *item_maintenance
+  - id: "crispr.cas9_variant_panel"
+    name: "Cas9 and Cas-family variant panel"
+    role: "SO:0000316"
+    role_label: "nuclease_cds"
+    source_section: "5.12"
+    host_compatibility: ["bacterial", "mammalian", "plant", "yeast", "cell_free"]
+    variants: ["wt SpCas9", "eSpCas9", "SpCas9-HF1", "HypaCas9", "xCas9", "SpRY", "SaCas9", "Cas12a/Cpf1", "Cas13"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.12"
+    citation: *cite_crispr
+    maintenance: *item_maintenance
+  - id: "crispr.base_editor_panel"
+    name: "Base editor panel"
+    role: "SO:0000316"
+    role_label: "base_editor_cds"
+    source_section: "5.12"
+    host_compatibility: ["mammalian", "plant", "yeast", "cell_free"]
+    variants: ["CBE", "ABE"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.12"
+    citation: *cite_crispr
+    maintenance: *item_maintenance
+  - id: "crispr.prime_editor_panel"
+    name: "Prime editor panel"
+    role: "SO:0000316"
+    role_label: "prime_editor_cds"
+    source_section: "5.12"
+    host_compatibility: ["mammalian", "plant", "yeast", "cell_free"]
+    variants: ["PE2", "PE3", "PEmax"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.12"
+    citation: *cite_crispr
+    maintenance: *item_maintenance
+
+  - id: "inducible.tet_on_3g_tre3g"
+    name: "Tet-On 3G / TRE3G inducible system"
+    role: "SO:0000110"
+    role_label: "inducible_expression_system"
+    source_section: "5.13"
+    host_compatibility: ["mammalian"]
+    inducer: "doxycycline"
+    notes: ["Tightest Tet variant in KB summary."]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.13"
+    citation: *cite_inducible
+    maintenance: *item_maintenance
+  - id: "inducible.tet_off"
+    name: "Tet-Off inducible system"
+    role: "SO:0000110"
+    role_label: "inducible_expression_system"
+    source_section: "5.13"
+    host_compatibility: ["mammalian"]
+    inducer: "absence of doxycycline"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.13"
+    citation: *cite_inducible
+    maintenance: *item_maintenance
+  - id: "inducible.dd_fkbp_shield1"
+    name: "FKBP destabilisation-domain system"
+    role: "SO:0000110"
+    role_label: "post_translational_control_system"
+    source_section: "5.13"
+    host_compatibility: ["mammalian"]
+    inducer: "Shield-1"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.13"
+    citation: *cite_inducible
+    maintenance: *item_maintenance
+  - id: "inducible.aid_auxin_degron"
+    name: "AID auxin-inducible degron"
+    role: "SO:0000110"
+    role_label: "post_translational_control_system"
+    source_section: "5.13"
+    host_compatibility: ["mammalian", "yeast", "plant"]
+    inducer: "indole-3-acetic acid"
+    required_host_features: ["Tir1"]
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.13"
+    citation: *cite_inducible
+    maintenance: *item_maintenance
+  - id: "inducible.dtag_fkbp12_f36v"
+    name: "dTAG / FKBP12-F36V degradation system"
+    role: "SO:0000110"
+    role_label: "post_translational_control_system"
+    source_section: "5.13"
+    host_compatibility: ["mammalian"]
+    inducer: "dTAG-13 or dTAGV-1"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.13"
+    citation: *cite_inducible
+    maintenance: *item_maintenance
+  - id: "inducible.rapamycin_dimerisation"
+    name: "Rapamycin-induced FKBP-FRB dimerisation system"
+    role: "SO:0000110"
+    role_label: "inducible_dimerisation_system"
+    source_section: "5.13"
+    host_compatibility: ["mammalian", "yeast"]
+    inducer: "rapamycin or AP21967"
+    licence: "reference_metadata_only"
+    provenance: "KB v2.0 section 5.13"
+    citation: *cite_inducible
+    maintenance: *item_maintenance

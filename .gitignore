@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.import_linter_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Virtual environments and local tools
+.venv/
+.uv-cache/
+.font-cache-test/
+
+# Build outputs
+build/
+dist/
+site/
+*.egg-info/
+
+# Project runtime artefacts
+/events/
+/snapshots/
+/exports/
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+
+# Local OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

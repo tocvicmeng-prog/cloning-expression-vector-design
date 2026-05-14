@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-03",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for SR-03: Per-50-bp-window GC within bounds. Twist Express: 35\u201365 %, GC delta \u2264 52 %.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-03.passing",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

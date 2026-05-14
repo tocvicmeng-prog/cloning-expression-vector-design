@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-17",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-17: Terminator presence and strength: every transcription unit must end in a terminator (bacterial) or polyadenylation signal (eukaryotic).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-17.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

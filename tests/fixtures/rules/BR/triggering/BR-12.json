@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "BR-12",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for BR-12: Authorisation-profile mutation MUST require AdminPrincipal or DeveloperBootstrapPrincipal credentials and MUST emit an AdminActionMinted / Modified / Revoked event to the immutable audit log. User and Reviewer roles MUST NOT mutate any AuthorisationProfile.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.BR-12.triggering",
+    "category": "BR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

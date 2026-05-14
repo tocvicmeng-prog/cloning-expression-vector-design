@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-22",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-22: If wild-type WPRE detected \u2192 recommend WPRE3 (mut6) variant.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-22.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

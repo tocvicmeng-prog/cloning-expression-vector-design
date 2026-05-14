@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CEV parts catalogue",
+  "type": "object",
+  "required": ["catalogue_id", "schema_version", "maintenance", "items"],
+  "properties": {
+    "catalogue_id": {"type": "string", "minLength": 1},
+    "schema_version": {"type": "string", "minLength": 1},
+    "maintenance": {
+      "type": "object",
+      "required": ["retrieved_at", "valid_until", "source_url", "review_required_after"],
+      "properties": {
+        "retrieved_at": {"type": "string", "format": "date"},
+        "valid_until": {"type": "string", "format": "date"},
+        "source_url": {"type": "string", "minLength": 1},
+        "review_required_after": {"type": "string", "format": "date"}
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "role",
+          "role_label",
+          "source_section",
+          "host_compatibility",
+          "licence",
+          "provenance",
+          "citation",
+          "maintenance"
+        ],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "role": {"type": "string", "minLength": 1},
+          "role_label": {"type": "string", "minLength": 1},
+          "source_section": {"type": "string", "minLength": 1},
+          "host_compatibility": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "licence": {"type": "string", "minLength": 1},
+          "provenance": {"type": "string", "minLength": 1},
+          "citation": {
+            "type": "object",
+            "required": ["text", "grade", "accessed"],
+            "properties": {
+              "text": {"type": "string", "minLength": 1},
+              "grade": {"type": "string", "enum": ["A1", "A2", "A3", "B1", "B2", "C"]},
+              "accessed": {"type": "string", "format": "date"}
+            }
+          },
+          "maintenance": {
+            "type": "object",
+            "required": ["retrieved_at", "valid_until", "source_url", "review_required_after"],
+            "properties": {
+              "retrieved_at": {"type": "string", "format": "date"},
+              "valid_until": {"type": "string", "format": "date"},
+              "source_url": {"type": "string", "minLength": 1},
+              "review_required_after": {"type": "string", "format": "date"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

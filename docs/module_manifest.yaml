@@ -1,0 +1,330 @@
+# Manually curated seed module manifest. T-204 owns production refinement.
+generated_from: ARCHITECTURE.md 4.2 + CODING_AGENDA.md v1.5
+agenda_version: v1.5
+module_count: 63
+modules:
+  - module_id: "domain.sequence"
+    layer: "domain"
+    architecture_section: "4.2.1"
+    tasks: ["T-301"]
+    status: "seed"
+  - module_id: "domain.graph"
+    layer: "domain"
+    architecture_section: "4.2.1"
+    tasks: ["T-302"]
+    status: "seed"
+  - module_id: "domain.types"
+    layer: "domain"
+    architecture_section: "4.2.1"
+    tasks: ["T-303", "T-306", "T-307", "T-315"]
+    status: "seed"
+  - module_id: "domain.library"
+    layer: "domain"
+    architecture_section: "4.2.1"
+    tasks: ["T-303", "T-606"]
+    status: "seed"
+  - module_id: "domain.security"
+    layer: "domain"
+    architecture_section: "4.2.1"
+    tasks: ["T-304", "T-314a", "T-314b"]
+    status: "seed"
+  - module_id: "domain.events"
+    layer: "domain"
+    architecture_section: "4.2.1"
+    tasks: ["T-305"]
+    status: "seed"
+  - module_id: "domain.ports"
+    layer: "domain"
+    architecture_section: "4.5"
+    tasks: ["T-203", "T-312a", "T-313a", "T-314a", "T-316a", "T-315", "T-1103a"]
+    status: "seed"
+  - module_id: "domain.canonicalisation"
+    layer: "domain"
+    architecture_section: "4.6"
+    tasks: ["T-307"]
+    status: "seed"
+  - module_id: "engine.session"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-309"]
+    status: "seed"
+  - module_id: "engine.dependencies"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-501"]
+    status: "seed"
+  - module_id: "engine.validation"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-502", "T-503", "T-602"]
+    status: "seed"
+  - module_id: "engine.compatibility"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-504"]
+    status: "seed"
+  - module_id: "engine.sequence_analysis"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-503"]
+    status: "seed"
+  - module_id: "engine.codon"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-701"]
+    status: "seed"
+  - module_id: "engine.overhang"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-702"]
+    status: "seed"
+  - module_id: "engine.assembly"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-703"]
+    status: "seed"
+  - module_id: "engine.primer"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-704"]
+    status: "seed"
+  - module_id: "engine.risk_classification"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-801"]
+    status: "seed"
+  - module_id: "engine.design_plan"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-802"]
+    status: "seed"
+  - module_id: "engine.controls"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-804"]
+    status: "seed"
+  - module_id: "engine.vlp_policy"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-807"]
+    status: "seed"
+  - module_id: "engine.sop_protocol"
+    layer: "engine"
+    architecture_section: "4.2.1"
+    tasks: ["T-803"]
+    status: "seed"
+  - module_id: "app.design_service"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-606"]
+    status: "seed"
+  - module_id: "app.decision_tree"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-607"]
+    status: "seed"
+  - module_id: "app.constraint_translator"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-1201"]
+    status: "seed"
+  - module_id: "app.validation_orchestrator"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-603"]
+    status: "seed"
+  - module_id: "app.assembly_orchestrator"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-705"]
+    status: "seed"
+  - module_id: "app.primer_orchestrator"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-704", "T-705"]
+    status: "seed"
+  - module_id: "app.design_plan_orchestrator"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-805a"]
+    status: "seed"
+  - module_id: "app.sop_protocol_orchestrator"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-805b"]
+    status: "seed"
+  - module_id: "app.controls_orchestrator"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-804", "T-805a"]
+    status: "seed"
+  - module_id: "app.screening_orchestrator"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-1002"]
+    status: "seed"
+  - module_id: "app.library_realisation"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-606"]
+    status: "seed"
+  - module_id: "app.export_orchestrator"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-903"]
+    status: "seed"
+  - module_id: "app.part_library_service"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-606"]
+    status: "seed"
+  - module_id: "app.admin_action_handler"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-311", "T-316b"]
+    status: "seed"
+  - module_id: "app.audit_key_rotation_service"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-312b"]
+    status: "seed"
+  - module_id: "app.decision_record_key_management"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-314b"]
+    status: "seed"
+  - module_id: "app.sop_template_key_management"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-316c"]
+    status: "seed"
+  - module_id: "app.review_queue"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-315"]
+    status: "seed"
+  - module_id: "app.authorisation_decision"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-806b"]
+    status: "seed"
+  - module_id: "app.advisory_acknowledgement"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-806a"]
+    status: "seed"
+  - module_id: "app.plugin_governance"
+    layer: "app"
+    architecture_section: "4.2.2"
+    tasks: ["T-808"]
+    status: "seed"
+  - module_id: "adapter.io"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-308", "T-901"]
+    status: "seed"
+  - module_id: "adapter.biology"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-601a..k"]
+    status: "seed"
+  - module_id: "adapter.catalogue"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-401", "T-402", "T-403", "T-404", "T-405", "T-406", "T-316b"]
+    status: "seed"
+  - module_id: "adapter.persistence"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-310", "T-315", "T-316b"]
+    status: "seed"
+  - module_id: "adapter.security.audit_key"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-312b"]
+    status: "seed"
+  - module_id: "adapter.security.signing_key_archive"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-314b", "T-316c"]
+    status: "seed"
+  - module_id: "adapter.security.profile_signing"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-314b"]
+    status: "seed"
+  - module_id: "adapter.security.decision_record_signing"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-314b"]
+    status: "seed"
+  - module_id: "adapter.security.sop_template_signing"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-316c"]
+    status: "seed"
+  - module_id: "adapter.ipc"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-313b"]
+    status: "seed"
+  - module_id: "adapter.vendor"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-1001"]
+    status: "seed"
+  - module_id: "adapter.screening"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-1002"]
+    status: "seed"
+  - module_id: "adapter.snapgene"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-902", "T-1203"]
+    status: "seed"
+  - module_id: "adapter.llm"
+    layer: "adapter"
+    architecture_section: "4.2.3"
+    tasks: ["T-1201"]
+    status: "seed"
+  - module_id: "interface.cli"
+    layer: "interface"
+    architecture_section: "4.2.4"
+    tasks: ["T-1101"]
+    status: "seed"
+  - module_id: "interface.api"
+    layer: "interface"
+    architecture_section: "4.2.4"
+    tasks: ["T-1102"]
+    status: "seed"
+  - module_id: "interface.ui"
+    layer: "interface"
+    architecture_section: "4.2.4"
+    tasks: ["T-1202"]
+    status: "seed"
+  - module_id: "interface.audit_service"
+    layer: "interface"
+    architecture_section: "4.2.4"
+    tasks: ["T-313b"]
+    status: "seed"
+  - module_id: "interface.admin_service"
+    layer: "interface"
+    architecture_section: "4.2.4"
+    tasks: ["T-1103b"]
+    status: "seed"
+  - module_id: "tests.uat"
+    layer: "test"
+    architecture_section: "13"
+    tasks: ["T-1301", "T-1302"]
+    status: "seed"
+  - module_id: "benchmarks"
+    layer: "test"
+    architecture_section: "13"
+    tasks: ["T-1303"]
+    status: "seed"
+  - module_id: "project.scaffold"
+    layer: "project"
+    architecture_section: "2"
+    tasks: ["T-201", "T-202", "T-203", "T-204", "T-205"]
+    status: "seed"

@@ -1,0 +1,249 @@
+# TASK_BOARD.md — War-Room Dashboard (v1.5 consistency release)
+
+**Derived from:** `CODING_AGENDA.md` v1.5 + `ROADMAP.md` v1.5 + `ARCHITECTURE.md` v1.5. Counts below are seed-manifest checked against `docs/task_manifest.yaml` and `tools/agenda_consistency_check.py`; T-204 later owns the production manifest generator/refinement workflow.
+**Last updated:** 2026-05-14 (T-602 biology-dependent predicates complete locally; project is a Git repository on `main` and uses non-editable `uv` installs for Windows/OneDrive/non-ASCII path reliability).
+**Maintained by:** `/dev-orchestrator`. **Live mirror command (Phase 11+):** `vector-design status`.
+
+## 1.1 v1.3 changes (operational security / audit boundary pass)
+
+This dashboard was regenerated for v1.3:
+
+- **Phase 3 task count: 12 → 17.** Historical v1.3 added audit-key split work, audit append broker work, profile-signing work, review-queue workflow, and SOP-template admin-write persistence. v1.4/v1.5 later split those responsibilities into the current task IDs shown in § 1.
+- **Phase 11 task count: 2 → 3.** Historical v1.3 added the admin-service executable boundary; v1.4/v1.5 later split it into T-1103a and T-1103b.
+- **Phase 2 task T-205** simplified: `test_worker_pool_factory.py` moved to T-502 per B3-07; T-205 keeps only `test_spawn_context_available.py` probe.
+- **CI gate table § 7** updated: `rule-fixture-coverage-check` enforced at T-405 verification per H3-08; new gate `task-acceptance-completeness-check` added per M3-03.
+
+**v1.2 changes (retained context).** Phase 8 split into 8a/8b (B-03), Phase 9 split into 9a/9b (B2-02), T-805 split into T-805a/T-805b (B2-09), T-311 admin handler + T-312 audit-key tasks (B2-04 / B2-08).
+
+**Next milestone.** Phase 6 — `T-603` validation orchestrator is next. Phase 2 scaffold (`T-201`..`T-205`), all Phase 3 tasks (`T-301`..`T-315`), all Phase 4 tasks (`T-401`..`T-406`, `T-316c`, `T-316b`), all Phase 5 tasks (`T-501`, `T-502`, `T-504`, `T-503`), T-601a..k, and T-602 are done + locally verified.
+
+---
+
+## 0. Status legend
+
+| Symbol | Meaning |
+|---|---|
+| ✅ | done + verified (all six audit dimensions green) |
+| 🟢 | execution-complete (CI verify pending) |
+| 🟡 | in-progress |
+| ⚪ | planned (task brief drafted, not yet assigned) |
+| 🔴 | blocked (with reason linked) |
+| ⏸ | paused (deferred per orchestrator decision) |
+
+---
+
+## 1. Global progress
+
+| Phase | Status | Done / Total | Notes |
+|---|---|---|---|
+| Phase 0 — Foundations | ✅ | 5 / 5 | KBs v1.0+v2.0, audit report, white paper, requirements |
+| Phase 1 — Architectural framework | ✅ | 4 / 4 | ARCHITECTURE v1.5; 2 Codex audits resolved; 31/31 + 31/32 findings accepted |
+| Phase 2 — Project scaffold | ✅ | 5 / 5 | T-201..T-205 verified locally. |
+| Phase 3 — Core domain model + sequence I/O + security ports | ✅ | 19 / 19 | T-301..T-315 verified locally. **v1.5 physical task order:** T-301 → T-302 → T-303 → T-304 → T-305 → T-306 → T-307 → **T-312a** → **T-313a** → **T-314a** → **T-316a** → T-308 → T-309 → T-310 → T-311 → **T-312b** → **T-314b** → **T-313b** → **T-315**. T-314b precedes production T-313b so audit-service authentication can use the production verifier. |
+| Phase 4 — Catalogues | ✅ | 8 / 8 | T-401 catalogue loader framework + JSON Schemas, T-402 parts catalogue, T-403 hosts catalogue, T-404 enzymes catalogue + buffer compatibility, T-405 rule manifests + fixtures + stubs, T-406 policy/profile catalogues, T-316c production SOP-template signing, and T-316b signed SQLite SOP-template store/bootstrap verified locally. |
+| Phase 5 — Validation rule engine | ✅ | 4 / 4 | T-501 validation dependency DAG, T-502 pure validation executor, T-504 host compatibility, and T-503 sequence analysis + implemented structural-predicate subset verified locally. |
+| Phase 6 — Biology back-ends + app services | 🟡 | 2 / 5 | T-601a..k deterministic local biology adapters and T-602 biology-dependent predicates verified locally. Next: T-603 validation orchestrator. |
+| Phase 7 — Codon + assembly + overhang + primer | ⚪ | 0 / 5 | T-701..T-705 planned (sub-split: 9 total; v1.1 added T-703e SLIC) |
+| **Phase 8a** — Design plan + controls + advisory data + advisory presentation (pre-screening) | ⚪ | 0 / 7 | T-801, T-802, T-804, **T-805a (`app.design_plan_orchestrator` — v1.2 new per B2-09)**, T-806a, T-807, T-808 |
+| **Phase 9a** — Sequence I/O extensions + SnapGene file-watch (pre-screening; v1.2 split per B2-02) | ⚪ | 0 / 2 | T-901, T-902 (depends on T-308e; no local `dna_reader.py` per v1.2 H2-04) |
+| Phase 10 — Vendor + screening | ⚪ | 0 / 2 | T-1001 (×3), T-1002. v1.2 `ScreeningCompleted` emitted to **design stream** per B2-05. |
+| **Phase 8b** — SOP rendering + authorisation gate (post-Phase 10 + post-Phase-9a) | ⚪ | 0 / 3 | T-803, **T-805b (`app.sop_protocol_orchestrator` — v1.2 renamed per B2-09)**, T-806b. v1.2 T-806b home of BR-14 (H2-11). |
+| **Phase 9b** — Final export orchestrator (post-Phase 8b; v1.2 split per B2-02) | ⚪ | 0 / 1 | T-903 — `app.export_orchestrator` moved from old single Phase 9 |
+| Phase 11 — HTTP API + CLI + admin-service IPC | ⚪ | 0 / 4 | **v1.4 task order per B4-08:** **T-1103a** (AdminServiceClientPort Protocol + IPC contract + test client; FIRST) → T-1101 → T-1102 → **T-1103b** (admin-service production + IPC server + ACL + ReviewQueueAdminPort; LAST). T-1101 + T-1102 forbidden from importing `AdminActionHandler` directly per H4-02. |
+| Phase 12 — Web UI + LLM + live SnapGene | ⚪ | 0 / 3 | T-1201 (red-team needed), T-1202 (UI subtasks), T-1203 |
+| Phase 13 — Acceptance UAT + library + release | ⚪ | 0 / 3 | T-1301..T-1303. v1.2 T-1302 adversarial UAT extended with construct-checksum-mismatch + programmatic-event-bypass + audit-key-absent + audit-key-compromise scenarios per M2-02. |
+
+**Cumulative (v1.5, seed-manifest checked):** 9 foundation items done + 38 implementation tasks done / **71 active Section 2 implementation task cards**. The fifth-round audit's stale legacy profile-signing heading is removed; `T-601a..k` remains one active card with formal range expansion for child briefs. Phase 0–5 complete locally; Phase 6 in progress; next task T-603.
+
+**Phase-order reminder (v1.5, unchanged from v1.2 except Phase 10 physical placement already applied):** 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → **8a** → **9a** → **10** → **8b** → **9b** → 11 → 12 → 13. **v1.4 B4-01:** Section 2 of `CODING_AGENDA.md` is now physically ordered to match — Phase 10 inserted between Phase 9a and Phase 8b.
+
+---
+
+## 2. Current bottlenecks (top 5)
+
+_None at present — Phase 6 is unblocked. The orchestrator can open `T-603` immediately._
+
+Anticipated future bottlenecks:
+
+| Anticipated bottleneck | Phase | Mitigation in CODING_AGENDA |
+|---|---|---|
+| SpliceAI licensing / TensorFlow size | 6 | Adapter is optional; HTTP-service fallback + alternative lighter adapters declared (CODING_AGENDA § 2.6.1 / OQ-05). |
+| Curated rule fixtures (~150 rules × 2 fixtures) | 4 / 5 | Parallel sub-tasks T-405a..e; fixtures authored in the same task as the rule manifest entry. |
+| Twist/IDT vendor-API access for live cost estimation | 10 | Vendor adapters use static profiles (`catalogues/vendor_profiles/*.yaml`); live API is Phase 15 stretch. |
+| SnapGene Server API maturity | 12 | UR-01b is SHOULD; falls back to UR-01a (file-watch) if API unavailable. |
+| Container determinism across CPU architectures | 2 / 13 | Pinned CPU arch in Dockerfile; determinism check runs only inside container in CI. |
+
+---
+
+## 3. Active task queue
+
+_Empty — no tasks assigned yet. Phase 6 next task is `T-603`._
+
+| Task ID | Module | Phase | Tier | Assignee | Started | ETA | Stage |
+|---|---|---|---|---|---|---|---|
+| — | — | — | — | — | — | — | — |
+
+---
+
+## 4. Recently completed (Phase 0 + Phase 1)
+
+| Task ID | Deliverable | Date | Notes |
+|---|---|---|---|
+| F-001 | `Cloning_and_Expression_Vector_Design_Knowledge_Base_v1_0.md` | 2026-05-13 | Original primer; superseded by v2.0 |
+| F-002 | `Cloning_KB_v2_Audit_Report.md` | 2026-05-13 | Cross-audit of v1.0 → v2.0 |
+| F-003 | `Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md` | 2026-05-13 | Source-of-truth citation chain |
+| F-004 | `Cloning_Expression_Vector_Design_White_Paper.md` | 2026-05-13 | First-principles pedagogical paper |
+| F-005 | `REQUIREMENTS.md` v0.1 | 2026-05-13 | SRS; UR-01..11; FR/MR/WR/SR/BR/MS/ADV catalogues |
+| A-001 | `ARCHITECTURE.md` v1.0 | 2026-05-13 | Initial three-role architecture (4 rounds of internal falsification) |
+| A-002 | `audit report/ARCHITECTURE_Audit_Report.md` | 2026-05-13 | First Codex audit (31 findings) |
+| A-003 | `audit report/ARCHITECTURE_Audit_Response.md` + ARCHITECTURE v1.1 / v1.2 / v1.3 | 2026-05-13 | 31/31 accepted; sponsor sharpening of C1; role-hierarchy clarification |
+| A-004 | `audit report/ARCHITECTURE_Second_Audit_Report_v1_2.md` | 2026-05-13 | Second Codex audit (32 findings) |
+| A-005 | `audit report/ARCHITECTURE_Second_Audit_Response.md` + ARCHITECTURE v1.4 | 2026-05-13 | 31/32 accepted, B3 defended with `BiosafetyClassificationLayer` mitigation |
+| A-006 | ARCHITECTURE.md v1.5 | 2026-05-14 | Sponsor strengthening of B3 — active, auditable, design-record-tied advisory acknowledgement |
+| A-007 | `CODING_AGENDA.md` v1.0 | 2026-05-14 | Authoritative coding plan; 4 rounds of three-role adversarial review |
+| A-008 | `TASK_BOARD.md` (this file) | 2026-05-14 | War-room dashboard starter |
+| A-009 | `audit report/CODING_AGENDA_Audit_Report.md` (Codex) | 2026-05-14 | External audit of CODING_AGENDA.md (5 blocking + 8 high + 8 moderate findings) |
+| A-010 | `audit report/CODING_AGENDA_Audit_Response.md` + CODING_AGENDA.md v1.1 | 2026-05-14 | 21/21 findings accepted; type-placement fix (B-01), missing-modules added (B-02), Phase 8 split (B-03), CI-gate lifecycle states (B-04), rule-fixture-mandatory T-405 (B-05), plus 8 high + 8 moderate fixes |
+| A-011 | `audit report/CODING_AGENDA_Second_Round_Audit_Report.md` (Codex) | 2026-05-14 | Second-round external audit of CODING_AGENDA.md v1.1 (9 blocking + 11 high + 9 moderate findings) |
+| A-012 | `audit report/CODING_AGENDA_Second_Round_Audit_Response.md` + CODING_AGENDA.md v1.2 + ROADMAP.md v1.2 + TASK_BOARD.md v1.2 | 2026-05-14 | 29/29 findings accepted; ROADMAP regenerated (B2-01), Phase 9 split into 9a/9b (B2-02), § 3 wiring rewritten end-to-end (B2-03), T-311 admin handler added (B2-04), event-stream ownership corrected (B2-05), T-203c port inventory explicit (B2-06), CI lifecycle column (B2-07), T-312 audit-key management added (B2-08), T-805 split into T-805a/T-805b (B2-09), plus 11 high + 9 moderate fixes |
+| A-013 | `audit report/CODING_AGENDA_Third_Round_Audit_Report.md` (Codex) | 2026-05-14 | Third-round external audit of CODING_AGENDA.md v1.2 (8 blocking + 11 high + 8 moderate findings) |
+| A-014 | `audit report/CODING_AGENDA_Third_Round_Audit_Response.md` + CODING_AGENDA.md v1.3 + ROADMAP.md v1.3 + TASK_BOARD.md v1.3 + README.md v1.3 | 2026-05-14 | 27/27 findings accepted; new T-313 `AuditAppendPort` broker (B3-01); T-312 split (B3-02); governance events embed full signed payloads (B3-03); T-314 profile signing (B3-04); T-316 SOP-template admin write port (B3-05); T-315 review queue (B3-06); T-205 probe (B3-07); T-309 single identity (B3-08); T-1103 IPC (H3-09); `DeveloperBootstrapPrincipal` (H3-10) |
+| A-015 | `audit report/CODING_AGENDA_Fourth_Round_Audit_Report.md` (Codex) | 2026-05-14 | Fourth-round external audit of CODING_AGENDA.md v1.3 (9 blocking + 10 high + 8 moderate findings) |
+| A-016 | `audit report/CODING_AGENDA_Fourth_Round_Audit_Response.md` + CODING_AGENDA.md v1.4 + ROADMAP.md v1.4 + TASK_BOARD.md v1.4 | 2026-05-14 | 27/27 findings accepted; Section 2 physical reorder per B4-01 (Phase 10 between 9a and 8b); split task strategy introduced. |
+| A-017 | `audit report/CODING_AGENDA_Fifth_Round_Audit_Report.md` | 2026-05-14 | Fifth-round audit found remaining synchronization drift in v1.4 (10 blocking + 9 high + 6 moderate). |
+| A-018 | CODING_AGENDA.md v1.5 + ROADMAP.md v1.5 + TASK_BOARD.md v1.5 + seed manifests + Codex working files | 2026-05-14 | Fifth-round consistency pass: active heading order/counts fixed, stale T-314 removed, port inventory corrected to 50, source docs amended, seed manifests/checker added. |
+| T-201 | Python project bootstrap | 2026-05-14 | `pyproject.toml`, `uv.lock`, Python 3.11.15 pin, CI workflow, Dockerfile, Apache-2.0 licence, canonical fonts, font installer, bootstrap package, and smoke tests added; local verification green with `uv --no-editable`. |
+| T-202 | Directory scaffold | 2026-05-14 | `src/` layer packages, `domain/ports`, catalogue placeholders, event streams, snapshots, exports, task/handover folders, benchmarks, UAT folder, task brief, and scaffold tests added; docs-site and pre-commit bootstrap stubs added. |
+| T-203 | Public API stubs + 50-port inventory | 2026-05-14 | Source-layer manifest modules import; `domain.ports` declares all 50 Protocols; port-inventory and module-manifest tests green; import-linter domain/engine contracts kept. |
+| T-204 | CI gate skeletons + manifest tooling | 2026-05-14 | Lifecycle-aware gate runner, gate skeletons, manifest generators, task-count reporter, and 71 seed task briefs added; meaningful informational gates verified. |
+| T-205 | Platform-readiness baseline | 2026-05-14 | Sync-like non-ASCII/space paths, SQLite WAL concurrency, debounce harness, atomic writes, spawn context, IPC path checks, POSIX socket skip path, and active OneDrive skipped smoke test added. |
+| T-301 | `domain.sequence` primitives | 2026-05-14 | Sequence ADT, `SequenceRecord`, canonical circular checksum, formal `LocationV14`, structured `Qualifier`, `FeatureV14`, and typed construct hashes implemented; 100% package coverage and full local gates green. |
+| T-302 | `domain.graph` canonical construct graph | 2026-05-14 | Immutable graph nodes/edges, topology and endpoint validation, deterministic canonical JSON, state-transition helpers, and derived feature table implemented; 99.60% package coverage and full local gates green. |
+| T-303 | `domain.types` core entities + `domain.library` expand | 2026-05-14 | Parts, hosts, modules, constructs, libraries, assembly methods/plans, validation rules, and host-compat constraints implemented; `Construct.feature_table` bound to `derive_feature_table(graph)`; 95.70% package coverage and full local gates green. |
+| T-304 | `domain.security` roles, principals, and signed authorisation profiles | 2026-05-14 | Security/operational role split, one-way admin→reviewer inheritance, bootstrap developer authority, covered biological scope, dual-control flags, unsigned drafts, signed profile hash invariants, declarations, and decisions implemented; 95.56% coverage and full local gates green. |
+| T-305 | `domain.events` typed design/governance/export streams | 2026-05-14 | Deterministic event base, design/governance/export subclasses, active advisory presentation events, self-contained governance payloads, and stream ownership for screening/authorisation/SOP events implemented; 97.98% coverage and full local gates green. |
+| T-306 | `domain.types` namespace split + `sop_protected` partition | 2026-05-14 | Non-operational design-plan/control/risk-advisory/governance values and operational SOP-protected protocol types implemented; runtime guard and import-linter partition enforce that design plans cannot contain `ProtocolStep`; 87.34% coverage and full local gates green. |
+| T-307 | `domain.types.derivation` + RFC 8785 JCS canonicalisation | 2026-05-14 | RFC 8785 canonical JSON package, 32 golden vectors, `$$cev:` scalar tags, rejection rules, `DerivationEnvironmentV14`, policy enums, and stable environment hashes implemented; 92.46% coverage and full local gates green. |
+| T-312a | `AuditKeyProvider` Protocol + `TestAuditKeyProvider` | 2026-05-14 | Typed audit-key Protocol moved to `domain.ports.audit_key` with `KeyVersionId`/`MacBytes`, no raw key accessor, deterministic HMAC fake, rotation/archive verification, and contract tests; 100% `domain.ports` coverage and full local gates green. |
+| T-313a | `AuditAppendPort` / `AdminAuditAppendPort` Protocols + fake brokers | 2026-05-14 | Append-only audit client Protocols, `ServicePrincipal`, shared fake engine/admin HMAC chain, chain-integrity helpers, and separation-of-duty tests implemented; also fixed current-key verification in the T-312a fake; 96.97% slice coverage and full local gates green. |
+| T-314a | Profile/decision-record signing Protocols + fakes | 2026-05-14 | Profile signer/verifier, decision-record signer/verifier, `SignedDecisionRecord`, signing result/error taxonomy, deterministic fakes, and contract tests implemented; 93.15% slice coverage and full local gates green. |
+| T-316a | SOP-template split ports + signer/verifier Protocols | 2026-05-14 | `SopTemplate` value objects, read/admin/bootstrap/sign/verify Protocols, SOP-template verification errors, deterministic fake signer/verifier, and contract tests implemented; 93.59% slice coverage and full local gates green. |
+| T-308 | Sequence I/O adapters + imported construct contracts | 2026-05-14 | GenBank, FASTA, SBOL3 sequence, and read-only SnapGene `.dna` adapters implemented with explicit loss warnings and imported/annotated construct invariants; 87.61% slice coverage and full local gates green. |
+| T-309 | Session state machine + replay + pending safety gates | 2026-05-14 | Event-sourced `DesignSession`, cross-stream replay invariants, derivation-hash snapshots, pending `Block*` registry, predicate version helpers, and activation map implemented; 91.78% slice coverage and full local gates green. |
+| T-310 | Persistence adapters | 2026-05-14 | SQLite project/session store, append-only JSONL logs, SQLite audit read/tamper verification, read-only authorisation store, and filesystem snapshot store implemented; 87.89% slice coverage and full local gates green. |
+| T-311 | Admin action handler + authorisation write side | 2026-05-14 | Split authorisation ports, SQLite write adapter, signed profile mint/modify/revoke/bootstrap handler, governance events, and denial paths implemented; 92.64% slice coverage and full local gates green. |
+| T-312b | Production audit-key adapters + rotation service + offline verifier | 2026-05-14 | File escrow keystore, explicit Windows-DPAPI/POSIX-keyring CI fallbacks, backend selector, admin/bootstrap rotation workflow, signed `AuditKeyRotated` governance event, offline SQLite verifier, runbook, and adversarial tests implemented; 90.36% slice coverage and full local gates green. |
+| T-314b | Production profile + decision-record signing adapters and key lifecycle | 2026-05-14 | Ed25519 institutional profile signer/verifier, per-principal decision-record signer/verifier, shared signing-key archive, admin/bootstrap key-management events, offline verifier tools, runbooks, rotation/revocation/tamper tests, and cryptographic-identity separation implemented; 89.85% slice coverage and full local gates green. |
+| T-313b | Production single-writer audit-service + IPC | 2026-05-14 | SQLite single-writer audit log, framed JSON audit-service server/handlers, IPC client implementing `AuditAppendPort`/`AdminAuditAppendPort`, authentication via production decision-record verifier, governance failure writer, timeout retry behavior, crash recovery, rotation transition, and concurrent append tests implemented; 91.51% slice coverage and full local gates green. |
+| T-315 | Review queue + authorisation-request service | 2026-05-14 | `AuthorisationRequest` / `ReviewQueueItem` / signed `ReviewQueueItemDecision` value objects, typed `ReviewQueueStore` / `ReviewQueueAdminPort`, append-only SQLite queue, user/service submission, admin-only resolution helper, governance events, no-auto-grant recovery path, and adversarial self-approval tests implemented; 92.60% slice coverage and full local gates green. |
+| T-401 | Catalogue loader framework + JSON Schemas | 2026-05-14 | `adapter.catalogue` package, generic YAML loader, `MaintenanceMetadata` and graded citation parsing, JSON-Schema subset validator, seed schemas for catalogue families, seed manifest entries, `stale-catalogue-check`, `source-grade-citation-check`, and catalogue gate tests implemented; 89.41% slice coverage and full local gates green. |
+| T-402 | Parts catalogue population | 2026-05-14 | `catalogues/parts.yaml` populated from KB v2.0 §§ 5.1-5.13 with 160+ structured entries; parts schema tightened around required metadata; T-402 catalogue coverage, host-compatibility, maintenance, and citation traceability tests added; focused slice green at 89.41% coverage. |
+| T-403 | Hosts catalogue | 2026-05-14 | `catalogues/hosts.yaml` populated from KB v2.0 § 6 with 60+ strain/context entries across bacterial, yeast, mammalian, insect, plant, cell-free, and phage/VLP chassis classes; host schema tightened; T-403 metadata and citation traceability tests added; focused slice green at 89.41% coverage. |
+| T-404 | Enzymes catalogue + buffer-compatibility matrix | 2026-05-14 | `catalogues/enzymes.yaml` populated with 65+ Type-II, Type-IIS, toolkit, and protease entries; `catalogues/enzyme_buffer_compat.yaml` added and schema-registered; T-404 enzyme-class, citation, and buffer coverage tests added; focused slice green at 89.41% coverage. |
+| T-405 | Rule manifests + fixtures + stub predicates | 2026-05-14 | `catalogues/rules/{MR,WR,SR,BR,MS}.yaml` populated with 122 rules; 244 triggering/passing fixtures added; `engine.validation.predicates` registry added; `rule-fixture-coverage-check` and `implementation-status-consistency-check` activated as informational gates; focused slice green at 90.77% coverage; full local gates green with 309 passed, 2 skipped. |
+| T-406 | Vendor profiles + screening trust policy + institutional policy + export profiles + risk advisories | 2026-05-14 | Twist, IDT, and GenScript profiles populated; IGSC v3, IBBIS, SecureDNA, and institutional screening trust defaults added; institutional policy, export profiles, and active risk advisories populated; T-406 schema and regression tests added; focused slice green at 91.56% coverage; full local gates green with 315 passed, 2 skipped. |
+| T-316c | Production SOP-template signer/verifier adapters + key lifecycle | 2026-05-14 | Ed25519 SOP-template signer/verifier, `sop_template` archive purpose, key distribution/revocation governance events, offline verifier, runbook, and identity-separation tests added; focused slice green with 22 passed at 93.13% coverage. |
+| T-316b | Signed SQLite SOP-template store + bootstrap migration | 2026-05-14 | `SqliteSopTemplateStore`, YAML bootstrap, signed read verification, admin-handler SOP-template mint/modify/revoke, governance payloads, and tamper/idempotency/denial tests added; focused slice green with 30 passed at 90.82% coverage; full local gates green with 335 passed, 2 skipped. |
+| T-501 | Validation dependency DAG | 2026-05-14 | `engine.dependencies` now builds deterministic rule/field/metric DAGs, computes affected rules and invalidated metrics/rules from field or metric changes, exposes diagnostics, and rejects producer cycles; focused slice green with 6 passed at 99.37% coverage; full local gates green with 341 passed, 2 skipped. |
+| T-502 | Pure validation DAG executor | 2026-05-14 | `engine.validation` now evaluates the T-501 graph deterministically, supports incremental field/metric revalidation, aggregates predicate errors, routes HARD failures to safety gates, provides sequential/thread/local-spawn process worker pools, and records the benchmark harness; focused slice green with 11 passed at 91.98% coverage; full local gates green with 352 passed, 2 skipped. |
+| T-504 | Role-keyed host compatibility | 2026-05-14 | `engine.compatibility` now checks multi-host workflows per `HostContext` role, resolves threshold profiles per host role, reports deterministic incompatibilities, and covers plant transient, lentivirus/AAV, VLP, cell-free, shuttle-vector, and R-15 marker-conflict fixtures; focused slice green with 9 passed at 91.78% coverage; full local gates green with 361 passed, 2 skipped. |
+| T-503 | Sequence analysis + structural predicates | 2026-05-14 | `engine.sequence_analysis` now covers topology-aware restriction sites, digest simulation, compatible ends, fragment simulation, directional site ranking, and diagnostic digest design; implemented predicate registry subset covers 50+ structural names plus concrete frame/internal-site/host predicates while preserving manifest stubs for later promotion; focused slice green with 11 passed at 91.67% coverage; full local gates green with 372 passed, 2 skipped. |
+| T-601a..k | Biology adapter implementations | 2026-05-14 | `adapter.biology` is now a package with deterministic local RNA folding, splice motif, signal peptide, RBS/TIR, Kozak, and codon-algorithm adapters; fixture-driven fakes, adapter manifests, and calibration policies added; focused slice green with 8 passed at 91.19% coverage; full local gates green with 380 passed, 2 skipped. |
+| T-602 | Biology-back-end-dependent predicates | 2026-05-14 | Pure predicates now cover MR-12, MR-13, MR-14, MR-15, MR-16, MR-27, and MR-28 over precomputed biology metrics without importing adapters; implemented registry extended while manifest stubs remain consistent; focused slice green with 7 passed at 89.89% coverage; full local gates green with 387 passed, 2 skipped. |
+
+---
+
+## 5. Phase exit status (six-dimension audit)
+
+| Phase | Correctness | Completeness | Scientific validity | Performance | Maintainability | Safety |
+|---|---|---|---|---|---|---|
+| 0 | ✅ | ✅ | ✅ | n/a | ✅ | ✅ |
+| 1 | ✅ | ✅ | ✅ | n/a | ✅ | ✅ |
+| 2 | ✅ | ✅ | n/a | ✅ | ✅ | ✅ |
+| 3 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 6 onward | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ |
+
+---
+
+## 6. Risk register status (from ARCHITECTURE v1.5 § 6)
+
+All risks have documented mitigations in `ARCHITECTURE.md` v1.5 § 6. CI gates supporting each risk are listed in `CODING_AGENDA.md` § 3.5 and § 4.
+
+| Risk | Description | Mitigation status |
+|---|---|---|
+| R-01 | LLM constraint translator hallucinates | 🟡 mitigations specified; CI gate `llm-output-policy-check` planned in T-204 / T-1201 |
+| R-02 | Plugin version drift breaks reproducibility | 🟡 `DerivationEnvironment` captures all versions; CI determinism check planned in T-201 |
+| R-03 | Codon × validator loop oscillates | 🟡 N=5 cap + lexicographic-priority fixed-point planned in T-701 / T-705 |
+| R-04 | Rule registry grows unmaintainable | 🟡 partitioned manifests + `last_reviewed` field + quarterly review planned in T-401 / T-405 |
+| R-05 | Screening adapter outages | 🟡 multi-adapter fallback never produces `clear` planned in T-1002 |
+| R-06 | SnapGene proprietary format drift | 🟡 file-watch is the MUST channel; planned in T-902 |
+| R-07 | SBOL 3.1.x spec evolves | 🟡 pinned dependency; initial SBOL sequence round-trip covered in T-308; richer feature-coordinate property coverage remains future work |
+| R-08 | Library exceeds performance budget | 🟡 batched governance events + size cap planned in T-1303 |
+| R-09 | Determinism slips on platform variance | 🟡 containerised release build planned in T-201 |
+| R-10 | Free-text inputs leak to cloud LLM | 🟡 local-LLM default; opt-in cloud planned in T-1201 |
+| R-11 | AI-evasion of screening (2025 watch-item) | 🟡 AI-recodings of hits route to manual review planned in T-1002 |
+| R-12 | Junior researcher misuses generated protocol | 🟡 gated SOP rendering; SOP-after-gates CI gate planned in T-803 / T-204 |
+| R-13 | Catalogue staleness silently affects outputs | 🟡 `stale-catalogue-check` CI gate planned in T-401 |
+| R-14 | Coordinate round-trip is hard | 🟡 GenBank feature coordinates covered in T-308; richer SBOL feature-coordinate round trips remain future work |
+| R-15 | Multi-host marker conflict misclassification | 🟡 role-keyed `HostContext` planned in T-304 |
+| R-16 | User self-elevates authorisation | 🟡 `no-self-authorisation-check` CI gate planned in T-204 |
+| R-17 | LLM unsafe output | 🟡 `AdvisoryTextPolicy` + `llm-output-policy-check` planned in T-1201 |
+| R-18 | Plugin trust escalation | 🟡 `plugin-manifest-signature` CI gate planned in T-204 |
+| R-19 | Export bundle PII leak | 🟡 `ExportProfile` redaction planned in T-903 |
+| R-20 | Unsupported biosafety tier attempted | 🟡 T-503 delivered the structural predicate slot in the implemented registry subset; end-to-end BSL-4 hard-block UAT remains planned in T-1302. |
+| R-21 | Advisory bypass | 🟡 `no-passive-advisory-bypass-check` CI gate planned in T-806; FR-ADV-07 adversarial UAT planned in T-1302 |
+
+Legend: ✅ mitigated and verified in CI; 🟡 mitigation planned with task ownership; 🔴 unmitigated.
+
+---
+
+## 7. CI gate status (v1.2 — four-state lifecycle column per B2-07 / M2-07)
+
+| Gate | Lifecycle state | Owning task | Workflow mode | Last CI result |
+|---|---|---|---|---|
+| `lint` | `enforced` | T-201 | GitHub Actions matrix + local `uv run --no-editable ruff check .` | local green 2026-05-14 |
+| `mypy --strict` | `enforced` | T-201 | GitHub Actions matrix + local `uv run --no-editable mypy src tools tests` | local green 2026-05-14 |
+| `pytest` (unit) | `enforced` | T-201 | GitHub Actions matrix + local `uv run --no-editable python tools/ci/run_pytest.py -m "not slow"` | local green 2026-05-14 |
+| `pytest-cov` ≥ 90 % on domain + engine | `not_implemented` | T-201 | (absent) | unknown |
+| `integration` (deterministic fakes) | `not_implemented` | T-201 | (absent) | unknown |
+| `determinism` (container) | `not_implemented` | T-201 | (absent) | unknown |
+| `rule-validation coverage` | `not_implemented` | T-405 / T-503 | (absent) | unknown |
+| `no-domain-impurity-check` | `enforced` | T-502 | local static import scan + import-linter boundary complement | local green 2026-05-14 |
+| `import-linter` | `not_implemented` | T-204 / T-306 | (absent) | unknown |
+| `no-self-authorisation-check` | `not_implemented` | T-204 / T-311 / T-313b / T-316b / T-1103b | (absent) | unknown |
+| `no-passive-advisory-bypass-check` | `not_implemented` | T-204 / T-806a / T-806b | (absent) | unknown |
+| `sop-after-gates-check` | `not_implemented` | T-204 / T-803 | (absent) | unknown |
+| `llm-output-policy-check` | `not_implemented` | T-204 / T-1201 | (absent) | unknown |
+| `audit-traceability-check` | `not_implemented` | T-204 | (absent) | unknown |
+| `plugin-manifest-signature` | `not_implemented` | T-204 / T-808 | (absent) | unknown |
+| `source-grade-citation-check` | `informational` | T-401 | 2026-05-14 | green |
+| `stale-catalogue-check` | `informational` | T-401 | 2026-05-14 | green |
+| `module-coverage-check` (manual `docs/module_manifest.yaml` seed; architecture consistency informational) | `not_implemented` | T-204 | (absent) | unknown |
+| `task-acceptance-completeness-check` (v1.2 — new per M2-03; v1.3 YAML schema in Appendix D per M3-03) | `not_implemented` | T-204 | (absent) | unknown |
+| `gate-lifecycle-check` (v1.1) | `not_implemented` | T-204 | (absent) | unknown |
+| `rule-fixture-coverage-check` (v1.1; v1.3 enforced at Phase 4 exit per H3-08) | `informational` | T-401 / T-405 | 2026-05-14 | green |
+| `implementation-status-consistency-check` (v1.1) | `informational` | T-401 / T-405 | 2026-05-14 | green |
+
+**Lifecycle legend.** `not_implemented` — gate absent from CI workflow (owning task `planned`). `informational` — gate present in workflow with `continue-on-error: true` (owning task in `in-progress` or post-stub). `enforced` — merge-blocking (owning task `verified`; gate predicate active). `enforced-green` — merge-blocking and observed-passing at least once on `main`.
+
+The `gate-lifecycle-check` meta-gate (v1.1) cross-validates this table against the agenda's § 3.5 CI table and the workflow YAML; drift fails the gate.
+
+---
+
+## 8. Update protocol
+
+This file is updated by `/dev-orchestrator` at every task state transition:
+
+1. **On task PLAN** — add an entry under § 3 with status `⚪ planned`.
+2. **On task ASSIGN** — set assignee + start timestamp; stage = `🟡 in-progress`.
+3. **On task EXECUTE-COMPLETE** — stage = `🟢 execution-complete`; CI run referenced.
+4. **On task VERIFY** — if six dimensions all green: stage = `✅ done`; move to § 4 "Recently completed"; remove from § 3. If any amber/red: stage = `🔴 verification-failed`; open follow-up task.
+5. **On phase EXIT** — update § 1, § 5 (six-dimension audit per phase); update affected risk-register rows in § 6.
+
+CI gate flips from ⚪ to ✅ when the gate is enabled as release-blocking in `.github/workflows/ci.yaml` and observed green on at least one PR.
+
+---
+
+*End of TASK_BOARD.md.*

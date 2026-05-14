@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-20",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for WR-20: For very large constructs, use electroporation rather than chemical transformation.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-20.triggering",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

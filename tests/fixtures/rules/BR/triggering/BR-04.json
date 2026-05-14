@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "BR-04",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for BR-04: The screening verdict MUST be persisted in the construct's metadata with timestamp and adaptor version.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.BR-04.triggering",
+    "category": "BR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

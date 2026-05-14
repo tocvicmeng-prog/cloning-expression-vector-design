@@ -1,0 +1,12 @@
+{
+  "mode_timings_ms": {
+    "sequential": 0.0,
+    "thread": 0.0
+  },
+  "platform": "local-placeholder",
+  "recorded_at_utc": "2026-05-14T00:00:00+00:00",
+  "reports_identical": true,
+  "rule_count": 150,
+  "status": "local-smoke-placeholder",
+  "task_id": "T-502"
+}

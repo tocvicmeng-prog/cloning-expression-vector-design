@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-05",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for SR-05: Direct repeats: \u2265 20 bp flagged; \u2265 40 bp rejected (most vendors).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-05.passing",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

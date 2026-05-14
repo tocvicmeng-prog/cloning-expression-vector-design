@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-12",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for WR-12: Transformation step specifies competent-cell type (chemical vs electro) and matches it to expected transformation efficiency target (\u2265 10\u2078 cfu/\u00b5g for high-throughput Golden Gate libraries; \u2265 10\u2076 acceptable for routine cloning).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-12.triggering",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

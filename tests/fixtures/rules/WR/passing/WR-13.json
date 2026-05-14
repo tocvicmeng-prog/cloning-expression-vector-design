@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-13",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for WR-13: Selection plate antibiotic concentration matches the host \u00d7 marker matrix (FR-HOST-09).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-13.passing",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

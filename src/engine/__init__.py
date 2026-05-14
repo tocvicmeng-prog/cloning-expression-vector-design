@@ -1,0 +1,9 @@
+"""
+module_id: engine
+file: src/engine/__init__.py
+task_id: T-202
+"""
+
+from __future__ import annotations
+
+__all__: list[str] = []

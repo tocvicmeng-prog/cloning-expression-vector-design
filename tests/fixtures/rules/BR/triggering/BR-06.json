@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "BR-06",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for BR-06: Constructs intended for in-vivo use, environmental release, or clinical-grade manufacturing MUST also undergo a stricter NIH Guidelines section IIIA/IIIB classification pass.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.BR-06.triggering",
+    "category": "BR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-27",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for WR-27: For Sanger sequencing, sequencing primers anneal 50\u2013100 bp upstream of the region of interest.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-27.passing",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

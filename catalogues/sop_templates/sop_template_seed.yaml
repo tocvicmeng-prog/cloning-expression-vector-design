@@ -1,0 +1,24 @@
+# Seed SOP-template catalogue input. T-316b owns full bootstrap content.
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "ARCHITECTURE.md"
+  review_required_after: "2026-11-14"
+templates:
+  - id: "sop.seed"
+    name: "Seed SOP template"
+    version: "seed-v1"
+    description: "Bootstrap seed template for exercising the signed SOP-template store."
+    content_markdown: |
+      # Seed SOP template
+
+      This placeholder is controlled by institutional administrators and is signed
+      during the T-316b bootstrap migration.
+    hazard_notes:
+      - "Use only after institutional authorisation gates pass."
+    required_approval_gate: "OperationalProtocolAuthorised"
+    citation:
+      text: "ARCHITECTURE v1.5 SOP-template seed traceability citation."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "ARCHITECTURE.md#4-5"

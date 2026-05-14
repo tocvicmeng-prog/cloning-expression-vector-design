@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-28",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for WR-28: DNA quality for sequencing must be > 50 ng/\u00b5L and A260/A280 in [1.8, 2.0].",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-28.passing",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

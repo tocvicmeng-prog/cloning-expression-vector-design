@@ -1,0 +1,1 @@
+"""Audit-key adapter tests."""

@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-13",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-13: Mammalian Kozak: PWM score above threshold (Noderer 2014).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-13.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

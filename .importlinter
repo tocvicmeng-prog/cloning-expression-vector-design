@@ -1,0 +1,42 @@
+[importlinter]
+root_packages =
+    domain
+    engine
+    app
+    adapter
+    interface
+
+[importlinter:contract:domain-boundary]
+name = Domain layer has no outward imports
+type = forbidden
+source_modules =
+    domain
+forbidden_modules =
+    adapter
+    app
+    engine
+    interface
+
+[importlinter:contract:engine-boundary]
+name = Engine layer does not import app, adapter, or interface
+type = forbidden
+source_modules =
+    engine
+forbidden_modules =
+    adapter
+    app
+    interface
+
+[importlinter:contract:sop-protected-boundary]
+name = Non-SOP code does not import sop_protected operational types
+type = forbidden
+source_modules =
+    domain.types.design_plan
+    domain.types.controls
+    domain.types.risk_advisory
+    engine.design_plan
+    engine.controls
+    engine.risk_classification
+    app.advisory_acknowledgement
+forbidden_modules =
+    domain.types.sop_protected

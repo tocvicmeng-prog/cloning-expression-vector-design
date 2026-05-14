@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-09",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for WR-09: For Golden Gate, BsaI/BsmBI/SapI/BbsI is paired with T4 DNA ligase in the same reaction (one-pot).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-09.passing",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

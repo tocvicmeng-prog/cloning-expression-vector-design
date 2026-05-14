@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-06",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for WR-06: For double-digest, both enzymes are buffer-compatible (or sequential digestion is specified).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-06.triggering",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

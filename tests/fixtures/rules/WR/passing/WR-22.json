@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-22",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for WR-22: For toxic-protein expression, the inducer is added when OD\u2086\u2080\u2080 \u2248 0.5\u20130.8, then growth at 16\u201325 \u00b0C overnight for solubility.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-22.passing",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

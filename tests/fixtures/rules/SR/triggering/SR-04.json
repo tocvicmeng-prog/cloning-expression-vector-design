@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-04",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for SR-04: Homopolymer runs: Twist: hard ban on \u2265 14 bp. IDT: \u2264 10 nt A/T, \u2264 6 nt G/C.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-04.triggering",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

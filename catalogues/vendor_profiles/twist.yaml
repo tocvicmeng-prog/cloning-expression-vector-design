@@ -1,0 +1,78 @@
+# Twist Bioscience vendor profile. T-406 baseline; runtime adapters may override.
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "https://www.twistbioscience.com/products/genes/gene-synthesis"
+  review_required_after: "2026-11-14"
+vendor_id: "twist"
+name: "Twist Bioscience"
+profile_version: "2026.05"
+profile_kind: "synthesis_vendor"
+default_currency: "USD"
+screening_protocol: "igsc_v3"
+submission_policy:
+  direct_order_supported_by_platform: false
+  submission_mode: "human_submission_file"
+  requires_external_vendor_account: true
+  requires_vendor_screening_acknowledgement: true
+  order_blocking_verdicts: ["watchlist", "hit", "unavailable"]
+services:
+  - id: "twist.gene_fragment"
+    name: "Gene Fragment"
+    delivery_format: "linear_dsDNA"
+    min_bp: 300
+    max_bp: 5000
+    typical_lead_time_days:
+      min: 5
+      max: 14
+    service_tier: "standard"
+    quote_required_over_bp: 5000
+    sequence_constraints:
+      global_gc_min_pct: 25
+      global_gc_max_pct: 65
+      local_gc_window_bp: 50
+      local_gc_min_pct: 35
+      local_gc_max_pct: 65
+      max_homopolymer_bp: 13
+      direct_repeat_warn_bp: 20
+      direct_repeat_block_bp: 40
+      low_complexity_policy: "warn_or_quote_review"
+      forbidden_pattern_policy: "vendor_specific_review"
+    rescue_policy:
+      allow_synonymous_rescue: true
+      retry_after_rescue: true
+      preserve_orf_translation: true
+  - id: "twist.clonal_gene"
+    name: "Clonal Gene"
+    delivery_format: "plasmid_clonal"
+    min_bp: 300
+    max_bp: 5000
+    typical_lead_time_days:
+      min: 10
+      max: 21
+    service_tier: "clonal"
+    quote_required_over_bp: 5000
+    sequence_constraints:
+      global_gc_min_pct: 25
+      global_gc_max_pct: 65
+      local_gc_window_bp: 50
+      local_gc_min_pct: 35
+      local_gc_max_pct: 65
+      max_homopolymer_bp: 13
+      direct_repeat_warn_bp: 20
+      direct_repeat_block_bp: 40
+      low_complexity_policy: "warn_or_quote_review"
+      forbidden_pattern_policy: "vendor_specific_review"
+    rescue_policy:
+      allow_synonymous_rescue: true
+      retry_after_rescue: true
+      preserve_orf_translation: true
+citations:
+  - text: "Twist Bioscience gene synthesis product page, accessed 2026-05-14."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "https://www.twistbioscience.com/products/genes/gene-synthesis"
+  - text: "CEV KB v2.0 section 11 vendor-constraint synthesis baseline."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#11"

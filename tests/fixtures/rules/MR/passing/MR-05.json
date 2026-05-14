@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-05",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-05: Selectable marker working concentration appropriate for the chosen host.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-05.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

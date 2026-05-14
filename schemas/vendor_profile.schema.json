@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CEV vendor profile",
+  "type": "object",
+  "required": ["maintenance", "vendor_id", "name", "profile_version", "submission_policy", "services", "citations"],
+  "properties": {
+    "maintenance": {
+      "type": "object",
+      "required": ["retrieved_at", "valid_until", "source_url", "review_required_after"]
+    },
+    "vendor_id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "profile_version": {"type": "string", "minLength": 1},
+    "profile_kind": {"type": "string", "enum": ["synthesis_vendor"]},
+    "default_currency": {"type": "string", "minLength": 1},
+    "screening_protocol": {"type": "string", "minLength": 1},
+    "submission_policy": {
+      "type": "object",
+      "required": ["direct_order_supported_by_platform", "submission_mode", "order_blocking_verdicts"],
+      "properties": {
+        "direct_order_supported_by_platform": {"type": "boolean"},
+        "submission_mode": {"type": "string", "minLength": 1},
+        "requires_external_vendor_account": {"type": "boolean"},
+        "requires_vendor_screening_acknowledgement": {"type": "boolean"},
+        "order_blocking_verdicts": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "services": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "delivery_format", "min_bp", "max_bp", "sequence_constraints"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "delivery_format": {"type": "string", "minLength": 1},
+          "min_bp": {"type": "integer"},
+          "max_bp": {"type": "integer"},
+          "service_tier": {"type": "string", "minLength": 1},
+          "sequence_constraints": {"type": "object"}
+        }
+      }
+    },
+    "citations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "object", "required": ["text", "grade", "accessed"]}
+    }
+  }
+}

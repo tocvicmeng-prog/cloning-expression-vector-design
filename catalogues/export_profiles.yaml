@@ -1,0 +1,90 @@
+# Export-profile catalogue. T-406 baseline; T-903 owns export orchestration.
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "ARCHITECTURE.md#4-2"
+  review_required_after: "2026-11-14"
+profile_set_id: "export_profiles.default_2026_05"
+profile_version: "2026.05"
+profiles:
+  - id: "export.internal_audit"
+    name: "Internal audit bundle"
+    redaction_level: "none"
+    intended_recipient: "institutional_reviewer"
+    include_sequences: true
+    include_authorisation_trace: true
+    include_screening_evidence: true
+    include_vendor_quote_payload: false
+    include_project_event_log: true
+    pii_redaction:
+      redact_user_identity: false
+      redact_institutional_ids: false
+      redact_vendor_account_ids: true
+    allowed_formats: ["zip", "json", "markdown", "genbank", "sbol3", "fasta"]
+    citation:
+      text: "ARCHITECTURE v1.5 export bundle and audit traceability requirements."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "ARCHITECTURE.md#4-2"
+  - id: "export.vendor_submission"
+    name: "Vendor submission bundle"
+    redaction_level: "minimal"
+    intended_recipient: "synthesis_vendor"
+    include_sequences: true
+    include_authorisation_trace: false
+    include_screening_evidence: false
+    include_vendor_quote_payload: true
+    include_project_event_log: false
+    pii_redaction:
+      redact_user_identity: true
+      redact_institutional_ids: true
+      redact_vendor_account_ids: false
+    allowed_formats: ["zip", "json", "fasta", "genbank"]
+    citation:
+      text: "REQUIREMENTS scope excludes direct order placement; platform emits submission-ready files."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "REQUIREMENTS.md#scope"
+  - id: "export.public_share_redacted"
+    name: "Public sharing redacted bundle"
+    redaction_level: "strong"
+    intended_recipient: "public_repository_or_collaborator"
+    include_sequences: true
+    include_authorisation_trace: false
+    include_screening_evidence: false
+    include_vendor_quote_payload: false
+    include_project_event_log: false
+    pii_redaction:
+      redact_user_identity: true
+      redact_institutional_ids: true
+      redact_vendor_account_ids: true
+    allowed_formats: ["zip", "fasta", "genbank", "sbol3"]
+    citation:
+      text: "CEV KB v2.0 section 13 provenance and metadata fields."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#13"
+  - id: "export.regulatory_review"
+    name: "Regulatory or IBC review bundle"
+    redaction_level: "controlled"
+    intended_recipient: "institutional_or_regulatory_reviewer"
+    include_sequences: true
+    include_authorisation_trace: true
+    include_screening_evidence: true
+    include_vendor_quote_payload: false
+    include_project_event_log: true
+    pii_redaction:
+      redact_user_identity: false
+      redact_institutional_ids: false
+      redact_vendor_account_ids: true
+    allowed_formats: ["zip", "json", "markdown", "genbank", "sbol3"]
+    citation:
+      text: "NIH Guidelines and CEV BR-10 audit-document export requirement."
+      grade: "B2"
+      accessed: "2026-05-14"
+      url: "REQUIREMENTS.md#4-4"
+citations:
+  - text: "ARCHITECTURE v1.5 R-19 export PII-leak risk and export-profile mitigation."
+    grade: "B2"
+    accessed: "2026-05-14"
+    url: "ARCHITECTURE.md#6"

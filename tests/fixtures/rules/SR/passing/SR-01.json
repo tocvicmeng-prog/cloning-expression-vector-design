@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-01",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for SR-01: Total synthesis length within vendor-specific bounds. Twist gene fragments: 300\u20135 000 bp. Twist clonal genes: 300\u20135 000 bp. IDT gBlocks: 125\u20133 000 bp. IDT gBlocks HiFi: \u2264 5 000 bp. GenScript standard gene: \u2264 ~10 000 bp.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-01.passing",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

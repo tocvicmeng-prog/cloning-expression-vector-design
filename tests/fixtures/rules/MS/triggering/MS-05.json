@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MS-05",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MS-05: Display/conjugation strategy is declared when Spy/Snoop/sortase/click ports are present.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MS-05.triggering",
+    "category": "MS",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

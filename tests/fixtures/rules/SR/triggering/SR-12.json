@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-12",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for SR-12: Pre-cloned vs linear-fragment: the user MUST be informed whether the vendor delivers the fragment ligated into a plasmid, or as a linear PCR-amplifiable fragment.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-12.triggering",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

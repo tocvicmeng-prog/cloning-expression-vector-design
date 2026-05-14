@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-43",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-43: Direct repeats \u2265 100 bp \u2192 block (recombination risk); \u2265 20 bp \u2192 warn.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-43.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

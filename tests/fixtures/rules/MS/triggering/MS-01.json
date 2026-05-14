@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MS-01",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MS-01: MS2 coat-protein reference sequence is locked; every variant is represented as explicit deltas with checksum.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MS-01.triggering",
+    "category": "MS",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

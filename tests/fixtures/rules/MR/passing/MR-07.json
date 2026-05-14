@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-07",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-07: Codon optimisation: CAI in [0.7, 0.95] for the chosen host.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-07.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

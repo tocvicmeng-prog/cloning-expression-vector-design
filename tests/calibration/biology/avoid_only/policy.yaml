@@ -1,0 +1,6 @@
+adapter_id: avoid_only
+tolerance:
+  relative_error: 0.05
+baseline_fixture_hash: "9999999999999999999999999999999999999999999999999999999999999999"
+baseline_captured_at: "2026-05-14"
+escalation_path: "/scientific-advisor"

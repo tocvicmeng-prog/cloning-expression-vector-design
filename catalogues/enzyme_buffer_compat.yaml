@@ -1,0 +1,81 @@
+# Enzyme buffer compatibility matrix for T-404.
+catalogue_id: "cev.enzyme_buffer_compat"
+schema_version: "1.0.0"
+maintenance:
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#7"
+  review_required_after: "2026-11-14"
+item_maintenance: &item_maintenance
+  retrieved_at: "2026-05-14"
+  valid_until: "2027-05-14"
+  source_url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#7"
+  review_required_after: "2026-11-14"
+citation: &cite_buffer
+  text: "KB v2.0 section 7 enzyme catalogue and vendor-buffer compatibility placeholders; release builds must refresh against current vendor data sheets."
+  grade: "B2"
+  accessed: "2026-05-14"
+  url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18.1"
+  source_registry_ids: ["KB18.1", "REBASE"]
+buffers:
+  - {id: "buffer.vendor_restriction_recommended", name: "Vendor-recommended restriction buffer", buffer_class: "restriction", citation: *cite_buffer, maintenance: *item_maintenance}
+  - {id: "buffer.neb_cut_smart", name: "NEB CutSmart/rCutSmart family", buffer_class: "restriction", citation: *cite_buffer, maintenance: *item_maintenance}
+  - {id: "buffer.t4_dna_ligase", name: "T4 DNA ligase buffer", buffer_class: "ligation", citation: *cite_buffer, maintenance: *item_maintenance}
+  - {id: "buffer.t4_pnk", name: "T4 PNK buffer", buffer_class: "phosphorylation", citation: *cite_buffer, maintenance: *item_maintenance}
+  - {id: "buffer.t4_dna_polymerase", name: "T4 DNA polymerase buffer", buffer_class: "polymerase", citation: *cite_buffer, maintenance: *item_maintenance}
+  - {id: "buffer.high_fidelity_pcr", name: "High-fidelity PCR polymerase buffer", buffer_class: "polymerase", citation: *cite_buffer, maintenance: *item_maintenance}
+  - {id: "buffer.assembly_mastermix", name: "Gibson/NEBuilder assembly buffer", buffer_class: "assembly", citation: *cite_buffer, maintenance: *item_maintenance}
+  - {id: "buffer.phosphatase", name: "Alkaline phosphatase buffer", buffer_class: "phosphatase", citation: *cite_buffer, maintenance: *item_maintenance}
+  - {id: "buffer.user", name: "USER enzyme buffer", buffer_class: "user", citation: *cite_buffer, maintenance: *item_maintenance}
+  - {id: "buffer.protease_cleavage", name: "Protease cleavage buffer", buffer_class: "protease", citation: *cite_buffer, maintenance: *item_maintenance}
+compatibility:
+  - buffer_id: "buffer.vendor_restriction_recommended"
+    enzyme_ids: ["enzyme.re.ecori", "enzyme.re.bamhi", "enzyme.re.hindiii", "enzyme.re.xhoi", "enzyme.re.xbai", "enzyme.re.spei", "enzyme.re.psti", "enzyme.re.noti", "enzyme.re.ndei", "enzyme.re.ncoi", "enzyme.re.kpni", "enzyme.re.saci", "enzyme.re.sacii", "enzyme.re.sali", "enzyme.re.smai", "enzyme.re.agei", "enzyme.re.asci", "enzyme.re.avrii", "enzyme.re.bglii", "enzyme.re.bstbi", "enzyme.re.clai", "enzyme.re.drai", "enzyme.re.eagi", "enzyme.re.fsei", "enzyme.re.hpai", "enzyme.re.mlui", "enzyme.re.nhei", "enzyme.re.paci", "enzyme.re.pvui", "enzyme.re.pvuii", "enzyme.re.sbfi", "enzyme.re.scai", "enzyme.re.sphi", "enzyme.re.srfi", "enzyme.re.stui", "enzyme.re.aflii", "enzyme.re.apai", "enzyme.re.bsphi", "enzyme.re.bsrgi", "enzyme.re.bsiwi", "enzyme.type_iis.bsai", "enzyme.type_iis.bsai_hfv2", "enzyme.type_iis.bsmbi_v2", "enzyme.type_iis.esp3i", "enzyme.type_iis.sapi", "enzyme.type_iis.bspqi", "enzyme.type_iis.bbsi", "enzyme.type_iis.bpii", "enzyme.type_iis.aari", "enzyme.type_iis.paqci", "enzyme.toolkit.dpni"]
+    compatibility: "use vendor activity table; matrix row asserts catalogue coverage, not universal one-buffer equivalence"
+    citation: *cite_buffer
+    maintenance: *item_maintenance
+  - buffer_id: "buffer.neb_cut_smart"
+    enzyme_ids: ["enzyme.re.ecori", "enzyme.re.bamhi", "enzyme.re.hindiii", "enzyme.re.xhoi", "enzyme.re.noti", "enzyme.type_iis.bsai_hfv2", "enzyme.toolkit.dpni"]
+    compatibility: "commonly high-activity for representative restriction enzymes; verify each lot/vendor"
+    citation: *cite_buffer
+    maintenance: *item_maintenance
+  - buffer_id: "buffer.t4_dna_ligase"
+    enzyme_ids: ["enzyme.toolkit.t4_dna_ligase"]
+    compatibility: "recommended"
+    citation: *cite_buffer
+    maintenance: *item_maintenance
+  - buffer_id: "buffer.t4_pnk"
+    enzyme_ids: ["enzyme.toolkit.t4_pnk"]
+    compatibility: "recommended"
+    citation: *cite_buffer
+    maintenance: *item_maintenance
+  - buffer_id: "buffer.t4_dna_polymerase"
+    enzyme_ids: ["enzyme.toolkit.t4_dna_polymerase", "enzyme.toolkit.klenow"]
+    compatibility: "recommended family; verify exact enzyme variant"
+    citation: *cite_buffer
+    maintenance: *item_maintenance
+  - buffer_id: "buffer.high_fidelity_pcr"
+    enzyme_ids: ["enzyme.toolkit.phusion", "enzyme.toolkit.q5", "enzyme.toolkit.kapa_hifi"]
+    compatibility: "polymerase-specific; do not interchange without vendor validation"
+    citation: *cite_buffer
+    maintenance: *item_maintenance
+  - buffer_id: "buffer.assembly_mastermix"
+    enzyme_ids: ["enzyme.toolkit.t5_exonuclease", "enzyme.toolkit.t4_dna_ligase", "enzyme.toolkit.phusion", "enzyme.toolkit.q5"]
+    compatibility: "assembly-mastermix context for Gibson/NEBuilder-style reactions"
+    citation: *cite_buffer
+    maintenance: *item_maintenance
+  - buffer_id: "buffer.phosphatase"
+    enzyme_ids: ["enzyme.toolkit.cip", "enzyme.toolkit.sap"]
+    compatibility: "phosphatase-specific; verify heat-inactivation/removal workflow"
+    citation: *cite_buffer
+    maintenance: *item_maintenance
+  - buffer_id: "buffer.user"
+    enzyme_ids: ["enzyme.toolkit.user"]
+    compatibility: "recommended"
+    citation: *cite_buffer
+    maintenance: *item_maintenance
+  - buffer_id: "buffer.protease_cleavage"
+    enzyme_ids: ["enzyme.protease.tev", "enzyme.protease.hrv_3c", "enzyme.protease.precission", "enzyme.protease.thrombin", "enzyme.protease.enterokinase", "enzyme.protease.factor_xa", "enzyme.protease.sumo_ulp1"]
+    compatibility: "protease-specific cleavage buffers; verify pH, salt, reducing agent, and temperature compatibility"
+    citation: *cite_buffer
+    maintenance: *item_maintenance

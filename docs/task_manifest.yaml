@@ -1,0 +1,661 @@
+# Seed task manifest for Codex-driven implementation.
+# Generated from CODING_AGENDA.md v1.5; T-204 owns the production generator.
+generated_from: CODING_AGENDA.md
+agenda_version: v1.5
+active_task_card_count: 71
+phase_order: ["2", "3", "4", "5", "6", "7", "8a", "9a", "10", "8b", "9b", "11", "12", "13"]
+phase_counts:
+  "2": 5
+  "3": 19
+  "4": 8
+  "5": 4
+  "6": 5
+  "7": 5
+  "8a": 7
+  "9a": 2
+  "10": 2
+  "8b": 3
+  "9b": 1
+  "11": 4
+  "12": 3
+  "13": 3
+tasks:
+  - task_id: "T-201"
+    phase: "2"
+    section: "2.2.1"
+    title: "Python project bootstrap (v1.3 — uv groups vs PEP 621 extras per M3-01; determinism lifecycle per M3-02; canonical font packaging per M3-05)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 30 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-202"
+    phase: "2"
+    section: "2.2.2"
+    title: "Directory scaffold"
+    model_tier: "Haiku"
+    context_budget: "≤ 10 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-203"
+    phase: "2"
+    section: "2.2.3"
+    title: "Stub every public API in § 4.2 module catalogue (v1.2 — T-203c port inventory explicit per B2-06)"
+    model_tier: "Sonnet (large surface area; needs care with type signatures)"
+    context_budget: "Split into four sub-tasks T-203a / T-203b / T-203c / T-203d (one per layer), each ≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-204"
+    phase: "2"
+    section: "2.2.4"
+    title: "CI gate skeletons with lifecycle states (v1.4 — manifest authority fixed per B4-07; expanded security gates per H4-02; initial-brief generator per H4-03)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 55 k tokens (v1.4 increased from 45 k for the expanded gate scope + initial-brief generator)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-205"
+    phase: "2"
+    section: "2.2.5"
+    title: "Platform-readiness baseline (v1.2 — refined per H2-07 / H2-08 / M2-09)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-301"
+    phase: "3"
+    section: "2.3.1"
+    title: "`domain.sequence` primitives"
+    model_tier: "Opus (data-model precision required). **Context budget:** ≤ 60 k tokens. Sub-split allowed if exceeded"
+    context_budget: "≤ 60 k tokens. Sub-split allowed if exceeded"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-302"
+    phase: "3"
+    section: "2.3.2"
+    title: "`domain.graph` (ConstructGraph)"
+    model_tier: "Opus. **Context budget:** ≤ 50 k tokens"
+    context_budget: "≤ 50 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-303"
+    phase: "3"
+    section: "2.3.3"
+    title: "`domain.types` core entities"
+    model_tier: "Opus. **Context budget:** ≤ 70 k tokens — **split** into T-303a (Part/Host/HostContext/Module/Construct), T-303b (Library/AssemblyMethod/AssemblyPlan subclasses), T-303c (ValidationRule + HostCompatibilityConstraints)"
+    context_budget: "≤ 70 k tokens — **split** into T-303a (Part/Host/HostContext/Module/Construct), T-303b (Library/AssemblyMethod/AssemblyPlan subclasses), T-303c (ValidationRule + HostCompatibilityConstraints)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-304"
+    phase: "3"
+    section: "2.3.4"
+    title: "`domain.security` (SecurityRole + Principal + AuthorisationProfile; v1.3 — profile signature per B3-04; `DeveloperBootstrapPrincipal` per H3-10)"
+    model_tier: "Opus. **Context budget:** ≤ 65 k tokens (v1.3 increased from 60 k)"
+    context_budget: "≤ 65 k tokens (v1.3 increased from 60 k)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-305"
+    phase: "3"
+    section: "2.3.5"
+    title: "`domain.events` (typed events, three streams; v1.2 — H2-03 ownership cleanup)"
+    model_tier: "Sonnet. **Context budget:** ≤ 50 k tokens"
+    context_budget: "≤ 50 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-306"
+    phase: "3"
+    section: "2.3.6"
+    title: "Operational namespace + non-operational type packages (v1.1 — B-01 fix)"
+    model_tier: "Opus. **Context budget:** ≤ 70 k tokens — split into T-306a (design_plan + controls), T-306b (risk_advisory + governance value objects per v1.2), T-306c (sop_protected only)"
+    context_budget: "≤ 70 k tokens — split into T-306a (design_plan + controls), T-306b (risk_advisory + governance value objects per v1.2), T-306c (sop_protected only)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-307"
+    phase: "3"
+    section: "2.3.7"
+    title: "`domain.types.derivation` + RFC 8785 JCS canonicalisation (v1.1 — H-06 fix)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-312a"
+    phase: "3"
+    section: "2.3.8"
+    title: "`AuditKeyProvider` Protocol + `TestAuditKeyProvider` (v1.4 — Protocol surface revised per H4-10: no raw `current_key()` method)"
+    model_tier: "Sonnet. **Context budget:** ≤ 25 k tokens"
+    context_budget: "≤ 25 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-313a"
+    phase: "3"
+    section: "2.3.9"
+    title: "`AuditAppendPort` + `AdminAuditAppendPort` Protocols + `ServicePrincipal` + fake brokers (v1.4 — early-half split per B4-03; scheduled before T-308 / T-310 / T-311 so they can depend on it)"
+    model_tier: "Sonnet. **Context budget:** ≤ 30 k tokens"
+    context_budget: "≤ 30 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-314a"
+    phase: "3"
+    section: "2.3.10"
+    title: "`AuthorisationProfileSigner` + `AuthorisationProfileVerifier` + `DecisionRecordSigner` + `DecisionRecordVerifier` Protocols + fakes (v1.4 — early-half split per B4-02 / B4-09; scheduled before T-308 / T-310 / T-311 so they can depend on it)"
+    model_tier: "Sonnet. **Context budget:** ≤ 30 k tokens"
+    context_budget: "≤ 30 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-316a"
+    phase: "3"
+    section: "2.3.11"
+    title: "`SopTemplate` split-port Protocols + `SopTemplateSigner` / `SopTemplateVerifier` Protocols + value objects (v1.4 — early-half split per B4-05; Phase 3; production SQLite store + bootstrap moved to T-316b in Phase 4)"
+    model_tier: "Sonnet. **Context budget:** ≤ 35 k tokens"
+    context_budget: "≤ 35 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-308"
+    phase: "3"
+    section: "2.3.12"
+    title: "`adapter.io.GenBank` + `FASTA` + `SBOL3` + `SnapGeneDnaReader` (v1.1 — added T-308e per H-02)"
+    model_tier: "Opus (round-trip discipline is exacting). **Context budget:** ≤ 90 k tokens — **split** into T-308a (GenBank reader), T-308b (GenBank writer), T-308c (SBOL3 reader+writer), T-308d (FASTA + WriteResult), **T-308e (SnapGene .dna read-only — new in v1.1)**"
+    context_budget: "≤ 90 k tokens — **split** into T-308a (GenBank reader), T-308b (GenBank writer), T-308c (SBOL3 reader+writer), T-308d (FASTA + WriteResult), **T-308e (SnapGene .dna read-only — new in v1.1)**"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-309"
+    phase: "3"
+    section: "2.3.13"
+    title: "`engine.session` state machine + replay determinism + gate-predicate versioning (v1.3 — single task identity per B3-08; gate predicate versioning per M3-07)"
+    model_tier: "Opus. **Context budget:** ≤ 60 k tokens (v1.3 increased from 55 k)"
+    context_budget: "≤ 60 k tokens (v1.3 increased from 55 k)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-310"
+    phase: "3"
+    section: "2.3.14"
+    title: "`adapter.persistence` implementations (v1.3 — depends on **T-312a** `AuditKeyProvider` Protocol per B3-02; profile signature verification on load per B3-04; reassigned replay-determinism ownership to T-310b per M2-01)"
+    model_tier: "Opus. **Context budget:** ≤ 70 k tokens — **split** into T-310a (`SqliteProjectStore`), T-310b (`JsonlEventLog` ×3 streams + replay-determinism harness — **owns replay determinism per v1.2 M2-01**), T-310c (`SqliteAuditLog` *read interface* + tamper detection — consumes `AuditKeyProvider` from **T-312a**; the **append client port** is T-313a and production IPC implementation is T-313b), T-310d (`SqliteAuthorisationStoreRead` — read-only side; calls `AuthorisationProfileVerifier` from T-314a on every `get()`; production integration uses T-314b per v1.3 B3-04; admin-write `SqliteAuthorisationStoreWrite` is owned by T-311)"
+    context_budget: "≤ 70 k tokens — **split** into T-310a (`SqliteProjectStore`), T-310b (`JsonlEventLog` ×3 streams + replay-determinism harness — **owns replay determinism per v1.2 M2-01**), T-310c (`SqliteAuditLog` *read interface* + tamper detection — consumes `AuditKeyProvider` from **T-312a**; the **append client port** is T-313a and production IPC implementation is T-313b), T-310d (`SqliteAuthorisationStoreRead` — read-only side; calls `AuthorisationProfileVerifier` from T-314a on every `get()`; production integration uses T-314b per v1.3 B3-04; admin-write `SqliteAuthorisationStoreWrite` is owned by T-311)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-311"
+    phase: "3"
+    section: "2.3.15"
+    title: "`app.admin_action_handler` (v1.3 — signs profiles per B3-04; routes audit writes per B3-01; `DeveloperBootstrapPrincipal` per H3-10; SOP-template admin writes deferred to **T-316b** per B3-05/B4-05)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens (v1.3 increased from 50 k)"
+    context_budget: "≤ 55 k tokens (v1.3 increased from 50 k)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-312b"
+    phase: "3"
+    section: "2.3.16"
+    title: "Production `AuditKeyProvider` adapters + rotation service + offline verifier (v1.3 — split from the legacy audit-key task per B3-02; scheduled after T-311)"
+    model_tier: "Opus. **Context budget:** ≤ 50 k tokens"
+    context_budget: "≤ 50 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-314b"
+    phase: "3"
+    section: "2.3.17"
+    title: "Production `AuthorisationProfileSigner` + `DecisionRecordSigner` adapters + key lifecycle (v1.4 — new per B4-09; scheduled after T-311)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-313b"
+    phase: "3"
+    section: "2.3.18"
+    title: "Production single-writer audit-service process + IPC (v1.5 — new, replaces the legacy audit-append production half per B4-04; scheduled after T-314b)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-315"
+    phase: "3"
+    section: "2.3.19"
+    title: "`app.review_queue` + `AuthorisationRequest` service (v1.3 — new, per B3-06; v1.4 — `ReviewQueueAdminPort` added per H4-01; append-only semantics clarified per M4-06)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-401"
+    phase: "4"
+    section: "2.4.1"
+    title: "Catalogue loader framework + JSON Schemas"
+    model_tier: "Sonnet. **Context budget:** ≤ 45 k tokens"
+    context_budget: "≤ 45 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-402"
+    phase: "4"
+    section: "2.4.2"
+    title: "Parts catalogue population"
+    model_tier: "Sonnet, reviewed by `/scientific-advisor`. **Context budget:** ≤ 50 k tokens. **Sub-split** by category if exceeded: T-402a (origins + markers), T-402b (promoters), T-402c (RBS/Kozak/terminator/polyA), T-402d (tags + linkers + proteases), T-402e (reporters + recombinases + CRISPR + inducible)"
+    context_budget: "≤ 50 k tokens. **Sub-split** by category if exceeded: T-402a (origins + markers), T-402b (promoters), T-402c (RBS/Kozak/terminator/polyA), T-402d (tags + linkers + proteases), T-402e (reporters + recombinases + CRISPR + inducible)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-403"
+    phase: "4"
+    section: "2.4.3"
+    title: "Hosts catalogue"
+    model_tier: "Sonnet, reviewed by `/scientific-advisor`. **Context budget:** ≤ 40 k tokens"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-404"
+    phase: "4"
+    section: "2.4.4"
+    title: "Enzymes catalogue + buffer-compatibility matrix"
+    model_tier: "Sonnet, reviewed by `/scientific-advisor`. **Context budget:** ≤ 35 k tokens"
+    context_budget: "≤ 35 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-405"
+    phase: "4"
+    section: "2.4.5"
+    title: "Rule manifests + fixtures + stub predicates (v1.1 — B-05 / M-05 fix)"
+    model_tier: "Sonnet, reviewed by `/scientific-advisor`"
+    context_budget: "≤ 40 k tokens per sub-task"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-406"
+    phase: "4"
+    section: "2.4.6"
+    title: "Vendor profiles + screening trust policy + institutional policy + export profiles + risk advisories"
+    model_tier: "Sonnet, reviewed by `/scientific-advisor`"
+    context_budget: "≤ 30 k tokens per sub-task"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-316c"
+    phase: "4"
+    section: "2.4.7"
+    title: "Production `SopTemplateSigner` + `SopTemplateVerifier` adapters + key lifecycle (v1.5 — scheduled before T-316b production bootstrap)"
+    model_tier: "Sonnet. **Context budget:** ≤ 35 k tokens"
+    context_budget: "≤ 35 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-316b"
+    phase: "4"
+    section: "2.4.8"
+    title: "Signed SQLite SOP-template store + bootstrap migration (v1.5 — follows T-316c production signer/verifier; depends on T-401 schema + T-406 catalogue content + T-316a Protocols)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-501"
+    phase: "5"
+    section: "2.5.1"
+    title: "`engine.dependencies` (DAG-evaluator)"
+    model_tier: "Opus. **Context budget:** ≤ 50 k tokens"
+    context_budget: "≤ 50 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-502"
+    phase: "5"
+    section: "2.5.2"
+    title: "`engine.validation` (pure DAG executor; v1.2 — `WorkerPoolFactory` per H2-08; explicit benchmark per M2-06)"
+    model_tier: "Opus. **Context budget:** ≤ 60 k tokens"
+    context_budget: "≤ 60 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-504"
+    phase: "5"
+    section: "2.5.3"
+    title: "`engine.compatibility` (v1.1 — new, per H-03 / B-02)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-503"
+    phase: "5"
+    section: "2.5.4"
+    title: "`engine.sequence_analysis` + ~50 structural predicates"
+    model_tier: "Opus. **Context budget:** ≤ 75 k tokens — **split** into T-503a (sequence_analysis), T-503b (structural predicates), T-503c (host + frame predicates)"
+    context_budget: "≤ 75 k tokens — **split** into T-503a (sequence_analysis), T-503b (structural predicates), T-503c (host + frame predicates)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-601a..k"
+    phase: "6"
+    section: "2.6.1"
+    title: "Biology adapter implementations (parallel; v1.5 manifest range grammar expands to T-601a through T-601k)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 30 k tokens per adapter"
+    expanded_task_ids: ["T-601a", "T-601b", "T-601c", "T-601d", "T-601e", "T-601f", "T-601g", "T-601h", "T-601i", "T-601j", "T-601k"]
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-602"
+    phase: "6"
+    section: "2.6.2"
+    title: "Biology-back-end-dependent predicates"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-603"
+    phase: "6"
+    section: "2.6.3"
+    title: "`app.validation_orchestrator` (metric pre-compute)"
+    model_tier: "Opus. **Context budget:** ≤ 45 k tokens"
+    context_budget: "≤ 45 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-606"
+    phase: "6"
+    section: "2.6.4"
+    title: "`app.design_service` (v1.2 — phase-local acceptance per H2-05)"
+    model_tier: "Sonnet. **Context budget:** ≤ 40 k tokens"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-607"
+    phase: "6"
+    section: "2.6.5"
+    title: "`app.decision_tree` (v1.1 — new, per M-08 / B-02)"
+    model_tier: "Opus. **Context budget:** ≤ 45 k tokens"
+    context_budget: "≤ 45 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-701"
+    phase: "7"
+    section: "2.7.1"
+    title: "`engine.codon` (constraint-aware optimiser)"
+    model_tier: "Opus. **Context budget:** ≤ 60 k tokens"
+    context_budget: "≤ 60 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-702"
+    phase: "7"
+    section: "2.7.2"
+    title: "`engine.overhang` (Golden Gate fidelity optimiser)"
+    model_tier: "Opus. **Context budget:** ≤ 50 k tokens"
+    context_budget: "≤ 50 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-703"
+    phase: "7"
+    section: "2.7.3"
+    title: "`engine.assembly` (strategy hierarchy; v1.1 — added T-703e SLIC per M-02)"
+    model_tier: "Opus. **Context budget:** ≤ 90 k tokens — **split** into T-703a (restriction + gibson), T-703b (golden_gate + kits), T-703c (gateway + lic + user), T-703d (iva + yeast_tar), **T-703e (SLIC — new in v1.1)**"
+    context_budget: "≤ 90 k tokens — **split** into T-703a (restriction + gibson), T-703b (golden_gate + kits), T-703c (gateway + lic + user), T-703d (iva + yeast_tar), **T-703e (SLIC — new in v1.1)**"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-704"
+    phase: "7"
+    section: "2.7.4"
+    title: "`engine.primer` (Primer3-backed)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-705"
+    phase: "7"
+    section: "2.7.5"
+    title: "`app.assembly_orchestrator` (iterative loop)"
+    model_tier: "Opus. **Context budget:** ≤ 40 k tokens"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-801"
+    phase: "8a"
+    section: "2.8a.1"
+    title: "`engine.risk_classification` (B3 mitigation)"
+    model_tier: "Opus. **Context budget:** ≤ 45 k tokens"
+    context_budget: "≤ 45 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-802"
+    phase: "8a"
+    section: "2.8a.2"
+    title: "`engine.design_plan` (v1.2 — renderer files explicit per M2-04)"
+    model_tier: "Opus. **Context budget:** ≤ 50 k tokens"
+    context_budget: "≤ 50 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-804"
+    phase: "8a"
+    section: "2.8a.3"
+    title: "`engine.controls`"
+    model_tier: "Sonnet. **Context budget:** ≤ 40 k tokens"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-805a"
+    phase: "8a"
+    section: "2.8a.4"
+    title: "`app.design_plan_orchestrator` (v1.2 — new, per B2-09)"
+    model_tier: "Opus. **Context budget:** ≤ 45 k tokens"
+    context_budget: "≤ 45 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-806a"
+    phase: "8a"
+    section: "2.8a.5"
+    title: "Advisory presentation + acknowledgement surface (v1.3 — `AdvisoryWarningPresented` schema explicit per H3-11)"
+    model_tier: "Opus. **Context budget:** ≤ 50 k tokens (v1.3 increased from 45 k)"
+    context_budget: "≤ 50 k tokens (v1.3 increased from 45 k)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-807"
+    phase: "8a"
+    section: "2.8a.6"
+    title: "`engine.vlp_policy` (v1.1 — new, per H-04 / B-02)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-808"
+    phase: "8a"
+    section: "2.8a.7"
+    title: "`app.plugin_governance` (v1.1 — new, per B-02)"
+    model_tier: "Sonnet. **Context budget:** ≤ 40 k tokens"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-901"
+    phase: "9a"
+    section: "2.9a.1"
+    title: "EMBL + GFF3 adapters"
+    model_tier: "Sonnet. **Context budget:** ≤ 30 k tokens"
+    context_budget: "≤ 30 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-902"
+    phase: "9a"
+    section: "2.9a.2"
+    title: "`adapter.snapgene.SnapGeneFileWatcher` (v1.2 — H2-04 fix; depends on T-308e for `.dna` parsing)"
+    model_tier: "Sonnet. **Context budget:** ≤ 40 k tokens"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1001"
+    phase: "10"
+    section: "2.10.1"
+    title: "Vendor adapters (Twist / IDT / GenScript; v1.3 — activates vendor-profile-feasibility portion of `BlockVendorSubmission` per H3-02)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 40 k tokens per vendor (v1.3 increased from 35 k)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1002"
+    phase: "10"
+    section: "2.10.2"
+    title: "Screening adapters + orchestrator (v1.3 — activates screening-verdict portion of `BlockVendorSubmission` per H3-02)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-803"
+    phase: "8b"
+    section: "2.8b.1"
+    title: "`engine.sop_protocol` (gated; v1.3 — SOP-template admin writes moved to T-316b per B3-05/B4-05; consumes read port only)"
+    model_tier: "Opus. **Context budget:** ≤ 55 k tokens (v1.3 reduced from 60 k since SOP-template admin writes moved out)"
+    context_budget: "≤ 55 k tokens (v1.3 reduced from 60 k since SOP-template admin writes moved out)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-805b"
+    phase: "8b"
+    section: "2.8b.2"
+    title: "`app.sop_protocol_orchestrator` (v1.2 — renamed + scoped per B2-09)"
+    model_tier: "Opus. **Context budget:** ≤ 40 k tokens"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-806b"
+    phase: "8b"
+    section: "2.8b.3"
+    title: "Authorisation gate decision + review-queue routing + adversarial UAT (v1.3 — routes blocked sessions to T-315 review queue per B3-06)"
+    model_tier: "Opus. **Context budget:** ≤ 60 k tokens (v1.3 increased from 55 k)"
+    context_budget: "≤ 60 k tokens (v1.3 increased from 55 k)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-903"
+    phase: "9b"
+    section: "2.9b.1"
+    title: "`app.export_orchestrator` + redaction (v1.2 — moved to Phase 9b per B2-02; renderers per M2-04)"
+    model_tier: "Opus. **Context budget:** ≤ 50 k tokens"
+    context_budget: "≤ 50 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1103a"
+    phase: "11"
+    section: "2.11.1"
+    title: "`AdminServiceClientPort` Protocol + IPC contract + test client (v1.4 — new per B4-08; scheduled BEFORE T-1101 / T-1102)"
+    model_tier: "Sonnet. **Context budget:** ≤ 35 k tokens"
+    context_budget: "≤ 35 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1101"
+    phase: "11"
+    section: "2.11.2"
+    title: "Typer-based CLI (v1.4 — admin commands route via `AdminServiceClientPort` per B4-08; no direct `AdminActionHandler` import)"
+    model_tier: "Sonnet. **Context budget:** ≤ 50 k tokens"
+    context_budget: "≤ 50 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1102"
+    phase: "11"
+    section: "2.11.3"
+    title: "FastAPI HTTP server + WebSocket (v1.4 — admin routes via `AdminServiceClientPort` per B4-08)"
+    model_tier: "Sonnet. **Context budget:** ≤ 55 k tokens"
+    context_budget: "≤ 55 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1103b"
+    phase: "11"
+    section: "2.11.4"
+    title: "Admin-service production implementation + IPC server + ACL + `ReviewQueueAdminPort` (v1.4 — production half split per B4-08; H4-01 review queue + M4-05 OS-level ACL tests)"
+    model_tier: "Opus. **Context budget:** ≤ 60 k tokens (v1.4 increased from 55 k for ReviewQueueAdminPort + ACL tests)"
+    context_budget: "≤ 60 k tokens (v1.4 increased from 55 k for ReviewQueueAdminPort + ACL tests)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1201"
+    phase: "12"
+    section: "2.12.1"
+    title: "`app.constraint_translator` + `adapter.llm`"
+    model_tier: "Opus. **Context budget:** ≤ 60 k tokens"
+    context_budget: "≤ 60 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1202"
+    phase: "12"
+    section: "2.12.2"
+    title: "React + TypeScript SPA"
+    model_tier: "Sonnet"
+    context_budget: "≤ 45 k tokens per component cluster"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1203"
+    phase: "12"
+    section: "2.12.3"
+    title: "`adapter.snapgene.SnapGeneApiClient` (UR-01b SHOULD)"
+    model_tier: "Sonnet. **Context budget:** ≤ 35 k tokens"
+    context_budget: "≤ 35 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1301"
+    phase: "13"
+    section: "2.13.1"
+    title: "White-paper-example UAT (v1.3 — expanded per H3-03)"
+    model_tier: "Opus, reviewed by `/scientific-advisor`"
+    context_budget: "≤ 60 k tokens per example"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1302"
+    phase: "13"
+    section: "2.13.2"
+    title: "Adversarial UAT suite (v1.3 — file list explicit per H3-03; covers all v1.2 + v1.3 bypass scenarios)"
+    model_tier: "Opus. **Context budget:** ≤ 75 k tokens (v1.3 increased from 60 k for the expanded scenario list)"
+    context_budget: "≤ 75 k tokens (v1.3 increased from 60 k for the expanded scenario list)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []
+  - task_id: "T-1303"
+    phase: "13"
+    section: "2.13.3"
+    title: "Combinatorial library benchmark + release polish (v1.3 — concrete cadence per H3-03)"
+    model_tier: "Sonnet. **Context budget:** ≤ 50 k tokens (v1.3 increased from 40 k)"
+    context_budget: "≤ 50 k tokens (v1.3 increased from 40 k)"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: []

@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-26",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-26: Antibiotic-resistance marker risk for translational / in-vivo / environmental use: WHO highest-priority antibiotics flagged.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-26.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

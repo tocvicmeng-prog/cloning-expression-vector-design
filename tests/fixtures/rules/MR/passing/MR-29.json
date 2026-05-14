@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-29",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-29: Frame-preservation across every fusion junction (N-tag\u2013linker, linker\u2013ORF, ORF\u2013linker, linker\u2013C-tag, scar\u2013residue boundaries for Gateway / TEV / SUMO / etc.).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-29.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-01",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-01: Promoter \u2194 host class compatibility (bacterial / eukaryotic Pol II / Pol III / phage).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-01.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

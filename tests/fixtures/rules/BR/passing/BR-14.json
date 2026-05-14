@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "BR-14",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for BR-14: The BlockOperationalProtocol gate MUST fire whenever the construct's RiskAdvisoryReport contains an advisory of severity caution or strong_caution that has not been explicitly acknowledged by a signed RiskAdvisoryAcknowledgement whose report_content_hash and construct_checksum match the current versions. Passive UI dismissal MUST NOT satisfy this requirement. Declines and escalations route the construct to alternative workflows but do NOT unblock authorisation on their own.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.BR-14.passing",
+    "category": "BR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

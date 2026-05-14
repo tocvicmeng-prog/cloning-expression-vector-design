@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-28",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-28: Signal peptide \u2194 compartment consistency: predicted SignalP cleavage site matches declared compartment; KDEL/HDEL only on intended ER-resident proteins.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-28.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

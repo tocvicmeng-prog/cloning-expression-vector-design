@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-08",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for SR-08: Vendor-mandated restriction sites for cloning into the supplied vector (e.g., a vendor's \"ready-to-clone\" service requires EcoRV blunt ends or specific Type IIS sites for direct subcloning).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-08.triggering",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

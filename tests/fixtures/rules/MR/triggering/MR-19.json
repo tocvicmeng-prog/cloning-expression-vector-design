@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-19",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-19: AAV ITR integrity: 145-nt ITR sequences identical to canonical AAV2 (or other declared serotype) on both flanks.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-19.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

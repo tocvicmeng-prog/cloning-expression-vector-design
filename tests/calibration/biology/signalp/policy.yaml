@@ -1,0 +1,6 @@
+adapter_id: signalp
+tolerance:
+  relative_error: 0.05
+baseline_fixture_hash: "3333333333333333333333333333333333333333333333333333333333333333"
+baseline_captured_at: "2026-05-14"
+escalation_path: "/scientific-advisor"

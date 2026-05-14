@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-21",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for WR-21: For ccdB-bearing destination vectors, propagate in DB3.1 or ccdB Survival 2 only.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-21.triggering",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

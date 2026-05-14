@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-12",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-12: Bacterial SD/RBS: Shine\u2013Dalgarno-like motif (consensus AGGAGG) within 5\u201313 nt of the AUG; \u0394G(\u221230..+30) > \u221210 kcal/mol.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-12.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

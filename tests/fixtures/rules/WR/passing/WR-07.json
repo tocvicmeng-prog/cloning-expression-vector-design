@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-07",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for WR-07: For methylation-sensitive enzymes, the host genotype is dam+ / dcm+ or dam\u2212 / dcm\u2212 as required by the enzyme.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-07.passing",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

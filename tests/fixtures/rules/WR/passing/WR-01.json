@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-01",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for WR-01: The chosen polymerase is high-fidelity (Phusion / Q5 / KAPA HiFi / PrimeSTAR) when the PCR product will be cloned; Taq is not used for cloning amplicons.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-01.passing",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

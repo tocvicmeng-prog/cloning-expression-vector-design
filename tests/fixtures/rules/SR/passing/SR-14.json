@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-14",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for SR-14: Codon-level rescue: if a sequence fails vendor constraints, the system MUST attempt synonymous-codon rewriting within the ORF to fix the violation without changing the protein, then re-check.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-14.passing",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

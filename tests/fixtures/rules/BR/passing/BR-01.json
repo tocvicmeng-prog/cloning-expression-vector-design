@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "BR-01",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for BR-01: Every construct MUST be routed through a configured screening adaptor (IGSC v3.0 / IBBIS Common Mechanism / SecureDNA / institutional blacklist).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.BR-01.passing",
+    "category": "BR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

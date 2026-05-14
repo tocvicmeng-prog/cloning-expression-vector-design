@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "WR-17",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for WR-17: Glycerol stocks are made at 15\u201325 % glycerol final and stored at \u221280 \u00b0C.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.WR-17.passing",
+    "category": "WR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

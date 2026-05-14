@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-47",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-47: Plant 35S promoter on a mammalian construct \u2192 flag (works only weakly in mammalian cells).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-47.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

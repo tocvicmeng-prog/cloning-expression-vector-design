@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-49",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-49: T7 terminator on a non-T7 transcription unit \u2192 flag (does not terminate \u03c3\u2077\u2070-transcribed mRNA).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-49.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

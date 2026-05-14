@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-35",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-35: Two compatible-end restriction sites used in non-directional cloning \u2192 flag (high background of self-ligated empty vector).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-35.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

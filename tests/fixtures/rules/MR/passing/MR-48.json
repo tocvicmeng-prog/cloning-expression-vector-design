@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-48",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-48: Bacterial signal peptide (pelB, OmpA, DsbA) on a mammalian construct \u2192 flag (does not target ER).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-48.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-25",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-25: Viral replication elements (gag/pol/env, complete viral ORFs, replication-competent sequences) excluded unless explicitly approved.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-25.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}

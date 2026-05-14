@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "SR-15",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for SR-15: Vendor turnaround time displayed (Twist: ~ 2 weeks; IDT: 1\u20132 weeks; GenScript: 2\u20133 weeks).",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.SR-15.triggering",
+    "category": "SR",
+    "minimal": true,
+    "notes": "T-405 fixture asserts rule-registry coverage; Phase 5/6 replaces stub semantics with executable predicate expectations."
+  }
+}
