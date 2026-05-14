@@ -3,6 +3,7 @@
 **Established:** 2026-05-13
 **Purpose:** foundation and working directory for a *universal cloning / expression vector design software* — the long-term goal is a program that takes a biological objective (host, cargo, expression level, biosafety tier) and produces a verified, software-validated, standards-serialised vector design ready to order.
 **Status:** active v0.1.0 implementation complete locally through Phase 13 release polish.
+**Copyright and IP:** General Molecular Expression Service Pty Ltd (GMExpression®, GMES).
 
 ---
 
