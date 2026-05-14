@@ -84,6 +84,35 @@ class DesignCompiled(DesignEvent):
 
 @register_event_type
 @dataclass(frozen=True)
+class DesignRealisationPlanRendered(DesignEvent):
+    event_type = "DesignRealisationPlanRendered"
+    construct_id: str
+    construct_version: str
+    plan_content_hash: str
+    renderer_payload_hashes: CanonicalPayload
+
+
+@register_event_type
+@dataclass(frozen=True)
+class ControlSetRendered(DesignEvent):
+    event_type = "ControlSetRendered"
+    construct_id: str
+    control_set_content_hash: str
+    control_ids: tuple[str, ...]
+
+
+@register_event_type
+@dataclass(frozen=True)
+class RiskAdvisoryReportRendered(DesignEvent):
+    event_type = "RiskAdvisoryReportRendered"
+    construct_id: str
+    construct_version: str
+    report_content_hash: str
+    advisory_ids: tuple[str, ...]
+
+
+@register_event_type
+@dataclass(frozen=True)
 class ScreeningCompleted(DesignEvent):
     event_type = "ScreeningCompleted"
     batch_id: str

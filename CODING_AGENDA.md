@@ -1142,7 +1142,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
 - **Files:** `src/engine/controls/generator.py`, `validation.py`, tests.
 - **Model tier:** Sonnet. **Context budget:** ≤ 40 k tokens.
 - **SOP:** Generate `ControlSet` (positive / negative / process / library-specific). Validation rules (N8) tied to host role + chemistry + cargo class: positive-control suitability matched, negative-control absence-of-signal, vehicle/mock controls, replicate-structure recommendation.
-- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with an `engine.controls` package containing `ControlGenerationInput`, `ControlSetGenerator`, deterministic positive / negative / process / vehicle / library-specific control synthesis, host/readout-aware positive controls, absence-of-signal negative controls, replicate recommendations, and `validate_control_set()` findings for missing vehicle, library-specific, process, replicate, host-match, and negative-baseline coverage. Focused verification: 4 tests passed. Full local gates are green with 454 passed and 2 skipped. T-805a is next.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with an `engine.controls` package containing `ControlGenerationInput`, `ControlSetGenerator`, deterministic positive / negative / process / vehicle / library-specific control synthesis, host/readout-aware positive controls, absence-of-signal negative controls, replicate recommendations, and `validate_control_set()` findings for missing vehicle, library-specific, process, replicate, host-match, and negative-baseline coverage. Focused verification: 4 tests passed. Full local gates are green with 454 passed and 2 skipped. T-805a is also complete locally; T-806a is next.
 
 #### 2.8a.4 `T-805a` — `app.design_plan_orchestrator` (v1.2 — new, per B2-09)
 - **Files:** `src/app/design_plan_orchestrator.py`, tests.
@@ -1153,6 +1153,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
   3. Always available, runs before screening. Emits the corresponding design events (`DesignRealisationPlanRendered`, `ControlSetRendered`, `RiskAdvisoryReportRendered`) to the design event stream.
   4. The `DraftDesignBundle` is the pre-screening sharing artefact (e.g., a junior researcher sharing a draft with a Reviewer before institutional sign-off). It must never be conflated with the final export bundle produced by T-903 (Phase 9b).
 - **Acceptance:** integration test renders a draft bundle for white-paper Example A with no screening verdict, no SOP, no authorisation evidence; static test confirms no operational field is reachable; design events emitted to the correct stream; bundle round-trip JSON byte-deterministic.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with `DesignPlanOrchestrator`, `DraftDesignBundleRequest`, and `DraftDesignBundle`; composed T-802 design-plan rendering, T-804 controls generation/validation, and T-801 risk classification into a deterministic pre-screening bundle; added design-stream event classes `DesignRealisationPlanRendered`, `ControlSetRendered`, and `RiskAdvisoryReportRendered`; appended events through an injected design event log; added static coverage that the bundle shape and orchestrator imports exclude gated operational artefacts, vendor clearance, and screening/authorisation events. Focused verification: 14 tests passed. Full local gates are green with 458 passed and 2 skipped. T-806a is next.
 
 #### 2.8a.5 `T-806a` — Advisory presentation + acknowledgement surface (v1.3 — `AdvisoryWarningPresented` schema explicit per H3-11)
 - **Files:** `src/app/advisory_acknowledgement.py`, `src/domain/events/governance/advisory.py` (explicit schema), tests.
@@ -2701,7 +2702,7 @@ This coding agenda is **Finalised v1.5** after the fifth-round mechanical consis
 
 **v1.5 audit history.** 4 internal adversarial-falsification rounds (v1.0) + 21/21 first-round Codex audit findings accepted (v1.1) + 29/29 second-round Codex audit findings accepted (v1.2) + 27/27 third-round Codex audit findings accepted (v1.3) + **27/27 fourth-round Codex audit findings accepted (v1.4)** + fifth-round mechanical consistency remediation (v1.5). Zero defenses raised across all external coding-agenda audits.
 
-Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-805a `app.design_plan_orchestrator` now that T-804 is complete locally.
+Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-806a `app.advisory_acknowledgement` now that T-805a is complete locally.
 
 ---
 
