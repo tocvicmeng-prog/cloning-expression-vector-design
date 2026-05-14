@@ -1,7 +1,7 @@
 # TASK_BOARD.md — War-Room Dashboard (v1.5 consistency release)
 
 **Derived from:** `CODING_AGENDA.md` v1.5 + `ROADMAP.md` v1.5 + `ARCHITECTURE.md` v1.5. Counts below are seed-manifest checked against `docs/task_manifest.yaml` and `tools/agenda_consistency_check.py`; T-204 later owns the production manifest generator/refinement workflow.
-**Last updated:** 2026-05-14 (T-606 design service complete locally; project is a Git repository on `main` and uses non-editable `uv` installs for Windows/OneDrive/non-ASCII path reliability).
+**Last updated:** 2026-05-14 (T-607 decision tree complete locally; Phase 6 complete; project is a Git repository on `main` and uses non-editable `uv` installs for Windows/OneDrive/non-ASCII path reliability).
 **Maintained by:** `/dev-orchestrator`. **Live mirror command (Phase 11+):** `vector-design status`.
 
 ## 1.1 v1.3 changes (operational security / audit boundary pass)
@@ -15,7 +15,7 @@ This dashboard was regenerated for v1.3:
 
 **v1.2 changes (retained context).** Phase 8 split into 8a/8b (B-03), Phase 9 split into 9a/9b (B2-02), T-805 split into T-805a/T-805b (B2-09), T-311 admin handler + T-312 audit-key tasks (B2-04 / B2-08).
 
-**Next milestone.** Phase 6 — `T-607` decision tree is next. Phase 2 scaffold (`T-201`..`T-205`), all Phase 3 tasks (`T-301`..`T-315`), all Phase 4 tasks (`T-401`..`T-406`, `T-316c`, `T-316b`), all Phase 5 tasks (`T-501`, `T-502`, `T-504`, `T-503`), T-601a..k, T-602, T-603, and T-606 are done + locally verified.
+**Next milestone.** Phase 7 — `T-701` codon optimiser is next. Phase 2 scaffold (`T-201`..`T-205`), all Phase 3 tasks (`T-301`..`T-315`), all Phase 4 tasks (`T-401`..`T-406`, `T-316c`, `T-316b`), all Phase 5 tasks (`T-501`, `T-502`, `T-504`, `T-503`), and all Phase 6 tasks (`T-601a..k`, `T-602`, `T-603`, `T-606`, `T-607`) are done + locally verified.
 
 ---
 
@@ -42,8 +42,8 @@ This dashboard was regenerated for v1.3:
 | Phase 3 — Core domain model + sequence I/O + security ports | ✅ | 19 / 19 | T-301..T-315 verified locally. **v1.5 physical task order:** T-301 → T-302 → T-303 → T-304 → T-305 → T-306 → T-307 → **T-312a** → **T-313a** → **T-314a** → **T-316a** → T-308 → T-309 → T-310 → T-311 → **T-312b** → **T-314b** → **T-313b** → **T-315**. T-314b precedes production T-313b so audit-service authentication can use the production verifier. |
 | Phase 4 — Catalogues | ✅ | 8 / 8 | T-401 catalogue loader framework + JSON Schemas, T-402 parts catalogue, T-403 hosts catalogue, T-404 enzymes catalogue + buffer compatibility, T-405 rule manifests + fixtures + stubs, T-406 policy/profile catalogues, T-316c production SOP-template signing, and T-316b signed SQLite SOP-template store/bootstrap verified locally. |
 | Phase 5 — Validation rule engine | ✅ | 4 / 4 | T-501 validation dependency DAG, T-502 pure validation executor, T-504 host compatibility, and T-503 sequence analysis + implemented structural-predicate subset verified locally. |
-| Phase 6 — Biology back-ends + app services | 🟡 | 4 / 5 | T-601a..k deterministic local biology adapters, T-602 biology-dependent predicates, T-603 validation orchestration, and T-606 design service verified locally. Next: T-607 decision tree. |
-| Phase 7 — Codon + assembly + overhang + primer | ⚪ | 0 / 5 | T-701..T-705 planned (sub-split: 9 total; v1.1 added T-703e SLIC) |
+| Phase 6 — Biology back-ends + app services | ✅ | 5 / 5 | T-601a..k deterministic local biology adapters, T-602 biology-dependent predicates, T-603 validation orchestration, T-606 design service, and T-607 decision tree verified locally. |
+| Phase 7 — Codon + assembly + overhang + primer | 🟡 | 0 / 5 | T-701..T-705 planned (sub-split: 9 total; v1.1 added T-703e SLIC). Next: T-701 codon optimiser. |
 | **Phase 8a** — Design plan + controls + advisory data + advisory presentation (pre-screening) | ⚪ | 0 / 7 | T-801, T-802, T-804, **T-805a (`app.design_plan_orchestrator` — v1.2 new per B2-09)**, T-806a, T-807, T-808 |
 | **Phase 9a** — Sequence I/O extensions + SnapGene file-watch (pre-screening; v1.2 split per B2-02) | ⚪ | 0 / 2 | T-901, T-902 (depends on T-308e; no local `dna_reader.py` per v1.2 H2-04) |
 | Phase 10 — Vendor + screening | ⚪ | 0 / 2 | T-1001 (×3), T-1002. v1.2 `ScreeningCompleted` emitted to **design stream** per B2-05. |
@@ -53,7 +53,7 @@ This dashboard was regenerated for v1.3:
 | Phase 12 — Web UI + LLM + live SnapGene | ⚪ | 0 / 3 | T-1201 (red-team needed), T-1202 (UI subtasks), T-1203 |
 | Phase 13 — Acceptance UAT + library + release | ⚪ | 0 / 3 | T-1301..T-1303. v1.2 T-1302 adversarial UAT extended with construct-checksum-mismatch + programmatic-event-bypass + audit-key-absent + audit-key-compromise scenarios per M2-02. |
 
-**Cumulative (v1.5, seed-manifest checked):** 9 foundation items done + 40 implementation tasks done / **71 active Section 2 implementation task cards**. The fifth-round audit's stale legacy profile-signing heading is removed; `T-601a..k` remains one active card with formal range expansion for child briefs. Phase 0–5 complete locally; Phase 6 in progress; next task T-607.
+**Cumulative (v1.5, seed-manifest checked):** 9 foundation items done + 41 implementation tasks done / **71 active Section 2 implementation task cards**. The fifth-round audit's stale legacy profile-signing heading is removed; `T-601a..k` remains one active card with formal range expansion for child briefs. Phase 0–6 complete locally; Phase 7 in progress; next task T-701.
 
 **Phase-order reminder (v1.5, unchanged from v1.2 except Phase 10 physical placement already applied):** 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → **8a** → **9a** → **10** → **8b** → **9b** → 11 → 12 → 13. **v1.4 B4-01:** Section 2 of `CODING_AGENDA.md` is now physically ordered to match — Phase 10 inserted between Phase 9a and Phase 8b.
 
@@ -61,7 +61,7 @@ This dashboard was regenerated for v1.3:
 
 ## 2. Current bottlenecks (top 5)
 
-_None at present — Phase 6 is unblocked. The orchestrator can open `T-607` immediately._
+_None at present — Phase 7 is unblocked. The orchestrator can open `T-701` immediately._
 
 Anticipated future bottlenecks:
 
@@ -77,7 +77,7 @@ Anticipated future bottlenecks:
 
 ## 3. Active task queue
 
-_Empty — no tasks assigned yet. Phase 6 next task is `T-607`._
+_Empty — no tasks assigned yet. Phase 7 next task is `T-701`._
 
 | Task ID | Module | Phase | Tier | Assignee | Started | ETA | Stage |
 |---|---|---|---|---|---|---|---|
@@ -152,6 +152,7 @@ _Empty — no tasks assigned yet. Phase 6 next task is `T-607`._
 | T-602 | Biology-back-end-dependent predicates | 2026-05-14 | Pure predicates now cover MR-12, MR-13, MR-14, MR-15, MR-16, MR-27, and MR-28 over precomputed biology metrics without importing adapters; implemented registry extended while manifest stubs remain consistent; focused slice green with 7 passed at 89.89% coverage; full local gates green with 387 passed, 2 skipped. |
 | T-603 | Validation orchestrator metric pre-compute | 2026-05-14 | `app.validation_orchestrator` now determines affected rules and required biology metrics, computes metrics through injected adapter ports in parallel, caches results by session/environment/source hash, and invokes the pure validator; focused slice green with 4 passed; full local gates green with 391 passed, 2 skipped. |
 | T-606 | Design-service use cases + pending states | 2026-05-14 | `app.design_service` now creates, opens, amends, compiles, and replays event-sourced design sessions; compile honours activated T-309 gates while pending defaults remain phase-local; `current_pending_state` reports AwaitingScreening / AwaitingAuthorisation / AwaitingSopRender / AwaitingExport without stubbing downstream services; focused slice green with 6 passed; full local gates green with 397 passed, 2 skipped. |
+| T-607 | Decision-tree application driver | 2026-05-14 | `app.decision_flow` and `app.decision_tree` now provide catalogue-backed objective, host, cargo, expression, tagging, cloning-chemistry, and biosafety-tier candidates; selections persist through T-606 design events and produce deterministic compile metadata; focused slice green with 12 passed; full local gates green with 409 passed, 2 skipped. |
 
 ---
 

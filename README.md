@@ -78,7 +78,7 @@ When the v2.0 KB and the white paper appear to disagree, the citation chain in v
 
 ## 5. Next milestones
 
-Phase 2 scaffold, Phase 3, Phase 4, Phase 5, T-601a..k, T-602, T-603, and T-606 are complete locally. T-606 added `app.design_service` create/open/amend/compile/replay use cases over the event-sourced session engine plus explicit phase-local `Awaiting*` pending states for downstream services. Before opening T-607, run `python tools/agenda_consistency_check.py`, then use:
+Phase 2 scaffold, Phase 3, Phase 4, Phase 5, and Phase 6 are complete locally. T-607 added the catalogue-backed `app.decision_tree` flow for objective, host, cargo, expression, tagging, cloning chemistry, and biosafety-tier choices, with design-session events persisted through `app.design_service`. Before opening T-701, run `python tools/agenda_consistency_check.py`, then use:
 
 ```powershell
 python -m uv sync --frozen --no-editable --group dev --extra io
