@@ -78,7 +78,7 @@ When the v2.0 KB and the white paper appear to disagree, the citation chain in v
 
 ## 5. Next milestones
 
-Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, and Phase 7 are complete locally. Phase 8a is in progress with T-801 complete locally: `engine.risk_classification` now generates deterministic active risk-advisory reports from `catalogues/risk_advisories.yaml`, infers trigger tags from design metadata, binds report hashes to design-session and construct identity, and maps each advisory to a graded citation. Before opening T-802, run `python tools/agenda_consistency_check.py`, then use:
+Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, and Phase 7 are complete locally. Phase 8a is in progress with T-801 and T-802 complete locally: `engine.risk_classification` generates deterministic active risk-advisory reports, and `engine.design_plan` now emits always-renderable `DesignRealisationPlan` objects with deterministic JSON, Markdown, and PDF renderers while keeping gated operational protocol types unreachable. Before opening T-804, run `python tools/agenda_consistency_check.py`, then use:
 
 ```powershell
 python -m uv sync --frozen --no-editable --group dev --extra io
