@@ -1099,12 +1099,13 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
 - **Model tier:** Opus. **Context budget:** ≤ 90 k tokens — **split** into T-703a (restriction + gibson), T-703b (golden_gate + kits), T-703c (gateway + lic + user), T-703d (iva + yeast_tar), **T-703e (SLIC — new in v1.1)**.
 - **SOP:** Each strategy implements `validate_parts`, `design_primers`, `compile_assembly_plan` → typed `AssemblyPlan` subclass. Golden Gate uses `engine.overhang` for overhang-set picking.
 - **T-703e SLIC sub-task:** SLIC is mechanically distinct from Gibson (T4-polymerase-only chew-back vs three-enzyme cocktail) and is listed in REQUIREMENTS § 1.2 scope. Implement `SLICStrategy` as a sibling of `GibsonLikeStrategy`; emit `OverlapAssemblyPlan` subclass `SLICPlan` carrying the T4-polymerase conditions distinct from Gibson conditions. Fixture: 3-fragment SLIC assembly with verified primer chew-back overlap geometry.
-- **Implementation status (2026-05-14).** Complete locally. Converted the T-203 `engine.assembly` placeholder into a pure strategy package with `AssemblyPart`, `AssemblyStrategy`, `AssemblyEngine`, deterministic primer placeholders for T-704, and typed plan compilers for restriction ligation, Gibson-like / NEBuilder / In-Fusion overlap assembly, Golden Gate plus MoClo / Loop / YTK / GreenGate / GoldenBraid / JUMP / MIDAS kit subclasses, Gateway, LIC, SLIC, USER, IVA, and yeast TAR. Golden Gate delegates overhang selection to `engine.overhang`; SLIC emits a dedicated `SLICPlan` carrying T4-polymerase chew-back conditions. Focused verification: 7 tests passed. Full local gates are green with 433 passed and 2 skipped. T-704 is next.
+- **Implementation status (2026-05-14).** Complete locally. Converted the T-203 `engine.assembly` placeholder into a pure strategy package with `AssemblyPart`, `AssemblyStrategy`, `AssemblyEngine`, deterministic primer placeholders for T-704, and typed plan compilers for restriction ligation, Gibson-like / NEBuilder / In-Fusion overlap assembly, Golden Gate plus MoClo / Loop / YTK / GreenGate / GoldenBraid / JUMP / MIDAS kit subclasses, Gateway, LIC, SLIC, USER, IVA, and yeast TAR. Golden Gate delegates overhang selection to `engine.overhang`; SLIC emits a dedicated `SLICPlan` carrying T4-polymerase chew-back conditions. Focused verification: 7 tests passed. Full local gates are green with 433 passed and 2 skipped. T-704 is also complete locally; T-705 is next.
 
 #### 2.7.4 `T-704` — `engine.primer` (Primer3-backed)
 - **Files:** `src/engine/primer/designer.py`, `parameters.py`, `sequencing.py`, `diagnostic.py`, tests.
 - **Model tier:** Opus. **Context budget:** ≤ 55 k tokens.
 - **SOP:** Per-strategy primer design; `PrimerDesignParameters` (M1 / M2 v1.4). Off-target scan against full plasmid via `engine.sequence_analysis.find_sites`-style search. Sequencing-primer designer covers every cloning junction ±50 bp within Sanger read length. Diagnostic-digest primer designer pairs with `engine.sequence_analysis.design_diagnostic_digest`.
+- **Implementation status (2026-05-14).** Complete locally. Converted the T-203 `engine.primer` placeholder into a pure package with `PrimerDesignParameters`, optional Primer3 backend detection, deterministic fallback primer-pair selection, Tm/GC metrics, exact seed off-target scanning, per-assembly-part primer sets, Sanger sequencing primer placement for junction coverage, and diagnostic-digest primer design wrapping `engine.sequence_analysis.design_diagnostic_digest`. Focused verification: 6 tests passed. Full local gates are green with 439 passed and 2 skipped. T-705 is next.
 
 #### 2.7.5 `T-705` — `app.assembly_orchestrator` (iterative loop)
 - **Files:** `src/app/assembly_orchestrator.py`, tests.
@@ -2696,7 +2697,7 @@ This coding agenda is **Finalised v1.5** after the fifth-round mechanical consis
 
 **v1.5 audit history.** 4 internal adversarial-falsification rounds (v1.0) + 21/21 first-round Codex audit findings accepted (v1.1) + 29/29 second-round Codex audit findings accepted (v1.2) + 27/27 third-round Codex audit findings accepted (v1.3) + **27/27 fourth-round Codex audit findings accepted (v1.4)** + fifth-round mechanical consistency remediation (v1.5). Zero defenses raised across all external coding-agenda audits.
 
-Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-704 `engine.primer` now that T-703 is complete locally.
+Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-705 `app.assembly_orchestrator` now that T-704 is complete locally.
 
 ---
 
