@@ -8,6 +8,18 @@ manifests:
   - id: "plugin.seed"
     name: "Seed plugin manifest"
     version: "seed-v1"
+    artefact_path: "artifacts/plugin.seed.txt"
+    artefact_sha256: "ce404842f144026834f8a686e8ea1bf8c13bbf0d6ab34368b00b84d884c1b173"
+    permissions:
+      file_access: ["catalogues/plugin_manifests/artifacts"]
+      network_access: false
+      deterministic_paths: true
+      network_hosts: []
+    signature:
+      key_id: "plugin-trust-seed-v1"
+      algorithm: "ed25519"
+      signed_payload_hash: "bcbbf6d1af2df56762a5c176a8f362ce87e30bb18327e035bf7648c5d1b2a7ec"
+      signature: "TA/3qjM2D97qte/RDtXHsNoYo7FvvkQajx5+/y/Egu0Kp47uoPKelWT8ZHzxY29GXu++DfOr/l2KB7ac7fX6Cw=="
     citation:
       text: "ARCHITECTURE v1.5 plugin-manifest seed traceability citation."
       grade: "B2"

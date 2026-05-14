@@ -1217,6 +1217,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
   3. Emit `PluginManifestApproved` governance events for accepted plugins; `PluginManifestRejected` for failures.
   4. Adversarial fixtures: unsigned manifest, hash-mismatched manifest, manifest declaring a permission outside the trusted set — each path produces a typed rejection + audit-log entry.
 - **Acceptance:** `plugin-manifest-signature` CI gate flips from `informational` to `enforced` after this task; adversarial test fixtures all rejected correctly.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-808 placeholder with `PluginGovernanceService`, signed `PluginManifest` parsing, Ed25519 `PluginTrustKeyring` verification, artefact SHA-256 matching, sandbox permission validation/grants, approval/rejection governance-event emission, a fully signed seed plugin manifest, and an enforced `plugin_manifest_signature_check` CI gate wired into GitHub Actions. Focused verification: 10 tests passed and the enforced plugin-manifest gate passed. Full local gates are green with 476 passed and 2 skipped. Phase 8a is complete; T-901 is next.
 
 ### Phase 9a — Sequence I/O extensions + SnapGene file-watch (2 tasks; v1.2 — split from v1.1 Phase 9 per B2-02)
 
@@ -1938,7 +1939,7 @@ def test_replay_design_plus_referenced_governance_reproduces_session_state():
 | sop-after-gates-check | static + runtime: `SopLinkedProtocol` cannot render without `OperationalProtocolAuthorised` | T-204 / T-803 | `informational` until Phase 8b; `enforced` after T-806b + T-803 land | gate predicate active |
 | llm-output-policy-check | red-team test suite | T-204 / T-1201 | `not_implemented` until Phase 12; `informational` then; `enforced` at T-1201 exit | LLM adapter exists |
 | audit-traceability-check | every traceability reference resolves; generated `docs/traceability_index.md` matches file headers | T-204 | `informational` from Phase 2 exit; `enforced` from Phase 3 exit | headers present |
-| plugin-manifest-signature | signature verification on every plugin load | T-204 / T-808 | `not_implemented` until T-808; `informational` then; `enforced` at T-808 exit | governance service exists |
+| plugin-manifest-signature | signature verification on every plugin load | T-204 / T-808 | `enforced` at T-808 exit | governance service exists; T-808 complete locally |
 | source-grade-citation-check | every rule citation has grade ∈ {A1, A2, A3, B1, B2} or C+corroborator | T-401 | `enforced` from Phase 4 exit | catalogues populated |
 | stale-catalogue-check | `review_required_after` in the future for every active catalogue | T-401 | `enforced` from Phase 4 exit; runs nightly | catalogues populated |
 | **module-coverage-check** (v1.2 manifest-driven per M2-03) | parses manually authored `docs/module_manifest.yaml` and warns separately on architecture prose drift; fails if any module lacks ≥ 1 task | T-204 | `informational` after T-203 lands; `enforced` after Phase 3 exit (T-311 + T-312b land) | port inventory + admin handler exist |

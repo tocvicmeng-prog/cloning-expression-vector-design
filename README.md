@@ -78,7 +78,7 @@ When the v2.0 KB and the white paper appear to disagree, the citation chain in v
 
 ## 5. Next milestones
 
-Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, and Phase 7 are complete locally. Phase 8a is in progress with T-801, T-802, T-804, T-805a, T-806a, and T-807 complete locally: risk advisories, always-renderable design plans, deterministic renderers, first-class controls, pre-screening draft bundles, active advisory presentation/acknowledgement predicates, and VLP/AAV/lentiviral policy reports are implemented while gated operational protocol types remain unreachable. Before opening T-808, run `python tools/agenda_consistency_check.py`, then use:
+Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, Phase 7, and Phase 8a are complete locally. Risk advisories, always-renderable design plans, deterministic renderers, first-class controls, pre-screening draft bundles, active advisory presentation/acknowledgement predicates, VLP/AAV/lentiviral policy reports, and enforced plugin-manifest verification are implemented while gated operational protocol types remain unreachable. Before opening T-901, run `python tools/agenda_consistency_check.py`, then use:
 
 ```powershell
 python -m uv sync --frozen --no-editable --group dev --extra io

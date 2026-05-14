@@ -42,6 +42,7 @@ EXPECTED_GATE_FILES = {
 
 ENFORCED_GREEN_SKELETONS = (
     "module_coverage_check.py",
+    "plugin_manifest_signature_check.py",
     "no_domain_impurity_check.py",
     "task_acceptance_completeness_check.py",
     "gate_lifecycle_check.py",

@@ -1,0 +1,1 @@
+Seed deterministic plugin artefact for T-808 manifest-signature verification.

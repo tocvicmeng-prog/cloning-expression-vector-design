@@ -1,7 +1,7 @@
 # TASK_BOARD.md — War-Room Dashboard (v1.5 consistency release)
 
 **Derived from:** `CODING_AGENDA.md` v1.5 + `ROADMAP.md` v1.5 + `ARCHITECTURE.md` v1.5. Counts below are seed-manifest checked against `docs/task_manifest.yaml` and `tools/agenda_consistency_check.py`; T-204 later owns the production manifest generator/refinement workflow.
-**Last updated:** 2026-05-14 (T-807 VLP policy engine complete locally; Phase 8a in progress; project is a Git repository on `main` and uses non-editable `uv` installs for Windows/OneDrive/non-ASCII path reliability).
+**Last updated:** 2026-05-14 (T-808 plugin governance complete locally; Phase 8a complete; project is a Git repository on `main` and uses non-editable `uv` installs for Windows/OneDrive/non-ASCII path reliability).
 **Maintained by:** `/dev-orchestrator`. **Live mirror command (Phase 11+):** `vector-design status`.
 
 ## 1.1 v1.3 changes (operational security / audit boundary pass)
@@ -15,7 +15,7 @@ This dashboard was regenerated for v1.3:
 
 **v1.2 changes (retained context).** Phase 8 split into 8a/8b (B-03), Phase 9 split into 9a/9b (B2-02), T-805 split into T-805a/T-805b (B2-09), T-311 admin handler + T-312 audit-key tasks (B2-04 / B2-08).
 
-**Next milestone.** Phase 8a — `T-808` plugin governance is next. Phase 2 scaffold (`T-201`..`T-205`), all Phase 3 tasks (`T-301`..`T-315`), all Phase 4 tasks (`T-401`..`T-406`, `T-316c`, `T-316b`), all Phase 5 tasks (`T-501`, `T-502`, `T-504`, `T-503`), all Phase 6 tasks (`T-601a..k`, `T-602`, `T-603`, `T-606`, `T-607`), all Phase 7 tasks (`T-701`..`T-705`), and T-801/T-802/T-804/T-805a/T-806a/T-807 are done + locally verified.
+**Next milestone.** Phase 9a — `T-901` EMBL + GFF3 adapters are next. Phase 2 scaffold (`T-201`..`T-205`), all Phase 3 tasks (`T-301`..`T-315`), all Phase 4 tasks (`T-401`..`T-406`, `T-316c`, `T-316b`), all Phase 5 tasks (`T-501`, `T-502`, `T-504`, `T-503`), all Phase 6 tasks (`T-601a..k`, `T-602`, `T-603`, `T-606`, `T-607`), all Phase 7 tasks (`T-701`..`T-705`), and all Phase 8a tasks are done + locally verified.
 
 ---
 
@@ -44,7 +44,7 @@ This dashboard was regenerated for v1.3:
 | Phase 5 — Validation rule engine | ✅ | 4 / 4 | T-501 validation dependency DAG, T-502 pure validation executor, T-504 host compatibility, and T-503 sequence analysis + implemented structural-predicate subset verified locally. |
 | Phase 6 — Biology back-ends + app services | ✅ | 5 / 5 | T-601a..k deterministic local biology adapters, T-602 biology-dependent predicates, T-603 validation orchestration, T-606 design service, and T-607 decision tree verified locally. |
 | Phase 7 — Codon + assembly + overhang + primer | ✅ | 5 / 5 | T-701 codon optimiser, T-702 overhang optimiser, T-703 assembly strategy hierarchy, T-704 primer designer, and T-705 assembly orchestrator verified locally. |
-| **Phase 8a** — Design plan + controls + advisory data + advisory presentation (pre-screening) | 🟡 | 6 / 7 | T-801, T-802, T-804, T-805a, T-806a, and T-807 verified locally; next T-808 |
+| **Phase 8a** — Design plan + controls + advisory data + advisory presentation (pre-screening) | ✅ | 7 / 7 | T-801, T-802, T-804, T-805a, T-806a, T-807, and T-808 verified locally |
 | **Phase 9a** — Sequence I/O extensions + SnapGene file-watch (pre-screening; v1.2 split per B2-02) | ⚪ | 0 / 2 | T-901, T-902 (depends on T-308e; no local `dna_reader.py` per v1.2 H2-04) |
 | Phase 10 — Vendor + screening | ⚪ | 0 / 2 | T-1001 (×3), T-1002. v1.2 `ScreeningCompleted` emitted to **design stream** per B2-05. |
 | **Phase 8b** — SOP rendering + authorisation gate (post-Phase 10 + post-Phase-9a) | ⚪ | 0 / 3 | T-803, **T-805b (`app.sop_protocol_orchestrator` — v1.2 renamed per B2-09)**, T-806b. v1.2 T-806b home of BR-14 (H2-11). |
@@ -53,7 +53,7 @@ This dashboard was regenerated for v1.3:
 | Phase 12 — Web UI + LLM + live SnapGene | ⚪ | 0 / 3 | T-1201 (red-team needed), T-1202 (UI subtasks), T-1203 |
 | Phase 13 — Acceptance UAT + library + release | ⚪ | 0 / 3 | T-1301..T-1303. v1.2 T-1302 adversarial UAT extended with construct-checksum-mismatch + programmatic-event-bypass + audit-key-absent + audit-key-compromise scenarios per M2-02. |
 
-**Cumulative (v1.5, seed-manifest checked):** 9 foundation items done + 52 implementation tasks done / **71 active Section 2 implementation task cards**. The fifth-round audit's stale legacy profile-signing heading is removed; `T-601a..k` remains one active card with formal range expansion for child briefs. Phase 0–7 complete locally; Phase 8a is in progress; next task T-808.
+**Cumulative (v1.5, seed-manifest checked):** 9 foundation items done + 53 implementation tasks done / **71 active Section 2 implementation task cards**. The fifth-round audit's stale legacy profile-signing heading is removed; `T-601a..k` remains one active card with formal range expansion for child briefs. Phase 0–8a complete locally; next task T-901.
 
 **Phase-order reminder (v1.5, unchanged from v1.2 except Phase 10 physical placement already applied):** 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → **8a** → **9a** → **10** → **8b** → **9b** → 11 → 12 → 13. **v1.4 B4-01:** Section 2 of `CODING_AGENDA.md` is now physically ordered to match — Phase 10 inserted between Phase 9a and Phase 8b.
 
@@ -61,7 +61,7 @@ This dashboard was regenerated for v1.3:
 
 ## 2. Current bottlenecks (top 5)
 
-_None at present — Phase 8a is unblocked. The orchestrator can open `T-808` immediately._
+_None at present — Phase 9a is unblocked. The orchestrator can open `T-901` immediately._
 
 Anticipated future bottlenecks:
 
@@ -77,7 +77,7 @@ Anticipated future bottlenecks:
 
 ## 3. Active task queue
 
-_Empty — no tasks assigned yet. Phase 8a next task is `T-808`._
+_Empty — no tasks assigned yet. Phase 9a next task is `T-901`._
 
 | Task ID | Module | Phase | Tier | Assignee | Started | ETA | Stage |
 |---|---|---|---|---|---|---|---|
@@ -163,6 +163,8 @@ _Empty — no tasks assigned yet. Phase 8a next task is `T-808`._
 | T-804 | Control-set generator and validation | 2026-05-14 | `engine.controls` now generates positive, negative, process, vehicle/mock, and library-specific controls from host role, assembly chemistry, cargo/vector classes, readout, library size, and replicate context; validation reports missing required controls, weak replicate structure, unclear host matching, and negative-baseline issues; focused slice green with 4 passed; full local gates green with 454 passed, 2 skipped. |
 | T-805a | Pre-screening draft design bundle orchestrator | 2026-05-14 | `app.design_plan_orchestrator` now composes T-801/T-802/T-804 into deterministic `DraftDesignBundle` values, renders design-plan JSON/Markdown/PDF, validates controls, emits `DesignRealisationPlanRendered`, `ControlSetRendered`, and `RiskAdvisoryReportRendered` design-stream events, and statically excludes gated operational artefacts and screening/authorisation event imports; focused slice green with 14 passed; full local gates green with 458 passed, 2 skipped. |
 | T-806a | Advisory presentation and acknowledgement surface | 2026-05-14 | `app.advisory_acknowledgement` now emits active advisory presentation events, creates acknowledged/declined/escalated governance events with embedded acknowledgement payloads, enforces reviewer/admin action authority and escalation approval IDs, and exposes `all_required_advisories_acknowledged()` over binding presentations, hashes, checksums, justifications, and signature evidence; focused slice green with 5 passed; full local gates green with 463 passed, 2 skipped. |
+| T-807 | VLP / AAV / lentiviral policy engine | 2026-05-14 | `engine.vlp_policy` now emits deterministic `VlpPolicyReport` values for MS2 RNA-display, phage-derived VLP, AAV, and lentiviral systems with cargo-capacity, packaging-signal, helper-separation, control/readout, replication-boundary, MS-* registry, and risk-trigger coverage; focused slice green with 7 passed; full local gates green with 470 passed, 2 skipped. |
+| T-808 | Plugin manifest governance | 2026-05-14 | `app.plugin_governance` now verifies signed plugin manifests against the institutional trust keyring, checks artefact hashes, enforces sandbox permissions, emits approval/rejection governance events, and advances `plugin-manifest-signature` to enforced mode; focused slice green with 10 passed; full local gates green with 476 passed, 2 skipped. |
 
 ---
 
@@ -203,7 +205,7 @@ All risks have documented mitigations in `ARCHITECTURE.md` v1.5 § 6. CI gates s
 | R-15 | Multi-host marker conflict misclassification | 🟡 role-keyed `HostContext` planned in T-304 |
 | R-16 | User self-elevates authorisation | 🟡 `no-self-authorisation-check` CI gate planned in T-204 |
 | R-17 | LLM unsafe output | 🟡 `AdvisoryTextPolicy` + `llm-output-policy-check` planned in T-1201 |
-| R-18 | Plugin trust escalation | 🟡 `plugin-manifest-signature` CI gate planned in T-204 |
+| R-18 | Plugin trust escalation | ✅ signed manifest verification, artefact hashing, sandbox permission checks, governance events, and enforced `plugin-manifest-signature` gate delivered in T-808 |
 | R-19 | Export bundle PII leak | 🟡 `ExportProfile` redaction planned in T-903 |
 | R-20 | Unsupported biosafety tier attempted | 🟡 T-503 delivered the structural predicate slot in the implemented registry subset; end-to-end BSL-4 hard-block UAT remains planned in T-1302. |
 | R-21 | Advisory bypass | 🟡 report generation delivered in T-801, draft-bundle inclusion in T-805a, and active presentation/acknowledgement predicate in T-806a; Phase 8b authorisation consumption and FR-ADV-07 adversarial UAT remain planned in T-806b / T-1302 |
@@ -230,7 +232,7 @@ Legend: ✅ mitigated and verified in CI; 🟡 mitigation planned with task owne
 | `sop-after-gates-check` | `not_implemented` | T-204 / T-803 | (absent) | unknown |
 | `llm-output-policy-check` | `not_implemented` | T-204 / T-1201 | (absent) | unknown |
 | `audit-traceability-check` | `not_implemented` | T-204 | (absent) | unknown |
-| `plugin-manifest-signature` | `not_implemented` | T-204 / T-808 | (absent) | unknown |
+| `plugin-manifest-signature` | `enforced` | T-808 | GitHub Actions + local `python -m uv run --no-editable python -m tools.ci_gates.plugin_manifest_signature_check --enforce` | local green 2026-05-14 |
 | `source-grade-citation-check` | `informational` | T-401 | 2026-05-14 | green |
 | `stale-catalogue-check` | `informational` | T-401 | 2026-05-14 | green |
 | `module-coverage-check` (manual `docs/module_manifest.yaml` seed; architecture consistency informational) | `not_implemented` | T-204 | (absent) | unknown |

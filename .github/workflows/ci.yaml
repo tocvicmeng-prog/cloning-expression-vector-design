@@ -89,6 +89,9 @@ jobs:
           python -m uv run --no-editable python -m tools.ci_gates.gate_lifecycle_check --informational
           python -m uv run --no-editable python -m tools.ci_gates.test_task_brief_coverage --informational
 
+      - name: Plugin manifest signature gate
+        run: python -m uv run --no-editable python -m tools.ci_gates.plugin_manifest_signature_check --enforce
+
       - name: Type check
         run: python -m uv run --no-editable mypy src tools tests
 
