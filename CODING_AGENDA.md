@@ -1036,7 +1036,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
 
 #### 2.6.2 `T-602` — Biology-back-end-dependent predicates
 - **Files:** `src/engine/validation/predicates/{rbs,kozak,uorf,premature_polya,splice,cpg,signal_peptide}.py`, tests.
-- **Implementation status (2026-05-14).** Complete locally. Added pure metric-backed predicates for MR-12 RBS spacing/TIR/accessibility, MR-13 Kozak PWM threshold, MR-14 uORF scan, MR-15 premature polyA motifs, MR-16 splice-score threshold, MR-27 CpG content, and MR-28 signal-peptide/compartment consistency. The predicates consume `ValidationContext` metrics or deterministic sequence fallbacks and do not import biology adapters. `IMPLEMENTED_PREDICATE_REGISTRY` now includes the T-602 subset while `PREDICATE_REGISTRY` remains the Phase-4 stub registry for manifest consistency. Focused verification: 7 tests passed with 89.89% targeted coverage. Full local gates are green with 387 tests passed and 2 skipped. T-603 is complete locally; T-606 is next.
+- **Implementation status (2026-05-14).** Complete locally. Added pure metric-backed predicates for MR-12 RBS spacing/TIR/accessibility, MR-13 Kozak PWM threshold, MR-14 uORF scan, MR-15 premature polyA motifs, MR-16 splice-score threshold, MR-27 CpG content, and MR-28 signal-peptide/compartment consistency. The predicates consume `ValidationContext` metrics or deterministic sequence fallbacks and do not import biology adapters. `IMPLEMENTED_PREDICATE_REGISTRY` now includes the T-602 subset while `PREDICATE_REGISTRY` remains the Phase-4 stub registry for manifest consistency. Focused verification: 7 tests passed with 89.89% targeted coverage. Full local gates are green with 387 tests passed and 2 skipped. T-603 and T-606 are complete locally; T-607 is next.
 - **Model tier:** Opus. **Context budget:** ≤ 55 k tokens.
 - **SOP:** Implement MR-12 (RBS folding), MR-13 (Kozak PWM), MR-14 (uORF scan), MR-15 (premature polyA), MR-16 (splice — SpliceAI), MR-27 (CpG content), MR-28 (signal peptide). Each predicate consumes precomputed metrics via `ValidationContext`.
 - **Acceptance:** rule-validation coverage gate green; tests with known high-/low-expression constructs.
@@ -1050,7 +1050,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
   3. Cache metric results in the design session for incremental re-eval (with `DerivationEnvironment` hash binding).
   4. Build `ValidationContext` and invoke pure `engine.validation.validate`.
 - **Acceptance:** integration test that demonstrates incremental re-eval after a single module change re-runs only affected rules + metrics; Tier-2 budget met.
-- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with `ValidationOrchestrator`, `BiologyAdapterSet`, derivation-environment-bound `DesignSessionMetricCache`, predicate-to-metric bindings for the T-602 biology subset, parallel metric task execution, and default validation predicate composition that overlays implemented predicates on the Phase-4 stub registry. Focused verification: 4 tests passed. Full local gates are green with 391 passed and 2 skipped. T-606 is next.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with `ValidationOrchestrator`, `BiologyAdapterSet`, derivation-environment-bound `DesignSessionMetricCache`, predicate-to-metric bindings for the T-602 biology subset, parallel metric task execution, and default validation predicate composition that overlays implemented predicates on the Phase-4 stub registry. Focused verification: 4 tests passed. Full local gates are green with 391 passed and 2 skipped. T-606 is complete locally; T-607 is next.
 
 #### 2.6.4 `T-606` — `app.design_service` (v1.2 — phase-local acceptance per H2-05)
 - **Files:** `src/app/design_service.py`, tests.
@@ -1064,6 +1064,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
   - Create / open / amend / compile / replay use cases work end-to-end with deterministic in-memory fakes for every adapter.
   - For each pending state, an integration test confirms `design_service` correctly returns the pending taxonomy without invoking the absent downstream service.
   - **Full happy path (create → add parts → compile → screen → authorise → export) is owned by T-1301 (white-paper UAT), NOT by T-606.** T-606 must not stub the screening / authorisation / SOP / export services to "fake green" the downstream path.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with `DesignService`, structural event-log/project-store/snapshot-store ports, create/open/amend/compile/replay use cases over `engine.session`, compile-gate integration with `GatePredicateRegistry`, and phase-local `AwaitingScreening` / `AwaitingAuthorisation` / `AwaitingSopRender` / `AwaitingExport` pending-state taxonomy mapped to T-309 safety gates. Focused verification: 6 tests passed. Full local gates are green with 397 passed and 2 skipped. T-607 is next.
 
 #### 2.6.5 `T-607` — `app.decision_tree` (v1.1 — new, per M-08 / B-02)
 - **Files:** `src/app/decision_tree.py`, `decision_flow.py`, tests.
@@ -2691,7 +2692,7 @@ This coding agenda is **Finalised v1.5** after the fifth-round mechanical consis
 
 **v1.5 audit history.** 4 internal adversarial-falsification rounds (v1.0) + 21/21 first-round Codex audit findings accepted (v1.1) + 29/29 second-round Codex audit findings accepted (v1.2) + 27/27 third-round Codex audit findings accepted (v1.3) + **27/27 fourth-round Codex audit findings accepted (v1.4)** + fifth-round mechanical consistency remediation (v1.5). Zero defenses raised across all external coding-agenda audits.
 
-Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-606 `app.design_service` now that T-603 is complete locally.
+Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-607 `app.decision_tree` now that T-606 is complete locally.
 
 ---
 
