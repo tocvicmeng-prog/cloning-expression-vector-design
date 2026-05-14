@@ -1,3 +1,9 @@
+"""
+module_id: tests.interface.ui.test_ui_t1202
+file: tests/interface/ui/test_ui_t1202.py
+task_id: T-1202
+"""
+
 from __future__ import annotations
 
 import json

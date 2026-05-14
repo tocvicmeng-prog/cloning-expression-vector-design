@@ -2,7 +2,7 @@
 module_id: tools.ci_gates.test_task_brief_coverage
 file: tools/ci_gates/test_task_brief_coverage.py
 task_id: T-204
-lifecycle_state: informational
+lifecycle_state: enforced
 owning_task_id: T-204
 """
 

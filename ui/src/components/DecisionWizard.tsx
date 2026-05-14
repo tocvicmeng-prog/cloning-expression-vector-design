@@ -29,7 +29,7 @@ export function DecisionWizard({
       <div className="panel-header">
         <div>
           <p className="eyebrow">Decision tree</p>
-          <h1 id="decision-heading">Vector Design Workspace</h1>
+          <h1 id="decision-heading">Cloning &amp; Expression Vector Design Toolkit</h1>
         </div>
         <div className="header-actions" aria-label="Decision tree tools">
           <button type="button" className="icon-button" title="Rerun from active step" aria-label="Rerun from active step">

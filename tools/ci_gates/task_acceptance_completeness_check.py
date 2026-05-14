@@ -2,7 +2,7 @@
 module_id: tools.ci_gates.task_acceptance_completeness_check
 file: tools/ci_gates/task_acceptance_completeness_check.py
 task_id: T-204
-lifecycle_state: informational
+lifecycle_state: enforced
 owning_task_id: T-204
 """
 

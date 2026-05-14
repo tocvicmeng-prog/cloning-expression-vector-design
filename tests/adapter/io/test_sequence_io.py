@@ -117,14 +117,33 @@ def test_gff3_adapter_requires_embedded_fasta_sequence() -> None:
         Gff3Adapter().read(payload)
 
 
-def test_sbol3_adapter_round_trips_sequence_with_feature_loss_warning() -> None:
+def test_sbol3_adapter_round_trips_sequence_and_exact_range_feature() -> None:
     adapter = Sbol3Adapter()
     result = adapter.write(_imported_construct())
     imported = adapter.read(result.data)
 
     assert imported.sequence_record.canonical_sequence == "ACGTACGTACGT"
+    assert result.loss_warnings == ()
+    assert imported.features[0].role == "CDS"
+    assert imported.features[0].locations[0].start == 2
+    assert imported.features[0].locations[0].end == 8
+    assert imported.features[0].locations[0].strand == "+"
+    assert imported.features[0].ordered_qualifiers[0].namespace == "sbol"
+    assert imported.features[0].ordered_qualifiers[0].key == "name"
+    assert imported.features[0].ordered_qualifiers[0].value == "insert"
+
+
+def test_sbol3_adapter_warns_when_feature_location_cannot_round_trip() -> None:
+    feature = replace(
+        _imported_construct().features[0],
+        locations=(LocationV14(start=10, end=2, strand="+", phase=".", circular_wrap=True),),
+    )
+    adapter = Sbol3Adapter()
+    result = adapter.write(_imported_construct(features=(feature,)))
+    imported = adapter.read(result.data)
+
     assert imported.features == ()
-    assert result.loss_warnings[0].code == "sbol-lite-drops-features"
+    assert result.loss_warnings[0].code == "sbol-feature-location-not-supported"
 
 
 def test_snapgene_reader_reports_actionable_failure_for_corrupted_bytes() -> None:

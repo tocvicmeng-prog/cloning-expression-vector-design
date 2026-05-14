@@ -2,7 +2,7 @@
 module_id: tools.ci_gates.gate_lifecycle_check
 file: tools/ci_gates/gate_lifecycle_check.py
 task_id: T-204
-lifecycle_state: informational
+lifecycle_state: enforced
 owning_task_id: T-204
 """
 
@@ -14,6 +14,7 @@ from tools.ci_gates._gate import GateResult, fail_gate, pass_gate, run_gate
 
 VALID_STATES = {"not_implemented", "informational", "enforced", "enforced-green"}
 SKIP = {"__init__.py", "_gate.py"}
+STUB_MARKER = "predicate not " + "implemented yet"
 
 
 def _header_value(text: str, key: str) -> str | None:
@@ -36,7 +37,7 @@ def check(root: Path) -> GateResult:
             messages.append(f"{path.relative_to(root)} has invalid lifecycle_state {state!r}")
         if not owner:
             messages.append(f"{path.relative_to(root)} missing owning_task_id")
-        if state in {"enforced", "enforced-green"} and "predicate not implemented yet" in text:
+        if state in {"enforced", "enforced-green"} and STUB_MARKER in text:
             messages.append(f"{path.relative_to(root)} is enforced but still a stub")
     if messages:
         return fail_gate(*messages)

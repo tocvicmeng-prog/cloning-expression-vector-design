@@ -1,4 +1,10 @@
-"""Deterministic ZIP renderer for final export bundles."""
+"""
+module_id: app.export_orchestrator.renderers.bundle_zip
+file: src/app/export_orchestrator/renderers/bundle_zip.py
+task_id: T-903
+
+Deterministic ZIP renderer for final export bundles.
+"""
 
 from __future__ import annotations
 

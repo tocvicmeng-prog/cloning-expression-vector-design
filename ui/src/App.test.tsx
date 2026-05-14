@@ -5,12 +5,46 @@ describe('Vector design workspace', () => {
   it('renders the required decision tree fields and specialised free-text capacity', () => {
     render(<App />);
 
-    expect(screen.getByRole('heading', { name: 'Vector Design Workspace' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Cloning & Expression Vector Design Toolkit' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /01 Objective/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /07 Biosafety tier/ })).toBeInTheDocument();
 
     const specialisedNotes = screen.getByLabelText('Other / specialised - describe your requirement');
     expect(specialisedNotes).toHaveAttribute('maxLength', '2000');
+  });
+
+  it('shows GMExpression branding and copyright details', () => {
+    render(<App />);
+
+    expect(screen.getByRole('link', { name: 'GMExpression shop' })).toHaveAttribute(
+      'href',
+      'https://shop.gmexpression.com/'
+    );
+    expect(screen.getByText(/2026 GMExpression/)).toBeInTheDocument();
+    expect(screen.getByText(/For Research Use Only/)).toBeInTheDocument();
+  });
+
+  it('renders the workflow-grade wet-lab planning surfaces', () => {
+    render(<App />);
+
+    expect(screen.getByRole('heading', { name: 'EV-2407' })).toBeInTheDocument();
+    expect(screen.getByText('Blocked by review gate')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Workflow stages' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /06 Biosafety review/ })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Import and selection' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Import sequence' })).toBeInTheDocument();
+  });
+
+  it('renders construct architecture, compatibility, and gated export actions', () => {
+    render(<App />);
+
+    expect(screen.getByText('Construct architecture')).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: 'cargo ORF' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Compatibility matrix' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Cargo \/ tag/ })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Action and export' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Validate design/ })).toBeEnabled();
+    expect(screen.getByRole('button', { name: /Final GenBank\/SBOL\/FASTA export/ })).toBeDisabled();
   });
 
   it('exposes only acknowledge, decline, and escalate as advisory decision paths', () => {

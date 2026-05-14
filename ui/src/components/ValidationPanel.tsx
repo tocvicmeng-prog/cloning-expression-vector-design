@@ -13,6 +13,8 @@ type ValidationPanelProps = {
 };
 
 export function ValidationPanel({ findings, onModuleSelect }: ValidationPanelProps) {
+  const warningCount = findings.filter((finding) => finding.severity === 'warn').length;
+
   return (
     <section className="panel validation-panel" aria-labelledby="validation-heading">
       <div className="panel-header compact">
@@ -20,7 +22,7 @@ export function ValidationPanel({ findings, onModuleSelect }: ValidationPanelPro
           <p className="eyebrow">Live checks</p>
           <h2 id="validation-heading">Validation report</h2>
         </div>
-        <span className="status-chip">2 warnings</span>
+        <span className="status-chip">{warningCount} warnings</span>
       </div>
 
       <div className="finding-list">

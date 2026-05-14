@@ -138,6 +138,40 @@ export function VectorWorkspace({ features, zoom, onZoomChange }: VectorWorkspac
           </div>
         ))}
       </div>
+
+      <div className="construct-table-wrap" aria-label="Construct architecture">
+        <table className="construct-table">
+          <caption>Construct architecture</caption>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Type</th>
+              <th>Coordinates</th>
+              <th>Strand</th>
+              <th>Source</th>
+              <th>State</th>
+              <th>Validation</th>
+            </tr>
+          </thead>
+          <tbody>
+            {features.map((feature) => (
+              <tr key={feature.id}>
+                <td>{feature.label}</td>
+                <td>{feature.kind}</td>
+                <td>
+                  {feature.start}-{feature.end}
+                </td>
+                <td>{feature.strand}</td>
+                <td>{feature.source}</td>
+                <td>{feature.locked ? 'Locked' : 'Editable'}</td>
+                <td>
+                  <span className={`table-status ${feature.validation}`}>{feature.validation}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }

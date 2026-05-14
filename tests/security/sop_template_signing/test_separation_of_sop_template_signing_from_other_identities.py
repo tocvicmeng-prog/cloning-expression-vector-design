@@ -1,8 +1,4 @@
-"""
-module_id: tests.security.sop_template_signing.test_separation
-file: tests/security/sop_template_signing/test_separation_of_identities.py
-task_id: T-316c
-"""
+"""SOP-template signing key separation tests."""
 
 from __future__ import annotations
 
@@ -29,6 +25,13 @@ from tests.fakes.sop_template.fixtures import (
 )
 from tests.fakes.sop_template.fixtures import signed_template, unsigned_template
 from tests.security.sop_template_signing.helpers import provision_decision_record_key
+
+MODULE_ID = "tests.security.sop_template_signing.test_separation"
+TRACEABILITY_FILE = (
+    "tests/security/sop_template_signing/"
+    "test_separation_of_sop_template_signing_from_other_identities.py"
+)
+OWNING_TASKS = ("T-316c",)
 
 
 def test_sop_template_profile_and_decision_record_keys_are_distinct_archives(

@@ -2,7 +2,7 @@
 module_id: tools.ci_gates.source_grade_citation_check
 file: tools/ci_gates/source_grade_citation_check.py
 task_id: T-204
-lifecycle_state: informational
+lifecycle_state: enforced
 owning_task_id: T-401
 """
 

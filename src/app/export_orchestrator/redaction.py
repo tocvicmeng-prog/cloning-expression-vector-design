@@ -1,4 +1,10 @@
-"""Export-profile redaction helpers for final bundle rendering."""
+"""
+module_id: app.export_orchestrator.redaction
+file: src/app/export_orchestrator/redaction.py
+task_id: T-903
+
+Export-profile redaction helpers for final bundle rendering.
+"""
 
 from __future__ import annotations
 

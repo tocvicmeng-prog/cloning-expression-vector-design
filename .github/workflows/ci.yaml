@@ -82,12 +82,26 @@ jobs:
       - name: Import contracts
         run: python -m uv run --no-editable lint-imports --config .importlinter
 
-      - name: Informational CI gate skeletons
+      - name: Manifest governance gates
         run: |
-          python -m uv run --no-editable python -m tools.ci_gates.module_coverage_check --informational
-          python -m uv run --no-editable python -m tools.ci_gates.task_acceptance_completeness_check --informational
-          python -m uv run --no-editable python -m tools.ci_gates.gate_lifecycle_check --informational
-          python -m uv run --no-editable python -m tools.ci_gates.test_task_brief_coverage --informational
+          python -m uv run --no-editable python -m tools.ci_gates.module_coverage_check --enforce
+          python -m uv run --no-editable python -m tools.ci_gates.task_acceptance_completeness_check --enforce
+          python -m uv run --no-editable python -m tools.ci_gates.gate_lifecycle_check --enforce
+          python -m uv run --no-editable python -m tools.ci_gates.test_task_brief_coverage --enforce
+
+      - name: Residual-risk boundary gates
+        run: |
+          python -m uv run --no-editable python -m tools.ci_gates.audit_append_port_only_check --enforce
+          python -m uv run --no-editable python -m tools.ci_gates.sop_template_admin_port_only_check --enforce
+          python -m uv run --no-editable python -m tools.ci_gates.no_self_authorisation_check --enforce
+          python -m uv run --no-editable python -m tools.ci_gates.audit_traceability_check --enforce
+
+      - name: Catalogue and rule governance gates
+        run: |
+          python -m uv run --no-editable python -m tools.ci_gates.stale_catalogue_check --enforce
+          python -m uv run --no-editable python -m tools.ci_gates.source_grade_citation_check --enforce
+          python -m uv run --no-editable python -m tools.ci_gates.rule_fixture_coverage_check --enforce
+          python -m uv run --no-editable python -m tools.ci_gates.implementation_status_consistency_check --enforce
 
       - name: Plugin manifest signature gate
         run: python -m uv run --no-editable python -m tools.ci_gates.plugin_manifest_signature_check --enforce

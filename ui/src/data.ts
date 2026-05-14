@@ -1,9 +1,14 @@
 import type {
   Advisory,
   AuditRecord,
+  CompatibilityCheck,
+  DesignSummary,
+  ExportAction,
+  ImportChannel,
   ReviewQueueItem,
   ValidationFinding,
   VectorFeature,
+  WorkflowStage,
   WizardStep
 } from './types';
 
@@ -102,12 +107,222 @@ export const wizardSteps: WizardStep[] = [
 ];
 
 export const vectorFeatures: VectorFeature[] = [
-  { id: 'ori', label: 'p15A origin', kind: 'origin', start: 120, end: 920, locked: true },
-  { id: 'resistance', label: 'KanR marker', kind: 'resistance', start: 980, end: 1850, locked: true },
-  { id: 'promoter', label: 'inducible promoter', kind: 'promoter', start: 2080, end: 2280, locked: false },
-  { id: 'tag', label: 'C-terminal 6xHis', kind: 'tag', start: 3040, end: 3098, locked: false },
-  { id: 'orf', label: 'cargo ORF', kind: 'orf', start: 2320, end: 3038, locked: false },
-  { id: 'terminator', label: 'terminator', kind: 'terminator', start: 3220, end: 3510, locked: false }
+  {
+    id: 'ori',
+    label: 'p15A origin',
+    kind: 'origin',
+    start: 120,
+    end: 920,
+    strand: '+',
+    source: 'Backbone catalogue',
+    locked: true,
+    validation: 'pass'
+  },
+  {
+    id: 'resistance',
+    label: 'KanR marker',
+    kind: 'resistance',
+    start: 980,
+    end: 1850,
+    strand: '+',
+    source: 'Backbone catalogue',
+    locked: true,
+    validation: 'pass'
+  },
+  {
+    id: 'promoter',
+    label: 'inducible promoter',
+    kind: 'promoter',
+    start: 2080,
+    end: 2280,
+    strand: '+',
+    source: 'Expression defaults',
+    locked: false,
+    validation: 'pass'
+  },
+  {
+    id: 'tag',
+    label: 'C-terminal 6xHis',
+    kind: 'tag',
+    start: 3040,
+    end: 3098,
+    strand: '+',
+    source: 'Fusion tag policy',
+    locked: false,
+    validation: 'pass'
+  },
+  {
+    id: 'orf',
+    label: 'cargo ORF',
+    kind: 'orf',
+    start: 2320,
+    end: 3038,
+    strand: '+',
+    source: 'User cargo input',
+    locked: false,
+    validation: 'warn'
+  },
+  {
+    id: 'terminator',
+    label: 'terminator',
+    kind: 'terminator',
+    start: 3220,
+    end: 3510,
+    strand: '+',
+    source: 'Expression defaults',
+    locked: false,
+    validation: 'pass'
+  }
+];
+
+export const designSummary: DesignSummary = {
+  designId: 'EV-2407',
+  owner: 'designer.local',
+  version: 'v0.3 draft',
+  vectorSize: '4.2 kb',
+  objective: 'Screen expression panel',
+  host: 'E. coli K-12 derivative',
+  reviewState: 'Pending institutional acknowledgement',
+  exportReadiness: 'Blocked by review gate',
+  lockedModules: 2,
+  lastSaved: '2026-05-15 00:26'
+};
+
+export const workflowStages: WorkflowStage[] = [
+  {
+    id: 'intent',
+    label: 'Intent capture',
+    summary: 'Objective, host, and cargo category are defined.',
+    status: 'complete',
+    moduleId: 'objective'
+  },
+  {
+    id: 'backbone',
+    label: 'Backbone and cargo',
+    summary: 'Backbone defaults are locked; cargo needs curator confirmation.',
+    status: 'warning',
+    moduleId: 'cargo'
+  },
+  {
+    id: 'cassette',
+    label: 'Expression cassette',
+    summary: 'Promoter, tag, ORF, and terminator are assembled as a cassette.',
+    status: 'complete',
+    moduleId: 'expression'
+  },
+  {
+    id: 'assembly',
+    label: 'Assembly compatibility',
+    summary: 'Golden Gate boundary annotations are internally consistent.',
+    status: 'complete',
+    moduleId: 'chemistry'
+  },
+  {
+    id: 'sequence',
+    label: 'Sequence validation',
+    summary: 'Frame is aligned; specialised notes can trigger curator review.',
+    status: 'warning',
+    moduleId: 'tagging'
+  },
+  {
+    id: 'review',
+    label: 'Biosafety review',
+    summary: 'Institutional acknowledgement is required before final export.',
+    status: 'blocked',
+    moduleId: 'biosafety'
+  },
+  {
+    id: 'export',
+    label: 'Export package',
+    summary: 'Draft design bundle is available; final files remain gated.',
+    status: 'pending',
+    moduleId: 'biosafety'
+  }
+];
+
+export const compatibilityChecks: CompatibilityCheck[] = [
+  {
+    id: 'compat-host-origin',
+    axis: 'Host / origin',
+    selection: 'E. coli K-12 derivative + p15A origin',
+    status: 'pass',
+    evidence: 'Replicon compatibility accepted for the selected host profile.',
+    moduleId: 'host'
+  },
+  {
+    id: 'compat-marker',
+    axis: 'Host / marker',
+    selection: 'KanR marker',
+    status: 'pass',
+    evidence: 'Selection marker is represented in the backbone catalogue.',
+    moduleId: 'host'
+  },
+  {
+    id: 'compat-expression',
+    axis: 'Promoter / induction',
+    selection: 'Tunable inducible expression',
+    status: 'pass',
+    evidence: 'Expression mode matches the selected promoter policy.',
+    moduleId: 'expression'
+  },
+  {
+    id: 'compat-cargo-tag',
+    axis: 'Cargo / tag',
+    selection: 'Open reading frame + C-terminal 6xHis',
+    status: 'warn',
+    evidence: 'Cargo boundary should be confirmed before final export.',
+    moduleId: 'cargo'
+  },
+  {
+    id: 'compat-assembly',
+    axis: 'Assembly chemistry',
+    selection: 'Golden Gate assembly',
+    status: 'pass',
+    evidence: 'Boundary annotations are internally consistent.',
+    moduleId: 'chemistry'
+  },
+  {
+    id: 'compat-review',
+    axis: 'Biosafety / export',
+    selection: 'Standard institutional review',
+    status: 'warn',
+    evidence: 'Export remains gated until the advisory decision is recorded.',
+    moduleId: 'biosafety'
+  }
+];
+
+export const importChannels: ImportChannel[] = [
+  { id: 'sequence-file', label: 'Sequence file', value: 'GenBank / SBOL / FASTA import ready', status: 'ready' },
+  { id: 'backbone', label: 'Backbone', value: 'EV-2407 p15A-KanR draft selected', status: 'locked' },
+  { id: 'cargo', label: 'Cargo sequence', value: 'Open reading frame pending curator confirmation', status: 'needed' },
+  { id: 'snapgene', label: 'SnapGene bridge', value: 'File-watch/API channel available after connection', status: 'ready' }
+];
+
+export const exportActions: ExportAction[] = [
+  {
+    id: 'validate-design',
+    label: 'Validate design',
+    description: 'Run construct, compatibility, citation, and advisory checks.',
+    state: 'ready'
+  },
+  {
+    id: 'draft-bundle',
+    label: 'Export draft design bundle',
+    description: 'Create a non-operational review package for curator inspection.',
+    state: 'ready'
+  },
+  {
+    id: 'submit-review',
+    label: 'Submit for review',
+    description: 'Route the current design to institutional acknowledgement.',
+    state: 'queued'
+  },
+  {
+    id: 'final-export',
+    label: 'Final GenBank/SBOL/FASTA export',
+    description: 'Available only after validation and advisory gates pass.',
+    state: 'blocked'
+  }
 ];
 
 export const validationFindings: ValidationFinding[] = [

@@ -1,4 +1,10 @@
-"""Final export readiness safety-gate predicate."""
+"""
+module_id: engine.export_gate
+file: src/engine/export_gate.py
+task_id: T-903
+
+Final export readiness safety-gate predicate.
+"""
 
 from __future__ import annotations
 

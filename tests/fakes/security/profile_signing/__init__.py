@@ -1,4 +1,10 @@
-"""Profile and decision-record signing test fakes."""
+"""
+module_id: tests.fakes.security.profile_signing
+file: tests/fakes/security/profile_signing/__init__.py
+task_id: T-314a
+
+Profile and decision-record signing test fakes.
+"""
 
 from __future__ import annotations
 

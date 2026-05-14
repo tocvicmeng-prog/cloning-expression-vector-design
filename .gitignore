@@ -26,6 +26,9 @@ site/
 /events/
 /snapshots/
 /exports/
+/task_artefacts/chrome-cdp-profile/
+/task_artefacts/ui-dev-server/
+/task_artefacts/ui-layout-check/
 *.sqlite
 *.sqlite3
 *.db

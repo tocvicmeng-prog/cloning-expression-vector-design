@@ -18,6 +18,13 @@ from tests.fakes.security.profile_signing.fixtures import (
 )
 from tests.fakes.security.profile_signing.signers import FakeDecisionRecordSigner
 
+MODULE_ID = "tests.security.decision_record_signing.test_rotated_keys"
+TRACEABILITY_FILE = (
+    "tests/security/decision_record_signing/"
+    "test_rotated_principal_key_verifies_historical_records.py"
+)
+OWNING_TASKS = ("T-314b",)
+
 
 def test_rotated_principal_key_verifies_historical_records(tmp_path: Path) -> None:
     archive = tmp_path / "decision-keys.json"

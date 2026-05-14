@@ -21,6 +21,13 @@ from tests.fakes.security.profile_signing.fixtures import (
 )
 from tests.fakes.security.profile_signing.signers import FakeDecisionRecordSigner
 
+MODULE_ID = "tests.security.decision_record_signing.test_separation"
+TRACEABILITY_FILE = (
+    "tests/security/decision_record_signing/"
+    "test_separation_of_decision_record_from_profile_signing.py"
+)
+OWNING_TASKS = ("T-314b",)
+
 
 def test_decision_record_and_profile_keys_are_distinct_archives(tmp_path: Path) -> None:
     profile_archive = tmp_path / "profile-keys.json"

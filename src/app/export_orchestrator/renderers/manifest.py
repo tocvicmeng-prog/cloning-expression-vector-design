@@ -1,4 +1,10 @@
-"""Canonical export-bundle manifest renderer."""
+"""
+module_id: app.export_orchestrator.renderers.manifest
+file: src/app/export_orchestrator/renderers/manifest.py
+task_id: T-903
+
+Canonical export-bundle manifest renderer.
+"""
 
 from __future__ import annotations
 

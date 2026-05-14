@@ -11,6 +11,8 @@ import sys
 from pathlib import Path
 
 from tools import port_manifest_generator, task_count_reporter, task_manifest_generator
+from tools.ci_gates.audit_append_port_only_check import audit_append_port_only_violations
+from tools.ci_gates.sop_template_admin_port_only_check import sop_template_admin_port_violations
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -41,14 +43,22 @@ EXPECTED_GATE_FILES = {
 }
 
 ENFORCED_GREEN_SKELETONS = (
+    "audit_append_port_only_check.py",
+    "audit_traceability_check.py",
+    "implementation_status_consistency_check.py",
     "module_coverage_check.py",
     "plugin_manifest_signature_check.py",
     "no_domain_impurity_check.py",
     "no_passive_advisory_bypass_check.py",
+    "no_self_authorisation_check.py",
     "task_acceptance_completeness_check.py",
     "gate_lifecycle_check.py",
     "llm_output_policy_check.py",
     "sop_after_gates_check.py",
+    "sop_template_admin_port_only_check.py",
+    "source_grade_citation_check.py",
+    "stale_catalogue_check.py",
+    "rule_fixture_coverage_check.py",
     "test_task_brief_coverage.py",
     "test_task_manifest_phase_order.py",
     "test_task_count_consistency.py",
@@ -84,11 +94,25 @@ def test_meaningful_gate_skeletons_pass_in_enforce_mode() -> None:
     assert failures == []
 
 
-def test_stub_gate_is_informational_only() -> None:
-    informational = _run_gate("no_self_authorisation_check.py", "--informational")
-    enforced = _run_gate("no_self_authorisation_check.py", "--enforce")
-    assert informational.returncode == 0
-    assert enforced.returncode == 1
+def test_residual_risk_boundary_gates_detect_synthetic_violations(tmp_path: Path) -> None:
+    synthetic_app = tmp_path / "src" / "app"
+    synthetic_app.mkdir(parents=True)
+    synthetic_sop = tmp_path / "src" / "engine" / "sop_protocol"
+    synthetic_sop.mkdir(parents=True)
+
+    (synthetic_app / "bad_audit.py").write_text(
+        "from adapter.persistence import SqliteAuditLogWriter\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    (synthetic_sop / "bad_sop.py").write_text(
+        "from domain.ports.sop_template import SopTemplateAdminWritePort\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+    assert audit_append_port_only_violations(tmp_path)
+    assert sop_template_admin_port_violations(tmp_path)
 
 
 def test_manifest_generators_emit_non_empty_data() -> None:
