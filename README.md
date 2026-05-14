@@ -78,7 +78,7 @@ When the v2.0 KB and the white paper appear to disagree, the citation chain in v
 
 ## 5. Next milestones
 
-Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, T-701, and T-702 are complete locally. T-702 added the pure `engine.overhang` package with Potapov/Pryor-labelled fidelity matrices, overhang-set scoring, benchmark fixtures, and bounded branch-and-bound search for Golden Gate overhang selection. Before opening T-703, run `python tools/agenda_consistency_check.py`, then use:
+Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, T-701, T-702, and T-703 are complete locally. T-703 added the pure `engine.assembly` package with strategy contracts plus restriction-ligation, Gibson-like, Golden Gate kit, Gateway, LIC, SLIC, USER, IVA, and yeast TAR plan compilers. Before opening T-704, run `python tools/agenda_consistency_check.py`, then use:
 
 ```powershell
 python -m uv sync --frozen --no-editable --group dev --extra io
