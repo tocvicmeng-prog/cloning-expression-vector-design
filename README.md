@@ -78,7 +78,7 @@ When the v2.0 KB and the white paper appear to disagree, the citation chain in v
 
 ## 5. Next milestones
 
-Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, and Phase 7 are complete locally. T-705 added the `app.assembly_orchestrator` fixed-point loop over codon optimisation, validation hooks, assembly planning, and primer design with a five-iteration cap and structured convergence failure. Before opening T-801, run `python tools/agenda_consistency_check.py`, then use:
+Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, and Phase 7 are complete locally. Phase 8a is in progress with T-801 complete locally: `engine.risk_classification` now generates deterministic active risk-advisory reports from `catalogues/risk_advisories.yaml`, infers trigger tags from design metadata, binds report hashes to design-session and construct identity, and maps each advisory to a graded citation. Before opening T-802, run `python tools/agenda_consistency_check.py`, then use:
 
 ```powershell
 python -m uv sync --frozen --no-editable --group dev --extra io

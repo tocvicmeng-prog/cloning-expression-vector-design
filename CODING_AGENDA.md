@@ -1105,13 +1105,13 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
 - **Files:** `src/engine/primer/designer.py`, `parameters.py`, `sequencing.py`, `diagnostic.py`, tests.
 - **Model tier:** Opus. **Context budget:** ≤ 55 k tokens.
 - **SOP:** Per-strategy primer design; `PrimerDesignParameters` (M1 / M2 v1.4). Off-target scan against full plasmid via `engine.sequence_analysis.find_sites`-style search. Sequencing-primer designer covers every cloning junction ±50 bp within Sanger read length. Diagnostic-digest primer designer pairs with `engine.sequence_analysis.design_diagnostic_digest`.
-- **Implementation status (2026-05-14).** Complete locally. Converted the T-203 `engine.primer` placeholder into a pure package with `PrimerDesignParameters`, optional Primer3 backend detection, deterministic fallback primer-pair selection, Tm/GC metrics, exact seed off-target scanning, per-assembly-part primer sets, Sanger sequencing primer placement for junction coverage, and diagnostic-digest primer design wrapping `engine.sequence_analysis.design_diagnostic_digest`. Focused verification: 6 tests passed. Full local gates are green with 439 passed and 2 skipped. T-705 is also complete locally; T-801 is next.
+- **Implementation status (2026-05-14).** Complete locally. Converted the T-203 `engine.primer` placeholder into a pure package with `PrimerDesignParameters`, optional Primer3 backend detection, deterministic fallback primer-pair selection, Tm/GC metrics, exact seed off-target scanning, per-assembly-part primer sets, Sanger sequencing primer placement for junction coverage, and diagnostic-digest primer design wrapping `engine.sequence_analysis.design_diagnostic_digest`. Focused verification: 6 tests passed. Full local gates are green with 439 passed and 2 skipped. T-705 is also complete locally; Phase 7 is complete locally.
 
 #### 2.7.5 `T-705` — `app.assembly_orchestrator` (iterative loop)
 - **Files:** `src/app/assembly_orchestrator.py`, tests.
 - **Model tier:** Opus. **Context budget:** ≤ 40 k tokens.
 - **SOP:** Implement lexicographic-priority fixed-point loop: codon optimisation → validation → assembly choice → primer design → validation → re-optimise until convergence or N=5 cap. Surface residual conflicts via structured `ConvergenceFailure` result.
-- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with `AssemblyOrchestrator`, `AssemblyMethodPicker`, typed orchestration request/result models, iteration history fingerprints, lexicographic residual priority, optional T-603 validation-runner hooks before and after assembly/primer generation, integration with `CodonOptimiser`, `AssemblyEngine`, and `PrimerDesigner`, and structured `ConvergenceFailure` when the five-iteration cap is reached. Focused verification: 4 tests passed. Full local gates are green with 443 passed and 2 skipped. Phase 7 is complete locally; T-801 is next.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with `AssemblyOrchestrator`, `AssemblyMethodPicker`, typed orchestration request/result models, iteration history fingerprints, lexicographic residual priority, optional T-603 validation-runner hooks before and after assembly/primer generation, integration with `CodonOptimiser`, `AssemblyEngine`, and `PrimerDesigner`, and structured `ConvergenceFailure` when the five-iteration cap is reached. Focused verification: 4 tests passed. Full local gates are green with 443 passed and 2 skipped. Phase 7 is complete locally; T-801 is also complete locally; T-802 is next.
 
 ### Phase 8a — Design-plan + controls + advisory data + advisory acknowledgement (pre-screening, non-operational; 7 tasks; v1.2 — H2-02 phase-count; B2-09 T-805 split)
 
@@ -1125,6 +1125,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
 - **Files:** `src/engine/risk_classification/classifier.py`, `report.py`, tests.
 - **Model tier:** Opus. **Context budget:** ≤ 45 k tokens.
 - **SOP:** Scan a `ConstructGraph` against `catalogues/risk_advisories.yaml`. Emit `RiskAdvisoryReport` v1.5 with `design_session_id`, `construct_id`, `construct_checksum`, `report_content_hash`, stable `advisory_id` per item, `required_acknowledgements()`. Map every advisory to a graded citation.
+- **Implementation status (2026-05-14).** Complete locally. Replaced the T-203 placeholder with a deterministic risk-advisory classifier over parsed `risk_advisories.yaml` payloads; added catalogue parsing, trigger-tag inference from biosafety tier, screening verdict, provenance, export, vector, cargo, and host metadata, severity-ordered advisory emission, graded citation mapping, required-acknowledgement compatibility through `RiskAdvisoryReport`, and stable report content hashing bound to session, construct, checksum, version, catalogue hash, and emitted advisory payloads. Focused verification: 4 tests passed. Full local gates are green with 447 passed and 2 skipped. T-802 is next.
 
 #### 2.8a.2 `T-802` — `engine.design_plan` (v1.2 — renderer files explicit per M2-04)
 - **Files:** `src/engine/design_plan/generator.py`, `src/engine/design_plan/renderers/{markdown,pdf,json}.py` (v1.2 — explicit renderers), templates, tests.
@@ -2698,7 +2699,7 @@ This coding agenda is **Finalised v1.5** after the fifth-round mechanical consis
 
 **v1.5 audit history.** 4 internal adversarial-falsification rounds (v1.0) + 21/21 first-round Codex audit findings accepted (v1.1) + 29/29 second-round Codex audit findings accepted (v1.2) + 27/27 third-round Codex audit findings accepted (v1.3) + **27/27 fourth-round Codex audit findings accepted (v1.4)** + fifth-round mechanical consistency remediation (v1.5). Zero defenses raised across all external coding-agenda audits.
 
-Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-801 `engine.risk_classification` now that Phase 7 is complete locally.
+Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-802 `engine.design_plan` now that T-801 is complete locally.
 
 ---
 
