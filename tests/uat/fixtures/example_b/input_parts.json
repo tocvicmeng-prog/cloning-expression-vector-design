@@ -1,0 +1,14 @@
+{
+  "selected_part_ids": [
+    "cargo.crispri_krab_sgrna",
+    "promoter.ef1a",
+    "tag.nls"
+  ],
+  "assembly_part_ids": [
+    "promoter",
+    "nls",
+    "orf",
+    "terminator"
+  ]
+}
+

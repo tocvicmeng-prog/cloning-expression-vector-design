@@ -1,0 +1,32 @@
+{
+  "fixture_id": "library-100",
+  "max_realizations": 100,
+  "minimum_overhang_score": 0.9,
+  "promoters": [
+    {"id": "p01", "sequence": "TATAAAACGCGT"},
+    {"id": "p02", "sequence": "TATATTCGCGTA"},
+    {"id": "p03", "sequence": "TTGACACGTAAC"},
+    {"id": "p04", "sequence": "GCGTATATAAAA"},
+    {"id": "p05", "sequence": "ACGTTTATACGA"},
+    {"id": "p06", "sequence": "CGTACGTATAAT"},
+    {"id": "p07", "sequence": "TACGATATAACC"},
+    {"id": "p08", "sequence": "GATCTATAACGT"},
+    {"id": "p09", "sequence": "AACGTATATGCA"},
+    {"id": "p10", "sequence": "CGCGTATAATTA"}
+  ],
+  "ribosome_binding_sites": [
+    {"id": "rbs01", "sequence": "AGGAGGAAAA"},
+    {"id": "rbs02", "sequence": "AGGAAGTAAA"},
+    {"id": "rbs03", "sequence": "AAGGAGTTAA"},
+    {"id": "rbs04", "sequence": "GGAGGACAAA"},
+    {"id": "rbs05", "sequence": "AGGACGAAAA"},
+    {"id": "rbs06", "sequence": "AAGGTTGAAA"},
+    {"id": "rbs07", "sequence": "GGAAGGTTAA"},
+    {"id": "rbs08", "sequence": "AGGTGGTAAA"},
+    {"id": "rbs09", "sequence": "AAGGACCAAA"},
+    {"id": "rbs10", "sequence": "GGAACTGAAA"}
+  ],
+  "orfs": [
+    {"id": "orf01", "sequence": "ATGAAACCCGGGTTTAAACCCGGGTAA"}
+  ]
+}

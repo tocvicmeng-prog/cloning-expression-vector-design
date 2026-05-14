@@ -5,7 +5,7 @@
 **Audit-response trail:** `audit report/ARCHITECTURE_Audit_Report.md` + Response (31/31); `ARCHITECTURE_Second_Audit_Report_v1_2.md` + Response (31/32 with B3 defence + v1.5 sponsor strengthening); `CODING_AGENDA_Audit_Report.md` + Response (21/21 → v1.1); `CODING_AGENDA_Second_Round_Audit_Report.md` + Response (29/29 → v1.2); `CODING_AGENDA_Third_Round_Audit_Report.md` + Response (27/27 → v1.3); `CODING_AGENDA_Fourth_Round_Audit_Report.md` + Response (27/27 → v1.4); **`CODING_AGENDA_Fifth_Round_Audit_Report.md` remediation (v1.5 consistency release)**.
 **v1.5 phase order (binding, unchanged from v1.2 with Phase 10 physically placed before 8b):** 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → **8a** → **9a** → **10** → **8b** → **9b** → 11 → 12 → 13. Section 2 of `CODING_AGENDA.md` v1.5 physically orders Phase 10 between Phase 9a and Phase 8b (v1.4 B4-01, rechecked in v1.5) — heading-order parsers emit T-1001/T-1002 before T-803/T-806b/T-903. (Pre-v1.2 single Phase 8 / single Phase 9 are obsolete; legacy text moved to Appendix A — `Legacy-Pre-v1.2-Phase-8` / `Legacy-Pre-v1.2-Phase-9` — per v1.3 H3-04.)
 **Source of authority:** `ARCHITECTURE.md` § 4.2 (module catalogue) defines *what* is built; `CODING_AGENDA.md` v1.5 defines *implementation phasing* (this roadmap regenerated from it); this file defines the *dependency-ordered phase view* for stakeholder reading. If `CODING_AGENDA.md` disagrees with this file on phasing, the agenda wins and this file is regenerated.
-**Status:** Phase 0 + Phase 1 + Phase 2 + Phase 3 + Phase 4 + Phase 5 + Phase 6 + Phase 7 + Phase 8a complete locally. T-801 delivered the risk-advisory report generator, T-802 delivered the always-renderable design-plan generator and deterministic renderers, T-804 delivered first-class controls, T-805a delivered pre-screening `DraftDesignBundle` orchestration, T-806a delivered active advisory presentation/acknowledgement workflow plus the pure required-acknowledgement predicate, T-807 delivered deterministic VLP/AAV/lentiviral policy reports with MS-* registry integration, and T-808 delivered enforced signed plugin-manifest governance. T-901 `adapter.io` EMBL + GFF3 adapters are the next hand-off.
+**Status:** Phase 0 through Phase 13 are complete locally. T-1201 delivered the constraint translator and LLM safety policy, T-1202 delivered the React + TypeScript SPA, T-1203 delivered the SnapGene Server Request API client with UR-01a file-watch fallback, T-1301 delivered deterministic white-paper-example UAT fixtures, T-1302 delivered 22 adversarial UAT fixtures, and T-1303 delivered deterministic library benchmark fixtures plus release build/docs tooling.
 **Hand-off skills:** `/architect` (system design); `/dev-orchestrator` (multi-module implementation); `/scientific-coder` (per-module implementation); `/scientific-advisor` (ongoing KB and rule-registry maintenance); `/ip-auditor` (when commercialisation enters scope).
 
 ---
@@ -344,8 +344,8 @@ The pre-v1.2 Phase 8 (single phase containing design plan + SOP + admin + author
 
 ### Deliverables
 
-- `adapter.io.EmblAdapter` + `adapter.io.Gff3Adapter` (T-901).
-- `adapter.snapgene.SnapGeneFileWatcher` (T-902) — UR-01a MUST channel; imports `SnapGeneDnaReader` from T-308e's namespace (no local `dna_reader.py` per v1.2 H2-04).
+- ✅ `adapter.io.EmblAdapter` + `adapter.io.Gff3Adapter` (T-901).
+- ✅ `adapter.snapgene.SnapGeneFileWatcher` (T-902) — UR-01a MUST channel; imports `SnapGeneDnaReader` from T-308e's namespace (no local `dna_reader.py` per v1.2 H2-04).
 - **No final export orchestrator in this phase** — T-903 lives in Phase 9b (v1.2 B2-02).
 
 ### Exit criteria
@@ -395,13 +395,13 @@ The pre-v1.2 Phase 9 (single phase containing I/O extensions + SnapGene watcher 
 
 ### Deliverables
 
-- `adapter.vendor.TwistAdapter`, `IDTAdapter`, `GenScriptAdapter`. `check`, `auto_partition`, `estimate_cost(*, product_type, scale, cloning_option, currency, quote_date_utc)`.
-- `app.screening_orchestrator` + adapters: `adapter.screening.IgscAdapter` (IGSC v3.0), `IbbisAdapter` (Common Mechanism), `SecureDnaAdapter` (blinded queries), `InternalBlacklistAdapter` (canonical=False).
-- `ScreeningVerdict` enum fully implemented: `CLEAR` / `WATCHLIST` / `HIT` / `UNAVAILABLE` / `NOT_APPLICABLE` / `MANUAL_REVIEW_REQUIRED`. Fallback adapters never produce `CLEAR`.
-- `screen_batch` with typed partial-failure semantics: `list[ScreeningResult | ScreeningError]` of equal length, in input order. Orchestrator never aggregates errors into `CLEAR`.
-- Reviewer sign-off workflow for `WATCHLIST` / `MANUAL_REVIEW_REQUIRED`. Automatic block for `HIT` and Select-Agent matches.
-- Audit trail of every screening verdict in `audit.sqlite`.
-- `BlockVendorSubmission` and `BlockExport` gates triggered correctly per verdict.
+- **T-1001 complete:** `adapter.vendor.TwistVendorAdapter`, `IdtVendorAdapter`, and `GenScriptVendorAdapter` with `check`, `auto_partition`, `estimate_cost(*, product_type, scale, cloning_option, currency, quote_date_utc)`, YAML-backed static vendor profiles, and `engine.vendor_feasibility_gate` activation for the vendor-profile portion of `BlockVendorSubmission`.
+- **T-1002 complete:** `app.screening_orchestrator` + adapters: `adapter.screening.IgscAdapter` (IGSC v3.0), `IbbisAdapter` (Common Mechanism), `SecureDnaAdapter` (blinded queries), `InternalBlacklistAdapter` (canonical=False).
+- **T-1002 complete:** `ScreeningVerdict` enum implemented: `CLEAR` / `WATCHLIST` / `HIT` / `UNAVAILABLE` / `NOT_APPLICABLE` / `MANUAL_REVIEW_REQUIRED`. Fallback adapters never produce `CLEAR`.
+- **T-1002 complete:** `screen_batch` returns typed partial-failure semantics: `tuple[ScreeningResult | ScreeningError, ...]` of equal length, in input order. Orchestrator never aggregates errors into `CLEAR`.
+- **T-1002 complete:** reviewer sign-off workflow for `WATCHLIST` / `MANUAL_REVIEW_REQUIRED` / `UNAVAILABLE` emits `ReviewerSignedOff` governance events with embedded signed decision payloads. Automatic block for `HIT` and blocking screening verdicts is represented in `engine.screening_gate`.
+- **T-1002 complete:** audit append hook records every screening batch when an `AuditAppendPort` is supplied.
+- **T-1002 complete:** `BlockVendorSubmission` and `BlockExport` screening-verdict gates are activated correctly per verdict.
 
 ### Exit criteria
 
@@ -421,14 +421,14 @@ The pre-v1.2 Phase 9 (single phase containing I/O extensions + SnapGene watcher 
 
 ### Deliverables
 
-- `engine.sop_protocol` (T-803) — gated `SopLinkedProtocol` generator; renderers per `docs/rendering_determinism.md`; SOP-template admin-write operations extending T-311's handler.
+- `engine.sop_protocol` (T-803) — gated `SopLinkedProtocol` generator consuming `SopTemplateReadPort` only; deterministic renderers per `docs/rendering_determinism.md`; SOP-template admin-write operations remain owned by T-316b.
 - `app.sop_protocol_orchestrator` (T-805b — renamed from T-805 per v1.2 B2-09) — emits `SopProtocolBundle` only after `OperationalProtocolAuthorised`; `SopRendered` to design stream.
-- `app.authorisation_decision` (T-806b) — consumes `ScreeningCompleted` (design stream) + acknowledgement chain (governance stream); activates `BlockOperationalProtocol`; home of BR-14 hard-gate predicate (v1.2 H2-11); FR-ADV-07 adversarial UAT with all 9 bypass scenarios (v1.2 M2-02).
+- `app.authorisation_decision` (T-806b) — consumes `ScreeningCompleted` (design stream) + acknowledgement chain (governance stream); activates `BlockOperationalProtocol`; home of BR-14 hard-gate predicate (v1.2 H2-11); FR-ADV-07 adversarial UAT with all 10 bypass scenarios (v1.2 M2-02).
 
 ### Exit criteria
 
 1. *Correctness*: `SopLinkedProtocol` renders only after observed `OperationalProtocolAuthorised`; `sop-after-gates-check` `enforced` green.
-2. *Completeness*: every assembly chemistry has an SOP template; FR-ADV-07 adversarial suite covers all 9 bypass paths.
+2. *Completeness*: every assembly chemistry has an SOP template; FR-ADV-07 adversarial suite covers all 10 bypass paths.
 3. *Scientific validity*: gated SOP for the three white-paper examples is correct.
 4. *Performance (Tier-1)*: gate validation < 50 ms per compile.
 5. *Maintainability*: 90% coverage on Phase 8b modules.
@@ -456,26 +456,27 @@ The pre-v1.2 Phase 9 (single phase containing I/O extensions + SnapGene watcher 
 
 ---
 
-## Phase 11 — HTTP API + CLI
+## Phase 11 — HTTP API + CLI + admin-service IPC
 
 **Owner:** `/dev-orchestrator` coordinating `/scientific-coder`. **Model tier:** Sonnet.
 **Inputs:** ARCHITECTURE.md v1.5 § 4.2 (`interface.cli`, `interface.api`, `interface.admin_service`, `interface.audit_service`); REQUIREMENTS FR-INT-08, FR-PROJ-*.
 
 ### Deliverables
 
-- `interface.cli` — Typer-based CLI commands: `new`, `open`, `validate`, `compile`, `screen`, `export`, `library`, `replay`, `audit`, `rule-index`, `list-sessions`. Every command maps 1:1 to an application service.
-- `interface.api` — FastAPI HTTP server exposing the same use cases over REST + WebSocket for streaming validation reports and live design updates.
+- `interface.cli` — Typer-compatible CLI commands: `new`, `open`, `validate`, `compile`, `screen`, `export`, `library`, `replay`, `audit`, `rule-index`, `list-sessions`, advisory acknowledgement commands, and admin command routing through `AdminServiceClientPort`.
+- `interface.api` — FastAPI-compatible HTTP server exposing the same use cases over REST + WebSocket for streaming validation reports and live design updates.
+- `interface.admin_service` + `adapter.ipc.admin_service_client_production` — local IPC boundary for administrator credentials, admin write verbs, audit-key rotation, and review-queue triage.
 - OpenAPI spec auto-generated and published.
 - End-to-end CLI walk-through of white-paper Example A from cold start.
 
 ### Exit criteria
 
 1. *Correctness*: every CLI command does what its `--help` says; OpenAPI spec validates.
-2. *Completeness*: every application service reachable via CLI and API.
+2. *Completeness*: every application service reachable via CLI and API; administrator-only operations route through the admin-service IPC boundary.
 3. *Scientific validity*: Example A from cold start to project bundle ZIP via CLI in < 5 min.
 4. *Performance (Tier-1)*: HTTP request latency for validation of a 10 kb construct < 3 s.
-5. *Maintainability*: 90 % coverage on `interface/cli` and `interface/api`.
-6. *Safety*: API does not expose secrets; auth configurable; opt-in telemetry only.
+5. *Maintainability*: focused coverage on `interface/cli`, `interface/api`, and `interface/admin_service`.
+6. *Safety*: API does not expose secrets; auth configurable; opt-in telemetry only; user/reviewer/developer credentials cannot bypass admin-service authorisation.
 
 ---
 
@@ -483,6 +484,7 @@ The pre-v1.2 Phase 9 (single phase containing I/O extensions + SnapGene watcher 
 
 **Owner:** `/dev-orchestrator` coordinating frontend specialist; `/scientific-advisor` reviews UI text. **Model tier:** Sonnet (UI components) + Opus (interaction logic).
 **Inputs:** ARCHITECTURE.md v1.5 § 4.2 (`interface.ui`, `app.decision_tree`, `app.constraint_translator`, `adapter.llm`, `adapter.snapgene.SnapGeneApiClient`); REQUIREMENTS UR-01b (SHOULD), UR-02, FR-UI-*.
+**Implementation status (2026-05-14):** Phase 12 is complete locally. T-1201 constraint translator / LLM adapter, T-1202 React + TypeScript SPA, and T-1203 SnapGene API client are all verified.
 
 ### Deliverables
 
@@ -527,6 +529,8 @@ The pre-v1.2 Phase 9 (single phase containing I/O extensions + SnapGene watcher 
 - Release artefacts: container image, Python wheel, web-UI build, sample project bundles for the three examples.
 - Release notes with migration notes.
 - Public-facing repository with Apache 2.0 licence.
+
+**Implementation status (2026-05-14):** T-1301, T-1302, and T-1303 are complete locally. The three white-paper examples now run as deterministic end-to-end UAT fixtures through decision tree, part selection, codon optimisation, assembly planning, validation hooks, screening CLEAR, advisory acknowledgement, admin authorisation, gated SOP rendering, final ExportBundle, GenBank import, and SnapGene file-watch fallback round trip. Example B covers the lentiviral/CRISPRi VLP policy path and MS-06 block expectation. T-1302 adds 22 adversarial UAT fixtures covering self-elevation, advisory bypasses, unsupported BSL-4, plugin trust, export redaction, audit-key and replay integrity, profile/SOP-template tamper, review-queue recovery, admin-service authentication, dual-control modes, audit-service concurrent writer integrity, and CLI/API direct-admin-handler import rejection. T-1303 adds deterministic 100-realisation and 1000-realisation library fixtures, release build wrappers, release docs, a local wheel artefact, and CI determinism wiring. Phase 13 is complete locally.
 
 ### Exit criteria
 

@@ -1,7 +1,7 @@
 # TASK_BOARD.md — War-Room Dashboard (v1.5 consistency release)
 
 **Derived from:** `CODING_AGENDA.md` v1.5 + `ROADMAP.md` v1.5 + `ARCHITECTURE.md` v1.5. Counts below are seed-manifest checked against `docs/task_manifest.yaml` and `tools/agenda_consistency_check.py`; T-204 later owns the production manifest generator/refinement workflow.
-**Last updated:** 2026-05-14 (T-808 plugin governance complete locally; Phase 8a complete; project is a Git repository on `main` and uses non-editable `uv` installs for Windows/OneDrive/non-ASCII path reliability).
+**Last updated:** 2026-05-14 (T-1303 library benchmark/release polish complete locally; Phase 13 is 3 / 3 complete and all active Section 2 implementation task cards are done; project is a Git repository on `main` and uses non-editable `uv` installs for Windows/OneDrive/non-ASCII path reliability).
 **Maintained by:** `/dev-orchestrator`. **Live mirror command (Phase 11+):** `vector-design status`.
 
 ## 1.1 v1.3 changes (operational security / audit boundary pass)
@@ -15,7 +15,7 @@ This dashboard was regenerated for v1.3:
 
 **v1.2 changes (retained context).** Phase 8 split into 8a/8b (B-03), Phase 9 split into 9a/9b (B2-02), T-805 split into T-805a/T-805b (B2-09), T-311 admin handler + T-312 audit-key tasks (B2-04 / B2-08).
 
-**Next milestone.** Phase 9a — `T-901` EMBL + GFF3 adapters are next. Phase 2 scaffold (`T-201`..`T-205`), all Phase 3 tasks (`T-301`..`T-315`), all Phase 4 tasks (`T-401`..`T-406`, `T-316c`, `T-316b`), all Phase 5 tasks (`T-501`, `T-502`, `T-504`, `T-503`), all Phase 6 tasks (`T-601a..k`, `T-602`, `T-603`, `T-606`, `T-607`), all Phase 7 tasks (`T-701`..`T-705`), and all Phase 8a tasks are done + locally verified.
+**Next milestone.** Active v0.1.0 implementation is complete locally. Phase 2 scaffold (`T-201`..`T-205`), all Phase 3 tasks (`T-301`..`T-315`), all Phase 4 tasks (`T-401`..`T-406`, `T-316c`, `T-316b`), all Phase 5 tasks (`T-501`, `T-502`, `T-504`, `T-503`), all Phase 6 tasks (`T-601a..k`, `T-602`, `T-603`, `T-606`, `T-607`), all Phase 7 tasks (`T-701`..`T-705`), all Phase 8a tasks, all Phase 9a tasks, all Phase 10 tasks, all Phase 8b tasks, Phase 9b, Phase 11, Phase 12, T-1301, T-1302, and T-1303 are done + locally verified.
 
 ---
 
@@ -45,15 +45,15 @@ This dashboard was regenerated for v1.3:
 | Phase 6 — Biology back-ends + app services | ✅ | 5 / 5 | T-601a..k deterministic local biology adapters, T-602 biology-dependent predicates, T-603 validation orchestration, T-606 design service, and T-607 decision tree verified locally. |
 | Phase 7 — Codon + assembly + overhang + primer | ✅ | 5 / 5 | T-701 codon optimiser, T-702 overhang optimiser, T-703 assembly strategy hierarchy, T-704 primer designer, and T-705 assembly orchestrator verified locally. |
 | **Phase 8a** — Design plan + controls + advisory data + advisory presentation (pre-screening) | ✅ | 7 / 7 | T-801, T-802, T-804, T-805a, T-806a, T-807, and T-808 verified locally |
-| **Phase 9a** — Sequence I/O extensions + SnapGene file-watch (pre-screening; v1.2 split per B2-02) | ⚪ | 0 / 2 | T-901, T-902 (depends on T-308e; no local `dna_reader.py` per v1.2 H2-04) |
-| Phase 10 — Vendor + screening | ⚪ | 0 / 2 | T-1001 (×3), T-1002. v1.2 `ScreeningCompleted` emitted to **design stream** per B2-05. |
-| **Phase 8b** — SOP rendering + authorisation gate (post-Phase 10 + post-Phase-9a) | ⚪ | 0 / 3 | T-803, **T-805b (`app.sop_protocol_orchestrator` — v1.2 renamed per B2-09)**, T-806b. v1.2 T-806b home of BR-14 (H2-11). |
-| **Phase 9b** — Final export orchestrator (post-Phase 8b; v1.2 split per B2-02) | ⚪ | 0 / 1 | T-903 — `app.export_orchestrator` moved from old single Phase 9 |
-| Phase 11 — HTTP API + CLI + admin-service IPC | ⚪ | 0 / 4 | **v1.4 task order per B4-08:** **T-1103a** (AdminServiceClientPort Protocol + IPC contract + test client; FIRST) → T-1101 → T-1102 → **T-1103b** (admin-service production + IPC server + ACL + ReviewQueueAdminPort; LAST). T-1101 + T-1102 forbidden from importing `AdminActionHandler` directly per H4-02. |
-| Phase 12 — Web UI + LLM + live SnapGene | ⚪ | 0 / 3 | T-1201 (red-team needed), T-1202 (UI subtasks), T-1203 |
-| Phase 13 — Acceptance UAT + library + release | ⚪ | 0 / 3 | T-1301..T-1303. v1.2 T-1302 adversarial UAT extended with construct-checksum-mismatch + programmatic-event-bypass + audit-key-absent + audit-key-compromise scenarios per M2-02. |
+| **Phase 9a** — Sequence I/O extensions + SnapGene file-watch (pre-screening; v1.2 split per B2-02) | ✅ | 2 / 2 | T-901 EMBL/GFF3 adapters and T-902 SnapGene file-watch verified locally. |
+| Phase 10 — Vendor + screening | ✅ | 2 / 2 | T-1001 vendor adapters/vendor-feasibility gate and T-1002 screening adapters/orchestrator verified locally. v1.2 `ScreeningCompleted` emitted to **design stream** per B2-05. |
+| **Phase 8b** — SOP rendering + authorisation gate (post-Phase 10 + post-Phase-9a) | ✅ | 3 / 3 | T-803 gated SOP renderer, T-805b SOP bundle orchestration, and T-806b authorisation decision/review-queue routing verified locally. |
+| **Phase 9b** — Final export orchestrator (post-Phase 8b; v1.2 split per B2-02) | ✅ | 1 / 1 | T-903 final export ZIP orchestration, redaction, manifest/ZIP renderers, and `BlockExport` activation verified locally. |
+| Phase 11 — HTTP API + CLI + admin-service IPC | ✅ | 4 / 4 | T-1103a AdminServiceClientPort Protocol + IPC contract, T-1101 CLI command surface, T-1102 API route/WebSocket surface, and T-1103b production admin-service IPC/ACL/review-queue boundary verified locally. |
+| Phase 12 — Web UI + LLM + live SnapGene | ✅ | 3 / 3 | T-1201 LLM constraint translator + enforced output policy, T-1202 React + TypeScript SPA, and T-1203 SnapGene API client verified locally. |
+| Phase 13 — Acceptance UAT + library + release | ✅ | 3 / 3 | T-1301 white-paper-example UAT, T-1302 adversarial UAT, and T-1303 library benchmark/release polish verified locally. T-1303 adds deterministic 100/1000-realisation library fixtures, release build wrappers, release docs, and CI determinism wiring. |
 
-**Cumulative (v1.5, seed-manifest checked):** 9 foundation items done + 53 implementation tasks done / **71 active Section 2 implementation task cards**. The fifth-round audit's stale legacy profile-signing heading is removed; `T-601a..k` remains one active card with formal range expansion for child briefs. Phase 0–8a complete locally; next task T-901.
+**Cumulative (v1.5, seed-manifest checked):** 9 foundation items done + 71 implementation tasks done / **71 active Section 2 implementation task cards**. The fifth-round audit's stale legacy profile-signing heading is removed; `T-601a..k` remains one active card with formal range expansion for child briefs. Phase 0–13 complete locally.
 
 **Phase-order reminder (v1.5, unchanged from v1.2 except Phase 10 physical placement already applied):** 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → **8a** → **9a** → **10** → **8b** → **9b** → 11 → 12 → 13. **v1.4 B4-01:** Section 2 of `CODING_AGENDA.md` is now physically ordered to match — Phase 10 inserted between Phase 9a and Phase 8b.
 
@@ -61,7 +61,7 @@ This dashboard was regenerated for v1.3:
 
 ## 2. Current bottlenecks (top 5)
 
-_None at present — Phase 9a is unblocked. The orchestrator can open `T-901` immediately._
+_None at present — all active Section 2 implementation tasks are complete locally._
 
 Anticipated future bottlenecks:
 
@@ -69,7 +69,7 @@ Anticipated future bottlenecks:
 |---|---|---|
 | SpliceAI licensing / TensorFlow size | 6 | Adapter is optional; HTTP-service fallback + alternative lighter adapters declared (CODING_AGENDA § 2.6.1 / OQ-05). |
 | Curated rule fixtures (~150 rules × 2 fixtures) | 4 / 5 | Parallel sub-tasks T-405a..e; fixtures authored in the same task as the rule manifest entry. |
-| Twist/IDT vendor-API access for live cost estimation | 10 | Vendor adapters use static profiles (`catalogues/vendor_profiles/*.yaml`); live API is Phase 15 stretch. |
+| Twist/IDT vendor-API access for live cost estimation | 10 | Static vendor adapters are delivered in T-1001 from `catalogues/vendor_profiles/*.yaml`; live API is Phase 15 stretch. |
 | SnapGene Server API maturity | 12 | UR-01b is SHOULD; falls back to UR-01a (file-watch) if API unavailable. |
 | Container determinism across CPU architectures | 2 / 13 | Pinned CPU arch in Dockerfile; determinism check runs only inside container in CI. |
 
@@ -77,7 +77,7 @@ Anticipated future bottlenecks:
 
 ## 3. Active task queue
 
-_Empty — no tasks assigned yet. Phase 9a next task is `T-901`._
+_Empty — all active implementation tasks are complete locally._
 
 | Task ID | Module | Phase | Tier | Assignee | Started | ETA | Stage |
 |---|---|---|---|---|---|---|---|
@@ -112,7 +112,7 @@ _Empty — no tasks assigned yet. Phase 9a next task is `T-901`._
 | A-016 | `audit report/CODING_AGENDA_Fourth_Round_Audit_Response.md` + CODING_AGENDA.md v1.4 + ROADMAP.md v1.4 + TASK_BOARD.md v1.4 | 2026-05-14 | 27/27 findings accepted; Section 2 physical reorder per B4-01 (Phase 10 between 9a and 8b); split task strategy introduced. |
 | A-017 | `audit report/CODING_AGENDA_Fifth_Round_Audit_Report.md` | 2026-05-14 | Fifth-round audit found remaining synchronization drift in v1.4 (10 blocking + 9 high + 6 moderate). |
 | A-018 | CODING_AGENDA.md v1.5 + ROADMAP.md v1.5 + TASK_BOARD.md v1.5 + seed manifests + Codex working files | 2026-05-14 | Fifth-round consistency pass: active heading order/counts fixed, stale T-314 removed, port inventory corrected to 50, source docs amended, seed manifests/checker added. |
-| T-201 | Python project bootstrap | 2026-05-14 | `pyproject.toml`, `uv.lock`, Python 3.11.15 pin, CI workflow, Dockerfile, Apache-2.0 licence, canonical fonts, font installer, bootstrap package, and smoke tests added; local verification green with `uv --no-editable`. |
+| T-201 | Python project bootstrap | 2026-05-14 | `pyproject.toml`, `uv.lock`, Python 3.11.15 pin, CI workflow, Dockerfile, GPL-3.0 licence, canonical fonts, font installer, bootstrap package, and smoke tests added; local verification green with `uv --no-editable`. |
 | T-202 | Directory scaffold | 2026-05-14 | `src/` layer packages, `domain/ports`, catalogue placeholders, event streams, snapshots, exports, task/handover folders, benchmarks, UAT folder, task brief, and scaffold tests added; docs-site and pre-commit bootstrap stubs added. |
 | T-203 | Public API stubs + 50-port inventory | 2026-05-14 | Source-layer manifest modules import; `domain.ports` declares all 50 Protocols; port-inventory and module-manifest tests green; import-linter domain/engine contracts kept. |
 | T-204 | CI gate skeletons + manifest tooling | 2026-05-14 | Lifecycle-aware gate runner, gate skeletons, manifest generators, task-count reporter, and 71 seed task briefs added; meaningful informational gates verified. |
@@ -165,6 +165,22 @@ _Empty — no tasks assigned yet. Phase 9a next task is `T-901`._
 | T-806a | Advisory presentation and acknowledgement surface | 2026-05-14 | `app.advisory_acknowledgement` now emits active advisory presentation events, creates acknowledged/declined/escalated governance events with embedded acknowledgement payloads, enforces reviewer/admin action authority and escalation approval IDs, and exposes `all_required_advisories_acknowledged()` over binding presentations, hashes, checksums, justifications, and signature evidence; focused slice green with 5 passed; full local gates green with 463 passed, 2 skipped. |
 | T-807 | VLP / AAV / lentiviral policy engine | 2026-05-14 | `engine.vlp_policy` now emits deterministic `VlpPolicyReport` values for MS2 RNA-display, phage-derived VLP, AAV, and lentiviral systems with cargo-capacity, packaging-signal, helper-separation, control/readout, replication-boundary, MS-* registry, and risk-trigger coverage; focused slice green with 7 passed; full local gates green with 470 passed, 2 skipped. |
 | T-808 | Plugin manifest governance | 2026-05-14 | `app.plugin_governance` now verifies signed plugin manifests against the institutional trust keyring, checks artefact hashes, enforces sandbox permissions, emits approval/rejection governance events, and advances `plugin-manifest-signature` to enforced mode; focused slice green with 10 passed; full local gates green with 476 passed, 2 skipped. |
+| T-901 | EMBL + GFF3 adapters | 2026-05-14 | `adapter.io.EmblAdapter` and `adapter.io.Gff3Adapter` implemented; EMBL uses the shared Biopython conversion path, GFF3 reads/writes embedded-FASTA feature payloads, and full local gates are green with 479 passed, 2 skipped. |
+| T-902 | SnapGene file-watch channel | 2026-05-14 | `adapter.snapgene.SnapGeneFileWatcher` implemented as a deterministic pollable channel with burst-write debounce, GenBank import/export, validation-hook injection, atomic paired output writes, and T-308e `.dna` reader re-export without a local `dna_reader.py`; full local gates are green with 484 passed, 2 skipped. |
+| T-1001 | Vendor adapters + vendor-feasibility gate | 2026-05-14 | `adapter.vendor` now exposes Twist, IDT, and GenScript static-profile adapters with deterministic feasibility checks, partitioning, and cost estimates; `engine.vendor_feasibility_gate` activates the vendor-profile portion of `BlockVendorSubmission`; full local gates are green with 494 passed, 2 skipped. |
+| T-1002 | Screening adapters + orchestrator | 2026-05-14 | `adapter.screening` now exposes IGSC, IBBIS, SecureDNA, and institutional blacklist adapters; `app.screening_orchestrator` emits batched `ScreeningCompleted` design-stream events and reviewer sign-off governance events; `engine.screening_gate` activates screening-verdict gates; full local gates are green with 507 passed, 2 skipped. |
+| T-803 | Gated SOP-linked protocol renderer | 2026-05-14 | `engine.sop_protocol` now consumes signed SOP templates via `SopTemplateReadPort`, requires observed `OperationalProtocolAuthorised` before rendering, emits reference-only `SopLinkedProtocol` values from `domain.types.sop_protected`, provides deterministic JSON/Markdown/PDF renderers, and advances `sop-after-gates-check` to enforced mode; full local gates are green with 511 passed, 2 skipped. |
+| T-805b | SOP protocol bundle orchestrator | 2026-05-14 | `app.sop_protocol_orchestrator` now filters `OperationalProtocolAuthorised` to the current session, invokes T-803 only after authorisation, emits deterministic `SopProtocolBundle` values with authorisation evidence, and appends `SopRendered` design-stream events; full local gates are green with 515 passed, 2 skipped. |
+| T-806b | Authorisation gate decision + review-queue routing | 2026-05-14 | `app.authorisation_decision` now consumes `ScreeningCompleted`, verified signed profiles, user declarations, and advisory acknowledgement governance chains before emitting `OperationalProtocolAuthorised`; blocked attempts emit `AuthorisationAttemptDenied`, route to `ReviewQueueService.route_blocked_authorisation`, and `engine.operational_protocol_gate` activates `BlockOperationalProtocol`; focused slice green with 15 passed, `no-passive-advisory-bypass-check` enforced locally, and full local pytest green with 530 passed, 2 skipped. |
+| T-903 | Final export orchestrator + redaction | 2026-05-14 | `app.export_orchestrator` now builds deterministic final export ZIPs with canonical manifests, profile redaction, derivation environment, screening, authorisation evidence, and advisory trace; `engine.export_gate` activates composed `BlockExport`; focused T-903 tests green with 6 passed, T-903 `ruff check` green, and `no-passive-advisory-bypass-check` still enforced locally. |
+| T-1103a | AdminServiceClientPort Protocol + IPC contract | 2026-05-14 | `domain.types.admin_ipc` request/response/token envelopes, `domain.ports.admin_service.AdminServiceClientPort`, deterministic `InMemoryAdminServiceClient`, contract tests, and `docs/admin_service/ipc_contract.md` added; focused slice green with 11 tests passed, strict mypy green for the new surface, and T-1103a ruff check green. |
+| T-1101 | Typer-based CLI command surface | 2026-05-14 | `interface.cli` is now a package with command registry, injectable runtime, optional Typer app builder, stdlib fallback runner, `vector-design` / `cev-design` console scripts, and admin/review-queue admin commands routed through `AdminServiceClientPort`; focused T-1101 tests green with 7 passed, full strict mypy green, full ruff green, agenda consistency green, and full non-slow pytest green with 550 passed / 2 skipped. |
+| T-1102 | FastAPI HTTP + WebSocket surface | 2026-05-14 | `interface.api` is now a package with route registry, injectable runtime, dependency-free OpenAPI-style route index, optional FastAPI app builder, validation WebSocket stream helper, and `vector-design-api` console script; admin endpoints route through `AdminServiceClientPort`; focused T-1102 tests green with 9 passed, full strict mypy green, full ruff green, and full non-slow pytest green with 559 passed / 2 skipped. |
+| T-1202 | React + TypeScript SPA | 2026-05-14 | Added the separate `ui/` Vite/React package with decision-tree wizard, vector/linear maps, validation report, advisory acknowledgement dialog, admin console, audit-log viewer, design diff, expert-mode/i18n hooks, and `interface.ui` metadata helpers; UI tests, TypeScript build, focused Python tests, ruff, mypy, agenda consistency, and full non-slow pytest are green with 591 passed / 2 skipped. |
+| T-1203 | SnapGene API client | 2026-05-14 | Added `SnapGeneApiClient` with injectable SnapGene Server Request API transport, command-tool transport, status/capability probing, import/export GenBank↔`.dna` request flow, SVG map generation, structured errors, and UR-01a file-watch fallback for unavailable or unlicensed live API paths; focused SnapGene tests, ruff, mypy, agenda consistency, and full non-slow pytest are green with 599 passed / 2 skipped. |
+| T-1301 | White-paper-example UAT | 2026-05-14 | Added deterministic Example A/B/C UAT flows, shared end-to-end harness, fixture hashes, host-context fixtures, scientific-advisor signoff fixtures, GenBank and SnapGene fallback round-trip checks, VLP MS-06 coverage for the mammalian example, and gate assertions through screening, SOP, and final export; focused UAT tests, ruff, mypy, agenda consistency, and full non-slow pytest are green with 602 passed / 2 skipped. |
+| T-1302 | Adversarial UAT suite | 2026-05-14 | Added the 22-scenario adversarial UAT harness, per-scenario modules and expected fixtures, dual-control revocation enforcement, pair-required advisory acknowledgement mode, and an informational no-direct-admin-handler import scanner; focused UAT, related regression slice, full ruff, full strict mypy, static gate, task-acceptance completeness, agenda consistency, and full non-slow pytest are green locally with 624 passed / 2 skipped. |
+| T-1303 | Combinatorial library benchmark + release polish | 2026-05-14 | Added deterministic 100-realisation and 1000-realisation library fixtures with locked hashes, release build wrappers, release-note renderer/docs, CI determinism wiring, and a local wheel artefact under `task_artefacts/T-1303/dist/`; focused T-1303 tests, stretch fixture, release determinism check, ruff, mypy, and release dry-runs are green locally. |
 
 ---
 
@@ -178,7 +194,16 @@ _Empty — no tasks assigned yet. Phase 9a next task is `T-901`._
 | 3 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 5 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 6 onward | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ | ⚪ |
+| 6 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 7 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 8a | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 9a | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 10 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 8b | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 9b | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 11 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 12 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 13 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ---
 
@@ -188,27 +213,27 @@ All risks have documented mitigations in `ARCHITECTURE.md` v1.5 § 6. CI gates s
 
 | Risk | Description | Mitigation status |
 |---|---|---|
-| R-01 | LLM constraint translator hallucinates | 🟡 mitigations specified; CI gate `llm-output-policy-check` planned in T-204 / T-1201 |
-| R-02 | Plugin version drift breaks reproducibility | 🟡 `DerivationEnvironment` captures all versions; CI determinism check planned in T-201 |
+| R-01 | LLM constraint translator hallucinates | ✅ mitigated by `AdvisoryTextPolicy`, manual-review fallback, and red-team tests in T-1201 |
+| R-02 | Plugin version drift breaks reproducibility | ✅ `DerivationEnvironment` captures all versions; T-1303 CI determinism check now covers white-paper examples plus the 100-realisation library fixture. |
 | R-03 | Codon × validator loop oscillates | ✅ N=5 cap + lexicographic-priority fixed-point implemented in T-701 / T-705 |
 | R-04 | Rule registry grows unmaintainable | 🟡 partitioned manifests + `last_reviewed` field + quarterly review planned in T-401 / T-405 |
-| R-05 | Screening adapter outages | 🟡 multi-adapter fallback never produces `clear` planned in T-1002 |
-| R-06 | SnapGene proprietary format drift | 🟡 file-watch is the MUST channel; planned in T-902 |
+| R-05 | Screening adapter outages | ✅ provider failures aggregate to `UNAVAILABLE`; institutional fallback never produces `CLEAR` (T-1002) |
+| R-06 | SnapGene proprietary format drift | ✅ file-watch MUST channel implemented in T-902; optional `.dna` handling uses the T-308e read-only parser with GenBank fallback guidance. |
 | R-07 | SBOL 3.1.x spec evolves | 🟡 pinned dependency; initial SBOL sequence round-trip covered in T-308; richer feature-coordinate property coverage remains future work |
-| R-08 | Library exceeds performance budget | 🟡 batched governance events + size cap planned in T-1303 |
-| R-09 | Determinism slips on platform variance | 🟡 containerised release build planned in T-201 |
-| R-10 | Free-text inputs leak to cloud LLM | 🟡 local-LLM default; opt-in cloud planned in T-1201 |
-| R-11 | AI-evasion of screening (2025 watch-item) | 🟡 AI-recodings of hits route to manual review planned in T-1002 |
-| R-12 | Junior researcher misuses generated protocol | 🟡 non-operational design-plan rendering delivered in T-802 and pre-screening `DraftDesignBundle` delivered in T-805a; gated SOP rendering and SOP-after-gates CI gate planned in T-803 / T-204 |
+| R-08 | Library exceeds performance budget | ✅ T-1303 adds deterministic 100-realisation smoke and 1000-realisation stretch fixtures with batched design-stream screening evidence. |
+| R-09 | Determinism slips on platform variance | ✅ T-1303 wires release determinism checks for Linux and Windows CI runners and provides pinned wheel/container build wrappers. |
+| R-10 | Free-text inputs leak to cloud LLM | ✅ local-LLM default; OpenAI/Anthropic adapters require explicit per-session opt-in |
+| R-11 | AI-evasion of screening (2025 watch-item) | ✅ T-1002 added `MANUAL_REVIEW_REQUIRED` routing and non-clear fallback behavior; T-1302 adversarial UAT now verifies screening/advisory bypasses fail closed. |
+| R-12 | Junior researcher misuses generated protocol | ✅ non-operational design-plan rendering delivered in T-802, pre-screening `DraftDesignBundle` delivered in T-805a, engine-level gated SOP rendering delivered in T-803, app-level SOP bundle orchestration delivered in T-805b, and authorisation hard gate delivered in T-806b |
 | R-13 | Catalogue staleness silently affects outputs | 🟡 `stale-catalogue-check` CI gate planned in T-401 |
 | R-14 | Coordinate round-trip is hard | 🟡 GenBank feature coordinates covered in T-308; richer SBOL feature-coordinate round trips remain future work |
 | R-15 | Multi-host marker conflict misclassification | 🟡 role-keyed `HostContext` planned in T-304 |
-| R-16 | User self-elevates authorisation | 🟡 `no-self-authorisation-check` CI gate planned in T-204 |
-| R-17 | LLM unsafe output | 🟡 `AdvisoryTextPolicy` + `llm-output-policy-check` planned in T-1201 |
+| R-16 | User self-elevates authorisation | 🟡 T-1302 blocks user/reviewer/developer escalation attempts and verifies the CLI/API direct-admin-handler boundary; the broader `no-self-authorisation-check` aggregate gate remains a later consolidation. |
+| R-17 | LLM unsafe output | ✅ `AdvisoryTextPolicy` + enforced `llm-output-policy-check` delivered in T-1201 |
 | R-18 | Plugin trust escalation | ✅ signed manifest verification, artefact hashing, sandbox permission checks, governance events, and enforced `plugin-manifest-signature` gate delivered in T-808 |
-| R-19 | Export bundle PII leak | 🟡 `ExportProfile` redaction planned in T-903 |
-| R-20 | Unsupported biosafety tier attempted | 🟡 T-503 delivered the structural predicate slot in the implemented registry subset; end-to-end BSL-4 hard-block UAT remains planned in T-1302. |
-| R-21 | Advisory bypass | 🟡 report generation delivered in T-801, draft-bundle inclusion in T-805a, and active presentation/acknowledgement predicate in T-806a; Phase 8b authorisation consumption and FR-ADV-07 adversarial UAT remain planned in T-806b / T-1302 |
+| R-19 | Export bundle PII leak | ✅ `ExportProfile` redaction applied at export serialisation time in T-903; vendor/collaborator/publication profiles omit internal evidence and redact user/institution/vendor identifiers |
+| R-20 | Unsupported biosafety tier attempted | ✅ T-503 delivered the structural predicate slot in the implemented registry subset; T-1302 verifies end-to-end BSL-4 hard-block UAT. |
+| R-21 | Advisory bypass | ✅ report generation delivered in T-801, draft-bundle inclusion in T-805a, active presentation/acknowledgement predicate in T-806a, authorisation consumption in T-806b, and enforced `no-passive-advisory-bypass-check` local gate |
 
 Legend: ✅ mitigated and verified in CI; 🟡 mitigation planned with task ownership; 🔴 unmitigated.
 
@@ -223,14 +248,15 @@ Legend: ✅ mitigated and verified in CI; 🟡 mitigation planned with task owne
 | `pytest` (unit) | `enforced` | T-201 | GitHub Actions matrix + local `uv run --no-editable python tools/ci/run_pytest.py -m "not slow"` | local green 2026-05-14 |
 | `pytest-cov` ≥ 90 % on domain + engine | `not_implemented` | T-201 | (absent) | unknown |
 | `integration` (deterministic fakes) | `not_implemented` | T-201 | (absent) | unknown |
-| `determinism` (container) | `not_implemented` | T-201 | (absent) | unknown |
+| `determinism` (container) | `enforced-green` | T-201 / T-1303 | GitHub Actions Linux + Windows determinism job running `tools/ci/determinism_check.py` | local green 2026-05-14 |
 | `rule-validation coverage` | `not_implemented` | T-405 / T-503 | (absent) | unknown |
 | `no-domain-impurity-check` | `enforced` | T-502 | local static import scan + import-linter boundary complement | local green 2026-05-14 |
 | `import-linter` | `not_implemented` | T-204 / T-306 | (absent) | unknown |
 | `no-self-authorisation-check` | `not_implemented` | T-204 / T-311 / T-313b / T-316b / T-1103b | (absent) | unknown |
-| `no-passive-advisory-bypass-check` | `not_implemented` | T-204 / T-806a / T-806b | (absent) | unknown |
-| `sop-after-gates-check` | `not_implemented` | T-204 / T-803 | (absent) | unknown |
-| `llm-output-policy-check` | `not_implemented` | T-204 / T-1201 | (absent) | unknown |
+| `no-direct-admin-handler-import-check` | `informational` | T-204 / T-1101 / T-1102 / T-1302 | local static scan over CLI/API boundary | local green 2026-05-14 |
+| `no-passive-advisory-bypass-check` | `enforced` | T-204 / T-806a / T-806b | `tests/ci_gates/test_t204_gates.py` + local `python -m tools.ci_gates.no_passive_advisory_bypass_check --enforce` | local green 2026-05-14 |
+| `sop-after-gates-check` | `enforced` | T-204 / T-803 | `tests/ci_gates/test_t204_gates.py` + local `python -m uv run --no-editable python -m tools.ci_gates.sop_after_gates_check --enforce` | local green 2026-05-14 |
+| `llm-output-policy-check` | `enforced` | T-204 / T-1201 | `tests/ci_gates/test_llm_output_policy_t1201.py` + local `python -m tools.ci_gates.llm_output_policy_check --enforce` | local green 2026-05-14 |
 | `audit-traceability-check` | `not_implemented` | T-204 | (absent) | unknown |
 | `plugin-manifest-signature` | `enforced` | T-808 | GitHub Actions + local `python -m uv run --no-editable python -m tools.ci_gates.plugin_manifest_signature_check --enforce` | local green 2026-05-14 |
 | `source-grade-citation-check` | `informational` | T-401 | 2026-05-14 | green |

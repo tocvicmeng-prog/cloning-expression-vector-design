@@ -1,0 +1,31 @@
+{
+  "host_events": [
+    {
+      "host_id": "host.n_benthamiana",
+      "role": "target"
+    },
+    {
+      "host_id": "host.ecoli_k12",
+      "role": "cloning_propagation"
+    },
+    {
+      "host_id": "host.agrobacterium_gv3101",
+      "role": "delivery"
+    }
+  ],
+  "compatibility_contexts": [
+    {
+      "host_id": "host.ecoli_k12",
+      "role": "cloning_propagation"
+    },
+    {
+      "host_id": "host.agrobacterium_gv3101",
+      "role": "delivery"
+    },
+    {
+      "host_id": "host.n_benthamiana",
+      "role": "target"
+    }
+  ]
+}
+

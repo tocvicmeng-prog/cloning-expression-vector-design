@@ -1,0 +1,9 @@
+{
+  "scenario": "export_leak",
+  "verdict": "accepted",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": [],
+  "event_types_contains": ["ExportProfileRedactionApplied", "ExportBundleCreated"],
+  "audit_event_types_contains": [],
+  "notes_contains": ["vendor_profile_redacted"]
+}

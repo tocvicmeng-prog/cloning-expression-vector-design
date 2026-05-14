@@ -1,0 +1,8 @@
+{
+  "vendor_id": "idt",
+  "service_id": "idt.gblocks",
+  "length_bp": 400,
+  "adapter": "ACGTACGTACGTACGT",
+  "sequence_mode": "adapter_collision",
+  "rejection_class": "adapter_collision"
+}

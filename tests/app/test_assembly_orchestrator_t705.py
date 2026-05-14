@@ -77,8 +77,7 @@ def test_method_picker_prefers_high_fragment_or_library_golden_gate() -> None:
 
     assert picker.pick(AssemblyMethodPickerInput(fragment_count=2)) == "restriction-ligation"
     assert (
-        picker.pick(AssemblyMethodPickerInput(fragment_count=3, scarless_required=True))
-        == "gibson"
+        picker.pick(AssemblyMethodPickerInput(fragment_count=3, scarless_required=True)) == "gibson"
     )
     assert picker.pick(AssemblyMethodPickerInput(fragment_count=6)) == "moclo"
     assert picker.pick(AssemblyMethodPickerInput(fragment_count=3, library_size=200)) == "moclo"

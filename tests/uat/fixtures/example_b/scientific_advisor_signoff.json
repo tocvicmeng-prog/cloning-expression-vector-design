@@ -1,0 +1,12 @@
+{
+  "example": "example_b",
+  "reviewer": "scientific-advisor",
+  "status": "signed",
+  "decision": "approve_dual_control_fixture_for_internal_audit_export",
+  "dual_control": true,
+  "notes": [
+    "Lentiviral policy enforcement must surface MS-06 and replication-competent advisories.",
+    "Authorisation requires institutional protocol coverage in the signed profile fixture."
+  ]
+}
+

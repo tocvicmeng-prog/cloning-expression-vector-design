@@ -164,9 +164,7 @@ def test_advisory_acknowledgement_module_does_not_import_authorisation_event() -
     for node in ast.walk(tree):
         if isinstance(node, ast.ImportFrom):
             offenders.extend(
-                alias.name
-                for alias in node.names
-                if alias.name == "OperationalProtocolAuthorised"
+                alias.name for alias in node.names if alias.name == "OperationalProtocolAuthorised"
             )
         if isinstance(node, ast.Import):
             offenders.extend(

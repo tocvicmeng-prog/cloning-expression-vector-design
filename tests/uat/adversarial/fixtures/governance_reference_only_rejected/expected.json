@@ -1,0 +1,11 @@
+{
+  "scenario": "governance_reference_only_rejected",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": [
+    "ReplayIntegrityFailure:RiskAdvisoryAcknowledged must embed its signed payload"
+  ],
+  "event_types_contains": ["RiskAdvisoryAcknowledged"],
+  "audit_event_types_contains": [],
+  "notes_contains": []
+}

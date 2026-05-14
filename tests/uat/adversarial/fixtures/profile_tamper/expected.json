@@ -1,0 +1,9 @@
+{
+  "scenario": "profile_tamper",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": ["AuthorisationProfileTamperDetectedError:profile signature mismatch"],
+  "event_types_contains": [],
+  "audit_event_types_contains": [],
+  "notes_contains": []
+}

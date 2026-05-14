@@ -1,0 +1,11 @@
+{
+  "scenario": "sop_template_tamper",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": [
+    "SopTemplateTamperDetectedError:SOP template read port returned an unsigned template"
+  ],
+  "event_types_contains": [],
+  "audit_event_types_contains": [],
+  "notes_contains": []
+}

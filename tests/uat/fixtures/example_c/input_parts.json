@@ -1,0 +1,14 @@
+{
+  "selected_part_ids": [
+    "cargo.plant_egfp",
+    "promoter.35s",
+    "tag.ha"
+  ],
+  "assembly_part_ids": [
+    "promoter",
+    "tag",
+    "orf",
+    "terminator"
+  ]
+}
+

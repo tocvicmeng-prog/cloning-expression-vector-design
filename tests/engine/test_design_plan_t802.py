@@ -47,8 +47,7 @@ def test_generator_builds_non_operational_design_realisation_plan() -> None:
     assert plan.primer_set == request.primer_set
     assert "Confirm reviewer packet hash is archived" in plan.qc_checkpoints
     assert any(
-        artefact.name == "Risk advisory report"
-        for artefact in plan.expected_verification_artefacts
+        artefact.name == "Risk advisory report" for artefact in plan.expected_verification_artefacts
     )
     assert any("BSL-2" in approval for approval in plan.institutional_approvals_required)
     assert str(report.report_content_hash) in plan.reviewer_packet.evidence_hashes

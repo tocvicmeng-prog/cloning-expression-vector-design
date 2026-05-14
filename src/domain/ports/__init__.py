@@ -11,6 +11,7 @@ from __future__ import annotations
 from collections.abc import Iterable, Mapping, Sequence
 from typing import Protocol
 
+from domain.ports.admin_service import AdminServiceClientPort
 from domain.ports.audit_append import AdminAuditAppendPort, AuditAppendPort
 from domain.ports.audit_key import AuditKeyProvider
 from domain.ports.authorisation import (
@@ -160,10 +161,6 @@ class AuditLogReadPort(Protocol):
     def read_entry(self, entry_id: str) -> Payload: ...
     def replay(self) -> PayloadSequence: ...
     def verify_chain(self) -> bool: ...
-
-
-class AdminServiceClientPort(Protocol):
-    def dispatch(self, command: Payload, principal_token: bytes) -> Payload: ...
 
 
 class SequenceReader(Protocol):

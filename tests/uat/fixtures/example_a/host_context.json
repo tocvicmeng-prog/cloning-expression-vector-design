@@ -1,0 +1,15 @@
+{
+  "host_events": [
+    {
+      "host_id": "host.ecoli_bl21_de3",
+      "role": "expression"
+    }
+  ],
+  "compatibility_contexts": [
+    {
+      "host_id": "host.ecoli_bl21_de3",
+      "role": "expression"
+    }
+  ]
+}
+

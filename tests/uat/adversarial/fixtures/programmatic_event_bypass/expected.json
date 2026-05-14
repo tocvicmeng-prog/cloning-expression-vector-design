@@ -1,0 +1,11 @@
+{
+  "scenario": "programmatic_event_bypass",
+  "verdict": "blocked",
+  "authorised_event_emitted": true,
+  "blocked_by_contains": [
+    "ReplayIntegrityFailure:OperationalProtocolAuthorised references no embedded ReviewerSignedOff payload"
+  ],
+  "event_types_contains": [],
+  "audit_event_types_contains": [],
+  "notes_contains": []
+}

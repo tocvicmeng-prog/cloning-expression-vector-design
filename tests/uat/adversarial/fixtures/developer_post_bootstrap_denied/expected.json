@@ -1,0 +1,9 @@
+{
+  "scenario": "developer_post_bootstrap_denied",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": ["PermissionError:mint_profile requires administrator"],
+  "event_types_contains": ["AdminBootstrapped", "AuthorisationAttemptDenied"],
+  "audit_event_types_contains": [],
+  "notes_contains": []
+}

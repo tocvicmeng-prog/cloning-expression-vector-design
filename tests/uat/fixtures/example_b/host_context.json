@@ -1,0 +1,31 @@
+{
+  "host_events": [
+    {
+      "host_id": "host.hek293t_producer",
+      "role": "producer"
+    },
+    {
+      "host_id": "host.ecoli_k12",
+      "role": "cloning_propagation"
+    },
+    {
+      "host_id": "host.hek293t_target",
+      "role": "target"
+    }
+  ],
+  "compatibility_contexts": [
+    {
+      "host_id": "host.ecoli_k12",
+      "role": "cloning_propagation"
+    },
+    {
+      "host_id": "host.hek293t_producer",
+      "role": "producer"
+    },
+    {
+      "host_id": "host.hek293t_target",
+      "role": "target"
+    }
+  ]
+}
+

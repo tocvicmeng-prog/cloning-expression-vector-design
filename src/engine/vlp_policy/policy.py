@@ -233,10 +233,14 @@ def _capacity_findings(request: VlpPolicyRequest) -> tuple[VlpPolicyFinding, ...
 def _system_boundary_findings(request: VlpPolicyRequest) -> tuple[VlpPolicyFinding, ...]:
     mixed_tokens = request.feature_tokens | request.packaging_tokens | request.helper_tokens
     viral_vector_tokens = {"itr", "left-itr", "right-itr", "ltr", "psi", "gag-pol", "env"}
-    if request.system_class in {
-        VlpSystemClass.MS2_RNA_DISPLAY,
-        VlpSystemClass.PHAGE_DERIVED_VLP,
-    } and mixed_tokens & viral_vector_tokens:
+    if (
+        request.system_class
+        in {
+            VlpSystemClass.MS2_RNA_DISPLAY,
+            VlpSystemClass.PHAGE_DERIVED_VLP,
+        }
+        and mixed_tokens & viral_vector_tokens
+    ):
         return (
             _block(
                 "VLP-SYSTEM-CLASS",
@@ -287,10 +291,14 @@ def _ms2_findings(request: VlpPolicyRequest) -> tuple[VlpPolicyFinding, ...]:
                 "MS2 coat-protein reference or variant declaration lacks checksum evidence",
             )
         )
-    if "single-chain-dimer" in request.feature_tokens and not {
-        "ab-loop-tolerated",
-        "v75e-a81g-declared",
-    } <= request.feature_tokens:
+    if (
+        "single-chain-dimer" in request.feature_tokens
+        and not {
+            "ab-loop-tolerated",
+            "v75e-a81g-declared",
+        }
+        <= request.feature_tokens
+    ):
         findings.append(
             _block(
                 "MS-02",
@@ -490,8 +498,7 @@ def _orthogonality_findings(
         family
         for family in families
         if any(
-            token == family or token.startswith(f"{family}-")
-            for token in request.packaging_tokens
+            token == family or token.startswith(f"{family}-") for token in request.packaging_tokens
         )
     }
     if expected_family == "qbeta":
@@ -549,9 +556,7 @@ def _has_family_signal(tokens: frozenset[str], family: str) -> bool:
     if family == "qbeta":
         aliases.add("qb")
     return any(
-        token == alias
-        or token.startswith(f"{alias}-")
-        or token.endswith(f"-{alias}")
+        token == alias or token.startswith(f"{alias}-") or token.endswith(f"-{alias}")
         for token in tokens
         for alias in aliases
     )

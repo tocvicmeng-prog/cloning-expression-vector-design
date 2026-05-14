@@ -1,0 +1,9 @@
+{
+  "scenario": "audit_key_compromise",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": ["PermissionError:invalid audit-service token"],
+  "event_types_contains": ["AuditServiceAuthenticationFailed"],
+  "audit_event_types_contains": [],
+  "notes_contains": ["audit_row_absent"]
+}

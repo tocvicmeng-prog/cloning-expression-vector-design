@@ -1,0 +1,9 @@
+{
+  "scenario": "advisory_bypass",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": ["risk_advisory_acknowledgement_missing:risk.caution"],
+  "event_types_contains": [],
+  "audit_event_types_contains": [],
+  "notes_contains": ["design_log_empty"]
+}

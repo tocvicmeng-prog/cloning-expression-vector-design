@@ -1,0 +1,12 @@
+{
+  "selected_part_ids": [
+    "cargo.enzyme_a.egfp",
+    "promoter.t7",
+    "tag.his6_tev"
+  ],
+  "assembly_part_ids": [
+    "pet28a-backbone",
+    "orf"
+  ]
+}
+

@@ -201,9 +201,7 @@ class PluginSandboxPolicy:
         for root in self.allowed_file_roots:
             _normalised_permission_path(root)
         if self.allowed_network_hosts and not self.network_access_allowed:
-            raise PluginGovernanceError(
-                "allowed_network_hosts require network_access_allowed=true"
-            )
+            raise PluginGovernanceError("allowed_network_hosts require network_access_allowed=true")
 
     def validate(self, permissions: PluginPermissions) -> tuple[str, ...]:
         failures: list[str] = []

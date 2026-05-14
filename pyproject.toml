@@ -8,15 +8,21 @@ version = "0.1.0"
 description = "Local-first cloning and expression vector design platform."
 readme = "README.md"
 requires-python = ">=3.11.15,<3.12"
-license = "Apache-2.0"
+license = "GPL-3.0-only"
 authors = [
-  { name = "Cloning Expression Vector Design Contributors" },
+  { name = "General Molecular Expression Service Pty Ltd (GMExpression, GMES)" },
 ]
 dependencies = [
   "cryptography>=44.0,<47",
   "pydantic>=2.10,<3",
   "pyyaml>=6.0.2,<7",
 ]
+
+[project.scripts]
+cev-design = "interface.cli.entrypoint:main"
+vector-design = "interface.cli.entrypoint:main"
+vector-design-api = "interface.api.server:main"
+vector-design-admin-service = "interface.admin_service.__main__:main"
 
 [project.optional-dependencies]
 io = [

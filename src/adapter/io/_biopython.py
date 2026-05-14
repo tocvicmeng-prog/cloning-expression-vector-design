@@ -28,7 +28,12 @@ from domain.sequence import (
 )
 
 
-def imported_from_seqrecord(record: SeqRecord, source_format: str) -> ImportedConstruct:
+def imported_from_seqrecord(
+    record: SeqRecord,
+    source_format: str,
+    *,
+    qualifier_namespace: str = "genbank",
+) -> ImportedConstruct:
     topology: Topology = (
         "circular" if record.annotations.get("topology") == "circular" else "linear"
     )
@@ -39,7 +44,7 @@ def imported_from_seqrecord(record: SeqRecord, source_format: str) -> ImportedCo
         molecule_type=MoleculeType.DS_DNA,
     )
     features = tuple(
-        _feature_from_seqfeature(feature, sequence_record.id, order)
+        _feature_from_seqfeature(feature, sequence_record.id, order, qualifier_namespace)
         for order, feature in enumerate(record.features)
         if feature.type != "source"
     )
@@ -69,6 +74,7 @@ def _feature_from_seqfeature(
     feature: SeqFeature,
     parent_sequence_id: str,
     feature_order: int,
+    qualifier_namespace: str,
 ) -> FeatureV14:
     qualifiers: list[Qualifier] = []
     order = feature_order * 1000
@@ -77,7 +83,7 @@ def _feature_from_seqfeature(
         for value in value_items:
             qualifiers.append(
                 Qualifier(
-                    namespace="genbank",
+                    namespace=qualifier_namespace,
                     key=str(key),
                     value=str(value),
                     value_type="string",

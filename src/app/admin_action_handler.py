@@ -32,6 +32,7 @@ from domain.security import (
     AdminPrincipal,
     AuthorisationProfile,
     DeveloperBootstrapPrincipal,
+    DualControlFlags,
     KeyVersionId,
     Principal,
     ProfileSignature,
@@ -81,6 +82,7 @@ class AdminActionHandler:
         governance_event_log: JsonlEventLog,
         sop_template_store: SopTemplateAdminWritePort | None = None,
         sop_template_signer: SopTemplateSigner | None = None,
+        dual_control_flags: DualControlFlags | None = None,
         clock: Callable[[], datetime] | None = None,
     ) -> None:
         self._authorisation_store = authorisation_store
@@ -89,6 +91,7 @@ class AdminActionHandler:
         self._governance_event_log = governance_event_log
         self._sop_template_store = sop_template_store
         self._sop_template_signer = sop_template_signer
+        self._dual_control_flags = dual_control_flags or DualControlFlags()
         self._clock = clock or (lambda: datetime.now(UTC))
         self._event_sequence = 0
 
@@ -141,6 +144,14 @@ class AdminActionHandler:
     ) -> AdminActionResult:
         admin = self._require_admin(principal, "revoke_profile")
         current = self._authorisation_store.get_profile(profile_id)
+        if (
+            self._dual_control_flags.require_two_admins_for_profile_revocation
+            and admin.id == current.issuer_principal_id
+        ):
+            self._record_denial(admin, "revoke_profile", "dual-control-violation")
+            raise PermissionError(
+                "DualControlViolation: profile revocation requires a distinct administrator"
+            )
         draft = UnsignedAuthorisationProfileDraft(
             profile_id=current.profile_id,
             subject_user_id=current.subject_user_id,
@@ -486,14 +497,19 @@ class AdminActionHandler:
         self._record_denial(principal, operation)
         raise PermissionError(f"{operation} requires administrator or bootstrap authority")
 
-    def _record_denial(self, principal: Principal, operation: str) -> None:
+    def _record_denial(
+        self,
+        principal: Principal,
+        operation: str,
+        reason: str = "administrator-required",
+    ) -> None:
         event = AuthorisationAttemptDenied(
             event_id=self._next_event_id("AuthorisationAttemptDenied"),
             occurred_at_utc=self._clock(),
             actor_id=str(principal.id),
             institution_id=str(principal.institution),
             subject_user_id=str(principal.id),
-            missing_or_failed_reasons=(f"{operation}:administrator-required",),
+            missing_or_failed_reasons=(f"{operation}:{reason}",),
         )
         self._governance_event_log.append_event(str(principal.institution), event)
 

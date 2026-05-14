@@ -1,0 +1,9 @@
+{
+  "scenario": "self_elevation",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": ["PermissionError:mint_profile requires administrator"],
+  "event_types_contains": ["AuthorisationAttemptDenied"],
+  "audit_event_types_contains": [],
+  "notes_contains": []
+}

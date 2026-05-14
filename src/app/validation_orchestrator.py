@@ -137,13 +137,11 @@ class DesignSessionMetricCache:
         source_hash: Sha256,
     ) -> None:
         for metric_id, value in values.items():
-            self._entries[(session_id, derivation_environment_hash, metric_id)] = (
-                MetricCacheEntry(
-                    metric_id=metric_id,
-                    value=value,
-                    derivation_environment_hash=derivation_environment_hash,
-                    source_hash=source_hash,
-                )
+            self._entries[(session_id, derivation_environment_hash, metric_id)] = MetricCacheEntry(
+                metric_id=metric_id,
+                value=value,
+                derivation_environment_hash=derivation_environment_hash,
+                source_hash=source_hash,
             )
 
     def snapshot(
@@ -376,9 +374,7 @@ class ValidationOrchestrator:
         def compute() -> Mapping[MetricId, object]:
             payload = adapter.predict_tir(sequence, host_context)
             return {
-                MetricId("biology.rbs.shine_dalgarno_motif"): payload.get(
-                    "shine_dalgarno_motif"
-                ),
+                MetricId("biology.rbs.shine_dalgarno_motif"): payload.get("shine_dalgarno_motif"),
                 MetricId("biology.rbs.spacing_nt"): payload.get("spacing_nt"),
                 MetricId("biology.rbs.translation_initiation_rate"): payload.get(
                     "translation_initiation_rate"

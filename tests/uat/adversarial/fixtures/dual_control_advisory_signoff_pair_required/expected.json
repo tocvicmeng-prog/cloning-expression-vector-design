@@ -1,0 +1,9 @@
+{
+  "scenario": "dual_control_advisory_signoff_pair_required",
+  "verdict": "accepted",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": ["single_admin_missing:risk.caution"],
+  "event_types_contains": ["AdvisoryWarningPresented", "RiskAdvisoryAcknowledged"],
+  "audit_event_types_contains": [],
+  "notes_contains": ["single_admin_blocked", "pair_acknowledged"]
+}

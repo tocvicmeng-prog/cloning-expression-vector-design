@@ -34,9 +34,11 @@ class SequencingPrimerRequest:
 
 class SequencingPrimerDesigner:
     def __init__(self, parameters: PrimerDesignParameters | None = None) -> None:
-        self._parameters = PrimerDesignParameters(
-            target_product="sequencing"
-        ) if parameters is None else parameters
+        self._parameters = (
+            PrimerDesignParameters(target_product="sequencing")
+            if parameters is None
+            else parameters
+        )
 
     def design(self, request: SequencingPrimerRequest) -> tuple[Primer, ...]:
         sequence = _sequence_body(request.template)

@@ -1,0 +1,18 @@
+{
+  "scenario": "review_queue_blocked_path",
+  "verdict": "accepted",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": [],
+  "event_types_contains": [
+    "ReviewQueueItemCreated",
+    "AuthorisationAttemptDenied",
+    "ReviewQueueItemResolved",
+    "AdminActionMinted"
+  ],
+  "audit_event_types_contains": [],
+  "notes_contains": [
+    "single_pending_request",
+    "self_approval_blocked",
+    "admin_grant_unblocked"
+  ]
+}

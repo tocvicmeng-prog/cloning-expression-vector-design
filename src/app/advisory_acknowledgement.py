@@ -22,7 +22,7 @@ from domain.events import (
     RiskAdvisoryDeclined,
     RiskAdvisoryEscalated,
 )
-from domain.security import Principal, SecurityRole
+from domain.security import DualControlFlags, Principal, SecurityRole
 from domain.types.governance import DecisionRecord
 from domain.types.risk_advisory import (
     AdvisoryAcknowledgementDecision,
@@ -166,13 +166,20 @@ class AdvisoryAcknowledgementService:
 def all_required_advisories_acknowledged(
     report: RiskAdvisoryReport,
     events: Iterable[GovernanceEvent],
+    dual_control_flags: DualControlFlags | None = None,
 ) -> tuple[bool, frozenset[str]]:
     required = report.required_acknowledgements()
     if not required:
         return True, frozenset()
     event_tuple = tuple(events)
     binding_presentations = _binding_presentations(report, event_tuple)
-    acknowledged = _acknowledged_advisories(report, event_tuple, binding_presentations)
+    acknowledged_actors = _acknowledged_advisory_actors(report, event_tuple, binding_presentations)
+    if dual_control_flags and dual_control_flags.advisory_acknowledgement_requires_pair:
+        acknowledged = frozenset(
+            advisory_id for advisory_id, actors in acknowledged_actors.items() if len(actors) >= 2
+        )
+    else:
+        acknowledged = frozenset(acknowledged_actors)
     missing = required - acknowledged
     return not missing, frozenset(sorted(missing))
 
@@ -241,7 +248,15 @@ def _acknowledged_advisories(
     events: tuple[GovernanceEvent, ...],
     binding_presentations: dict[str, AdvisoryWarningPresented],
 ) -> frozenset[str]:
-    acknowledged: set[str] = set()
+    return frozenset(_acknowledged_advisory_actors(report, events, binding_presentations))
+
+
+def _acknowledged_advisory_actors(
+    report: RiskAdvisoryReport,
+    events: tuple[GovernanceEvent, ...],
+    binding_presentations: dict[str, AdvisoryWarningPresented],
+) -> dict[str, frozenset[str]]:
+    acknowledged: dict[str, set[str]] = {}
     for event in events:
         if not isinstance(event, RiskAdvisoryAcknowledged):
             continue
@@ -262,8 +277,11 @@ def _acknowledged_advisories(
             continue
         if len(payload.get("justification", "").strip()) < MIN_ACK_JUSTIFICATION_CHARS:
             continue
-        acknowledged.add(advisory_id)
-    return frozenset(acknowledged)
+        acknowledged.setdefault(advisory_id, set()).add(event.actor_id)
+    return {
+        advisory_id: frozenset(actors)
+        for advisory_id, actors in sorted(acknowledged.items(), key=lambda item: item[0])
+    }
 
 
 def _require_binding_actor(actor: Principal) -> None:

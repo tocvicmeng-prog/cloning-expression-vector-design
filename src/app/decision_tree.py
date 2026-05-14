@@ -522,10 +522,7 @@ def _construct_payload(context: DecisionContext) -> JsonObject:
 
 
 def _confirmed_translation_payload(context: DecisionContext) -> dict[str, str]:
-    payload = {
-        step.value: _required_selection(context, step)
-        for step in DECISION_STEP_ORDER
-    }
+    payload = {step.value: _required_selection(context, step) for step in DECISION_STEP_ORDER}
     payload["free_text_count"] = str(len(context.free_text_entries))
     return payload
 

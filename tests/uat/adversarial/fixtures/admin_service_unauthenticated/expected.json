@@ -1,0 +1,9 @@
+{
+  "scenario": "admin_service_unauthenticated",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": ["authentication_failed"],
+  "event_types_contains": ["authentication_failed"],
+  "audit_event_types_contains": [],
+  "notes_contains": []
+}

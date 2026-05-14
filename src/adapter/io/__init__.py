@@ -8,8 +8,10 @@ Sequence I/O adapters and imported construct contracts.
 
 from __future__ import annotations
 
+from adapter.io.embl import EmblAdapter
 from adapter.io.fasta import FastaAdapter
 from adapter.io.genbank import GenBankAdapter
+from adapter.io.gff3 import Gff3Adapter
 from adapter.io.imported_construct import (
     AnnotatedConstruct,
     ImportedConstruct,
@@ -21,8 +23,10 @@ from adapter.io.write_result import WriteResult
 
 __all__ = [
     "AnnotatedConstruct",
+    "EmblAdapter",
     "FastaAdapter",
     "GenBankAdapter",
+    "Gff3Adapter",
     "ImportedConstruct",
     "LossWarning",
     "Sbol3Adapter",

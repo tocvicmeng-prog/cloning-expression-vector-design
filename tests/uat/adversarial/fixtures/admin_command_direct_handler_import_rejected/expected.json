@@ -1,0 +1,11 @@
+{
+  "scenario": "admin_command_direct_handler_import_rejected",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": [
+    "src/interface/cli/bad_admin_command.py:1: imports app.admin_action_handler"
+  ],
+  "event_types_contains": [],
+  "audit_event_types_contains": [],
+  "notes_contains": ["repository_cli_api_clean"]
+}

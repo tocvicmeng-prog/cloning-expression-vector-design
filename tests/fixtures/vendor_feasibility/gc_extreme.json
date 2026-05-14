@@ -1,0 +1,7 @@
+{
+  "vendor_id": "twist",
+  "service_id": "twist.gene_fragment",
+  "length_bp": 400,
+  "sequence_mode": "high_gc",
+  "rejection_class": "gc_extreme"
+}

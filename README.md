@@ -2,7 +2,7 @@
 
 **Established:** 2026-05-13
 **Purpose:** foundation and working directory for a *universal cloning / expression vector design software* — the long-term goal is a program that takes a biological objective (host, cargo, expression level, biosafety tier) and produces a verified, software-validated, standards-serialised vector design ready to order.
-**Status:** conceptual + knowledge foundations complete; software design and implementation begin from here.
+**Status:** active v0.1.0 implementation complete locally through Phase 13 release polish.
 
 ---
 
@@ -20,7 +20,7 @@
 | `audit report/ARCHITECTURE_Audit_Response.md` | **First three-role audit response** with per-finding adjudication (31/31 accepted; 0 defended). The audit trail justifying every v1.1 / v1.2 / v1.3 change. | ~ 45 KB |
 | `audit report/ARCHITECTURE_Second_Audit_Report_v1_2.md` | **Second external audit by Codex** on v1.3. 12 blocking + 13 major + 8 moderate findings. | ~ 30 KB |
 | `audit report/ARCHITECTURE_Second_Audit_Response.md` | **Second three-role audit response** with per-finding adjudication (**31/32 accepted, 1 defended — B3 with advisory `BiosafetyClassificationLayer` mitigation per sponsor instruction**); plus the **v1.5 sponsor strengthening note** on B3 (active, auditable, design-record-tied advisory acknowledgement; no passive UI warnings; full approval trace logged). Includes the structured traceability table (M13). | ~ 50 KB |
-| `ROADMAP.md` | **Derived from `ARCHITECTURE.md` v1.5.** 14-phase plan (Phase 0 + 1 + 2 complete; Phase 3 implementation is in progress). Each phase has owner / model tier / inputs / deliverables / six-dimension audit exit criteria. Stretch phases 14–18 listed but uncommitted. Regeneration policy on the last page. | ~ 45 KB |
+| `ROADMAP.md` | **Derived from `ARCHITECTURE.md` v1.5.** 14-phase plan; Phases 0–13 are complete locally, with owner / model tier / inputs / deliverables / six-dimension audit exit criteria recorded for each phase. Stretch phases 14–18 listed but uncommitted. Regeneration policy on the last page. | ~ 45 KB |
 | `CODING_AGENDA.md` | **Authoritative software development working plan — Finalised v1.5**. Fifth-round consistency release after `audit report/CODING_AGENDA_Fifth_Round_Audit_Report.md`: Phase 3 physical order fixed, stale legacy profile-signing card removed, Phase 3/4 counts set to 19/8, canonical port inventory corrected to 50, Section 3 wiring made executable, source docs aligned to `SopTemplateReadPort` / `SopTemplateAdminWritePort`, `DeveloperBootstrapPrincipal`, `interface.audit_service`, and `interface.admin_service`. | ~ 320 KB |
 | `audit report/CODING_AGENDA_Fifth_Round_Audit_Response.md` | Fifth-round audit response: all 25 findings accepted, with resolution trace and verification command. | small |
 | `TASK_BOARD.md` | **War-room dashboard companion to CODING_AGENDA.md.** Live status of every task (planned / in-progress / done / blocked); phase exit status against the six-dimension audit; risk register status with mitigation ownership; CI gate status. Updated by `/dev-orchestrator` on every task state transition; live mirror in Phase 11+ via `vector-design status` CLI. | ~ 15 KB |
@@ -78,14 +78,14 @@ When the v2.0 KB and the white paper appear to disagree, the citation chain in v
 
 ## 5. Next milestones
 
-Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, Phase 7, and Phase 8a are complete locally. Risk advisories, always-renderable design plans, deterministic renderers, first-class controls, pre-screening draft bundles, active advisory presentation/acknowledgement predicates, VLP/AAV/lentiviral policy reports, and enforced plugin-manifest verification are implemented while gated operational protocol types remain unreachable. Before opening T-901, run `python tools/agenda_consistency_check.py`, then use:
+All active v0.1.0 implementation tasks are complete locally: Phase 2 scaffold through Phase 13 release polish. Risk advisories, always-renderable design plans, deterministic renderers, first-class controls, pre-screening draft bundles, active advisory presentation/acknowledgement predicates, VLP/AAV/lentiviral policy reports, enforced plugin-manifest verification, EMBL/GFF3 I/O adapters, the SnapGene file-watch channel, static vendor adapters/vendor-feasibility gates, screening adapters, screening orchestration, screening-verdict gates, gated reference-only SOP-linked protocol rendering, deterministic SOP bundles, `SopRendered` design-stream events, authorisation decisions with `BlockOperationalProtocol` plus review-queue routing, final export bundles, the admin-service IPC client contract, the Phase 11 CLI/API surfaces, the production admin-service IPC/ACL/review-queue boundary, the LLM constraint translator with enforced output policy, the React + TypeScript SPA, the SnapGene Server Request API client with file-watch fallback, deterministic white-paper UAT fixtures, 22 adversarial UAT fixtures, deterministic 100/1000-realisation library benchmark fixtures, and release build/docs tooling are implemented. For local verification, run `python tools/agenda_consistency_check.py`, then use:
 
 ```powershell
-python -m uv sync --frozen --no-editable --group dev --extra io
-python -m uv run --no-editable python tools/ci/run_pytest.py -m "not slow"
+$env:PYTHONPATH='src;.'
+.\.venv\Scripts\python.exe tools\ci\run_pytest.py -m "not slow"
 ```
 
-See `ROADMAP.md` and `TASK_BOARD.md` for the prioritised phase plan. Short version: catalogues → validation engine → assembly/I/O → screening → gated SOP/export → CLI/API/UI.
+See `ROADMAP.md` and `TASK_BOARD.md` for the implementation record and any future stretch planning.
 
 ## 6. Disclaimer
 

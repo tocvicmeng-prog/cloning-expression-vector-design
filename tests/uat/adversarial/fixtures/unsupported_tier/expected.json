@@ -1,0 +1,9 @@
+{
+  "scenario": "unsupported_tier",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": ["scope_biosafety_tier_not_covered:BSL-4"],
+  "event_types_contains": [],
+  "audit_event_types_contains": [],
+  "notes_contains": []
+}

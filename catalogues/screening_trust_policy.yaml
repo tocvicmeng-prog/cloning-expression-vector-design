@@ -33,13 +33,18 @@ verdict_policy:
     requires_reviewer: true
     exportable: false
     vendor_submission_allowed: false
+  manual_review_required:
+    blocks: ["BlockVendorSubmission", "BlockOperationalProtocol"]
+    requires_reviewer: true
+    exportable: true
+    vendor_submission_allowed: false
 providers:
   - id: "igsc_v3"
     name: "IGSC Harmonized Screening Protocol v3.0"
     custodian: "International Gene Synthesis Consortium"
     trust_level: "industry_standard"
     query_privacy_mode: "provider_controlled"
-    accepted_verdicts: ["clear", "watchlist", "hit"]
+    accepted_verdicts: ["clear", "watchlist", "hit", "manual_review_required"]
     default_for_vendor_profiles: true
     citation:
       text: "IGSC Harmonized Screening Protocol v3.0, released 2024-09-03."
@@ -51,7 +56,7 @@ providers:
     custodian: "International Biosecurity and Biosafety Initiative for Science"
     trust_level: "nonprofit_screening_tool"
     query_privacy_mode: "distributed_or_provider_controlled"
-    accepted_verdicts: ["clear", "watchlist", "hit", "unavailable"]
+    accepted_verdicts: ["clear", "watchlist", "hit", "unavailable", "manual_review_required"]
     default_for_vendor_profiles: false
     citation:
       text: "IBBIS Common Mechanism public overview, accessed 2026-05-14."
@@ -63,7 +68,7 @@ providers:
     custodian: "SecureDNA"
     trust_level: "privacy_preserving_screening_platform"
     query_privacy_mode: "cryptographically_blinded"
-    accepted_verdicts: ["clear", "watchlist", "hit", "unavailable"]
+    accepted_verdicts: ["clear", "watchlist", "hit", "unavailable", "manual_review_required"]
     default_for_vendor_profiles: false
     citation:
       text: "SecureDNA public screening platform overview, accessed 2026-05-14."
@@ -75,7 +80,7 @@ providers:
     custodian: "Deploying institution"
     trust_level: "institution_controlled"
     query_privacy_mode: "local_only"
-    accepted_verdicts: ["clear", "watchlist", "hit", "unavailable"]
+    accepted_verdicts: ["clear", "watchlist", "hit", "unavailable", "manual_review_required"]
     default_for_vendor_profiles: false
     citation:
       text: "CEV architecture v1.5 screening-adapter hook and institution-controlled registry."

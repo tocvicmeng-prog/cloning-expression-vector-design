@@ -82,9 +82,7 @@ def _positive_control(request: ControlGenerationInput) -> ControlDesign:
             f"Host-matched positive control for {request.host_role} using "
             f"{readout} to confirm assay sensitivity"
         ),
-        expected_observation=(
-            f"Detect {readout} above the negative and vehicle-control baseline"
-        ),
+        expected_observation=(f"Detect {readout} above the negative and vehicle-control baseline"),
     )
 
 

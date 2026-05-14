@@ -133,9 +133,7 @@ class DraftDesignBundle:
             "event_fingerprints": tuple(
                 (event.event_type, event.event_id, event.canonical_json()) for event in self.events
             ),
-            "risk_advisory_report_content_hash": str(
-                self.risk_advisory_report.report_content_hash
-            ),
+            "risk_advisory_report_content_hash": str(self.risk_advisory_report.report_content_hash),
         }
 
 

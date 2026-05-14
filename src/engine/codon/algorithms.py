@@ -87,8 +87,7 @@ for _codon, _aa in CODON_TO_AA.items():
     AA_TO_CODONS[_aa] = (*AA_TO_CODONS[_aa], _codon)
 
 DEFAULT_CODON_USAGE_TABLE = {
-    codon: 0.2 + ((codon.count("G") + codon.count("C")) / 3)
-    for codon in CODON_TO_AA
+    codon: 0.2 + ((codon.count("G") + codon.count("C")) / 3) for codon in CODON_TO_AA
 }
 for _aa, _synonyms in AA_TO_CODONS.items():
     _preferred = sorted(

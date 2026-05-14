@@ -59,8 +59,7 @@ def test_gibson_like_strategy_validates_overlaps_and_emits_overlap_plan() -> Non
     assert isinstance(plan, OverlapAssemblyPlan)
     assert plan.overlap_lengths == (4, 4)
     assert (
-        plan.expected_product.canonical_sequence
-        == "ATGCGTACGTAGCTAGCTAGAAAACCCCGGGGTTTTGCGCGCAA"
+        plan.expected_product.canonical_sequence == "ATGCGTACGTAGCTAGCTAGAAAACCCCGGGGTTTTGCGCGCAA"
     )
 
     bad_parts = (

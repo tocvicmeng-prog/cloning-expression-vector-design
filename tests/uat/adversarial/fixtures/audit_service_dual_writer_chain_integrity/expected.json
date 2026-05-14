@@ -1,0 +1,9 @@
+{
+  "scenario": "audit_service_dual_writer_chain_integrity",
+  "verdict": "accepted",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": [],
+  "event_types_contains": [],
+  "audit_event_types_contains": ["test"],
+  "notes_contains": ["linear_hmac_chain_verified", "audit_rows:20"]
+}

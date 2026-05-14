@@ -40,9 +40,7 @@ def test_risk_classification_generates_active_report_from_catalogue() -> None:
         "risk.ms2_vlp_delivery",
         "risk.unsupported_bsl4",
     } <= set(advisory_ids)
-    assert advisory_ids.index("risk.unsupported_bsl4") < advisory_ids.index(
-        "risk.ms2_vlp_delivery"
-    )
+    assert advisory_ids.index("risk.unsupported_bsl4") < advisory_ids.index("risk.ms2_vlp_delivery")
     assert "risk.antibiotic_resistance_marker_export" in advisory_ids
     assert report.required_acknowledgements() >= {
         "risk.ms2_vlp_delivery",

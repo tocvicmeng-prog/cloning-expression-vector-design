@@ -1,0 +1,9 @@
+{
+  "scenario": "plugin_trust",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": ["signature_missing", "artefact_hash_mismatch"],
+  "event_types_contains": ["PluginManifestRejected"],
+  "audit_event_types_contains": [],
+  "notes_contains": []
+}

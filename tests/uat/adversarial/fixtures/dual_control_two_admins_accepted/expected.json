@@ -1,0 +1,9 @@
+{
+  "scenario": "dual_control_two_admins_accepted",
+  "verdict": "accepted",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": [],
+  "event_types_contains": ["AdminActionMinted", "AdminActionRevoked"],
+  "audit_event_types_contains": ["AdminActionMinted", "AdminActionRevoked"],
+  "notes_contains": ["second_admin_revoked"]
+}

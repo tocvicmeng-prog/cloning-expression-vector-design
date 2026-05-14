@@ -30,9 +30,11 @@ class DiagnosticPrimerDesign:
 
 class DiagnosticPrimerDesigner:
     def __init__(self, parameters: PrimerDesignParameters | None = None) -> None:
-        self._parameters = PrimerDesignParameters(
-            target_product="diagnostic"
-        ) if parameters is None else parameters
+        self._parameters = (
+            PrimerDesignParameters(target_product="diagnostic")
+            if parameters is None
+            else parameters
+        )
         self._primer_designer = PrimerDesigner(self._parameters)
 
     def design(

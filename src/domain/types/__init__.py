@@ -8,6 +8,18 @@ Core domain entities for parts, constructs, hosts, libraries, assembly plans, an
 
 from __future__ import annotations
 
+from domain.types.admin_ipc import (
+    ADMIN_IPC_PROTOCOL_VERSION,
+    AdminIpcErrorCode,
+    AdminIpcRequest,
+    AdminIpcResponse,
+    AdminIpcStatus,
+    AdminPrincipalTokenId,
+    AdminRequestId,
+    AdminServiceVerb,
+    SignedAdminPrincipalToken,
+    SignedDecisionRecordPayload,
+)
 from domain.types.assembly_method import (
     AssemblyMethod,
     GatewayMethod,
@@ -118,6 +130,14 @@ from domain.types.sop_template import (
 from domain.types.validation_rule import ValidationRule
 
 __all__ = [
+    "ADMIN_IPC_PROTOCOL_VERSION",
+    "AdminIpcErrorCode",
+    "AdminIpcRequest",
+    "AdminIpcResponse",
+    "AdminIpcStatus",
+    "AdminPrincipalTokenId",
+    "AdminRequestId",
+    "AdminServiceVerb",
     "AssemblyCapability",
     "AssemblyMethod",
     "AssemblyMethodId",
@@ -193,6 +213,8 @@ __all__ = [
     "SequenceOntologyTerm",
     "Severity",
     "SeverityPolicy",
+    "SignedAdminPrincipalToken",
+    "SignedDecisionRecordPayload",
     "SlotKind",
     "SopTemplate",
     "SopTemplateId",

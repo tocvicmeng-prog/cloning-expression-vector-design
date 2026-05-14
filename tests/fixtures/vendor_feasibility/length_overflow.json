@@ -1,0 +1,6 @@
+{
+  "vendor_id": "idt",
+  "service_id": "idt.gblocks",
+  "length_bp": 3001,
+  "rejection_class": "length_overflow"
+}

@@ -1,0 +1,11 @@
+{
+  "example": "example_a",
+  "reviewer": "scientific-advisor",
+  "status": "signed",
+  "decision": "approve_for_internal_audit_export",
+  "notes": [
+    "Bacterial expression fixture exercises active advisory acknowledgement.",
+    "GenBank and SnapGene file-watch interchange are required to round-trip."
+  ]
+}
+

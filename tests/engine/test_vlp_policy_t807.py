@@ -71,9 +71,7 @@ def test_ms2_rna_display_policy_passes_and_triggers_risk_advisory_tags() -> None
             trigger_tags=report.risk_trigger_tags,
         )
     )
-    assert "risk.ms2_vlp_delivery" in {
-        advisory.advisory_id for advisory in risk_report.advisories
-    }
+    assert "risk.ms2_vlp_delivery" in {advisory.advisory_id for advisory in risk_report.advisories}
 
 
 def test_ms2_missing_reference_and_pac_declarations_blocks_ms_rules() -> None:
@@ -165,9 +163,7 @@ def test_lentiviral_policy_blocks_replication_competence_and_triggers_risk() -> 
 
     assert not report.passed
     assert report.blocked_rule_ids == frozenset({"MS-06"})
-    assert {"lentiviral", "viral_vector", "replication_competent"} <= set(
-        report.risk_trigger_tags
-    )
+    assert {"lentiviral", "viral_vector", "replication_competent"} <= set(report.risk_trigger_tags)
 
     risk_report = _risk_engine().classify(
         RiskClassificationInput(

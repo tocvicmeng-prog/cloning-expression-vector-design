@@ -1,0 +1,11 @@
+{
+  "scenario": "dual_control_same_admin_rejected",
+  "verdict": "blocked",
+  "authorised_event_emitted": false,
+  "blocked_by_contains": [
+    "PermissionError:DualControlViolation: profile revocation requires a distinct administrator"
+  ],
+  "event_types_contains": ["AdminActionMinted", "AuthorisationAttemptDenied"],
+  "audit_event_types_contains": ["AdminActionMinted"],
+  "notes_contains": []
+}

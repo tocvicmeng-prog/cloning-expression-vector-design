@@ -12,8 +12,10 @@ import pytest
 
 from adapter.io import (
     AnnotatedConstruct,
+    EmblAdapter,
     FastaAdapter,
     GenBankAdapter,
+    Gff3Adapter,
     ImportedConstruct,
     Sbol3Adapter,
     SnapGeneDnaReader,
@@ -80,6 +82,39 @@ def test_genbank_adapter_round_trips_simple_feature() -> None:
     assert imported.features[0].role == "CDS"
     assert imported.features[0].locations[0].start == 2
     assert imported.features[0].ordered_qualifiers[0].value == "insert"
+
+
+def test_embl_adapter_round_trips_simple_feature() -> None:
+    adapter = EmblAdapter()
+    result = adapter.write(_imported_construct())
+    imported = adapter.read(result.data)
+
+    assert imported.sequence_record.canonical_sequence == "ACGTACGTACGT"
+    assert imported.features[0].role == "CDS"
+    assert imported.features[0].locations[0].start == 2
+    assert imported.features[0].ordered_qualifiers[0].namespace == "embl"
+    assert imported.features[0].ordered_qualifiers[0].value == "insert"
+
+
+def test_gff3_adapter_round_trips_simple_feature_with_embedded_fasta() -> None:
+    adapter = Gff3Adapter()
+    result = adapter.write(_imported_construct())
+    imported = adapter.read(result.data)
+
+    assert imported.sequence_record.canonical_sequence == "ACGTACGTACGT"
+    assert imported.features[0].role == "CDS"
+    assert imported.features[0].locations[0].start == 2
+    assert imported.features[0].locations[0].end == 8
+    assert imported.features[0].ordered_qualifiers[0].key == "label"
+    assert imported.features[0].ordered_qualifiers[0].value == "insert"
+    assert result.data.decode("utf-8").startswith("##gff-version 3\n")
+
+
+def test_gff3_adapter_requires_embedded_fasta_sequence() -> None:
+    payload = b"##gff-version 3\nconstruct-1\t.\tCDS\t1\t3\t.\t+\t0\tID=cds1\n"
+
+    with pytest.raises(ValueError, match="embedded FASTA"):
+        Gff3Adapter().read(payload)
 
 
 def test_sbol3_adapter_round_trips_sequence_with_feature_loss_warning() -> None:

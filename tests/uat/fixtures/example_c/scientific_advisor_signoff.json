@@ -1,0 +1,11 @@
+{
+  "example": "example_c",
+  "reviewer": "scientific-advisor",
+  "status": "signed",
+  "decision": "approve_three_host_fixture_for_internal_audit_export",
+  "notes": [
+    "Three-host E. coli, Agrobacterium, and plant target compatibility must pass.",
+    "Plant transient fixture exercises environmental-release advisory acknowledgement."
+  ]
+}
+
