@@ -78,7 +78,7 @@ When the v2.0 KB and the white paper appear to disagree, the citation chain in v
 
 ## 5. Next milestones
 
-Phase 2 scaffold, Phase 3, Phase 4, Phase 5, and Phase 6 are complete locally. T-607 added the catalogue-backed `app.decision_tree` flow for objective, host, cargo, expression, tagging, cloning chemistry, and biosafety-tier choices, with design-session events persisted through `app.design_service`. Before opening T-701, run `python tools/agenda_consistency_check.py`, then use:
+Phase 2 scaffold, Phase 3, Phase 4, Phase 5, Phase 6, and T-701 are complete locally. T-701 added the pure `engine.codon` package with CAI, MinMax, CHARMING, and avoid-only optimisation plus protected-interval and functional-RNA preservation. Before opening T-702, run `python tools/agenda_consistency_check.py`, then use:
 
 ```powershell
 python -m uv sync --frozen --no-editable --group dev --extra io

@@ -1082,6 +1082,7 @@ Note: **T-316c** (production SOP-template signer + key lifecycle per H4-04) and 
 - **Files:** `src/engine/codon/types.py`, `algorithms.py`, `optimiser.py`, tests.
 - **Model tier:** Opus. **Context budget:** ≤ 60 k tokens.
 - **SOP:** See § 1.7 example brief. Implement CAI, %MinMax, CHARMING, `avoid_only`. Lexicographic-priority fixed-point with `N=5` cap. Honour `protected_intervals` and `functional_rna_features` (MR-09 / MR-17).
+- **Implementation status (2026-05-14).** Complete locally. Converted the T-203 `engine.codon` placeholder into a package with `CodingSequenceDesign`, protected intervals, functional-RNA feature protection, CAI / MinMax / CHARMING / avoid-only algorithms, sequence metrics, and `CodonOptimiser` fixed-point execution capped at five iterations. Focused verification: 9 tests passed. Full local gates are green with 418 passed and 2 skipped. T-702 is next.
 
 #### 2.7.2 `T-702` — `engine.overhang` (Golden Gate fidelity optimiser)
 - **Files:** `src/engine/overhang/dataset.py` (Potapov 2018 + Pryor 2020 matrices), `optimiser.py`, tests.
@@ -2693,7 +2694,7 @@ This coding agenda is **Finalised v1.5** after the fifth-round mechanical consis
 
 **v1.5 audit history.** 4 internal adversarial-falsification rounds (v1.0) + 21/21 first-round Codex audit findings accepted (v1.1) + 29/29 second-round Codex audit findings accepted (v1.2) + 27/27 third-round Codex audit findings accepted (v1.3) + **27/27 fourth-round Codex audit findings accepted (v1.4)** + fifth-round mechanical consistency remediation (v1.5). Zero defenses raised across all external coding-agenda audits.
 
-Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-701 `engine.codon` now that Phase 6 is complete locally.
+Recommended next action: run `python tools/agenda_consistency_check.py`, then `/dev-orchestrator` opens T-702 `engine.overhang` now that T-701 is complete locally.
 
 ---
 
