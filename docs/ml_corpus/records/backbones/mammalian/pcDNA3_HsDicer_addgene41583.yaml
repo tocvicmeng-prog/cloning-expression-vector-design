@@ -1,0 +1,262 @@
+id: corpus.backbone.mammalian.pcdna3_hsdicer
+category: backbone
+sequence:
+  bases: TTTACACTTTATGCTTCCGGCTCGTATGTTGTGTGGAATTGTGAGCGGATAACAATTTCACACAGGAAACAGCTATGACCATGATTACGCCAAGCTTGGGCTGCAGGTCGAGGGATCTCCATAAGAGAAGAGGGACAGCTATGACTGGGAGTAGTCAGGAGAGGAGGAAAAATCTGGCTAGTAAAACATGTAAGGAAAATTTTAGGGATGTTAAAGAAAAAAATAACACAAAACAAAATATAAAAAAAATCTAACCTCAAGTCAAGGCTTTTCTATGGAATAAGGAATGGACAGCAGGGGGCTGTTTCATATACTGATGACCTCTTTATAGCCAACCTTTGTTCATGGCAGCCAGCATATGGGCATATGTTGCCAAACTCTAAACCAAATACTCATTCTGATGTTTTAAATGATTTGCCCTCCCATATGTCCTTCCGAGTGAGAGACACAAAAAATTCCAACACACTATTGCAATGAAAATAAATTTCCTTTATTAGCCAGAAGTCAGATGCTCAAGGGGCTTCATGATGTCCCCATAATTTTTGGCAGAGGGAAAAAGATCGAGATCTGAGTCCGGACTTGTACAGCTCGTCCATGCCGCCGGTGGAGTGGCGGCCCTCGGCGCGTTCGTACTGTTCCACGATGGTGTAGTCCTCGTTGTGGGAGGTGATGTCCAACTTGATGTTGACGTTGTAGGCGCCGGGCAGCTGCACGGGCTTCTTGGCCTTGTAGGTGGTCTTGACCTCAGCGTCGTAGTGGCCGCCGTCCTTCAGCTTCAGCCTCTGCTTGATCTCGCCCTTCAGGGCGCCGTCCTCGGGGTACATCCGCTCGGAGGAGGCCTCCCAGCCCATGGTCTTCTTCTGCATTACGGGGCCGTCGGAGGGGAAGTTGGTGCCGCGCAGCTTCACCTTGTAGATGAACTCGCCGTCCTGCAGGGAGGAGTCCTGGGTCACGGTCACCACGCCGCCGTCCTCGAAGTTCATCACGCGCTCCCACTTGAAGCCCTCGGGGAAGGACAGCTTCAAGTAGTCGGGGATGTCGGCGGGGTGCTTCACGTAGGCCTTGGAGCCGTACATGAACTGAGGGGACAGGATGTCCCAGGCGAAGGGCAGGGGGCCACCCTTGGTCACCTTCAGCTTGGCGGTCTGGGTGCCCTCGTAGGGGCGGCCCTCGCCCTCGCCCTCGATCTCGAACTCGTGGCCGTTCACGGAGCCCTCCATGTGCACCTTGAAGCGCATGAACTCCTTGATGATGGCCATGTTATCCTCCTCGCCCTTGCTCACCATGGTGGCGCTAGAATTCTTTGCCAAAATGATGAGACAGCACAATAACCAGCACGTTGCCCAGGAGCTGTAGGAAAAAGAAGAAGGCATGAACATGGTTAGCAGAGGCTCTAGAGCCGCCGGTCACACGCCAGAAGCCGAACCCCGCCCTGCCCCGTCCCCCCCGAAGGCAGCCGTCCCCCCGCGGACAGCCCCGAGGCTGGAGAGGGAGAAGGGGACGGCGGCGCGGCGACGCACGAAGGCCCTCCCCGCCCATTTCCTTCCTGCCGGCGCCGCACCGCTTCGCCCCGCGCCCGCTAGAGGGGGTGCGGCGGCGCCTCCCAGATTTCGGCTCCGCACAGATTTGGGACAAAGGAAGTCCCTGCGCCCTCTCGCACGATTACCATAAAAGGCAATGGCTGCGGCTCGCCGCGCCTCGACAGCCGCCGGCGCTCCGGGGGCCGCCGCGCCCCTCCCCCGAGCCCTCCCCGGCCCGAGGCGGCCCCGCCCCGCCCGGCACCCCCACCTGCCGCCACCCCCCGCCCGGCACGGCGAGCCCCGCGCCACGCCCCGTACGGAGCCCCGCACCCGAAGCCGGGCCGTGCTCAGCAACTCGGGGAGGGGGGTGCAGGGGGGGTTGCAGCCCGACCGACGCGCCCACACCCCCTGCTCACCCCCCCACGCACACACCCCGCACGCAGCCTTTGTTCCCCTCGCAGCCCCCCCCGCACCGCGGGGCACCGCCCCCGGCCGCGCTCCCCTCGCGCACACTGCGGAGCGCACAAAGCCCCGCGCCGCGCCCGCAGCGCTCACAGCCGCCGGGCAGCGCGGAGCCGCACGCGGCGCTCCCCACGCACACACACACGCACGCACCCCCCGAGCCGCTCCCCCCGCACAAAGGGCCCTCCCGGAGCCCCTCAAGGCTTTCACGCAGCCACAGAAAAGAAACAAGCCGTCATTAAACCAAGCGCTAATTACAGCCCGGAGGAGAAGGGCCGTCCCGCCCGCTCACCTGTGGGAGTAACGCGGTCAGTCAGAGCCGGGGCGGGCGGCGCGAGGCGGCGGCGGAGCGGGGCACGGGGCGAAGGCAGCGCGCAGCGACTCCCGCCCGCCGCGCGCTTCGCTTTTTATAGGGCCGCCGCCGCCGCCGCCTCGCCATAAAAGGAAACTTTCGGAGCGCGCCGCTCTGATTGGCTGCCGCCGCACCTCTCCGCCTCGCCCCGCCCCGCCCCTCGCCCCGCCCCGCCCCGCCTGGCGCGCGCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATTGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGAGGGGGGGGGGGCGCGTCGGGCGGGCTGAGAGGAAGGCGAAAAGGGGAAGTGGATGGCAACAGAGAAAGGCCCAAAAGGGCATGGAAGGGGGCATAGTGCCAGGCGGGCCATTTACCGTCATTGACGTCAATAGGGGGCGTACTTGGCATATGATACACTTGATGTACTGCCAAGTGGGCAGTTTACCGTAAATACTCCACCCATTGACGTCAATGGAAAGTCCCTATTGGCGTTACTATGGGAACATACGTCATTATTGACGTCAATGGGCGGGGGTCGTTGGGCGGTCAGCCAGGCGGGCCATTTACCGTAAGTTATGTAACGCGGAACTCCATATATGGGCTATGAACTAATGACCCCGTAATTGATTACTATTAATAACTAGTCAATAATCAATGTCGACCCAGGTGGCACTTTTCGGGGAAATGTGCGCGGAACCCCTATTTGTTTATTTTTCTAAATACATTCAAATATGTATCCGCTCATGAGACAATAACCCTGATAAATGCTTCAATAATATTGAAAAAGGAAGAGTATGAGTATTCAACATTTCCGTGTCGCCCTTATTCCCTTTTTTGCGGCATTTTGCCTTCCTGTTTTTGCTCACCCAGAAACGCTGGTGAAAGTAAAAGATGCTGAAGATCAGTTGGGTGCACGAGTGGGTTACATCGAACTGGATCTCAACAGCGGTAAGATCCTTGAGAGTTTTCGCCCCGAAGAACGTTTTCCAATGATGAGCACTTTTAAAGTTCTGCTATGTGGCGCGGTATTATCCCGTATTGACGCCGGGCAAGAGCAACTCGGTCGCCGCATACACTATTCTCAGAATGACTTGGTTGAGTACTCACCAGTCACAGAAAAGCATCTTACGGATGGCATGACAGTAAGAGAATTATGCAGTGCTGCCATAACCATGAGTGATAACACTGCGGCCAACTTACTTCTGACAACGATCGGAGGACCGAAGGAGCTAACCGCTTTTTTGCACAACATGGGGGATCATGTAACTCGCCTTGATCGTTGGGAACCGGAGCTGAATGAAGCCATACCAAACGACGAGCGTGACACCACGATGCCTGTAGCAATGGCAACAACGTTGCGCAAACTATTAACTGGCGAACTACTTACTCTAGCTTCCCGGCAACAATTAATAGACTGGATGGAGGCGGATAAAGTTGCAGGACCACTTCTGCGCTCGGCCCTTCCGGCTGGCTGGTTTATTGCTGATAAATCTGGAGCCGGTGAGCGTGGGTCTCGCGGTATCATTGCAGCACTGGGGCCAGATGGTAAGCCCTCCCGTATCGTAGTTATCTACACGACGGGGAGTCAGGCAACTATGGATGAACGAAATAGACAGATCGCTGAGATAGGTGCCTCACTGATTAAGCATTGGTAACTGTCAGACCAAGTTTACTCATATATACTTTAGATTGATTTAAAACTTCATTTTTAATTTAAAAGGATCTAGGTGAAGATCCTTTTTGATAATCTCATGACCAAAATCCCTTAACGTGAGTTTTCGTTCCACTGAGCGTCAGACCCCGTAGAAAAGATCAAAGGATCTTCTTGAGATCCTTTTTTTCTGCGCGTAATCTGCTGCTTGCAAACAAAAAAACCACCGCTACCAGCGGTGGTTTGTTTGCCGGATCAAGAGCTACCAACTCTTTTTCCGAAGGTAACTGGCTTCAGCAGAGCGCAGATACCAAATACTGTTCTTCTAGTGTAGCCGTAGTTAGGCCACCACTTCAAGAACTCTGTAGCACCGCCTACATACCTCGCTCTGCTAATCCTGTTACCAGTGGCTGCTGCCAGTGGCGATAAGTCGTGTCTTACCGGGTTGGACTCAAGACGATAGTTACCGGATAAGGCGCAGCGGTCGGGCTGAACGGGGGGTTCGTGCACACAGCCCAGCTTGGAGCGAACGACCTACACCGAACTGAGATACCTACAGCGTGAGCTATGAGAAAGCGCCACGCTTCCCGAAGGGAGAAAGGCGGACAGGTATCCGGTAAGCGGCAGGGTCGGAACAGGAGAGCGCACGAGGGAGCTTCCAGGGGGAAACGCCTGGTATCTTTATAGTCCTGTCGGGTTTCGCCACCTCTGACTTGAGCGTCGATTTTTGTGATGCTCGTCAGGGGGGCGGAGCCTATGGAAAAACGCCAGCAACGCGGCCTTTTTACGGTTCCTGGCCTTTTGCTGGCCTTTTGCTCACATGTTCTTTCCTGCGTTATCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGATACCGCTCGCCGCAGCCGAACGACCGAGCGCAGCGAGTCAGTGAGCGAGGAAGCGGAAGAGCGCCCAATACGCAAACCGCCTCTCCCCGCGCGTTGGCCGATTCATTAATGCAGCGGATCCAGACATGATAAGATACATTGATGAGTTTGGACAAACCACAACTAGAATGCAGTGAAAAAAATGCTTTATTTGTGAAATTTGTGATGCTATTGCTTTATTTGTAACCATTATAAGCTGCAATAAACAAGTTAGCTTTTTGCAAAAGCCTAGGCCTCCAAAAAAGCCTCCTCACTACTTCTGGAATAGCTCAGAGGCCGAGGCGGCCTCGGCCTCTGCATAAATAAAAAAAATTAGTCAGCCATGGGGCGGAGAATGGGCGGAACTGGGCGGAGTTAGGGGCGGGATGGGCGGAGTTAGGGGCGGGACTATGGTTGCTGACTAATTGAGATGCGGATCCGCTGGCACGACAGGTTTCCCGACTGGAAAGCGGGCAGTGAGCGCAACGCAATTAATGTGAGTTAGCTCACTCATTAGGCACCCCAGGC
+  topology: circular
+  length_bp: 5449
+annotation:
+- type: promoter
+  start: 1
+  end: 6
+  strand: +
+  qualifiers:
+    label: lac promoter
+    note: promoter for the E. coli lac operon
+- type: protein_bind
+  start: 39
+  end: 55
+  strand: +
+  qualifiers:
+    label: lac operator
+    bound_moiety: lac repressor encoded by lacI
+    note: The lac repressor binds to the lac operator to inhibit transcription in E. coli. This inhibition can be relieved by adding lactose or
+      isopropyl-beta-D-thiogalactopyranoside (IPTG).
+- type: primer_bind
+  start: 44
+  end: 66
+  strand: +
+  qualifiers:
+    label: M13/pUC Reverse
+    note: In lacZ gene
+- type: primer_bind
+  start: 63
+  end: 79
+  strand: +
+  qualifiers:
+    label: M13 rev
+    note: common sequencing primer, one of multiple similar variants
+- type: primer_bind
+  start: 63
+  end: 79
+  strand: +
+  qualifiers:
+    label: M13 Reverse
+    note: In lacZ gene. Also called M13-rev
+- type: primer_bind
+  start: 422
+  end: 441
+  strand: +
+  qualifiers:
+    label: rbglobpA-R
+    note: Rabbit beta-globin polyA, reverse primer. Also called rb-glob-pA-term-R
+- type: polyA_signal
+  start: 440
+  end: 495
+  strand: +
+  qualifiers:
+    label: beta-globin poly(A) signal
+    note: rabbit beta-globin polyadenylation signal (Gil and Proudfoot, 1987)
+- type: primer_bind
+  start: 541
+  end: 560
+  strand: +
+  qualifiers:
+    label: Bglob-pA-R
+    note: Rabbit beta-globin polyA region, reverse primer
+- type: CDS
+  start: 579
+  end: 1286
+  strand: '-'
+  qualifiers:
+    codon_start: '1'
+    product: monomeric derivative of DsRed fluorescent protein (Shaner et al., 2004)
+    label: mCherry
+    note: mammalian codon-optimized
+    translation: MVSKGEEDNMAIIKEFMRFKVHMEGSVNGHEFEIEGEGEGRPYEG TQTAKLKVTKGGPLPFAWDILSPQFMYGSKAYVKHPADIPDYLKLSFPEGFKWERVMNF EDGGVVTVTQDSSLQDGEFIYKVKLRGTNFPSDGPVMQKKTMGWEASSERMYPEDGALK
+      GEIKQRLKLKDGGHYDAEVKTTYKAKKPVQLPGAYNVNIKLDITSHNEDYTIVEQYERA EGRHSTGGMDELYK
+- type: primer_bind
+  start: 854
+  end: 873
+  strand: '-'
+  qualifiers:
+    label: mCherry-F
+    note: mCherry, forward primer
+- type: primer_bind
+  start: 1123
+  end: 1141
+  strand: +
+  qualifiers:
+    label: mCherry-R
+    note: mCherry, reverse primer
+- type: regulatory
+  start: 1283
+  end: 1292
+  strand: +
+  qualifiers:
+    label: Kozak sequence
+    note: vertebrate consensus sequence for strong initiation of translation (Kozak, 1987)
+    regulatory_class: other
+- type: primer_bind
+  start: 1324
+  end: 1343
+  strand: '-'
+  qualifiers:
+    label: pCAG-F
+    note: Rabbit beta-globin intron, for pCAG plasmids, forward primer
+- type: intron
+  start: 1351
+  end: 2367
+  strand: +
+  qualifiers:
+    label: chimeric intron
+    note: chimera between introns from chicken beta-actin and rabbit beta-globin
+- type: primer_bind
+  start: 1405
+  end: 1427
+  strand: '-'
+  qualifiers:
+    label: pCAGGS-5
+    note: Chimeric intron in CAG promoter, forward primer
+- type: promoter
+  start: 3057
+  end: 3161
+  strand: +
+  qualifiers:
+    gene: bla
+    label: AmpR promoter
+- type: CDS
+  start: 3162
+  end: 3230
+  strand: +
+  qualifiers:
+    codon_start: '1'
+    gene: bla
+    product: beta-lactamase
+    label: AmpR
+    note: confers resistance to ampicillin, carbenicillin, and related antibiotics
+    translation: MSIQHFRVALIPFFAAFCLPVFAHPETLVKVKDAEDQLGARVGYI ELDLNSGKILESFRPEERFPMMSTFKVLLCGAVLSRIDAGQEQLGRRIHYSQNDLVEYS PVTEKHLTDGMTVRELCSAAITMSDNTAANLLLTTIGGPKELTAFLHNMGDHVTRLDRW
+      EPELNEAIPNDERDTTMPVAMATTLRKLLTGELLTLASRQQLIDWMEADKVAGPLLRSA LPAGWFIADKSGAGERGSRGIIAALGPDGKPSRIVVIYTTGSQATMDERNRQIAEIGAS LIKHW
+- type: primer_bind
+  start: 3380
+  end: 3399
+  strand: '-'
+  qualifiers:
+    label: Amp-R
+    note: Ampicillin resistance gene, reverse primer
+- type: rep_origin
+  start: 4193
+  end: 4781
+  strand: +
+  qualifiers:
+    direction: RIGHT
+    label: ori
+    note: high-copy-number ColE1/pMB1/pBR322/pUC origin of replication
+- type: primer_bind
+  start: 4682
+  end: 4701
+  strand: +
+  qualifiers:
+    label: pBR322ori-F
+    note: pBR322 origin, forward primer
+- type: primer_bind
+  start: 4935
+  end: 4952
+  strand: +
+  qualifiers:
+    label: L4440
+    note: L4440 vector, forward primer
+- type: polyA_signal
+  start: 5020
+  end: 5154
+  strand: +
+  qualifiers:
+    label: SV40 poly(A) signal
+    note: SV40 polyadenylation signal
+- type: primer_bind
+  start: 5044
+  end: 5063
+  strand: '-'
+  qualifiers:
+    label: EBV-rev
+    note: SV40 polyA terminator, reverse primer
+- type: primer_bind
+  start: 5098
+  end: 5117
+  strand: +
+  qualifiers:
+    label: SV40pA-R
+    note: SV40 polyA, reverse primer
+- type: promoter
+  start: 5160
+  end: 5355
+  strand: '-'
+  qualifiers:
+    label: SV40 promoter
+    note: SV40 early promoter
+- type: rep_origin
+  start: 5174
+  end: 5309
+  strand: +
+  qualifiers:
+    label: SV40 ori
+    note: SV40 origin of replication
+- type: protein_bind
+  start: 5414
+  end: 5435
+  strand: +
+  qualifiers:
+    label: CAP binding site
+    bound_moiety: E. coli catabolite activator protein
+    note: CAP binding activates transcription in the presence of cAMP.
+provenance:
+  source: primary_literature
+  accession_or_url: https://pubmed.ncbi.nlm.nih.gov/22546613/
+  retrieved_at: '2026-05-23'
+  retrieved_by: Rec-3 batch-002 (manual Addgene download by project owner; researcher-mediated workflow). User re-exported as .gb format from
+    authenticated Addgene browser session and supplied the .gb file to the curator.
+  pmid: '22546613'
+  citation_text: 'Gurtan AM, Lu V, Bhutkar A, Sharp PA. In vivo structure-function analysis of human Dicer reveals essential roles in cancer cell
+    viability and unidirectional RNA helicase activity. RNA. 2012 Jun;18(6):1116-22. PMID 22546613. pcDNA3.1+ HsDicer-FLAG-HA deposited at Addgene
+    as plasmid #41583.'
+  addgene_id: '41583'
+  notes: 'Source posture (Rec-3 override-log batch addgene-depositor-batch-002, depositor-owned (academic Dicer expression construct on pcDNA3.1+
+    backbone)): file obtained from user''s manual Addgene download (no curator-side automation). Per IP-audit § 5.2 fold-in: sequence + annotation
+    are depositor-owned (or factual-vendor-content per Feist); Addgene-authored description text has NOT been ingested. SnapGene cross-check pending
+    per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: depositor-owned-sharp-lab
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: 'Sharp Lab pcDNA3.1+ HsDicer depositor submission at Addgene #41583'
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/22546613/
+    notes: Posture per IP-audit § 5.2 fold-in. Sequence is depositor-owned (academic lab); released as part of the cited primary publication.
+  annotation_license:
+    spdx_id: depositor-owned-sharp-lab
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: 'Sharp Lab pcDNA3.1+ HsDicer depositor submission at Addgene #41583'
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/22546613/
+    notes: Posture per IP-audit § 5.2 fold-in. Sequence is depositor-owned (academic lab); released as part of the cited primary publication.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: 'pcDNA3.1+ HsDicer (Addgene #41583)'
+  discrepancy_resolution: 'Cross-check pending. Curator: open the canonical SnapGene record for this plasmid in browser, visually compare sequence
+    + key annotations, log result in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: mammalian
+  replicon: ColE1
+  copy_number_class: high
+intended_use_category:
+- expression
+- cmv_promoter
+- bgh_polya
+- sharp_lab_dicer_construct
+checksum:
+  algorithm: sha256
+  value: 01a1abce4ce5fd0505c68fdbd67ad5f922a74c14631aa3ce0978a61f22907b02

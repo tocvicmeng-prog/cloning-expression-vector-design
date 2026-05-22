@@ -100,6 +100,54 @@ entries:
       - "docs/ml_corpus/records/backbones/mammalian/{psPAX2_addgene12260,pCAGGS_addgene}.yaml (the records this batch authorises)"
     batch_outcome: approved
 
+  - batch_id: addgene-depositor-batch-002
+    override_type: addgene_depositor_side
+    batch_records:
+      - corpus.backbone.mammalian.plko1
+      - corpus.backbone.mammalian.pmd2g
+      - corpus.backbone.mammalian.pcdna3_hsdicer
+      - corpus.backbone.ecoli.pet28a_plus
+      - corpus.backbone.kphaffii.ppicz_alpha_a
+    proposed_at: "2026-05-23"
+    approval_date: "2026-05-23"
+    approval_owner: tocvicmeng@gmail.com (project owner / GMExpression Pty Ltd / Holocyte)
+    normative_section: |
+      IP-audit § 8.1 Tier-2 (Addgene general posture) +
+      § 5.2 fold-in. For pET-28a(+) and pPICZ-α-A: additional vendor-published-factual
+      posture per Feist v. Rural Telephone.
+    ip_audit_section: |
+      docs/handover/2026-05-23_host_marker_ml_corpus_ip_audit.md § 5.2 +
+      docs/handover/2026-05-23_corpus_completion_strategies.md Rec-3 (second batch).
+    rationale: |
+      Second Rec-3 batch — 5 records from user's manual Addgene browser session
+      (.dna files re-exported as .gb in same folder per user decision):
+        - pLKO.1 (Stewart Lab, Addgene #10878) — Stewart 2003 PMID 12649500; 8901 bp.
+        - pMD2.G (Trono Lab, Addgene #12259) — Naldini 1996 PMID 8602510; 5822 bp.
+        - pcDNA3.1+ HsDicer-FLAG-HA (Sharp Lab, Addgene #41583) — Gurtan 2012 PMID
+          22546613; 5449 bp.
+        - pET-28a(+) Novagen canonical (5369 bp) — vendor product map; underlying
+          T7 system Studier 1986 PMID 3537305.
+        - pPICZ-α-A Invitrogen canonical (3593 bp) — vendor product map; underlying
+          Pichia AOX1 system Higgins & Cregg 1998 PMID 9437891.
+      Mixed posture per record: 3 depositor-owned-academic; 2 vendor-proprietary-factual.
+    delta_from_normative: |
+      Same delta as batch-001 (Addgene-mediated ingestion). Additional nuance for the
+      2 vendor records: sequence content is factual per Feist; vendor retains
+      trademark + manufacturing exclusivity. Records cite the vendor product +
+      underlying primary-lit publication.
+    compensating_controls: |
+      - All 5 files via user's authenticated browser session at addgene.org.
+      - User RE-EXPORTED .dna as .gb in the same Addgene session, bypassing the
+        .dna proprietary-format BR-16 grey zone entirely.
+      - No Addgene-authored description text included in any record.
+      - For vendor records: provenance.source set to `vendor_published_map`.
+      - For depositor records: provenance.source set to `primary_literature`.
+    verification_trail:
+      - "C:/Users/tocvi/Downloads/Addgenefiles/ (user's local download folder)"
+      - "/tmp/genbank/{pLKO1,pMD2G,pcDNA3_Dicer,pET28aplus,pPICZalphaA}_addgene*.gb (curator caches)"
+      - "5 records under docs/ml_corpus/records/backbones/{mammalian,ecoli,kphaffii}/"
+    batch_outcome: approved
+
 # When the first SnapGene cross-check batch is actually run, the curator should
 # append an entry shaped like the following (preserved here as a docstring so
 # future curators have a working example):

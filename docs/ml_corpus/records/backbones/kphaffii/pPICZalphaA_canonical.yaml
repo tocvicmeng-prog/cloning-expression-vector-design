@@ -1,0 +1,159 @@
+id: corpus.backbone.kphaffii.ppicz_alpha_a
+category: backbone
+sequence:
+  bases: AGATCTAACATCCAAAGACGAAAGGTTGAATGAAACCTTTTTGCCATCCGACATCCACAGGTCCATTCTCACACATAAGTGCCAAACGCAACAGGAGGGGATACACTAGCAGCAGACCGTTGCAAACGCAGGACCTCCACTCCTCTTCTCCTCAACACCCACTTTTGCCATCGAAAAACCAGCCCAGTTATTGGGCTTGATTGGAGCTCGCTCATTCCAATTCCTTCTATTAGGCTACTAACACCATGACTTTATTAGCCTGTCTATCCTGGCCCCCCTGGCGAGGTTCATGTTTGTTTATTTCCGAATGCAACAAGCTCCGCATTACACCCGAACATCACTCCAGATGAGGGCTTTCTGAGTGTGGGGTCAAATAGTTTCATGTTCCCCAAATGGCCCAAAACTGACAGTTTAAACGCTGTCTTGGAACCTAATATGACAAAAGCGTGATCTCATCCAAGATGAACTAAGTTTGGTTCGTTGAAATGCTAACGGCCAGTTGGTCAAAAAGAAACTTCCAAAAGTCGGCATACCGTTTGTCTTGTTTGGTATTGATTGACGAATGCTCAAAAATAATCTCATTAATGCTTAGCGCAGTCTCTCTATCGCTTCTGAACCCCGGTGCACCTGTGCCGAAACGCAAATGGGGAAACACCCGCTTTTTGGATGATTATGCATTGTCTCCACATTGTATGCTTCCAAGATTCTGGTGGGAATACTGCTGATAGCCTAACGTTCATGATCAAAATTTAACTGTTCTAACCCCTACTTGACAGCAATATATAAACAGAAGGAAGCTGCCCTGTCTTAAACCTTTTTTTTTATCATCATTATTAGCTTACTTTCATAATTGCGACTGGTTCCAATTGACAAGCTTTTGATTTTAACGACTTTTAACGACAACTTGAGAAGATCAAAAAACAACTAATTATTCGAAACGATGAGATTTCCTTCAATTTTTACTGCTGTTTTATTCGCAGCATCCTCCGCATTAGCTGCTCCAGTCAACACTACAACAGAAGATGAAACGGCACAAATTCCGGCTGAAGCTGTCATCGGTTACTCAGATTTAGAAGGGGATTTCGATGTTGCTGTTTTGCCATTTTCCAACAGCACAAATAACGGGTTATTGTTTATAAATACTACTATTGCCAGCATTGCTGCTAAAGAAGAAGGGGTATCTCTCGAGAAAAGAGAGGCTGAAGCTGAATTCACGTGGCCCAGCCGGCCGTCTCGGATCGGTACCTCGAGCCGCGGCGGCCGCCAGCTTTCTAGAACAAAAACTCATCTCAGAAGAGGATCTGAATAGCGCCGTCGACCATCATCATCATCATCATTGAGTTTGTAGCCTTAGACATGACTGTTCCTCAGTTCAAGTTGGGCACTTACGAGAAGACCGGTCTTGCTAGATTCTAATCAAGAGGATGTCAGAATGCCATTTGCCTGAGAGATGCAGGCTTCATTTTTGATACTTTTTTATTTGTAACCTATATAGTATAGGATTTTTTTTGTCATTTTGTTTCTTCTCGTACGAGCTTGCTCCTGATCAGCCTATCTCGCAGCTGATGAATATCTTGTGGTAGGGGTTTGGGAAAATCATTCGAGTTTGATGTTTTTCTTGGTATTTCCCACTCCTCTTCAGAGTACAGAAGATTAAGTGAGACCTTCGTTTGTGCGGATCCCCCACACACCATAGCTTCAAAATGTTTCTACTCCTTTTTTACTCTTCCAGATTTTCTCGGACTCCGCGCATCGCCGTACCACTTCAAAACACCCAAGCACAGCATACTAAATTTTCCCTCTTTCTTCCTCTAGGGTGTCGTTAATTACCCGTACTAAAGGTTTGGAAAAGAAAAAAGAGACCGCCTCGTTTCTTTTTCTTCGTCGAAAAAGGCAATAAAAATTTTTATCACGTTTCTTTTTCTTGAAATTTTTTTTTTTAGTTTTTTTCTCTTTCAGTGACCTCCATTGATATTTAAGTTAATAAACGGTCTTCAATTTCTCAAGTTTCAGTTTCATTTTTCTTGTTCTATTACAACTTTTTTTACTTCTTGTTCATTAGAAAGAAAGCATAGCAATCTAATCTAAGGGGCGGTGTTGACAATTAATCATCGGCATAGTATATCGGCATAGTATAATACGACAAGGTGAGGAACTAAACCATGGCCAAGTTGACCAGTGCCGTTCCGGTGCTCACCGCGCGCGACGTCGCCGGAGCGGTCGAGTTCTGGACCGACCGGCTCGGGTTCTCCCGGGACTTCGTGGAGGACGACTTCGCCGGTGTGGTCCGGGACGACGTGACCCTGTTCATCAGCGCGGTCCAGGACCAGGTGGTGCCGGACAACACCCTGGCCTGGGTGTGGGTGCGCGGCCTGGACGAGCTGTACGCCGAGTGGTCGGAGGTCGTGTCCACGAACTTCCGGGACGCCTCCGGGCCGGCCATGACCGAGATCGGCGAGCAGCCGTGGGGGCGGGAGTTCGCCCTGCGCGACCCGGCCGGCAACTGCGTGCACTTCGTGGCCGAGGAGCAGGACTGACACGTCCGACGGCGGCCCACGGGTCCCAGGCCTCGGAGATCCGTCCCCCTTTTCCTTTGTCGATATCATGTAATTAGTTATGTCACGCTTACATTCACGCCCTCCCCCCACATCCGCTCTAACCGAAAAGGAAGGAGTTAGACAACCTGAAGTCTAGGTCCCTATTTATTTTTTTATAGTTATGTTAGTATTAAGAACGTTATTTATATTTCAAATTTTTCTTTTTTTTCTGTACAGACGCGTGTACGCATGTAACATTATACTGAAAACCTTGCTTGAGAAGGTTTTGGGACGCTCGAAGGCTTTAATTTGCAAGCTGGAGACCAACATGTGAGCAAAAGGCCAGCAAAAGGCCAGGAACCGTAAAAAGGCCGCGTTGCTGGCGTTTTTCCATAGGCTCCGCCCCCCTGACGAGCATCACAAAAATCGACGCTCAAGTCAGAGGTGGCGAAACCCGACAGGACTATAAAGATACCAGGCGTTTCCCCCTGGAAGCTCCCTCGTGCGCTCTCCTGTTCCGACCCTGCCGCTTACCGGATACCTGTCCGCCTTTCTCCCTTCGGGAAGCGTGGCGCTTTCTCAATGCTCACGCTGTAGGTATCTCAGTTCGGTGTAGGTCGTTCGCTCCAAGCTGGGCTGTGTGCACGAACCCCCCGTTCAGCCCGACCGCTGCGCCTTATCCGGTAACTATCGTCTTGAGTCCAACCCGGTAAGACACGACTTATCGCCACTGGCAGCAGCCACTGGTAACAGGATTAGCAGAGCGAGGTATGTAGGCGGTGCTACAGAGTTCTTGAAGTGGTGGCCTAACTACGGCTACACTAGAAGGACAGTATTTGGTATCTGCGCTCTGCTGAAGCCAGTTACCTTCGGAAAAAGAGTTGGTAGCTCTTGATCCGGCAAACAAACCACCGCTGGTAGCGGTGGTTTTTTTGTTTGCAAGCAGCAGATTACGCGCAGAAAAAAAGGATCTCAAGAAGATCCTTTGATCTTTTCTACGGGGTCTGACGCTCAGTGGAACGAAAACTCACGTTAAGGGATTTTGGTCATGAGATC
+  topology: circular
+  length_bp: 3593
+annotation:
+- type: promoter
+  start: 2
+  end: 940
+  strand: +
+  qualifiers:
+    gene: Pichia pastoris AOX1
+    label: AOX1 promoter
+    note: inducible promoter, regulated by methanol
+- type: CDS
+  start: 941
+  end: 997
+  strand: +
+  qualifiers:
+    codon_start: '1'
+    gene: MF-alpha-1
+    product: N-terminal secretion signal from S. cerevisiae alpha-factor
+    label: alpha-factor secretion signal
+    note: Cleavage by the Kex2 protease occurs after the dibasic KR sequence. The EA dipeptides are then removed by dipeptidyl aminopeptidase
+      A.
+    translation: MRFPSIFTAVLFAASSALAAPVNTTTEDETAQIPAEAVIGYSDLE GDFDVAVLPFSNSTNNGLLFINTTIASIAAKEEGVSLEKREAEA
+- type: misc_feature
+  start: 1208
+  end: 1276
+  strand: +
+  qualifiers:
+    label: MCS
+    note: multiple cloning site
+- type: CDS
+  start: 1275
+  end: 1304
+  strand: +
+  qualifiers:
+    codon_start: '1'
+    product: Myc (human c-Myc oncogene) epitope tag
+    label: Myc
+    translation: EQKLISEEDL
+- type: CDS
+  start: 1320
+  end: 1337
+  strand: +
+  qualifiers:
+    codon_start: '1'
+    product: 6xHis affinity tag
+    label: 6xHis
+    translation: HHHHHH
+- type: terminator
+  start: 1417
+  end: 1663
+  strand: +
+  qualifiers:
+    gene: Pichia pastoris AOX1
+    label: AOX1 terminator
+    note: transcription terminator for AOX1
+- type: promoter
+  start: 1703
+  end: 2089
+  strand: +
+  qualifiers:
+    gene: S. cerevisiae TEF1
+    label: TEF1 promoter
+    note: promoter for EF-1-alpha
+- type: promoter
+  start: 2097
+  end: 2144
+  strand: +
+  qualifiers:
+    label: EM7 promoter
+    note: 'synthetic bacterial promoter '
+- type: CDS
+  start: 2163
+  end: 2537
+  strand: +
+  qualifiers:
+    codon_start: '1'
+    gene: Sh ble from Streptoalloteichus hindustanus
+    product: antibiotic-binding protein
+    label: BleoR
+    note: confers resistance to bleomycin, phleomycin, and Zeocin(TM)
+    translation: MAKLTSAVPVLTARDVAGAVEFWTDRLGFSRDFVEDDFAGVVRDD VTLFISAVQDQVVPDNTLAWVWVRGLDELYAEWSEVVSTNFRDASGPAMTEIGEQPWGR EFALRDPAGNCVHFVAEEQD
+- type: terminator
+  start: 2603
+  end: 2850
+  strand: +
+  qualifiers:
+    gene: S. cerevisiae CYC1
+    label: CYC1 terminator
+    note: transcription terminator for CYC1
+- type: rep_origin
+  start: 2925
+  end: 3513
+  strand: '-'
+  qualifiers:
+    direction: LEFT
+    label: ori
+    note: high-copy-number ColE1/pMB1/pBR322/pUC origin of replication
+provenance:
+  source: vendor_published_map
+  accession_or_url: https://www.thermofisher.com/order/catalog/product/V19520
+  retrieved_at: '2026-05-23'
+  retrieved_by: Rec-3 batch-002 (manual Addgene download by project owner; researcher-mediated workflow). User re-exported as .gb format from
+    authenticated Addgene browser session and supplied the .gb file to the curator.
+  pmid: '9437891'
+  citation_text: 'pPICZ-α-A Invitrogen / Thermo Fisher vector map (K1710 Pichia Expression Kit user manual). Underlying Pichia AOX1 system: Higgins
+    DR, Cregg JM. Introduction to Pichia pastoris. Methods Mol Biol. 1998;103:1-15. PMID 9437891. Vector sequence retrieved via user''s Addgene
+    browser session.'
+  addgene_id: (canonical-vendor-vector-republished-on-addgene)
+  notes: 'Source posture (Rec-3 override-log batch addgene-depositor-batch-002, vendor-proprietary (Invitrogen pPICZ-α-A) — sequence content is
+    factual per Feist; vendor retains trademark + commercial-product posture): file obtained from user''s manual Addgene download (no curator-side
+    automation). Per IP-audit § 5.2 fold-in: sequence + annotation are depositor-owned (or factual-vendor-content per Feist); Addgene-authored
+    description text has NOT been ingested. SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: vendor-published-factual
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: pPICZ-α-A Invitrogen / Thermo Fisher (K1710 Pichia Expression Kit)
+    commercial_use_allowed: true
+    source_text_url: https://www.thermofisher.com/order/catalog/product/V19520
+    notes: Posture per IP-audit § 5.2 fold-in. Sequence content is factual per Feist v. Rural Telephone (publically-documented vendor product
+      map); vendor retains trademark + product-name posture. Commercial use of THIS SEQUENCE for documentation / research / ML training is fine;
+      commercial sale of the physical plasmid product requires the vendor's terms (Novagen/Invitrogen).
+  annotation_license:
+    spdx_id: vendor-published-factual
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: pPICZ-α-A Invitrogen / Thermo Fisher (K1710 Pichia Expression Kit)
+    commercial_use_allowed: true
+    source_text_url: https://www.thermofisher.com/order/catalog/product/V19520
+    notes: Posture per IP-audit § 5.2 fold-in. Sequence content is factual per Feist v. Rural Telephone (publically-documented vendor product
+      map); vendor retains trademark + product-name posture. Commercial use of THIS SEQUENCE for documentation / research / ML training is fine;
+      commercial sale of the physical plasmid product requires the vendor's terms (Novagen/Invitrogen).
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: pPICZ-alpha-A Invitrogen canonical
+  discrepancy_resolution: 'Cross-check pending. Curator: open the canonical SnapGene record for this plasmid in browser, visually compare sequence
+    + key annotations, log result in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: kphaffii
+  replicon: AOX1_integrating
+  copy_number_class: single
+intended_use_category:
+- expression
+- secretion
+- methanol_inducible
+- zeocin_selection
+- invitrogen_canonical
+checksum:
+  algorithm: sha256
+  value: a8e36326c7f98b88244a1f498f8ff35a7177bb9717119d8161f1e0851be3ee95

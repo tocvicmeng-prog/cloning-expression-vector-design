@@ -45,31 +45,38 @@ partition_default: "sa_free"
 partitions:
   full:
     description: "All records including cc-by-sa/. Opt-in for research-only training runs that accept share-alike."
-    record_count: 113  # T-1404 + T-1405 + FP follow-up: 101 total records; none under cc-by-sa/ → full == sa_free at v0.2.
+    record_count: 118  # T-1404 + T-1405 + FP follow-up: 101 total records; none under cc-by-sa/ → full == sa_free at v0.2.
   sa_free:
     description: "Default partition. Excludes records routed to cc-by-sa/. Surviving partition for any commercial fork."
-    record_count: 113
+    record_count: 118
 
 # Aggregate fields populated by tools/corpus/manifest_generator.py at T-1407.
 # v0.2 T-1404 + T-1405 + FP follow-up: aggregates computed manually below; T-1407 will automate.
 license_aggregate:
-  total_records: 113
+  total_records: 118
   by_sequence_license:
     NCBI-PD: 50
     primary-literature-public-record: 61
-    depositor-owned-trono-lab: 1
+    depositor-owned-trono-lab: 2
     depositor-owned-miyazaki-lab: 1
+    depositor-owned-stewart-rnai: 1
+    depositor-owned-sharp-lab: 1
+    vendor-published-factual: 2
   by_annotation_license:
     NCBI-PD: 50
     primary-literature-public-record: 61
-    depositor-owned-trono-lab: 1
+    depositor-owned-trono-lab: 2
     depositor-owned-miyazaki-lab: 1
+    depositor-owned-stewart-rnai: 1
+    depositor-owned-sharp-lab: 1
+    vendor-published-factual: 2
   by_source:
     ncbi_genbank: 50
-    primary_literature: 62
+    primary_literature: 65
+    vendor_published_map: 2
     igem_registry: 1
   by_category:
-    backbone: 37
+    backbone: 42
     fluorescent_protein: 15
     promoter: 10
     tag: 10
@@ -85,28 +92,28 @@ license_aggregate:
     wpre: 2
     insulator: 0  # placeholder records deleted; canonical cHS4 retrievable from pLNHX_cHS4_650 (JN000001); USP / chicken β-globin 5' HS5 remains backlog (no NCBI accession)
   by_host_class:
-    ecoli: 35
-    mammalian: 31
+    ecoli: 36
+    mammalian: 34
     multi: 28
     scerevisiae: 12
-    kphaffii: 7
+    kphaffii: 8
   effective_license_distribution:
-    redistribution_allowed: 113
-    ml_training_allowed: 113
-    commercial_use_allowed: 113
-    attribution_required: 63  # 61 primary-literature modular-element + 2 depositor-owned Addgene records request attribution; 50 INSDC records are no-attribution
+    redistribution_allowed: 118
+    ml_training_allowed: 118
+    commercial_use_allowed: 118
+    attribution_required: 68  # 61 primary-literature modular-element + 7 Addgene-derived (5 depositor-owned + 2 vendor-published-factual) records request attribution; 50 INSDC records are no-attribution
   partition_sa_free:
-    record_count: 113
+    record_count: 118
     fraction: 1.0
   attribution_obligations:
     records_requiring_attribution: 63
     attribution_text_file: "LICENSES/THIRD_PARTY_NOTICES.md"  # populated at T-1410
   cross_check_coverage:
     checked: 0
-    unchecked: 113
+    unchecked: 118
     fraction_checked: 0.0
     note: |
-      All 113 records are pending human SnapGene cross-check per BR-16 NORMATIVE.
+      All 118 records are pending human SnapGene cross-check per BR-16 NORMATIVE.
       The release-gate at T-1409 enforces ≥ 90% coverage for research release and
       ≥ 95% for commercial-fork release; all records land in `checked: false` state
       with structured `snapgene_record_name` hints to guide the eventual human curation
