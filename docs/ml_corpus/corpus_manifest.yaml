@@ -12,6 +12,7 @@ maintenance:
     - "T-1404 (28 INSDC-canonical backbones)"
     - "T-1405 (63 modular elements across 13 schema categories — no FPs)"
     - "T-1405 follow-up (10 FPbase-linked records: 8 fluorescent_protein CDS-only + 2 FP-source backbone vectors)"
+    - "T-1405 second follow-up (7 more FPs found via direct NCBI search: mGreenLantern OP373690, mTagBFP2 MH013372, mTurquoise2 KM670033, mKate2 KJ908191, EYFP AB860250, mseCFP AB435576 [ECFP super-enhanced monomeric variant], mVenus LC716765 [EYFP variant]) + 1 pLNHX_cHS4_650 backbone JN000001 (mammalian retroviral expression vector documenting the canonical 650bp chicken HS4 insulator); deleted 2 cHS4/USP insulator placeholder records that carried curator-approximation sequences"
   next_population_task: "Future curation = human SnapGene cross-check pass per BR-16 NORMATIVE; vendor-only backbones (Novagen pET / Invitrogen pPICZ-pGAPZ / Trono lentiviral) need bespoke vendor-manual curation"
   manifest_generator_task: "T-1407"
   population_notes: |
@@ -43,30 +44,30 @@ partition_default: "sa_free"
 partitions:
   full:
     description: "All records including cc-by-sa/. Opt-in for research-only training runs that accept share-alike."
-    record_count: 101  # T-1404 + T-1405 + FP follow-up: 101 total records; none under cc-by-sa/ → full == sa_free at v0.2.
+    record_count: 107  # T-1404 + T-1405 + FP follow-up: 101 total records; none under cc-by-sa/ → full == sa_free at v0.2.
   sa_free:
     description: "Default partition. Excludes records routed to cc-by-sa/. Surviving partition for any commercial fork."
-    record_count: 101
+    record_count: 107
 
 # Aggregate fields populated by tools/corpus/manifest_generator.py at T-1407.
 # v0.2 T-1404 + T-1405 + FP follow-up: aggregates computed manually below; T-1407 will automate.
 license_aggregate:
-  total_records: 101
+  total_records: 107
   by_sequence_license:
-    NCBI-PD: 38
-    primary-literature-public-record: 63
+    NCBI-PD: 46
+    primary-literature-public-record: 61
   by_annotation_license:
-    NCBI-PD: 38
-    primary-literature-public-record: 63
+    NCBI-PD: 46
+    primary-literature-public-record: 61
   by_source:
-    ncbi_genbank: 38
-    primary_literature: 62
+    ncbi_genbank: 46
+    primary_literature: 60
     igem_registry: 1
   by_category:
-    backbone: 30
+    backbone: 31
+    fluorescent_protein: 15
     promoter: 10
     tag: 10
-    fluorescent_protein: 8
     terminator: 6
     selection_cassette: 6
     polyA: 5
@@ -76,37 +77,38 @@ license_aggregate:
     2a_peptide: 4
     mcs: 3
     intron: 3
-    insulator: 2
     wpre: 2
+    insulator: 0  # placeholder records deleted; canonical cHS4 retrievable from pLNHX_cHS4_650 (JN000001); USP / chicken β-globin 5' HS5 remains backlog (no NCBI accession)
   by_host_class:
     ecoli: 32
-    mammalian: 29
-    multi: 21
+    mammalian: 28
+    multi: 28
     scerevisiae: 12
     kphaffii: 7
   effective_license_distribution:
-    redistribution_allowed: 101
-    ml_training_allowed: 101
-    commercial_use_allowed: 101
-    attribution_required: 63  # 63 primary-literature modular-element records request attribution; 38 INSDC records are no-attribution
+    redistribution_allowed: 107
+    ml_training_allowed: 107
+    commercial_use_allowed: 107
+    attribution_required: 61  # 61 primary-literature modular-element records request attribution; 46 INSDC records are no-attribution
   partition_sa_free:
-    record_count: 101
+    record_count: 107
     fraction: 1.0
   attribution_obligations:
     records_requiring_attribution: 63
     attribution_text_file: "LICENSES/THIRD_PARTY_NOTICES.md"  # populated at T-1410
   cross_check_coverage:
     checked: 0
-    unchecked: 101
+    unchecked: 107
     fraction_checked: 0.0
     note: |
-      All 101 records (T-1404 + T-1405 + FPbase follow-up) are pending human SnapGene
-      cross-check per BR-16 NORMATIVE. The release-gate at T-1409 enforces ≥ 90% coverage
-      for research release and ≥ 95% for commercial-fork release; all records land in
-      `checked: false` state with structured `snapgene_record_name` hints to guide the
-      eventual human curation pass. Two T-1405 insulator records (cHS4, USP) additionally
-      carry explicit `notes` flagging the sequence as a curator approximation requiring
-      cross-check against the published primary literature (Chung 1993, PMID 8467846).
+      All 107 records are pending human SnapGene cross-check per BR-16 NORMATIVE.
+      The release-gate at T-1409 enforces ≥ 90% coverage for research release and
+      ≥ 95% for commercial-fork release; all records land in `checked: false` state
+      with structured `snapgene_record_name` hints to guide the eventual human curation
+      pass. The cHS4 / USP insulator placeholder records that previously carried
+      curator-approximation sequences have been deleted; the canonical cHS4 element is
+      now documented via the pLNHX_cHS4_650 backbone record (JN000001) which carries
+      the authoritative 650bp INSDC-deposited insulator inside the retroviral vector.
 
 # Release-gate thresholds (enforced at release-tag time by tools/release/corpus_release_gate.py at T-1409).
 release_gate:
