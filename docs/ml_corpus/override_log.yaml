@@ -45,7 +45,60 @@ maintenance:
 #                             approval audit trail
 #     batch_outcome:          enum: pending | approved | rejected | partial
 
-entries: []
+entries:
+  - batch_id: addgene-depositor-batch-001
+    override_type: addgene_depositor_side
+    batch_records:
+      - corpus.backbone.mammalian.pspax2
+      - corpus.backbone.mammalian.pcaggs
+    proposed_at: "2026-05-23"
+    approval_date: "2026-05-23"
+    approval_owner: tocvicmeng@gmail.com (project owner / GMExpression Pty Ltd / Holocyte)
+    normative_section: |
+      IP-audit § 8.1 Tier-2 (Addgene general posture) +
+      § 5.2 fold-in (depositor-owned sequence vs. Addgene-authored metadata distinction)
+    ip_audit_section: |
+      docs/handover/2026-05-23_host_marker_ml_corpus_ip_audit.md § 5.2 +
+      docs/handover/2026-05-23_corpus_completion_strategies.md Rec-3
+    rationale: |
+      User manually downloaded 2 depositor-deposited .gb files (Addgene's only
+      compliant pull path — no automated login or scraping):
+        - psPAX2 (Trono Lab, Addgene #12260) — Dull 1998 PMID 9696806; 10712 bp
+        - pCAGGS (Miyazaki Lab) — Niwa 1991 PMID 1660837; 4800 bp
+      Both records carry depositor-owned sequence + depositor-authored annotation.
+      The project's per-record license posture reflects the depositor (Trono Lab,
+      Miyazaki Lab), not Addgene. Both labs openly distribute these plasmids for
+      academic use and have published the sequences as primary literature.
+    delta_from_normative: |
+      v0.2 NORMATIVE posture excluded Addgene-mediated sequence ingestion
+      wholesale. Rec-3 in docs/handover/2026-05-23_corpus_completion_strategies.md
+      refined this to the IP-audit § 5.2 nuance: depositor-owned content is
+      legitimate corpus content; Addgene-authored metadata is excluded.
+      This batch follows the nuance correctly:
+        - sequence + annotation are from depositor's .gb file (kept)
+        - No "How to use this plasmid" text, depositor profile text, or other
+          Addgene-authored description content has been touched (excluded)
+        - License posture is depositor-owned (NOT NCBI-PD; NOT Addgene-CC)
+        - source_text_url points at depositor's primary publication (PMID)
+    compensating_controls: |
+      - Files obtained via user's authenticated browser session at addgene.org
+        (no curator-side automation hitting Addgene servers).
+      - File MD5 / SHA-256 of the user-provided .gb files preserved at
+        `/tmp/genbank/psPAX2_addgene12260.gb` + `/tmp/genbank/pCAGGS_addgene.gb`
+        within the user's local environment (not redistributed).
+      - No Addgene-authored description text included in the records.
+      - Provenance.source set to `primary_literature` (depositor's paper),
+        with accession_or_url pointing at PubMed for the depositor's primary
+        publication.
+      - license.sequence_license.spdx_id set to depositor-owned identifier
+        ("depositor-owned-trono-lab" / "depositor-owned-miyazaki-lab") to
+        signal the nuanced posture distinct from generic NCBI-PD.
+    verification_trail:
+      - "C:/Users/tocvi/Downloads/Addgenefiles/ (user's local download folder; not redistributed)"
+      - "/tmp/genbank/psPAX2_addgene12260.gb (curator-side cache; ephemeral)"
+      - "/tmp/genbank/pCAGGS_addgene.gb (curator-side cache; ephemeral)"
+      - "docs/ml_corpus/records/backbones/mammalian/{psPAX2_addgene12260,pCAGGS_addgene}.yaml (the records this batch authorises)"
+    batch_outcome: approved
 
 # When the first SnapGene cross-check batch is actually run, the curator should
 # append an entry shaped like the following (preserved here as a docstring so

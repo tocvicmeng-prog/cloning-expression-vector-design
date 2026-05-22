@@ -1089,6 +1089,22 @@ All entries from v1.0 §13 are retained. Spot-checked entries (Cohen 1973, Boliv
 | PLESA-2018 | Plesa C et al. *Science* 2018 — DropSynth: multiplexed gene synthesis in emulsions; oligo and assembly error rates | PMID 29301959 | DNA synthesis |
 | SIDORE-2020 | Sidore AM et al. *Nucleic Acids Res.* 2020 — DropSynth 2.0 | PMID 32692349 | DNA synthesis |
 
+### 18.1 External educational references
+
+The following Addgene-published eBooks (downloaded 2026-05-22) are referenced as **curator-side discovery aids** — pointers into the primary literature and overviews of mechanism categories that this KB documents. **Use restriction:** the eBooks are © Addgene Inc.; only the *facts and primary-literature pointers* they reference are used here. eBook text itself, diagrams, and Addgene-authored commentary are NOT redistributed in this project. Per IP-audit § 5.2 fold-in (depositor-owned vs. Addgene-authored content distinction): the eBooks fall in the Addgene-authored category and are read-only references for the curator, not corpus content.
+
+| ID | Title | Edition | Topic coverage relevant to this KB |
+|---|---|---|---|
+| ADDGENE-EBOOK-PLASMIDS-101 | Addgene *Plasmids 101* | 4th ed. | Plasmid anatomy, ORI biology, selection markers, cloning strategies; aligns with KB §§ 4–7 |
+| ADDGENE-EBOOK-CRISPR-101 | Addgene *CRISPR 101* | 3rd ed. | Cas9/Cas12/Cas13 mechanisms, sgRNA design, HDR templates; out-of-scope for v0.2 corpus but referenced in MR-30 negative-selection-cassette rule discussion |
+| ADDGENE-EBOOK-FP-101 | Addgene *Fluorescent Proteins 101* | 1st ed. | FP photophysics, oligomerisation, FRET pairs, optogenetic tools; KB § 14 and corpus § fluorescent_protein |
+| ADDGENE-EBOOK-VV-101 | Addgene *Viral Vectors 101* | 2nd ed. | Lentivirus / AAV / adenovirus / retrovirus packaging biology; aligns with MR-18..22 cargo-capacity rules and corpus § backbone mammalian |
+| ADDGENE-EBOOK-AB-101 | Addgene *Antibodies 101* | 1st ed. | Antibody fragments (scFv, Fab, Fc), display platforms; out-of-scope for v0.2 corpus |
+
+**Nominative-use disclaimer for "Addgene":** Addgene® is a registered trademark of Addgene Inc. (Watertown, MA, USA). This project is not affiliated with, endorsed by, sponsored by, or in any way officially connected to Addgene. References to Addgene eBooks above are made under the nominative-use doctrine for the purpose of citing curator-side educational resources. The same nominative-use posture applies to depositor-deposited sequence files retrieved from Addgene (cf. corpus records in `partition: sa_free` carrying `provenance.source: primary_literature` with the depositor's primary publication as `accession_or_url`).
+
+**Follow-up curation task (deferred):** A focused multi-session pass should extract the bibliographies from these eBooks and add any new primary-lit citations to § 18 above. The eBook PDFs themselves remain in the curator's local environment (not redistributed); the project preserves only the eBook IDs above (factual pointers).
+
 ---
 
 ## 19. Limitations and disclaimer
