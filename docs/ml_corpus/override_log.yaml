@@ -1,0 +1,87 @@
+# ML Training Corpus — NORMATIVE override log
+#
+# Records any deviation from the v0.2 NORMATIVE corpus posture (BR-15, BR-16,
+# IP-audit § 5.2 / § 8.1, Fork-Readiness Memorandum). Every record in
+# docs/ml_corpus/records/ whose snapgene_crosscheck.checked is `true` MUST have
+# a corresponding entry here.  The CI gate
+# `tools/ci_gates/override_log_check.py` enforces this invariant.
+#
+# Approval workflow (per docs/handover/2026-05-23_corpus_completion_strategies.md
+# Rec-4):
+#   1.  Curator proposes a batch (≤ 20 records) for cross-check.
+#   2.  Curator drafts the override entry below with `approval_date: pending`.
+#   3.  Project owner reviews + commits with `approval_date` filled in and the
+#       commit author/email matching `approval_owner`.
+#   4.  The cross-check work then proceeds; only after the batch entry is
+#       committed are the corresponding record `snapgene_crosscheck.checked`
+#       fields permitted to flip from `false` to `true`.
+#
+# This log lives in the v0.2 SA-free partition; it documents the deviation
+# trail required by the Fork-Readiness Memorandum (ARCHITECTURE.md § 9.6.4)
+# for any future commercial-fork audit.
+
+override_log_id: cev.ml_corpus.override_log
+schema_version: "1.0.0"
+maintenance:
+  scaffolded_at: "2026-05-23"
+  scaffolding_task: "Backlog Rec-4 (per docs/handover/2026-05-23_corpus_completion_strategies.md)"
+  scaffolding_approval: "User-authorised 2026-05-23 — see project owner message 'rec4:authorise per-batch SnapGene cross-check'"
+
+# Entry schema (each item in `entries` MUST carry every field below):
+#   - batch_id:               canonical short identifier (e.g., snapgene-cc-batch-001)
+#     override_type:          enum: snapgene_cross_check_pass | addgene_depositor_side
+#                                  | vendor_proprietary_sequence | curator_backtranslation
+#     batch_records:          list of corpus record ids included in this batch
+#     proposed_at:            ISO date (curator drafts)
+#     approval_date:          ISO date (project owner fills on commit) OR `pending`
+#     approval_owner:         email or identifier of the authorising owner
+#     normative_section:      cross-reference to the NORMATIVE rule being overridden
+#     ip_audit_section:       cross-reference to IP-audit doc (where applicable)
+#     rationale:              multi-line free text — WHY this batch is overriden
+#     delta_from_normative:   multi-line free text — what behaviour deviates
+#     compensating_controls:  multi-line free text — what mitigations are in place
+#     verification_trail:     list of artefacts the curator preserved (screenshots,
+#                             logs, cross-check_log.yaml entries) supporting the
+#                             approval audit trail
+#     batch_outcome:          enum: pending | approved | rejected | partial
+
+entries: []
+
+# When the first SnapGene cross-check batch is actually run, the curator should
+# append an entry shaped like the following (preserved here as a docstring so
+# future curators have a working example):
+#
+# entries:
+#   - batch_id: snapgene-cc-batch-001
+#     override_type: snapgene_cross_check_pass
+#     batch_records:
+#       - corpus.backbone.ecoli.puc19
+#       - corpus.backbone.ecoli.puc18
+#       - corpus.backbone.ecoli.pbr322
+#       - corpus.backbone.ecoli.pacyc184
+#       - corpus.backbone.ecoli.pbluescript_ks_plus
+#     proposed_at: "2026-XX-XX"
+#     approval_date: "2026-XX-XX"
+#     approval_owner: tocvicmeng@gmail.com
+#     normative_section: "REQUIREMENTS.md § 11.7 BR-16 (SnapGene index-only + manual cross-check posture)"
+#     ip_audit_section: "docs/handover/2026-05-23_host_marker_ml_corpus_ip_audit.md § 3 SnapGene specifically"
+#     rationale: |
+#       Cross-check pass authorised at corpus completion strategy doc Rec-4. Verifies
+#       INSDC-fetched sequences match the canonical SnapGene reference records for
+#       these 5 well-known E. coli backbones. Performed human-in-browser by the
+#       curator; this entry preserves the per-batch approval trail.
+#     delta_from_normative: |
+#       NORMATIVE BR-16 specifies "no automated SnapGene access." This entry covers
+#       a human-in-browser cross-check session — the cross-check itself is BR-16
+#       compliant; this log entry merely records the approval trail required by
+#       Rec-4 and the Fork-Readiness Memorandum.
+#     compensating_controls: |
+#       - Cross-check session timed; ≤ 60 minutes per batch.
+#       - Curator screenshots saved to docs/ml_corpus/crosscheck_screenshots/{batch_id}/.
+#       - Discrepancies (if any) logged in docs/ml_corpus/crosscheck_log.yaml with
+#         rationale and resolution.
+#       - No automated tool ran against snapgene.com during the session.
+#     verification_trail:
+#       - "docs/ml_corpus/crosscheck_screenshots/snapgene-cc-batch-001/"
+#       - "docs/ml_corpus/crosscheck_log.yaml (entries with batch_id reference)"
+#     batch_outcome: approved
