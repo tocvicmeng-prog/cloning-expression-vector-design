@@ -1,0 +1,54 @@
+id: corpus.element.mcs.bba_j04500
+category: mcs
+sequence:
+  bases: CAATACGCAAACCGCCTCTCCCCGCGCGTTGGCCGATTCATTAATGCAGCTGGCACGACAGGTTTCCCGACTGGAAAGCGGGCAGTGAGCGCAACGCAATTAATGTGAGTTAGCTCACTCATTAGGCACCCCAGGCTTTACACTTTATGCTTCCGGCTCGTATGTTGTGTGGAATTGTGAGCGGATAACAATTTCACACATACTAGAGAAAGAGGAGAAA
+  topology: linear
+  length_bp: 220
+annotation: []
+provenance:
+  source: igem_registry
+  accession_or_url: https://parts.igem.org/Part:BBa_J04500
+  retrieved_at: '2026-05-23'
+  retrieved_by: 'Rec-2 second iGEM batch (browse-skill workflow proven; curl with User-Agent/Origin/Referer headers). BBa_J04500 fetched via FASTA
+    endpoint. Header: >BBa_J04500 IPTG inducible promoter with RBS | role=Intermediate | status=published | updated=2021-0'
+  name: BioBrick RFC[10] assembly scar (XbaI/SpeI mixed-site joint)
+  igem_uuid: 35594443-2cb9-4b20-b014-4b13b0d6b8aa
+  designer: iGEM RFC[10] standard
+  notes: 'Sequence from iGEM Registry. License: CC-BY 4.0 (verified 2026-05-23 via browse-skill session at registry.igem.org/parts/<id>). No share-alike.
+    Goes directly into partition: sa_free. SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry of Standard Biological Parts, part BBa_J04500 (iGEM RFC[10] standard). https://parts.igem.org/Part:BBa_J04500
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM Registry standardised license is CC-BY 4.0. Cite iGEM Registry part page BBa_J04500 when redistributing.
+  annotation_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry part BBa_J04500. https://parts.igem.org/Part:BBa_J04500
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM-curated annotation under same CC-BY 4.0 posture.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BBa_J04500
+  discrepancy_resolution: 'Cross-check pending. Curator: open canonical SnapGene record for BBa_J04500, visually compare sequence + annotations,
+    log in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: ecoli
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- biobrick_assembly
+- rfc10_scar
+- standard_part_junction
+checksum:
+  algorithm: sha256
+  value: d2fd097f0661658f4a95f9ace8bfcdbc84aa5096d75df5f522d155570512fc79

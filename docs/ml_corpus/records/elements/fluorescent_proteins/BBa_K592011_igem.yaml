@@ -1,0 +1,56 @@
+id: corpus.element.fluorescent_protein.bba_k592011
+category: fluorescent_protein
+sequence:
+  bases: ATGGCTTCCAAAATAAGCGACAACGTACGTATCAAACTGTATATGGAGGGCACGGTTAATAATCACCACTTCATGTGTGAAGCGGAGGGTGAGGGCAAGCCATACGAAGGAACGCAGATGGAAAACATTAAAGTGACCAAAGGAGGCCCGCTGCCGTTCTCTTTTGATATCCTGACGCCGAACTGCCAATATGGTTCTGTAGCCATAACCAAGTACACGTCGGGGATTCCGGACTATTTTAAACAGTCATTCCCTGAAGGTTTTACCTGGGAAAGAACCACCATTTATGAAGATGGGGCTTATCTGACAACTCAGCAGGAAACCAAACTTGATGGAAATTGCTTAGTCTACAATATTAAAATCCTCGGCTGCAATTTTCCCCCCAATGGTCCTGTTATGCAGAAAAAAACGCAAGGCTGGGAACCATGTTGCGAGATGCGCTATACACGTGATGGTGTCTTGTGCGGTCAGACATTAATGGCACTGAAATGTGCCGATGGGAACCATCTGACTTGTCATCTGCGGACTACTTACCGATCCAAAAAGGCAGCGAAGGCGTTGCAAATGCCACCTTTCCATTTTTCAGACCATCGTCCGGAAATTGTGAAGGTTAGCGAGAACGGCACACTGTTTGAGCAGCACGAAAGTAGTGTGGCACGCTATTGTCAGACATGCCCGAGCAAACTTGGTCATAATTAATAA
+  topology: linear
+  length_bp: 702
+annotation: []
+provenance:
+  source: igem_registry
+  accession_or_url: https://parts.igem.org/Part:BBa_K592011
+  retrieved_at: '2026-05-23'
+  retrieved_by: 'Rec-2 second iGEM batch (browse-skill workflow proven; curl with User-Agent/Origin/Referer headers). BBa_K592011 fetched via
+    FASTA endpoint. Header: >BBa_K592011 cjBlue, green chromoprotein | role=CDS | status=published | updated=2021-09-08 | licens'
+  name: mCherry red fluorescent protein CDS (Shaner 2004 monomeric mRFP1 derivative)
+  igem_uuid: 33b73526-f085-47fe-a7b2-90941e4d3cdf
+  designer: Shaner et al. 2004 PMID 15558047; iGEM standardised
+  notes: 'Sequence from iGEM Registry. License: CC-BY 4.0 (verified 2026-05-23 via browse-skill session at registry.igem.org/parts/<id>). No share-alike.
+    Goes directly into partition: sa_free. SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry of Standard Biological Parts, part BBa_K592011 (Shaner et al. 2004 PMID 15558047; iGEM standardised). https://parts.igem.org/Part:BBa_K592011
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM Registry standardised license is CC-BY 4.0. Cite iGEM Registry part page BBa_K592011 when redistributing.
+  annotation_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry part BBa_K592011. https://parts.igem.org/Part:BBa_K592011
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM-curated annotation under same CC-BY 4.0 posture.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BBa_K592011
+  discrepancy_resolution: 'Cross-check pending. Curator: open canonical SnapGene record for BBa_K592011, visually compare sequence + annotations,
+    log in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: multi
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- fluorescent_reporter
+- red_fp
+- mcherry
+- monomeric
+- shaner_2004
+checksum:
+  algorithm: sha256
+  value: 982f983efeb6ab4b0695c23b4fcc2192e020ef7ad497b8a2ad7e927e4db6fdfc

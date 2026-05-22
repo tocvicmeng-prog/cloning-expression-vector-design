@@ -1,0 +1,55 @@
+id: corpus.element.fluorescent_protein.bba_e0040
+category: fluorescent_protein
+sequence:
+  bases: ATGCGTAAAGGAGAAGAACTTTTCACTGGAGTTGTCCCAATTCTTGTTGAATTAGATGGTGATGTTAATGGGCACAAATTTTCTGTCAGTGGAGAGGGTGAAGGTGATGCAACATACGGAAAACTTACCCTTAAATTTATTTGCACTACTGGAAAACTACCTGTTCCATGGCCAACACTTGTCACTACTTTCGGTTATGGTGTTCAATGCTTTGCGAGATACCCAGATCATATGAAACAGCATGACTTTTTCAAGAGTGCCATGCCCGAAGGTTATGTACAGGAAAGAACTATATTTTTCAAAGATGACGGGAACTACAAGACACGTGCTGAAGTCAAGTTTGAAGGTGATACCCTTGTTAATAGAATCGAGTTAAAAGGTATTGATTTTAAAGAAGATGGAAACATTCTTGGACACAAATTGGAATACAACTATAACTCACACAATGTATACATCATGGCAGACAAACAAAAGAATGGAATCAAAGTTAACTTCAAAATTAGACACAACATTGAAGATGGAAGCGTTCAACTAGCAGACCATTATCAACAAAATACTCCAATTGGCGATGGCCCTGTCCTTTTACCAGACAACCATTACCTGTCCACACAATCTGCCCTTTCGAAAGATCCCAACGAAAAGAGAGACCACATGGTCCTTCTTGAGTTTGTAACAGCTGCTGGGATTACACATGGCATGGATGAACTATACAAATAATAA
+  topology: linear
+  length_bp: 720
+annotation: []
+provenance:
+  source: igem_registry
+  accession_or_url: https://parts.igem.org/Part:BBa_E0040
+  retrieved_at: '2026-05-23'
+  retrieved_by: 'Rec-2 second iGEM batch (browse-skill workflow proven; curl with User-Agent/Origin/Referer headers). BBa_E0040 fetched via FASTA
+    endpoint. Header: >BBa_E0040  green fluorescent protein derived from jellyfish Aequeora victoria wild-type GFP (SwissP'
+  name: GFPmut3b green fluorescent protein CDS (Cormack 1996 high-fluorescence variant)
+  igem_uuid: 839dbacc-1089-4119-be94-b6d3767dc373
+  designer: Cormack et al. 1996 PMID 8707053; iGEM standardised
+  notes: 'Sequence from iGEM Registry. License: CC-BY 4.0 (verified 2026-05-23 via browse-skill session at registry.igem.org/parts/<id>). No share-alike.
+    Goes directly into partition: sa_free. SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry of Standard Biological Parts, part BBa_E0040 (Cormack et al. 1996 PMID 8707053; iGEM standardised). https://parts.igem.org/Part:BBa_E0040
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM Registry standardised license is CC-BY 4.0. Cite iGEM Registry part page BBa_E0040 when redistributing.
+  annotation_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry part BBa_E0040. https://parts.igem.org/Part:BBa_E0040
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM-curated annotation under same CC-BY 4.0 posture.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BBa_E0040
+  discrepancy_resolution: 'Cross-check pending. Curator: open canonical SnapGene record for BBa_E0040, visually compare sequence + annotations,
+    log in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: multi
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- fluorescent_reporter
+- green_fp
+- gfp_mut3b
+- wt_gfp_variant
+checksum:
+  algorithm: sha256
+  value: 658c63f3314697c5ecce0641ce8ebaaaeddc615568426711c8b32cdb4967d6c1

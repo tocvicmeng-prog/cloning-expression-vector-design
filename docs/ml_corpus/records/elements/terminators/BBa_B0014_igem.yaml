@@ -1,0 +1,55 @@
+id: corpus.element.terminator.bba_b0014
+category: terminator
+sequence:
+  bases: TCACACTGGCTCACCTTCGGGTGGGCCTTTCTGCGTTTATATACTAGAGAGAGAATATAAAAAGCCAGATTATTAATCCGGCTTTTTTATTATTT
+  topology: linear
+  length_bp: 95
+annotation: []
+provenance:
+  source: igem_registry
+  accession_or_url: https://parts.igem.org/Part:BBa_B0014
+  retrieved_at: '2026-05-23'
+  retrieved_by: 'Rec-2 second iGEM batch (browse-skill workflow proven; curl with User-Agent/Origin/Referer headers). BBa_B0014 fetched via FASTA
+    endpoint. Header: >BBa_B0014 double terminator (B0012-B0011) | role=Terminator | status=published | updated=2021-09-08'
+  name: bidirectional double terminator (B0012 + reverse complement)
+  igem_uuid: aa235dd0-bccf-48bd-8b09-7af6c90b7f30
+  designer: iGEM-designed double terminator
+  notes: 'Sequence from iGEM Registry. License: CC-BY 4.0 (verified 2026-05-23 via browse-skill session at registry.igem.org/parts/<id>). No share-alike.
+    Goes directly into partition: sa_free. SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry of Standard Biological Parts, part BBa_B0014 (iGEM-designed double terminator). https://parts.igem.org/Part:BBa_B0014
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM Registry standardised license is CC-BY 4.0. Cite iGEM Registry part page BBa_B0014 when redistributing.
+  annotation_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry part BBa_B0014. https://parts.igem.org/Part:BBa_B0014
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM-curated annotation under same CC-BY 4.0 posture.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BBa_B0014
+  discrepancy_resolution: 'Cross-check pending. Curator: open canonical SnapGene record for BBa_B0014, visually compare sequence + annotations,
+    log in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: ecoli
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- transcription_termination
+- rho_independent
+- double_terminator
+- bidirectional
+checksum:
+  algorithm: sha256
+  value: ed88e9ea40fadb4857bb7f34e9979ec022f9980133392e3b42273567a6365011

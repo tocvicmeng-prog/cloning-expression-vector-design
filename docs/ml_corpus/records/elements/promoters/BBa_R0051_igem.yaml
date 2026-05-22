@@ -1,0 +1,55 @@
+id: corpus.element.promoter.bba_r0051
+category: promoter
+sequence:
+  bases: TAACACCGTGCGTGTTGACTATTTTACCTCTGGCGGTGATAATGGTTGC
+  topology: linear
+  length_bp: 49
+annotation: []
+provenance:
+  source: igem_registry
+  accession_or_url: https://parts.igem.org/Part:BBa_R0051
+  retrieved_at: '2026-05-23'
+  retrieved_by: 'Rec-2 second iGEM batch (browse-skill workflow proven; curl with User-Agent/Origin/Referer headers). BBa_R0051 fetched via FASTA
+    endpoint. Header: >BBa_R0051 promoter (lambda cI regulated) | role=Promoter | status=published | updated=2021-09-08 | '
+  name: lambda CI-repressible promoter (used in genetic toggle switches)
+  igem_uuid: 1dd0eaaa-2bdf-4fd0-bde2-5df0f1135a28
+  designer: phage lambda cI/oR3 natural sequence; iGEM standardised
+  notes: 'Sequence from iGEM Registry. License: CC-BY 4.0 (verified 2026-05-23 via browse-skill session at registry.igem.org/parts/<id>). No share-alike.
+    Goes directly into partition: sa_free. SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry of Standard Biological Parts, part BBa_R0051 (phage lambda cI/oR3 natural sequence; iGEM standardised). https://parts.igem.org/Part:BBa_R0051
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM Registry standardised license is CC-BY 4.0. Cite iGEM Registry part page BBa_R0051 when redistributing.
+  annotation_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry part BBa_R0051. https://parts.igem.org/Part:BBa_R0051
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM-curated annotation under same CC-BY 4.0 posture.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BBa_R0051
+  discrepancy_resolution: 'Cross-check pending. Curator: open canonical SnapGene record for BBa_R0051, visually compare sequence + annotations,
+    log in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: ecoli
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- expression
+- lambda_cI_repressible
+- toggle_switch
+- thermal_inducible
+checksum:
+  algorithm: sha256
+  value: e72e14956f1890f2a460805035cc00d0c17e0f8602fd1cfa442a1a2a19474c0c

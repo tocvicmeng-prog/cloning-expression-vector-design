@@ -1,0 +1,55 @@
+id: corpus.element.promoter.bba_r0040
+category: promoter
+sequence:
+  bases: TCCCTATCAGTGATAGAGATTGACATCCCTATCAGTGATAGAGATACTGAGCAC
+  topology: linear
+  length_bp: 54
+annotation: []
+provenance:
+  source: igem_registry
+  accession_or_url: https://parts.igem.org/Part:BBa_R0040
+  retrieved_at: '2026-05-23'
+  retrieved_by: 'Rec-2 second iGEM batch (browse-skill workflow proven; curl with User-Agent/Origin/Referer headers). BBa_R0040 fetched via FASTA
+    endpoint. Header: >BBa_R0040 TetR repressible promoter | role=Regulatory | status=published | updated=2021-09-08 | lic'
+  name: TetR-repressible promoter (induced by tetracycline)
+  igem_uuid: fe491655-4834-428a-8660-47f0c308e7a4
+  designer: Tn10 tetO natural sequence; iGEM standardised
+  notes: 'Sequence from iGEM Registry. License: CC-BY 4.0 (verified 2026-05-23 via browse-skill session at registry.igem.org/parts/<id>). No share-alike.
+    Goes directly into partition: sa_free. SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry of Standard Biological Parts, part BBa_R0040 (Tn10 tetO natural sequence; iGEM standardised). https://parts.igem.org/Part:BBa_R0040
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM Registry standardised license is CC-BY 4.0. Cite iGEM Registry part page BBa_R0040 when redistributing.
+  annotation_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry part BBa_R0040. https://parts.igem.org/Part:BBa_R0040
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM-curated annotation under same CC-BY 4.0 posture.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BBa_R0040
+  discrepancy_resolution: 'Cross-check pending. Curator: open canonical SnapGene record for BBa_R0040, visually compare sequence + annotations,
+    log in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: ecoli
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- expression
+- tetracycline_inducible
+- tet_operator
+- tetR_repressible
+checksum:
+  algorithm: sha256
+  value: 267c54b8ec62f552b92eac8d50fddcb54dc54c3df9dc16615fe5f90c172b2ca5

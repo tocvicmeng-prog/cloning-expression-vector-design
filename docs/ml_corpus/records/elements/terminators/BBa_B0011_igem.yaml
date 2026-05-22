@@ -1,0 +1,54 @@
+id: corpus.element.terminator.bba_b0011
+category: terminator
+sequence:
+  bases: AGAGAATATAAAAAGCCAGATTATTAATCCGGCTTTTTTATTATTT
+  topology: linear
+  length_bp: 46
+annotation: []
+provenance:
+  source: igem_registry
+  accession_or_url: https://parts.igem.org/Part:BBa_B0011
+  retrieved_at: '2026-05-23'
+  retrieved_by: 'Rec-2 second iGEM batch (browse-skill workflow proven; curl with User-Agent/Origin/Referer headers). BBa_B0011 fetched via FASTA
+    endpoint. Header: >BBa_B0011 LuxICDABEG (+/-) | role=Terminator | status=published | updated=2021-09-08 | license=cc-b'
+  name: transcription terminator T1 from phage lambda (medium strength)
+  igem_uuid: 8265df11-b0d2-4d89-8f32-020897489725
+  designer: phage lambda natural sequence; iGEM standardised
+  notes: 'Sequence from iGEM Registry. License: CC-BY 4.0 (verified 2026-05-23 via browse-skill session at registry.igem.org/parts/<id>). No share-alike.
+    Goes directly into partition: sa_free. SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry of Standard Biological Parts, part BBa_B0011 (phage lambda natural sequence; iGEM standardised). https://parts.igem.org/Part:BBa_B0011
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM Registry standardised license is CC-BY 4.0. Cite iGEM Registry part page BBa_B0011 when redistributing.
+  annotation_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry part BBa_B0011. https://parts.igem.org/Part:BBa_B0011
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM-curated annotation under same CC-BY 4.0 posture.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BBa_B0011
+  discrepancy_resolution: 'Cross-check pending. Curator: open canonical SnapGene record for BBa_B0011, visually compare sequence + annotations,
+    log in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: ecoli
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- transcription_termination
+- rho_independent
+- lambda_t1
+checksum:
+  algorithm: sha256
+  value: 5f13c0e9e5031fef04dafb88399005009ebc5b7b3c600b77965de05d740745aa

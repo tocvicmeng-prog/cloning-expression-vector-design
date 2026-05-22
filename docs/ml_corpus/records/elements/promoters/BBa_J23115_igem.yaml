@@ -1,0 +1,55 @@
+id: corpus.element.promoter.bba_j23115
+category: promoter
+sequence:
+  bases: TTTATAGCTAGCTCAGCCCTTGGTACAATGCTAGC
+  topology: linear
+  length_bp: 35
+annotation: []
+provenance:
+  source: igem_registry
+  accession_or_url: https://parts.igem.org/Part:BBa_J23115
+  retrieved_at: '2026-05-23'
+  retrieved_by: 'Rec-2 second iGEM batch (browse-skill workflow proven; curl with User-Agent/Origin/Referer headers). BBa_J23115 fetched via FASTA
+    endpoint. Header: >BBa_J23115 constitutive promoter family member | role=Promoter | status=published | updated=2021-09'
+  name: constitutive promoter J23115 (Anderson family, ~0.15 relative)
+  igem_uuid: 243d44a0-2c39-4052-8a59-b8283b7ccf45
+  designer: John Anderson, Berkeley 2006
+  notes: 'Sequence from iGEM Registry. License: CC-BY 4.0 (verified 2026-05-23 via browse-skill session at registry.igem.org/parts/<id>). No share-alike.
+    Goes directly into partition: sa_free. SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry of Standard Biological Parts, part BBa_J23115 (John Anderson, Berkeley 2006). https://parts.igem.org/Part:BBa_J23115
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM Registry standardised license is CC-BY 4.0. Cite iGEM Registry part page BBa_J23115 when redistributing.
+  annotation_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry part BBa_J23115. https://parts.igem.org/Part:BBa_J23115
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM-curated annotation under same CC-BY 4.0 posture.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BBa_J23115
+  discrepancy_resolution: 'Cross-check pending. Curator: open canonical SnapGene record for BBa_J23115, visually compare sequence + annotations,
+    log in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: ecoli
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- expression
+- constitutive
+- anderson_family
+- weak_strength
+checksum:
+  algorithm: sha256
+  value: f364f1fb0bad6add4d35a60a700dcf14d7dea7425fb7d9e7b1e42c8db8f3a40a
