@@ -148,6 +148,51 @@ entries:
       - "5 records under docs/ml_corpus/records/backbones/{mammalian,ecoli,kphaffii}/"
     batch_outcome: approved
 
+  - batch_id: addgene-depositor-batch-003
+    override_type: addgene_depositor_side
+    batch_records:
+      - corpus.backbone.kphaffii.ppinkalpha_hc
+      - corpus.backbone.kphaffii.ppink_hc
+      - corpus.backbone.kphaffii.ppink_lc
+    proposed_at: "2026-05-23"
+    approval_date: "2026-05-23"
+    approval_owner: tocvicmeng@gmail.com (project owner / GMExpression Pty Ltd / Holocyte)
+    normative_section: |
+      IP-audit § 8.1 Tier-2 (Addgene general posture) + § 5.2 fold-in
+      (vendor-published-factual content per Feist v. Rural Telephone).
+    ip_audit_section: |
+      docs/handover/2026-05-23_corpus_completion_strategies.md Rec-3 (third batch).
+    rationale: |
+      Third Rec-3 batch — 3 PichiaPink expression vectors from Invitrogen / Thermo
+      Fisher K1710 PichiaPink Expression System, user re-exported as .gb from
+      Addgene browser session in the same folder:
+        - pPinkα-HC (7898 bp) — high-copy secretion vector with α-mating factor
+          signal peptide; ADE2 complementation in white PichiaPink strain
+        - pPink-HC (7667 bp) — high-copy intracellular expression; ADE2 marker
+        - pPink-LC (7732 bp) — low-copy (single-copy integration) intracellular
+          expression; ADE2 marker
+      All three complement the host catalogue's existing
+      host.kphaffii_pichiapink_series record (T-411). Sequence content is
+      vendor-published factual content per Feist; Invitrogen retains trademark
+      PichiaPink(TM) + manufacturing exclusivity. Underlying Pichia AOX1 system
+      is Higgins & Cregg 1998 PMID 9437891.
+    delta_from_normative: |
+      Same delta posture as batch-002 vendor records (pET-28a, pPICZ-α-A):
+      vendor-published-factual SPDX with explicit attribution to Invitrogen K1710
+      product and the underlying primary-lit publication.
+    compensating_controls: |
+      - Files via user's authenticated browser session at addgene.org.
+      - User RE-EXPORTED .dna as .gb in same Addgene session.
+      - No Addgene-authored description text included.
+      - provenance.source: vendor_published_map with vendor catalogue + PMID.
+      - Each record's snapgene_crosscheck.snapgene_record_name explicitly set
+        to the vendor product name for human curator's later cross-check pass.
+    verification_trail:
+      - "C:/Users/tocvi/Downloads/Addgenefiles/{pPINK(alpha)-HC,pPink-HC,pPink-LC}.gb"
+      - "/tmp/genbank/pPink{AlphaHC,HC,LC}_invitrogen.gb (curator caches)"
+      - "docs/ml_corpus/records/backbones/kphaffii/pPink{AlphaHC,HC,LC}_invitrogen.yaml"
+    batch_outcome: approved
+
 # When the first SnapGene cross-check batch is actually run, the curator should
 # append an entry shaped like the following (preserved here as a docstring so
 # future curators have a working example):
