@@ -40,3 +40,4 @@ site/
 Thumbs.db
 .idea/
 .vscode/
+.gstack/
