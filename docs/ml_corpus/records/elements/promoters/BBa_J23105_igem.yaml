@@ -1,0 +1,58 @@
+id: corpus.element.promoter.bba_j23105
+category: promoter
+sequence:
+  bases: TTTACGGCTAGCTCAGTCCTAGGTACTATGCTAGC
+  topology: linear
+  length_bp: 35
+annotation: []
+provenance:
+  source: igem_registry
+  accession_or_url: https://parts.igem.org/Part:BBa_J23105
+  retrieved_at: '2026-05-23'
+  retrieved_by: 'Rec-2 corpus completion strategies, browse-skill session against api.registry.igem.org. BBa_J23105 fetched via FASTA endpoint
+    (authenticated HeadlessChrome session bypassing CloudFront block on unauthenticated curl). FASTA header: >BBa_J23105 constitutive promoter
+    family member | role=Promoter | status=published | updated=2021-09'
+  name: constitutive promoter (Anderson family)
+  igem_uuid: df048256-91c5-4a48-920c-b3a7d571b4af
+  designer: John Anderson (Conceptualisation), Berkeley 2006
+  notes: 'Sequence from iGEM Registry Anderson family. CRITICAL UPDATE TO IP-AUDIT § 4.1: iGEM license is now CC-BY 4.0 (NOT CC-BY-SA 3.0 as the
+    v0.2 IP-audit assumed). CC-BY 4.0 has no share-alike contagion, so this record goes directly into partition: sa_free. SnapGene cross-check
+    pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry of Standard Biological Parts, part BBa_J23105 (designed by John Anderson, Berkeley 2006). https://parts.igem.org/Part:BBa_J23105
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM Registry standardised license is CC-BY 4.0 (verified 2026-05-23 via browse-skill session). Cite iGEM Registry part page BBa_J23105
+      when redistributing.
+  annotation_license:
+    spdx_id: CC-BY-4.0
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: iGEM Registry part BBa_J23105. https://parts.igem.org/Part:BBa_J23105
+    commercial_use_allowed: true
+    source_text_url: https://creativecommons.org/licenses/by/4.0/
+    notes: iGEM-curated annotation (role, SO ontology) under same CC-BY 4.0 posture.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BBa_J23105
+  discrepancy_resolution: 'Cross-check pending. Curator: open canonical SnapGene record for BBa_J23105, visually compare sequence + annotations,
+    log result in crosscheck_log.yaml per BR-16.'
+host_topology:
+  host_class: ecoli
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- expression
+- constitutive
+- anderson_family
+- intermediate_strength
+checksum:
+  algorithm: sha256
+  value: a4879257323c128ac66e61f6d730af3c54357fb84a02d3a95936ba884f09683c

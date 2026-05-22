@@ -17,7 +17,7 @@ provenance:
   notes: T-1405 modular-element record. SnapGene cross-check pending per BR-16 NORMATIVE.
 license:
   sequence_license:
-    spdx_id: primary-literature-public-record
+    spdx_id: CC-BY-4.0
     redistribution_allowed: true
     ml_training_allowed: true
     attribution_required: true
@@ -28,7 +28,7 @@ license:
     notes: Consensus sequence published in cited primary literature; the sequence is factual and not subject to copyright (Feist v. Rural Telephone).
       Attribution to the originating paper is requested as scholarly practice but not a legal requirement on the bases.
   annotation_license:
-    spdx_id: primary-literature-public-record
+    spdx_id: CC-BY-4.0
     redistribution_allowed: true
     ml_training_allowed: true
     attribution_required: true

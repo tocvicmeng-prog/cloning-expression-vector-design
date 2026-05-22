@@ -12,6 +12,8 @@ maintenance:
     - "T-1404 (28 INSDC-canonical backbones)"
     - "T-1405 (63 modular elements across 13 schema categories — no FPs)"
     - "T-1405 follow-up (10 FPbase-linked records: 8 fluorescent_protein CDS-only + 2 FP-source backbone vectors)"
+    - "Rec-2 iGEM batch (12 Anderson-family records: 5 promoters J23100/J23101/J23105/J23107/J23110, 4 RBSs B0030/B0031/B0032/B0033, 3 terminators B0010/B0012/B0015). LICENSE CORRECTION: iGEM Registry posture is CC-BY 4.0 as of 2026-05-23 retrieval (NOT CC-BY-SA 3.0 as the v0.2 IP-audit assumed). No share-alike contagion; records go directly into partition: sa_free. Existing BBa_B0034 record reclassified from primary-literature-public-record to CC-BY-4.0 SPDX accordingly."
+    - "Rec-3 batch-001/002/003 (10 Addgene-mediated backbones: psPAX2, pCAGGS, pLKO.1, pMD2.G, pcDNA3.1+HsDicer, pET-28a(+), pPICZ-α-A, pPinkα-HC, pPink-HC, pPink-LC). Mixed posture: 5 depositor-owned-academic + 5 vendor-published-factual."
     - "T-1405 second follow-up (7 more FPs found via direct NCBI search: mGreenLantern OP373690, mTagBFP2 MH013372, mTurquoise2 KM670033, mKate2 KJ908191, EYFP AB860250, mseCFP AB435576 [ECFP super-enhanced monomeric variant], mVenus LC716765 [EYFP variant]) + 1 pLNHX_cHS4_650 backbone JN000001 (mammalian retroviral expression vector documenting the canonical 650bp chicken HS4 insulator); deleted 2 cHS4/USP insulator placeholder records that carried curator-approximation sequences"
     - "T-1404 third follow-up (corpus completion strategies per docs/handover/2026-05-23_corpus_completion_strategies.md Recommendation 1): aggressive NCBI re-search yielded 3 more vector backbones — pET28_SLAC PX848773 (pET-28a vector with SLAC enzyme insert), pET28_CBD PP894717 (pET-28a with CBD-TP84 insert), pcDNA3.4_anti-mC1 PP212885 (pcDNA3.4 with anti-mC1-VL-ab insert). All file as category: backbone (the underlying vendor backbone elements — ColE1 ori, T7 promoter, kanR, CMV promoter, BGH polyA, etc. — are documented authoritatively even though the records contain example cargo inserts). mScarlet3 deferred to a focused FPbase-supplementary fetch session (no clean NCBI nucleotide CDS deposit exists at 2026-05-23; the only NCBI record is a PDB structure 9UTC chain A that fuses mScarlet3 to a taste-receptor scaffold). USP / chicken β-globin 5' HS5 remains documented backlog (no NCBI deposit; would require patent-mining or backtranslation override)."
   next_population_task: "Future curation = human SnapGene cross-check pass per BR-16 NORMATIVE; vendor-only backbones (Novagen pET / Invitrogen pPICZ-pGAPZ / Trono lentiviral) need bespoke vendor-manual curation"
@@ -45,18 +47,19 @@ partition_default: "sa_free"
 partitions:
   full:
     description: "All records including cc-by-sa/. Opt-in for research-only training runs that accept share-alike."
-    record_count: 121  # T-1404 + T-1405 + FP follow-up: 101 total records; none under cc-by-sa/ → full == sa_free at v0.2.
+    record_count: 133  # T-1404 + T-1405 + FP follow-up: 101 total records; none under cc-by-sa/ → full == sa_free at v0.2.
   sa_free:
     description: "Default partition. Excludes records routed to cc-by-sa/. Surviving partition for any commercial fork."
-    record_count: 121
+    record_count: 133
 
 # Aggregate fields populated by tools/corpus/manifest_generator.py at T-1407.
 # v0.2 T-1404 + T-1405 + FP follow-up: aggregates computed manually below; T-1407 will automate.
 license_aggregate:
-  total_records: 121
+  total_records: 133
   by_sequence_license:
     NCBI-PD: 50
-    primary-literature-public-record: 61
+    primary-literature-public-record: 60
+    CC-BY-4.0: 13
     depositor-owned-trono-lab: 2
     depositor-owned-miyazaki-lab: 1
     depositor-owned-stewart-rnai: 1
@@ -64,7 +67,8 @@ license_aggregate:
     vendor-published-factual: 5
   by_annotation_license:
     NCBI-PD: 50
-    primary-literature-public-record: 61
+    primary-literature-public-record: 60
+    CC-BY-4.0: 13
     depositor-owned-trono-lab: 2
     depositor-owned-miyazaki-lab: 1
     depositor-owned-stewart-rnai: 1
@@ -74,16 +78,16 @@ license_aggregate:
     ncbi_genbank: 50
     primary_literature: 65
     vendor_published_map: 5
-    igem_registry: 1
+    igem_registry: 13
   by_category:
     backbone: 45
     fluorescent_protein: 15
-    promoter: 10
+    promoter: 15
     tag: 10
-    terminator: 6
+    terminator: 9
+    rbs: 8
     selection_cassette: 6
     polyA: 5
-    rbs: 4
     kozak: 4
     ires: 4
     2a_peptide: 4
@@ -92,28 +96,28 @@ license_aggregate:
     wpre: 2
     insulator: 0  # placeholder records deleted; canonical cHS4 retrievable from pLNHX_cHS4_650 (JN000001); USP / chicken β-globin 5' HS5 remains backlog (no NCBI accession)
   by_host_class:
-    ecoli: 36
+    ecoli: 48
     mammalian: 34
     multi: 28
     scerevisiae: 12
     kphaffii: 11
   effective_license_distribution:
-    redistribution_allowed: 121
-    ml_training_allowed: 121
-    commercial_use_allowed: 121
-    attribution_required: 71  # 61 primary-literature modular-element + 10 Addgene-derived (5 depositor-owned + 5 vendor-published-factual) records request attribution; 50 INSDC records are no-attribution
+    redistribution_allowed: 133
+    ml_training_allowed: 133
+    commercial_use_allowed: 133
+    attribution_required: 83  # 60 primary-literature modular-element + 13 iGEM CC-BY-4.0 + 10 Addgene-derived (5 depositor-owned + 5 vendor-published-factual) records request attribution; 50 INSDC records are no-attribution
   partition_sa_free:
-    record_count: 121
+    record_count: 133
     fraction: 1.0
   attribution_obligations:
     records_requiring_attribution: 63
     attribution_text_file: "LICENSES/THIRD_PARTY_NOTICES.md"  # populated at T-1410
   cross_check_coverage:
     checked: 0
-    unchecked: 121
+    unchecked: 133
     fraction_checked: 0.0
     note: |
-      All 121 records are pending human SnapGene cross-check per BR-16 NORMATIVE.
+      All 133 records are pending human SnapGene cross-check per BR-16 NORMATIVE.
       The release-gate at T-1409 enforces ≥ 90% coverage for research release and
       ≥ 95% for commercial-fork release; all records land in `checked: false` state
       with structured `snapgene_record_name` hints to guide the eventual human curation
