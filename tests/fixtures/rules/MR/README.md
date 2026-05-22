@@ -56,3 +56,9 @@ Generated from Molecular-genetics rules for T-405.
 - MR-52: Mammalian polyA signal absent on a Pol-II-driven mRNA cassette → flag.
 - MR-53: Bacterial terminator absent on a Pol-II-driven transcription unit → flag.
 - MR-54: Mismatch between marker concentration in protocol vs database default for the host → flag.
+- MR-55: Methylation-aware restriction-enzyme planning — dam/dcm-blocked enzymes on methylated DNA, or DpnI/DpnII mis-template, blocks the digest. (v0.2 Enrichment Amendment)
+- MR-56: Disulfide-aware host selection — cargo with ≥ 3 disulfide bonds in a reducing-cytoplasm host → recommend Origami / SHuffle. (v0.2)
+- MR-57: Protease-aware host selection — protease-sensitive cargo in lon+/ompT+ host → recommend BL21 lineage. (v0.2)
+- MR-58: Rare-codon-aware host suggestion — rare-codon-heavy cargo in non-supplemented host → recommend Rosetta lineage. (v0.2)
+- MR-59: Marker-host auxotrophic compatibility — auxotrophic yeast marker requires corresponding host auxotrophy. (v0.2)
+- MR-60: Y2H marker compatibility — AH109/Y187/EGY48 plasmid markers must not collide with chromosomal reporter cassette. (v0.2)

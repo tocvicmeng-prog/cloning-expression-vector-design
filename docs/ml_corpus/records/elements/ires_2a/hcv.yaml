@@ -1,0 +1,54 @@
+id: corpus.element.ires.hcv
+category: ires
+sequence:
+  bases: GCCAGCCCCCTGATGGGGGCGACACTCCACCATGAATCACTCCCCTGTGAGGAACTACTGTCTTCACGCAGAAAGCGTCTAGCCATGGCGTTAGTATGAGTGTCGTGCAGCCTCCAGGACCCCCCCTCCCGGGAGAGCCATAGTGGTCTGCGGAACCGGTGAGTACACCGGAATTGCCAGGACGACCGGGTCCTTTCTTGGATCAACCCGCTCAATGCCTGGAGATTTGGGCGTGCCCCCGCGAGACTGCTAGCCGAGTAGTGTTGGGTCGCGAAAGGCCTTGTGGTACTGCCTGATAGGGTGCTTGCGAGTGCCCCGGGAGGTCTCGTAGACCGTGCATCATGAGCACAAATCCTAAACCTCAAAGAAAAACCAAACGTAACACCAACC
+  topology: linear
+  length_bp: 390
+annotation: []
+provenance:
+  source: primary_literature
+  accession_or_url: https://pubmed.ncbi.nlm.nih.gov/1325983/
+  retrieved_at: '2026-05-23'
+  retrieved_by: T-1405 scientific-advisor curation; canonical consensus sequence from cited primary literature
+  name: Hepatitis C virus (HCV) IRES
+  pmid: '1325983'
+  citation_text: Tsukiyama-Kohara K, Iizuka N, Kohara M, Nomoto A. Internal ribosome entry site within hepatitis C virus RNA. J Virol. 1992 Mar;66(3):1476-83.
+  notes: T-1405 modular-element record. SnapGene cross-check pending per BR-16 NORMATIVE.
+license:
+  sequence_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Tsukiyama-Kohara K, Iizuka N, Kohara M, Nomoto A. Internal ribosome entry site within hepatitis C virus RNA. J Virol. 1992
+      Mar;66(3):1476-83.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/1325983/
+    notes: Consensus sequence published in cited primary literature; the sequence is factual and not subject to copyright (Feist v. Rural Telephone).
+      Attribution to the originating paper is requested as scholarly practice but not a legal requirement on the bases.
+  annotation_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Tsukiyama-Kohara K, Iizuka N, Kohara M, Nomoto A. Internal ribosome entry site within hepatitis C virus RNA. J Virol. 1992
+      Mar;66(3):1476-83.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/1325983/
+    notes: Curator-authored annotation overlay; cite as 'CEV Toolkit corpus v0.2 + underlying primary literature (see citation_text).'
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: HCV IRES
+  discrepancy_resolution: 'Cross-check pending. Per BR-16 NORMATIVE this is a human-in-browser step. Curator: open ''HCV IRES'' in browser, visually
+    compare sequence + key annotations against this record''s primary-literature-anchored bases, log result in crosscheck_log.yaml.'
+host_topology:
+  host_class: mammalian
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- cap_independent_translation
+- bicistronic_expression
+checksum:
+  algorithm: sha256
+  value: 913d32f3a5fc85619cda98957133aa369d8251d70cf07ea6d900df6b3a8e7e70

@@ -1,0 +1,55 @@
+id: corpus.element.tag.myc
+category: tag
+sequence:
+  bases: GAACAAAAACTCATCTCAGAAGAGGATCTG
+  topology: linear
+  length_bp: 30
+annotation: []
+provenance:
+  source: primary_literature
+  accession_or_url: https://pubmed.ncbi.nlm.nih.gov/2467132/
+  retrieved_at: '2026-05-23'
+  retrieved_by: T-1405 scientific-advisor curation; canonical consensus sequence from cited primary literature
+  name: c-Myc epitope tag (EQKLISEEDL)
+  pmid: '2467132'
+  citation_text: Evan GI, Lewis GK, Ramsay G, Bishop JM. Isolation of monoclonal antibodies specific for human c-myc proto-oncogene product. Mol
+    Cell Biol. 1985 Dec;5(12):3610-6.
+  notes: T-1405 modular-element record. SnapGene cross-check pending per BR-16 NORMATIVE.
+license:
+  sequence_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Evan GI, Lewis GK, Ramsay G, Bishop JM. Isolation of monoclonal antibodies specific for human c-myc proto-oncogene product.
+      Mol Cell Biol. 1985 Dec;5(12):3610-6.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/2467132/
+    notes: Consensus sequence published in cited primary literature; the sequence is factual and not subject to copyright (Feist v. Rural Telephone).
+      Attribution to the originating paper is requested as scholarly practice but not a legal requirement on the bases.
+  annotation_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Evan GI, Lewis GK, Ramsay G, Bishop JM. Isolation of monoclonal antibodies specific for human c-myc proto-oncogene product.
+      Mol Cell Biol. 1985 Dec;5(12):3610-6.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/2467132/
+    notes: Curator-authored annotation overlay; cite as 'CEV Toolkit corpus v0.2 + underlying primary literature (see citation_text).'
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: Myc tag
+  discrepancy_resolution: 'Cross-check pending. Per BR-16 NORMATIVE this is a human-in-browser step. Curator: open ''Myc tag'' in browser, visually
+    compare sequence + key annotations against this record''s primary-literature-anchored bases, log result in crosscheck_log.yaml.'
+host_topology:
+  host_class: multi
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- immunodetection
+- epitope_tag
+checksum:
+  algorithm: sha256
+  value: 0a2594f71c027d85e970db9c1ea0cd4062d6b0e691e3bb95fcc15f4026363393

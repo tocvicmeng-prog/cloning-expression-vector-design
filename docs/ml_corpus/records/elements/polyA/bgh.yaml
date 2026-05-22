@@ -1,0 +1,55 @@
+id: corpus.element.polyA.bgh
+category: polyA
+sequence:
+  bases: CTGTGCCTTCTAGTTGCCAGCCATCTGTTGTTTGCCCCTCCCCCGTGCCTTCCTTGACCCTGGAAGGTGCCACTCCCACTGTCCTTTCCTAATAAAATGAGGAAATTGCATCGCATTGTCTGAGTAGGTGTCATTCTATTCTGGGGGGTGGGGTGGGGCAGGACAGCAAGGGGGAGGATTGGGAAGACAATAGCAGGCATGCTGGGGATGCGGTGGGCTCTATGG
+  topology: linear
+  length_bp: 225
+annotation: []
+provenance:
+  source: primary_literature
+  accession_or_url: https://pubmed.ncbi.nlm.nih.gov/6328430/
+  retrieved_at: '2026-05-23'
+  retrieved_by: T-1405 scientific-advisor curation; canonical consensus sequence from cited primary literature
+  name: Bovine growth hormone (BGH) polyadenylation signal
+  pmid: '6328430'
+  citation_text: Goodwin EC, Rottman FM. The 3'-flanking sequence of the bovine growth hormone gene contains novel elements required for efficient
+    and accurate polyadenylation. J Biol Chem. 1992 Sep 15;267(26):16330-4.
+  notes: T-1405 modular-element record. SnapGene cross-check pending per BR-16 NORMATIVE.
+license:
+  sequence_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Goodwin EC, Rottman FM. The 3'-flanking sequence of the bovine growth hormone gene contains novel elements required for
+      efficient and accurate polyadenylation. J Biol Chem. 1992 Sep 15;267(26):16330-4.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/6328430/
+    notes: Consensus sequence published in cited primary literature; the sequence is factual and not subject to copyright (Feist v. Rural Telephone).
+      Attribution to the originating paper is requested as scholarly practice but not a legal requirement on the bases.
+  annotation_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Goodwin EC, Rottman FM. The 3'-flanking sequence of the bovine growth hormone gene contains novel elements required for
+      efficient and accurate polyadenylation. J Biol Chem. 1992 Sep 15;267(26):16330-4.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/6328430/
+    notes: Curator-authored annotation overlay; cite as 'CEV Toolkit corpus v0.2 + underlying primary literature (see citation_text).'
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: BGH polyA
+  discrepancy_resolution: 'Cross-check pending. Per BR-16 NORMATIVE this is a human-in-browser step. Curator: open ''BGH polyA'' in browser, visually
+    compare sequence + key annotations against this record''s primary-literature-anchored bases, log result in crosscheck_log.yaml.'
+host_topology:
+  host_class: mammalian
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- polyadenylation
+- mammalian_3prime_processing
+checksum:
+  algorithm: sha256
+  value: 3bb33eaa6053bcf4199e8759979be7b1790ac0b63a2f48cba0812c89b52fbc5d

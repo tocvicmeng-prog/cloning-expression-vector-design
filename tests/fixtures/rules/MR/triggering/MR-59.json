@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-59",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-59: marker-host auxotrophic compatibility. Construct uses a URA3 plasmid marker in a host that has a wt URA3 chromosomal locus (e.g., S288C, S. cerevisiae INVSc1 — but with the URA3 allele NOT deleted). No selection pressure exists. Expected eventual outcome (Phase 5/6): HARD block; v0.2 stub returns INFO.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-59.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-414 fixture asserts rule-registry coverage for MR-59. Phase 5/6 replaces stub semantics with executable predicate expectations (marker.host_genotype_requirement vs host.genotype substring match)."
+  }
+}

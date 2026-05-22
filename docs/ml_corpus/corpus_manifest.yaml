@@ -3,12 +3,39 @@
 # Populated by tools/corpus/manifest_generator.py at T-1407.
 # Schema authority: docs/ml_corpus/schemas/corpus_record.schema.json (lands at T-1402).
 corpus_id: cev.ml_corpus
-schema_version: "0.0.0"  # Empty shell; bumped to 1.0.0 when T-1402 schema lands and T-1404/T-1405 populate records.
+schema_version: "1.0.0"  # T-1404 (2026-05-23) populated initial 28 backbone records under records/backbones/.
 maintenance:
   scaffolded_at: "2026-05-23"
   scaffolding_task: "T-1401"
-  next_population_task: "T-1404 (backbones) + T-1405 (modular elements)"
+  populated_at: "2026-05-23"
+  populating_tasks:
+    - "T-1404 (28 INSDC-canonical backbones)"
+    - "T-1405 (63 modular elements across 13 schema categories — no FPs)"
+    - "T-1405 follow-up (10 FPbase-linked records: 8 fluorescent_protein CDS-only + 2 FP-source backbone vectors)"
+  next_population_task: "Future curation = human SnapGene cross-check pass per BR-16 NORMATIVE; vendor-only backbones (Novagen pET / Invitrogen pPICZ-pGAPZ / Trono lentiviral) need bespoke vendor-manual curation"
   manifest_generator_task: "T-1407"
+  population_notes: |
+    T-1404 scope: targeted 40 backbones via WebFetch-driven NCBI eutils retrieval. Realistic
+    yield was 28 INSDC-canonical records, limited by which vendor plasmids have public INSDC
+    deposits (none for Novagen pET-28a / pCDFDuet / pETDuet / pRSFDuet / Invitrogen pPICZ /
+    pGAPZ / pcDNA3.4 / pVAX1, Trono-lab pLKO.1 / psPAX2 / pMD2.G, etc.). Per IP-audit § 8.1
+    the corpus stays Tier-1/Tier-2 (no Addgene-mediated sequence ingestion); records remain
+    routable to NCBI/EBI/DDBJ/iGEM/JBEI/DNASU/vendor-published-map/primary-literature/fpbase
+    sources only. The 12-record mammalian and 8-record K. phaffii backbone shortfalls are
+    documented as a known backlog for future curators with bespoke vendor-manual access.
+
+    T-1405 scope: targeted 80 modular-element records. Realistic yield was 63 records across
+    all 13 categories from the schema enum (no `fluorescent_protein` records — those would
+    require FPbase-mediated fetches deferred to a focused follow-up turn). Distribution:
+    promoter 10, terminator 6, polyA 5, rbs 4, kozak 4, ires 4, 2a_peptide 4, mcs 3, tag 10,
+    selection_cassette 6, insulator 2, wpre 2, intron 3. Two insulator records (cHS4 core,
+    USP/β-globin 5'HS) carry explicit `notes` flagging the sequence as a curator
+    approximation pending human cross-check against the published primary literature.
+    Source mix: 62 primary_literature + 1 igem_registry (BBa_B0034). All elements carry
+    PMID-anchored citations except BBa_B0034 (iGEM Registry URL). Per FR-MARK / FR-ML-09,
+    `attribution_required: true` is set on all 63 modular-element records (these are
+    consensus sequences whose attribution belongs to the originating paper, even though the
+    bases themselves are factual per Feist v. Rural Telephone).
 
 # v0.2 IPQ-1 resolution: research-primary, commercial-fork-possible.
 # `partition: sa_free` is the DEFAULT training partition (not opt-in).
@@ -16,27 +43,70 @@ partition_default: "sa_free"
 partitions:
   full:
     description: "All records including cc-by-sa/. Opt-in for research-only training runs that accept share-alike."
-    record_count: 0
+    record_count: 101  # T-1404 + T-1405 + FP follow-up: 101 total records; none under cc-by-sa/ → full == sa_free at v0.2.
   sa_free:
     description: "Default partition. Excludes records routed to cc-by-sa/. Surviving partition for any commercial fork."
-    record_count: 0
+    record_count: 101
 
 # Aggregate fields populated by tools/corpus/manifest_generator.py at T-1407.
+# v0.2 T-1404 + T-1405 + FP follow-up: aggregates computed manually below; T-1407 will automate.
 license_aggregate:
-  total_records: 0
-  by_sequence_license: {}
-  by_annotation_license: {}
-  effective_license_distribution: {}
+  total_records: 101
+  by_sequence_license:
+    NCBI-PD: 38
+    primary-literature-public-record: 63
+  by_annotation_license:
+    NCBI-PD: 38
+    primary-literature-public-record: 63
+  by_source:
+    ncbi_genbank: 38
+    primary_literature: 62
+    igem_registry: 1
+  by_category:
+    backbone: 30
+    promoter: 10
+    tag: 10
+    fluorescent_protein: 8
+    terminator: 6
+    selection_cassette: 6
+    polyA: 5
+    rbs: 4
+    kozak: 4
+    ires: 4
+    2a_peptide: 4
+    mcs: 3
+    intron: 3
+    insulator: 2
+    wpre: 2
+  by_host_class:
+    ecoli: 32
+    mammalian: 29
+    multi: 21
+    scerevisiae: 12
+    kphaffii: 7
+  effective_license_distribution:
+    redistribution_allowed: 101
+    ml_training_allowed: 101
+    commercial_use_allowed: 101
+    attribution_required: 63  # 63 primary-literature modular-element records request attribution; 38 INSDC records are no-attribution
   partition_sa_free:
-    record_count: 0
-    fraction: 0.0
+    record_count: 101
+    fraction: 1.0
   attribution_obligations:
-    records_requiring_attribution: 0
+    records_requiring_attribution: 63
     attribution_text_file: "LICENSES/THIRD_PARTY_NOTICES.md"  # populated at T-1410
   cross_check_coverage:
     checked: 0
-    unchecked: 0
+    unchecked: 101
     fraction_checked: 0.0
+    note: |
+      All 101 records (T-1404 + T-1405 + FPbase follow-up) are pending human SnapGene
+      cross-check per BR-16 NORMATIVE. The release-gate at T-1409 enforces ≥ 90% coverage
+      for research release and ≥ 95% for commercial-fork release; all records land in
+      `checked: false` state with structured `snapgene_record_name` hints to guide the
+      eventual human curation pass. Two T-1405 insulator records (cHS4, USP) additionally
+      carry explicit `notes` flagging the sequence as a curator approximation requiring
+      cross-check against the published primary literature (Chung 1993, PMID 8467846).
 
 # Release-gate thresholds (enforced at release-tag time by tools/release/corpus_release_gate.py at T-1409).
 release_gate:

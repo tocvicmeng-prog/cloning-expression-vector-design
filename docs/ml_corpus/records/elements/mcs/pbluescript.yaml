@@ -1,0 +1,55 @@
+id: corpus.element.mcs.pbluescript
+category: mcs
+sequence:
+  bases: AAGCTTGCATGCCTGCAGGTCGACTCTAGAGGATCCCCGGGCTGCAGGAATTCGATATCAAGCTTATCGATACCGTCGACCTCGAGGGGGGGCCCGGTACCCAGCTTTTGTTCCCTTTAGTGAGGGTTAATT
+  topology: linear
+  length_bp: 132
+annotation: []
+provenance:
+  source: primary_literature
+  accession_or_url: https://www.ncbi.nlm.nih.gov/nuccore/X52327
+  retrieved_at: '2026-05-23'
+  retrieved_by: T-1405 scientific-advisor curation; canonical consensus sequence from cited primary literature
+  name: pBluescript II MCS (KS orientation)
+  pmid: '2985470'
+  citation_text: Stratagene pBluescript II vector (KS+ derived from pBluescript phagemid lineage); per pBluescript II KS(+) GenBank record X52327.
+  notes: T-1405 modular-element record. SnapGene cross-check pending per BR-16 NORMATIVE.
+license:
+  sequence_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Stratagene pBluescript II vector (KS+ derived from pBluescript phagemid lineage); per pBluescript II KS(+) GenBank record
+      X52327.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/2985470/
+    notes: Consensus sequence published in cited primary literature; the sequence is factual and not subject to copyright (Feist v. Rural Telephone).
+      Attribution to the originating paper is requested as scholarly practice but not a legal requirement on the bases.
+  annotation_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Stratagene pBluescript II vector (KS+ derived from pBluescript phagemid lineage); per pBluescript II KS(+) GenBank record
+      X52327.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/2985470/
+    notes: Curator-authored annotation overlay; cite as 'CEV Toolkit corpus v0.2 + underlying primary literature (see citation_text).'
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: pBluescript II MCS
+  discrepancy_resolution: 'Cross-check pending. Per BR-16 NORMATIVE this is a human-in-browser step. Curator: open ''pBluescript II MCS'' in browser,
+    visually compare sequence + key annotations against this record''s primary-literature-anchored bases, log result in crosscheck_log.yaml.'
+host_topology:
+  host_class: ecoli
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- cloning
+- blue_white_screening
+- in_vitro_transcription_t3_t7
+checksum:
+  algorithm: sha256
+  value: 530d3e97f58d32354d0284b034baf32dcb6e2c0155fd6cce200cdb656b1f6147

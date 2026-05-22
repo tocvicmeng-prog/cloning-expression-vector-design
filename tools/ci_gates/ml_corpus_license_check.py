@@ -41,10 +41,14 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
+import yaml
+
 from tools.ci_gates._gate import GateResult, fail_gate, pass_gate, run_gate
 
 CORPUS_ROOT_RELATIVE = "docs/ml_corpus"
-RECORDS_GLOB = "records/**/*.json"
+# v0.2 T-1404: T-1404 lands YAML records (project-wide convention); JSON is
+# also accepted for forward-compat with externally-curated corpus deposits.
+RECORDS_GLOBS = ("records/**/*.yaml", "records/**/*.yml", "records/**/*.json")
 CORPUS_MANIFEST_RELATIVE = "docs/ml_corpus/corpus_manifest.yaml"
 
 # v0.2 IP-auditor § 8.1 Tier-1 + Tier-2 allowlist (Tier-3 sources are NOT in the enum).
@@ -66,11 +70,20 @@ REQUIRED_EXPLICIT_BOOLEAN_FIELDS = ("redistribution_allowed", "ml_training_allow
 
 
 def _load_record(path: Path) -> dict[str, Any] | None:
-    """Return the JSON record at path, or None on parse error."""
+    """Return the record at path (YAML or JSON), or None on parse error."""
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, UnicodeDecodeError):
+        text = path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
         return None
+    suffix = path.suffix.lower()
+    try:
+        if suffix in {".yaml", ".yml"}:
+            data = yaml.safe_load(text)
+        else:
+            data = json.loads(text)
+    except (yaml.YAMLError, json.JSONDecodeError):
+        return None
+    return data if isinstance(data, dict) else None
 
 
 def _check_license_subblock(
@@ -102,7 +115,7 @@ def _check_record(path: Path, root: Path) -> list[str]:
     rel = path.relative_to(root).as_posix()
     record = _load_record(path)
     if record is None:
-        return [f"{rel}: failed to parse as JSON"]
+        return [f"{rel}: failed to parse as YAML or JSON"]
     findings: list[str] = []
     record_id = str(record.get("id", "<unknown>"))
 
@@ -157,7 +170,10 @@ def check_ml_corpus_license(root: Path) -> GateResult:
             f"corpus root {CORPUS_ROOT_RELATIVE} not present — gate is vacuous "
             "(BR-15 default-deny held)"
         )
-    record_paths = sorted(corpus_root.glob(RECORDS_GLOB))
+    record_paths: list[Path] = []
+    for glob in RECORDS_GLOBS:
+        record_paths.extend(corpus_root.glob(glob))
+    record_paths = sorted(record_paths)
     if not record_paths:
         return pass_gate(
             "no corpus records present yet (T-1404/T-1405 populate); "

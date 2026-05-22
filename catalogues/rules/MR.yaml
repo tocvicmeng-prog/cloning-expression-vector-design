@@ -2085,3 +2085,262 @@ rules:
     proceeding.
   description: "Mismatch between marker concentration in protocol vs database default\
     \ for the host \u2192 flag."
+- rule_id: MR-55
+  predicate_name: mr_55
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-55.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-55 (v0.2 Enrichment Amendment): methylation-aware restriction-enzyme\
+      \ planning. Dam-methylation-blocked enzymes (XbaI, NheI, MboI, ClaI overlapping\
+      \ GATC) on dam+ host DNA HARD; dcm-methylation-blocked enzymes (EcoRII, MvaI,\
+      \ ApyI subset) on dcm+ DNA HARD; DpnI requires dam+ template; DpnII / Sau3AI\
+      \ require dam- template. Catalogue-machine-checkable now that methylation_phenotype\
+      \ is a first-class host field (FR-HOST-13, hosts.schema v1.1). Source rule from\
+      \ REQUIREMENTS.md \xA7 11.6."
+    grade: A3
+    accessed: '2026-05-23'
+    url: https://rebase.neb.com/rebase/rebase.html
+    source_registry_ids:
+    - REBASE
+    - SAMBROOK-4ED-S5
+    - MR
+  last_reviewed: '2026-05-23'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-55.json
+    passing: tests/fixtures/rules/MR/passing/MR-55.json
+  suggested_remediation: Switch the digest plan to methylation-tolerant enzyme isoschizomers
+    (e.g., dam-blocked XbaI \u2192 SpeI; dcm-blocked EcoRII \u2192 PspGI) OR prep
+    the plasmid from a dam-/dcm- host (e.g., GM2163, JM110) before digesting.
+  description: "Methylation-aware restriction-enzyme planning: dam-blocked / dcm-blocked\
+    \ enzyme on methylated DNA, or DpnI/DpnII mis-template, blocks the digest."
+- rule_id: MR-56
+  predicate_name: mr_56
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-56.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-56 (v0.2 Enrichment Amendment): disulfide-aware host selection. Cargo\
+      \ ORF with \u2265 3 predicted disulfide bonds (signal peptide + cytoplasmic\
+      \ / periplasmic target) in a host with disulfide_environment.cytoplasm_state\
+      \ = reducing_default SHOULD suggest Origami(DE3) / Origami B(DE3) / SHuffle\
+      \ T7 (oxidising or shuffle-engineered cytoplasm). Source rule from REQUIREMENTS.md\
+      \ \xA7 11.6."
+    grade: A1
+    accessed: '2026-05-23'
+    pmid: '10590025'
+    source_registry_ids:
+    - BESSETTE-1999
+    - LOBSTEIN-2012
+    - MR
+  last_reviewed: '2026-05-23'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-56.json
+    passing: tests/fixtures/rules/MR/passing/MR-56.json
+  suggested_remediation: Switch to Origami(DE3) (host.ecoli_origami_de3), Origami
+    B(DE3) (host.ecoli_origami_b_de3), or SHuffle T7 (host.ecoli_shuffle_t7) for cytoplasmic
+    disulfide-bond formation; or redirect cargo to the periplasm via pelB / OmpA /
+    DsbA signal peptide.
+  description: "Disulfide-aware host selection: cargo with \u2265 3 disulfide bonds\
+    \ in a reducing-cytoplasm host \u2192 recommend oxidising / shuffle host."
+- rule_id: MR-57
+  predicate_name: mr_57
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-57.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-57 (v0.2 Enrichment Amendment): protease-aware host selection. Cargo\
+      \ ORF with protease-sensitivity motif (PEST sequences, N-end-rule destabilising\
+      \ residues, IUPRED-disordered \u2265 30%) in a host with protease_status.lon\
+      \ = present AND protease_status.ompT = present SHOULD suggest BL21 lineage\
+      \ (lon = deleted, ompT = deleted). Source rule from REQUIREMENTS.md \xA7 11.6."
+    grade: A1
+    accessed: '2026-05-23'
+    pmid: '8902478'
+    source_registry_ids:
+    - GOTTESMAN-1996
+    - MR
+  last_reviewed: '2026-05-23'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-57.json
+    passing: tests/fixtures/rules/MR/passing/MR-57.json
+  suggested_remediation: Switch to a BL21 / Origami B / Rosetta B-strain background
+    (lon-/ompT-) such as host.ecoli_bl21_de3, host.ecoli_bl21_star_de3, host.ecoli_origami_b_de3,
+    or host.ecoli_rosetta_de3 for proteolysis-prone cargo.
+  description: "Protease-aware host selection: protease-sensitive cargo in lon+/ompT+\
+    \ host \u2192 recommend BL21 lineage."
+- rule_id: MR-58
+  predicate_name: mr_58
+  severity: SOFT
+  severity_policy: warn_acknowledge
+  blocks: []
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-58.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-58 (v0.2 Enrichment Amendment): rare-codon-aware host suggestion. Cargo\
+      \ ORF with CAI < 0.5 against host codon table OR windowed 6-codon rare-cluster\
+      \ scan \u2265 2 clusters, in a host with rare_codon_supplementation = [],\
+      \ SHOULD suggest Rosetta(DE3) / Rosetta(DE3)pLysS (supplied tRNAs argU argW\
+      \ ileX glyT leuW proL). Refines existing MR-08 with first-class catalogue check.\
+      \ Source rule from REQUIREMENTS.md \xA7 11.6."
+    grade: A1
+    accessed: '2026-05-23'
+    pmid: '7493997'
+    source_registry_ids:
+    - KANE-1995
+    - MR
+  last_reviewed: '2026-05-23'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-58.json
+    passing: tests/fixtures/rules/MR/passing/MR-58.json
+  suggested_remediation: Switch to host.ecoli_rosetta_de3 or host.ecoli_rosetta_de3_plyss
+    (pRARE-supplied rare-codon tRNAs argU argW ileX glyT leuW proL) for the cargo,
+    or codon-optimise the ORF against the host codon table (CAI target [0.7, 0.95]).
+  description: "Rare-codon-aware host suggestion: rare-codon-heavy cargo in non-supplemented\
+    \ host \u2192 recommend Rosetta lineage."
+- rule_id: MR-59
+  predicate_name: mr_59
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-59.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-59 (v0.2 Enrichment Amendment): marker-host auxotrophic compatibility.\
+      \ A yeast auxotrophic marker (URA3 / LEU2 / HIS3 / TRP1 / MET15 / LYS2) requires\
+      \ the corresponding host_genotype_requirement (e.g., ura3-\u0394) in the host's\
+      \ genotype field. A marker\u2192host mismatch is HARD because no selection\
+      \ pressure exists. Machine-checkable via MarkersCataloguePort.host_genotype_requirement.\
+      \ Source rule from REQUIREMENTS.md \xA7 11.6."
+    grade: A1
+    accessed: '2026-05-23'
+    pmid: '2659436'
+    source_registry_ids:
+    - SIKORSKI-HIETER-1989
+    - BRACHMANN-1998
+    - MR
+  last_reviewed: '2026-05-23'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-59.json
+    passing: tests/fixtures/rules/MR/passing/MR-59.json
+  suggested_remediation: Pick a host whose genotype satisfies the marker's host_genotype_requirement
+    (e.g., URA3 marker \u2192 ura3-52 / ura3-\u0394 host such as host.scerevisiae_by4741,
+    host.scerevisiae_by4742, host.scerevisiae_w303, host.scerevisiae_ah109), or switch
+    to a dominant marker (kanMX, hphMX, natMX, bleMX) that does not require host
+    auxotrophy.
+  description: "Marker-host auxotrophic compatibility: auxotrophic yeast marker requires\
+    \ corresponding host auxotrophy."
+- rule_id: MR-60
+  predicate_name: mr_60
+  severity: HARD
+  severity_policy: block
+  blocks:
+  - BlockCompile
+  reads:
+  - construct
+  - host_context
+  - design_modules
+  depends_on_metrics: []
+  produces_metrics:
+  - metric.mr-60.result
+  invalidates: []
+  preconditions: []
+  target_context: construct
+  external_adapters: []
+  threshold_profile: thresholds.molecular.default
+  citation:
+    text: "MR-60 (v0.2 Enrichment Amendment): yeast two-hybrid marker compatibility.\
+      \ When an AH109 / Y187 / EGY48 strain is in the host context, plasmid markers\
+      \ MUST NOT collide with reporter cassette markers (HIS3 reporter, ADE2, MEL1,\
+      \ lacZ, LEU2 reporter); collision is HARD because the chromosomal reporter\
+      \ would defeat the selection. Machine-checkable via FR-HOST-20 documenting\
+      \ reporter cassettes in expression_features. Source rule from REQUIREMENTS.md\
+      \ \xA7 11.6."
+    grade: A1
+    accessed: '2026-05-23'
+    pmid: '8771697'
+    source_registry_ids:
+    - JAMES-1996
+    - HARPER-1993
+    - ESTOJAK-1995
+    - MR
+  last_reviewed: '2026-05-23'
+  reviewed_by: scientific-advisor
+  implementation_status: stub
+  test_fixtures:
+    triggering: tests/fixtures/rules/MR/triggering/MR-60.json
+    passing: tests/fixtures/rules/MR/passing/MR-60.json
+  suggested_remediation: Use the canonical Y2H bait/prey marker pair (TRP1 on the
+    bait vector, LEU2 on the prey vector for AH109; TRP1/LEU2 for Y187; HIS3 on the
+    prey vector for EGY48) so plasmid markers do not collide with the chromosomal
+    reporter cassette.
+  description: "Y2H marker compatibility: AH109/Y187/EGY48 plasmid markers must not\
+    \ collide with chromosomal reporter cassette."

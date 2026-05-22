@@ -1,0 +1,55 @@
+id: corpus.element.rbs.t7_canonical
+category: rbs
+sequence:
+  bases: AAGAAGGAGATATACATATG
+  topology: linear
+  length_bp: 20
+annotation: []
+provenance:
+  source: primary_literature
+  accession_or_url: https://pubmed.ncbi.nlm.nih.gov/3537305/
+  retrieved_at: '2026-05-23'
+  retrieved_by: T-1405 scientific-advisor curation; canonical consensus sequence from cited primary literature
+  name: Canonical T7 / strong Shine-Dalgarno RBS
+  pmid: '3537305'
+  citation_text: Studier FW, Moffatt BA. 1986 (PMID 3537305) for pET-series T7-RBS layout; canonical SD AGGAGG positioned 8 nt upstream of the
+    AUG.
+  notes: T-1405 modular-element record. SnapGene cross-check pending per BR-16 NORMATIVE.
+license:
+  sequence_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Studier FW, Moffatt BA. 1986 (PMID 3537305) for pET-series T7-RBS layout; canonical SD AGGAGG positioned 8 nt upstream of
+      the AUG.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/3537305/
+    notes: Consensus sequence published in cited primary literature; the sequence is factual and not subject to copyright (Feist v. Rural Telephone).
+      Attribution to the originating paper is requested as scholarly practice but not a legal requirement on the bases.
+  annotation_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Studier FW, Moffatt BA. 1986 (PMID 3537305) for pET-series T7-RBS layout; canonical SD AGGAGG positioned 8 nt upstream of
+      the AUG.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/3537305/
+    notes: Curator-authored annotation overlay; cite as 'CEV Toolkit corpus v0.2 + underlying primary literature (see citation_text).'
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: T7 RBS
+  discrepancy_resolution: 'Cross-check pending. Per BR-16 NORMATIVE this is a human-in-browser step. Curator: open ''T7 RBS'' in browser, visually
+    compare sequence + key annotations against this record''s primary-literature-anchored bases, log result in crosscheck_log.yaml.'
+host_topology:
+  host_class: ecoli
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- translation_initiation
+- bacterial
+checksum:
+  algorithm: sha256
+  value: 50a73f75e517615671e65d45d2cbd7443f2c5cf7b068f0f4eea9eef581fc0582

@@ -81,10 +81,22 @@ def test_t403_every_host_has_required_metadata_and_citation_traceability() -> No
         assert str(item["growth_conditions"]).strip()
         citation = item["citation"]
         assert isinstance(citation, dict)
-        assert "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18" in str(
-            citation["url"]
+        # v0.2 (T-411, T-408a): a host citation is acceptable if it carries EITHER a
+        # KB-document URL anchor (the v0.1.0 form, shared via *cite_*_hosts presets) OR
+        # a PMID anchor (the v0.2 form, used for primary-lit-cited new strain records
+        # such as Origami(DE3) Bessette 1999, BL21(DE3) Studier 1986, AH109 James 1996).
+        # KB-anchored citations must still surface source_registry_ids for traceability.
+        url = str(citation.get("url", ""))
+        pmid = str(citation.get("pmid", "")).strip()
+        kb_anchored = "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18" in url
+        primary_lit_anchored = bool(pmid)
+        assert kb_anchored or primary_lit_anchored, (
+            f"host {item['id']}: citation must carry either KB-URL anchor or PMID anchor"
         )
-        assert citation.get("source_registry_ids")
+        if kb_anchored:
+            assert citation.get("source_registry_ids"), (
+                f"host {item['id']}: KB-anchored citation must list source_registry_ids"
+            )
         maintenance = item["maintenance"]
         assert isinstance(maintenance, dict)
         assert maintenance["review_required_after"] == "2026-11-14"

@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-56",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-56: disulfide-aware host selection. Construct expresses a cargo ORF with 4 predicted disulfide bonds (e.g., scFv with conserved Cys pairs in VL + VH framework) in a reducing-cytoplasm host (BL21(DE3) standard). Expected eventual outcome (Phase 5/6): SOFT warning recommending Origami(DE3) / Origami B(DE3) / SHuffle T7; v0.2 stub returns INFO.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-56.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-414 fixture asserts rule-registry coverage for MR-56. Phase 5/6 replaces stub semantics with executable predicate expectations (disulfide count vs host.disulfide_environment.cytoplasm_state cross-check)."
+  }
+}

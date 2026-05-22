@@ -1,0 +1,56 @@
+id: corpus.element.2a_peptide.p2a
+category: 2a_peptide
+sequence:
+  bases: GCCACAAACTTCTCTCTGCTAAAGCAAGCAGGAGACGTGGAAGAAAACCCCGGCCCC
+  topology: linear
+  length_bp: 57
+annotation: []
+provenance:
+  source: primary_literature
+  accession_or_url: https://pubmed.ncbi.nlm.nih.gov/21909101/
+  retrieved_at: '2026-05-23'
+  retrieved_by: T-1405 scientific-advisor curation; canonical consensus sequence from cited primary literature
+  name: P2A self-cleaving peptide (porcine teschovirus-1)
+  pmid: '21909101'
+  citation_text: Kim JH, Lee SR, Li LH, Park HJ, Park JH, Lee KY, Kim MK, Shin BA, Choi SY. High cleavage efficiency of a 2A peptide derived from
+    porcine teschovirus-1 in human cell lines, zebrafish and mice. PLoS One. 2011;6(4):e18556.
+  notes: T-1405 modular-element record. SnapGene cross-check pending per BR-16 NORMATIVE.
+license:
+  sequence_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Kim JH, Lee SR, Li LH, Park HJ, Park JH, Lee KY, Kim MK, Shin BA, Choi SY. High cleavage efficiency of a 2A peptide derived
+      from porcine teschovirus-1 in human cell lines, zebrafish and mice. PLoS One. 2011;6(4):e18556.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/21909101/
+    notes: Consensus sequence published in cited primary literature; the sequence is factual and not subject to copyright (Feist v. Rural Telephone).
+      Attribution to the originating paper is requested as scholarly practice but not a legal requirement on the bases.
+  annotation_license:
+    spdx_id: primary-literature-public-record
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: true
+    attribution_text: Kim JH, Lee SR, Li LH, Park HJ, Park JH, Lee KY, Kim MK, Shin BA, Choi SY. High cleavage efficiency of a 2A peptide derived
+      from porcine teschovirus-1 in human cell lines, zebrafish and mice. PLoS One. 2011;6(4):e18556.
+    commercial_use_allowed: true
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/21909101/
+    notes: Curator-authored annotation overlay; cite as 'CEV Toolkit corpus v0.2 + underlying primary literature (see citation_text).'
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: P2A
+  discrepancy_resolution: 'Cross-check pending. Per BR-16 NORMATIVE this is a human-in-browser step. Curator: open ''P2A'' in browser, visually
+    compare sequence + key annotations against this record''s primary-literature-anchored bases, log result in crosscheck_log.yaml.'
+host_topology:
+  host_class: mammalian
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- polycistronic_expression
+- self_cleaving
+- high_cleavage_efficiency
+checksum:
+  algorithm: sha256
+  value: 3177d25d94ea99fc576db590bc39a6b0953d5c9c7a8bcf8b817fda1fbbf3f1f0

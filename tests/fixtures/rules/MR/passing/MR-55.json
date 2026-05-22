@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-55",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-55: methylation-aware restriction-enzyme planning. Construct describes a SpeI digest (methylation-insensitive isoschizomer of XbaI) on plasmid DNA from a dam+ host; no methylation-blocked enzyme is in the plan. v0.2 stub returns INFO.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-55.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-414 fixture asserts rule-registry coverage for MR-55. Phase 5/6 replaces stub semantics with executable predicate expectations (digest plan vs host.methylation_phenotype cross-check)."
+  }
+}

@@ -42,9 +42,12 @@ def test_container_build_plan_uses_pinned_release_image_inputs() -> None:
 def test_release_notes_template_renders_from_task_manifest() -> None:
     rendered = render_release_notes.render_release_notes(ROOT)
 
-    assert "Cloning Expression Vector Design 0.1.0 Release Notes" in rendered
-    assert "71 active implementation task cards" in rendered
-    assert "ending at T-1303" in rendered
+    # v0.2 Enrichment Amendment (2026-05-23): title gained "&" + "Toolkit" suffix;
+    # task count bumped 71 → 92 (Phase 4.2 + Phase 14 cards landed); end-of-agenda
+    # task moved T-1303 → T-1411. See render_release_notes.py + docs/task_manifest.yaml.
+    assert "Cloning & Expression Vector Design Toolkit 0.1.0 Release Notes" in rendered
+    assert "92 active implementation task cards" in rendered
+    assert "ending at T-1411" in rendered
     assert "100-realisation combinatorial-library benchmark" in rendered
 
 

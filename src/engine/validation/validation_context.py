@@ -14,6 +14,7 @@ from dataclasses import dataclass, field
 
 from domain.types.ids import MetricId
 from domain.types.validation_rule import ValidationRule
+from engine.markers_resolver import MarkersResolver
 
 
 class MissingValidationMetricError(KeyError):
@@ -27,6 +28,13 @@ class ValidationContext:
     threshold_profile: str = "thresholds.default"
     derivation_environment_hash: str | None = None
     random_seed: int = 0
+    # v0.2 Enrichment Amendment (T-413, ARCHITECTURE.md § 9.2): optional resolver
+    # over MarkersCataloguePort. Predicates in this v0.2 stage are stubs returning
+    # Severity.INFO (see src/engine/validation/predicates/mr.py), so a None
+    # resolver is the documented v0.1.0 baseline behaviour. Phase 5/6 promotes
+    # the MR-55..60 stubs to real predicates that read marker payloads via this
+    # resolver (concentration, host_genotype_requirement, etc.).
+    markers_resolver: MarkersResolver | None = None
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "design_payload", dict(self.design_payload))

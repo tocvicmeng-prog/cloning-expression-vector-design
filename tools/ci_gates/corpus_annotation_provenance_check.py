@@ -29,10 +29,13 @@ import re
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 from tools.ci_gates._gate import GateResult, fail_gate, pass_gate, run_gate
 
 CORPUS_ROOT_RELATIVE = "docs/ml_corpus"
-RECORDS_GLOB = "records/**/*.json"
+# v0.2 T-1404: T-1404 lands YAML records; JSON also accepted.
+RECORDS_GLOBS = ("records/**/*.yaml", "records/**/*.yml", "records/**/*.json")
 
 # Vendor-manual phrasing patterns. These are heuristic — they target text patterns
 # that are common in vendor manuals but NOT in primary scientific literature. False
@@ -61,9 +64,15 @@ def _scan_record(path: Path, root: Path) -> list[str]:
     """Return findings for one corpus record."""
     rel = path.relative_to(root).as_posix()
     try:
-        record = json.loads(path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, UnicodeDecodeError):
+        text = path.read_text(encoding="utf-8")
+        if path.suffix.lower() in {".yaml", ".yml"}:
+            record = yaml.safe_load(text)
+        else:
+            record = json.loads(text)
+    except (yaml.YAMLError, json.JSONDecodeError, UnicodeDecodeError):
         return []  # malformed records are caught by ml-corpus-license-check (T-1403)
+    if not isinstance(record, dict):
+        return []
     record_id = str(record.get("id", "<unknown>"))
     findings: list[str] = []
     annotations = record.get("annotation", [])
@@ -97,7 +106,10 @@ def check_corpus_annotation_provenance(root: Path) -> GateResult:
         return pass_gate(
             f"corpus root {CORPUS_ROOT_RELATIVE} not present — gate is vacuous"
         )
-    record_paths = sorted(corpus_root.glob(RECORDS_GLOB))
+    record_paths: list[Path] = []
+    for glob in RECORDS_GLOBS:
+        record_paths.extend(corpus_root.glob(glob))
+    record_paths = sorted(record_paths)
     if not record_paths:
         return pass_gate("no corpus records present yet — gate vacuous at v0.2")
     findings: list[str] = []

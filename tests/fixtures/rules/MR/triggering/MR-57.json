@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-57",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-57: protease-aware host selection. Construct expresses a cargo ORF with a PEST sequence (or N-end-rule destabilising N-terminal residue, or IUPRED-disordered ≥ 30% content) in DH5alpha (lon+ ompT+). Expected eventual outcome (Phase 5/6): SOFT warning recommending BL21 lineage (lon- ompT-); v0.2 stub returns INFO.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-57.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-414 fixture asserts rule-registry coverage for MR-57. Phase 5/6 replaces stub semantics with executable predicate expectations (protease motif scan vs host.protease_status cross-check)."
+  }
+}

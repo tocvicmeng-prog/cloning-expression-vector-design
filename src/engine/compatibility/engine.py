@@ -29,6 +29,7 @@ from engine.compatibility.threshold_resolution import (
     HostThresholdProfile,
     resolve_threshold_profile,
 )
+from engine.markers_resolver import MarkersResolver
 
 
 @dataclass(frozen=True)
@@ -118,6 +119,14 @@ class CompatibilityChecker:
     constraints: Mapping[HostRole, HostCompatibilityConstraints] = field(default_factory=dict)
     threshold_profiles: Mapping[str, HostThresholdProfile] = field(default_factory=dict)
     threshold_profile: str = "thresholds.default"
+    # v0.2 Enrichment Amendment (T-412, ARCHITECTURE.md § 9.2): optional resolver
+    # over MarkersCataloguePort. Present-day check() does not consume marker
+    # metadata — it only compares marker-id sets against host.compatible_markers —
+    # so a None resolver is the documented v0.1.0 baseline behaviour. Phase 5/6
+    # MR-55..60 predicate enrichment will resolve marker payloads via this field
+    # to surface concentrations, host_genotype_requirement, and citations in
+    # error messages and suggested-remediation strings.
+    markers_resolver: MarkersResolver | None = None
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "host_catalogue", dict(self.host_catalogue))

@@ -62,13 +62,29 @@ items:
     chassis_class: "bacterial"
     source_section: "6"
     host_roles: ["cloning_propagation", "storage"]
-    genotype: "recA-, endA- propagation strain; verify supplier genotype."
+    genotype: "F- endA1 glnV44 thi-1 recA1 relA1 gyrA96 deoR nupG purB20 phi80dlacZΔM15 Δ(lacZYA-argF)U169 hsdR17(rK-mK+) lambda-"
     supplier_reference: "common commercial cloning strain; verify supplier lot."
     replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
     expression_features: ["high-quality miniprep", "general propagation"]
     codon_usage_table_id: "ecoli_k12"
     growth_conditions: "standard E. coli propagation conditions per institution SOP"
     biosafety_tier: "BSL-1"
+    t7_lysogen: false
+    protease_status: {lon: "present", ompT: "present"}
+    disulfide_environment: {cytoplasm_state: "reducing_default", trxB_status: "wt", gor_status: "wt"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "none"
+    recombination_phenotype: {recA: "deleted", endA: "deleted", recBCD_status: "wt"}
+    methylation_phenotype: {dam: "wt", dcm: "wt", hsdRMS: "K12_pattern"}
+    recommended_selection_markers: ["marker.ampicillin", "marker.kanamycin", "marker.chloramphenicol", "marker.tetracycline", "marker.spectinomycin"]
+    vendor_strain_refs:
+      - vendor: "Thermo Fisher / Invitrogen"
+        catalogue_id: "18258012"
+        accessed: "2026-05-23"
+      - vendor: "NEB"
+        catalogue_id: "C2987H"
+        accessed: "2026-05-23"
     citation: *cite_bacterial_hosts
     maintenance: *item_maintenance
   - id: "host.ecoli_top10"
@@ -76,13 +92,26 @@ items:
     chassis_class: "bacterial"
     source_section: "6"
     host_roles: ["cloning_propagation", "storage"]
-    genotype: "recA-, endA- cloning strain; verify supplier genotype."
-    supplier_reference: "common commercial cloning strain; verify supplier lot."
+    genotype: "F- mcrA Δ(mrr-hsdRMS-mcrBC) phi80lacZΔM15 ΔlacX74 recA1 araD139 Δ(ara-leu)7697 galU galK rpsL(StrR) endA1 nupG"
+    supplier_reference: "Thermo Fisher / Invitrogen TOP10 chemically competent or equivalent; verify supplier lot."
     replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
     expression_features: ["general cloning", "high transformation efficiency"]
     codon_usage_table_id: "ecoli_k12"
     growth_conditions: "standard E. coli propagation conditions per institution SOP"
     biosafety_tier: "BSL-1"
+    t7_lysogen: false
+    protease_status: {lon: "present", ompT: "present"}
+    disulfide_environment: {cytoplasm_state: "reducing_default", trxB_status: "wt", gor_status: "wt"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "none"
+    recombination_phenotype: {recA: "deleted", endA: "deleted", recBCD_status: "wt"}
+    methylation_phenotype: {dam: "wt", dcm: "wt", hsdRMS: "deleted"}
+    recommended_selection_markers: ["marker.ampicillin", "marker.kanamycin", "marker.chloramphenicol", "marker.tetracycline", "marker.spectinomycin"]
+    vendor_strain_refs:
+      - vendor: "Thermo Fisher / Invitrogen"
+        catalogue_id: "C404010"
+        accessed: "2026-05-23"
     citation: *cite_bacterial_hosts
     maintenance: *item_maintenance
   - id: "host.ecoli_xl1_blue"
@@ -90,13 +119,26 @@ items:
     chassis_class: "bacterial"
     source_section: "6"
     host_roles: ["cloning_propagation", "storage"]
-    genotype: "recA-, endA- cloning strain with F-prime context; verify supplier genotype."
-    supplier_reference: "common commercial cloning strain; verify supplier lot."
+    genotype: "recA1 endA1 gyrA96 thi-1 hsdR17 supE44 relA1 lac [F' proAB lacIqZΔM15 Tn10 (TetR)]"
+    supplier_reference: "Agilent / Stratagene XL1-Blue or equivalent; verify supplier lot."
     replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
-    expression_features: ["blue-white screening support", "general propagation"]
+    expression_features: ["blue-white screening support", "general propagation", "lacIq for IPTG-inducible vectors", "tetracycline resistance from F' Tn10"]
     codon_usage_table_id: "ecoli_k12"
-    growth_conditions: "standard E. coli propagation conditions per institution SOP"
+    growth_conditions: "standard E. coli propagation conditions; 12.5 ug/mL tetracycline maintains F' selection per institution SOP"
     biosafety_tier: "BSL-1"
+    t7_lysogen: false
+    protease_status: {lon: "present", ompT: "present"}
+    disulfide_environment: {cytoplasm_state: "reducing_default", trxB_status: "wt", gor_status: "wt"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "none"
+    recombination_phenotype: {recA: "deleted", endA: "deleted", recBCD_status: "wt"}
+    methylation_phenotype: {dam: "wt", dcm: "wt", hsdRMS: "K12_pattern"}
+    recommended_selection_markers: ["marker.ampicillin", "marker.kanamycin", "marker.chloramphenicol", "marker.spectinomycin"]
+    vendor_strain_refs:
+      - vendor: "Agilent / Stratagene"
+        catalogue_id: "200249"
+        accessed: "2026-05-23"
     citation: *cite_bacterial_hosts
     maintenance: *item_maintenance
   - id: "host.ecoli_jm109"
@@ -104,13 +146,26 @@ items:
     chassis_class: "bacterial"
     source_section: "6"
     host_roles: ["cloning_propagation", "storage"]
-    genotype: "recA-, endA- cloning strain; verify supplier genotype."
-    supplier_reference: "common commercial cloning strain; verify supplier lot."
+    genotype: "F'[traD36 proAB+ lacIq lacZΔM15] e14-(McrA-) Δ(lac-proAB) thi gyrA96 (NalR) endA1 hsdR17(rK- mK+) relA1 supE44 recA1"
+    supplier_reference: "Promega JM109 or equivalent; verify supplier lot."
     replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
-    expression_features: ["general cloning", "blue-white screening support"]
+    expression_features: ["general cloning", "blue-white screening support", "single-stranded phage rescue via F'", "lacIq for IPTG-inducible vectors"]
     codon_usage_table_id: "ecoli_k12"
     growth_conditions: "standard E. coli propagation conditions per institution SOP"
     biosafety_tier: "BSL-1"
+    t7_lysogen: false
+    protease_status: {lon: "present", ompT: "present"}
+    disulfide_environment: {cytoplasm_state: "reducing_default", trxB_status: "wt", gor_status: "wt"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "none"
+    recombination_phenotype: {recA: "deleted", endA: "deleted", recBCD_status: "wt"}
+    methylation_phenotype: {dam: "wt", dcm: "wt", hsdRMS: "K12_pattern"}
+    recommended_selection_markers: ["marker.ampicillin", "marker.kanamycin", "marker.chloramphenicol", "marker.tetracycline", "marker.spectinomycin"]
+    vendor_strain_refs:
+      - vendor: "Promega"
+        catalogue_id: "L1001"
+        accessed: "2026-05-23"
     citation: *cite_bacterial_hosts
     maintenance: *item_maintenance
   - id: "host.ecoli_stbl3"
@@ -118,13 +173,26 @@ items:
     chassis_class: "bacterial"
     source_section: "6"
     host_roles: ["cloning_propagation", "storage"]
-    genotype: "repeat-tolerant cloning strain; verify supplier genotype."
-    supplier_reference: "commercial stable-cloning strain; verify supplier lot."
+    genotype: "F- mcrB mrr hsdS20(rB-, mB-) recA13 supE44 ara-14 galK2 lacY1 proA2 rpsL20 (StrR) xyl-5 lambda- leu mtl-1"
+    supplier_reference: "Thermo Fisher / Invitrogen One Shot Stbl3 chemically competent or equivalent; verify supplier lot."
     replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101", "F"]
-    expression_features: ["repeat-tolerant propagation", "lentiviral LTR-containing construct support"]
+    expression_features: ["repeat-tolerant propagation via recA13", "lentiviral LTR-containing construct support", "retroviral / AAV vector propagation"]
     codon_usage_table_id: "ecoli_k12"
-    growth_conditions: "standard stable-cloning conditions per institution SOP"
+    growth_conditions: "standard stable-cloning conditions; 30 C reduced-temperature growth often used to suppress unstable-insert recombination per institution SOP"
     biosafety_tier: "BSL-1"
+    t7_lysogen: false
+    protease_status: {lon: "present", ompT: "present"}
+    disulfide_environment: {cytoplasm_state: "reducing_default", trxB_status: "wt", gor_status: "wt"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "none"
+    recombination_phenotype: {recA: "deleted", endA: "wt", recBCD_status: "wt"}
+    methylation_phenotype: {dam: "wt", dcm: "wt", hsdRMS: "deleted"}
+    recommended_selection_markers: ["marker.ampicillin", "marker.kanamycin", "marker.chloramphenicol", "marker.tetracycline", "marker.spectinomycin"]
+    vendor_strain_refs:
+      - vendor: "Thermo Fisher / Invitrogen"
+        catalogue_id: "C737303"
+        accessed: "2026-05-23"
     citation: *cite_bacterial_hosts
     maintenance: *item_maintenance
   - id: "host.ecoli_stbl4"
@@ -217,14 +285,37 @@ items:
     chassis_class: "bacterial"
     source_section: "6"
     host_roles: ["expression"]
-    genotype: "DE3 lysogen T7 RNA polymerase host; verify supplier genotype."
-    supplier_reference: "common commercial expression strain; verify supplier lot."
+    genotype: "F- ompT hsdSB(rB-, mB-) gal dcm (DE3 [lambda lacUV5-T7p07 ind1 sam7 nin5 lacI lacZ])"
+    supplier_reference: "common commercial expression strain (NEB, Novagen, Sigma-Aldrich); verify supplier lot."
     replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
-    expression_features: ["DE3 lysogen", "T7 expression"]
+    expression_features: ["DE3 lysogen with T7 RNAP under lacUV5", "B-strain proteolysis-low (lon-/ompT-)", "T7 expression workhorse"]
     codon_usage_table_id: "ecoli_b"
     growth_conditions: "standard E. coli expression conditions per institution SOP"
     biosafety_tier: "BSL-1"
-    citation: *cite_bacterial_hosts
+    t7_lysogen: true
+    protease_status: {lon: "deleted", ompT: "deleted"}
+    disulfide_environment: {cytoplasm_state: "reducing_default", trxB_status: "wt", gor_status: "wt"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "none"
+    recombination_phenotype: {recA: "wt", endA: "wt", recBCD_status: "wt"}
+    methylation_phenotype: {dam: "wt", dcm: "deleted", hsdRMS: "B_pattern"}
+    recommended_selection_markers: ["marker.ampicillin", "marker.kanamycin", "marker.chloramphenicol", "marker.tetracycline", "marker.spectinomycin"]
+    vendor_strain_refs:
+      - vendor: "NEB"
+        catalogue_id: "C2527H"
+        accessed: "2026-05-23"
+      - vendor: "Novagen / Merck Millipore"
+        catalogue_id: "69450"
+        accessed: "2026-05-23"
+      - vendor: "Sigma-Aldrich"
+        catalogue_id: "CMC0014"
+        accessed: "2026-05-23"
+    citation:
+      text: "Studier and Moffatt 1986 (J Mol Biol 189:113-130) for the BL21(DE3) lambdaDE3 lysogen design."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "3537305"
     maintenance: *item_maintenance
   - id: "host.ecoli_bl21_star_de3"
     name: "E. coli BL21 Star(DE3)"
@@ -296,20 +387,13 @@ items:
     biosafety_tier: "BSL-1"
     citation: *cite_bacterial_hosts
     maintenance: *item_maintenance
-  - id: "host.ecoli_origami_de3"
-    name: "E. coli Origami(DE3)"
-    chassis_class: "bacterial"
-    source_section: "6"
-    host_roles: ["expression"]
-    genotype: "DE3 lysogen with oxidative cytoplasm; verify supplier genotype."
-    supplier_reference: "commercial Origami(DE3) or equivalent; verify supplier lot."
-    replicons_supported: ["ColE1", "pMB1", "p15A", "pSC101"]
-    expression_features: ["DE3 lysogen", "oxidative cytoplasm", "disulfide-supporting expression"]
-    codon_usage_table_id: "ecoli_b"
-    growth_conditions: "standard E. coli expression conditions per institution SOP"
-    biosafety_tier: "BSL-1"
-    citation: *cite_bacterial_hosts
-    maintenance: *item_maintenance
+  # Note: host.ecoli_origami_de3 v1.0 stub previously located here has been superseded
+  # by the fully-enriched T-411 v1.1 record below (see line ~"v0.2 Enrichment Amendment new
+  # strain records" block). The earlier stub used the placeholder ecoli_b codon table and
+  # incomplete genotype; the v1.1 record carries the full Bessette 1999 (PMID 10570136)
+  # genotype + phenotype + Novagen 70203 vendor reference. T-408a (2026-05-23) removed the
+  # stub to eliminate the duplicate id; downstream catalogue loaders previously surfaced a
+  # last-write-wins ambiguity.
   - id: "host.ecoli_shuffle_t7"
     name: "E. coli SHuffle T7"
     chassis_class: "bacterial"
@@ -373,12 +457,25 @@ items:
     source_section: "6"
     host_roles: ["expression"]
     genotype: "not applicable; purified reconstituted translation system."
-    supplier_reference: "commercial or in-house PURE preparation; verify lot."
+    supplier_reference: "commercial PURE preparation (NEB PURExpress E6800S, GeneFrontier PUREfrex) or in-house; verify lot."
     replicons_supported: ["linear DNA", "circular DNA"]
-    expression_features: ["T7 expression", "native E. coli promoter support depends on extract design"]
+    expression_features: ["T7 expression", "native E. coli promoter support depends on extract design", "no cellular proteases (reconstituted from purified components)", "no cellular methylation"]
     codon_usage_table_id: "cell_free_ecoli"
     growth_conditions: "not applicable; in vitro expression context"
     biosafety_tier: "BSL-1"
+    t7_lysogen: null
+    protease_status: {lon: "null", ompT: "null"}
+    disulfide_environment: {cytoplasm_state: "null", trxB_status: "null", gor_status: "null"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "null"
+    recombination_phenotype: {recA: "null", endA: "null", recBCD_status: "null"}
+    methylation_phenotype: {dam: "null", dcm: "null", hsdRMS: "null"}
+    recommended_selection_markers: []
+    vendor_strain_refs:
+      - vendor: "NEB"
+        catalogue_id: "E6800S"
+        accessed: "2026-05-23"
     citation: *cite_cell_free_hosts
     maintenance: *item_maintenance
   - id: "host.cell_free_s30"
@@ -1059,9 +1156,10 @@ items:
         catalogue_id: "70956"
         accessed: "2026-05-23"
     citation:
-      text: "Novagen pET System manual TB055 (current edition); Kane 1995 PMID 7493997 for rare-codon supplementation rationale."
+      text: "Novagen pET System manual TB055 (current edition); Kane 1995 (PMID 7493997) for rare-codon supplementation rationale."
       grade: "B2"
       accessed: "2026-05-23"
+      pmid: "7493997"
     maintenance: *item_maintenance
   - id: "host.kphaffii_pichiapink_series"
     name: "Komagataella phaffii (Pichia pastoris) PichiaPink series (PP1-PP4)"

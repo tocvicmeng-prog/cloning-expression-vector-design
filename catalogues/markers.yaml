@@ -21,6 +21,7 @@ citation_presets:
     text: "Sambrook & Russell, Molecular Cloning: A Laboratory Manual 4th ed. (CSHL Press, 2001), Appendix A1."
     grade: "B2"
     accessed: "2026-05-23"
+    url: "https://www.cshlpress.com/default.tpl?cart=1748050000&fromlink=T&linkaction=full&linksortby=oop_title&--eqSKUdatarq=909"
 items:
   # ----- Bacterial antibiotic markers (9) -----
   - id: "marker.ampicillin"
@@ -102,9 +103,10 @@ items:
     incompatibilities: ["light degradation", "chelation by divalent cations in MgSO4-rich media"]
     use_cases: ["pBR322", "pACYC184", "pSC101 derivatives"]
     citation:
-      text: "Sambrook 4th ed. Appendix A1 + Bertrand et al. 1983 mechanism."
+      text: "Sambrook 4th ed. Appendix A1 + Bertrand et al. 1983 mechanism (PMID 6308638)."
       grade: "B2"
       accessed: "2026-05-23"
+      pmid: "6308638"
     maintenance: *item_maintenance
   - id: "marker.spectinomycin"
     name: "Spectinomycin / Streptomycin (aadA, Tn7)"
@@ -505,9 +507,10 @@ items:
         medium: "YPD-S (low salt)"
         notes: "Multicopy integration in Pichia: stepwise selection at 100, 250, 500, 1000 μg/mL Zeocin yields strains with progressively higher copy numbers (per Invitrogen Pichia kit)."
         citation:
-          text: "Invitrogen Pichia Expression Kit K1710 user manual (current edition)."
+          text: "Invitrogen Pichia Expression Kit K1710 user manual (current edition); see also Higgins & Cregg 1998 (PMID 9437891) for the underlying Pichia-Zeocin multicopy-integration framework."
           grade: "B2"
           accessed: "2026-05-23"
+          pmid: "9437891"
     incompatibilities: ["high-NaCl media quench activity"]
     use_cases: ["pAG31 (BleMX cassette)", "pPICZ-α-A (Pichia)", "pPICZ-B"]
     citation:
@@ -609,9 +612,10 @@ items:
         medium: "DMEM / RPMI"
         notes: "Mammalian concentrations are 10-30× higher than bacterial (50 μg/mL); kill curve mandatory per cell line. CHO often 400-800 μg/mL; HEK293 600-1000 μg/mL."
         citation:
-          text: "Sambrook 4th ed. Appendix A1 + cell-line-specific standard practice."
+          text: "Sambrook 4th ed. Appendix A1 + Davies & Jimenez 1980 (PMID 6244295) for the G418/aph(3') mammalian-context concentration framework; cell-line-specific kill-curve practice."
           grade: "B2"
           accessed: "2026-05-23"
+          pmid: "6244295"
     incompatibilities: []
     use_cases: ["pcDNA3.1/Neo", "pBABE-neo", "lentiviral neo cassettes"]
     citation: *cite_sambrook_a1

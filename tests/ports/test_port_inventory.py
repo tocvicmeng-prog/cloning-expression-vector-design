@@ -90,7 +90,10 @@ def test_all_manifest_ports_exist_as_protocols() -> None:
     manifest_names = set(_manifest_port_names())
     declared_names = _declared_protocol_names()
     assert declared_names == manifest_names
-    assert len(declared_names) == 50
+    # v0.2 Enrichment Amendment (2026-05-23, T-409): canonical-port count bumped
+    # 50 → 51 by the addition of MarkersCataloguePort. See ARCHITECTURE.md § 9.2
+    # and docs/port_manifest.yaml (canonical_port_count: 51).
+    assert len(declared_names) == 51
     assert all(getattr(getattr(ports, name), "_is_protocol", False) for name in manifest_names)
 
 

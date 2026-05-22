@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-58",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-58: rare-codon-aware host suggestion. Construct expresses an unoptimised eukaryotic cargo ORF (mammalian source) with CAI < 0.5 against the E. coli K12 codon table AND 3 windowed 6-codon rare-cluster hits, in DH5alpha (rare_codon_supplementation = []). Expected eventual outcome (Phase 5/6): SOFT warning recommending Rosetta(DE3); v0.2 stub returns INFO.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-58.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-414 fixture asserts rule-registry coverage for MR-58. Phase 5/6 replaces stub semantics with executable predicate expectations (CAI + rare-cluster scan vs host.rare_codon_supplementation cross-check)."
+  }
+}

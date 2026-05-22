@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-57",
+  "__fixture_kind__": "passing",
+  "__rationale__": "Passing fixture for MR-57: protease-aware host selection. Construct expresses the same protease-sensitive cargo in BL21(DE3) (lon- ompT-); proteolysis-low background. v0.2 stub returns INFO.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-57.passing",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-414 fixture asserts rule-registry coverage for MR-57. Phase 5/6 replaces stub semantics with executable predicate expectations (protease motif scan vs host.protease_status cross-check)."
+  }
+}

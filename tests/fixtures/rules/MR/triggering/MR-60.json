@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-60",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-60: yeast two-hybrid marker compatibility. Construct uses an AH109 host (HIS3, ADE2, MEL1, lacZ chromosomal reporters) with a plasmid carrying HIS3 as the selection marker — collision with the HIS3 chromosomal reporter cassette defeats the bait/prey selection logic. Expected eventual outcome (Phase 5/6): HARD block; v0.2 stub returns INFO.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-60.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-414 fixture asserts rule-registry coverage for MR-60. Phase 5/6 replaces stub semantics with executable predicate expectations (plasmid markers vs host.expression_features Y2H reporter cassette set)."
+  }
+}

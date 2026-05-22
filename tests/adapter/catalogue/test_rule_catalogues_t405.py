@@ -18,7 +18,7 @@ from tools.ci_gates.implementation_status_consistency_check import check_impleme
 from tools.ci_gates.rule_fixture_coverage_check import check_rule_fixtures
 
 ROOT = Path(__file__).resolve().parents[3]
-EXPECTED_COUNTS = {"MR": 54, "WR": 30, "SR": 17, "BR": 14, "MS": 7}
+EXPECTED_COUNTS = {"MR": 60, "WR": 30, "SR": 17, "BR": 14, "MS": 7}
 RULE_FILES = ("MR.yaml", "WR.yaml", "SR.yaml", "BR.yaml", "MS.yaml")
 
 

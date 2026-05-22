@@ -1,0 +1,408 @@
+id: corpus.backbone.ecoli.pbr322
+category: backbone
+sequence:
+  bases: TTCTCATGTTTGACAGCTTATCATCGATAAGCTTTAATGCGGTAGTTTATCACAGTTAAATTGCTAACGCAGTCAGGCACCGTGTATGAAATCTAACAATGCGCTCATCGTCATCCTCGGCACCGTCACCCTGGATGCTGTAGGCATAGGCTTGGTTATGCCGGTACTGCCGGGCCTCTTGCGGGATATCGTCCATTCCGACAGCATCGCCAGTCACTATGGCGTGCTGCTAGCGCTATATGCGTTGATGCAATTTCTATGCGCACCCGTTCTCGGAGCACTGTCCGACCGCTTTGGCCGCCGCCCAGTCCTGCTCGCTTCGCTACTTGGAGCCACTATCGACTACGCGATCATGGCGACCACACCCGTCCTGTGGATCCTCTACGCCGGACGCATCGTGGCCGGCATCACCGGCGCCACAGGTGCGGTTGCTGGCGCCTATATCGCCGACATCACCGATGGGGAAGATCGGGCTCGCCACTTCGGGCTCATGAGCGCTTGTTTCGGCGTGGGTATGGTGGCAGGCCCCGTGGCCGGGGGACTGTTGGGCGCCATCTCCTTGCATGCACCATTCCTTGCGGCGGCGGTGCTCAACGGCCTCAACCTACTACTGGGCTGCTTCCTAATGCAGGAGTCGCATAAGGGAGAGCGTCGACCGATGCCCTTGAGAGCCTTCAACCCAGTCAGCTCCTTCCGGTGGGCGCGGGGCATGACTATCGTCGCCGCACTTATGACTGTCTTCTTTATCATGCAACTCGTAGGACAGGTGCCGGCAGCGCTCTGGGTCATTTTCGGCGAGGACCGCTTTCGCTGGAGCGCGACGATGATCGGCCTGTCGCTTGCGGTATTCGGAATCTTGCACGCCCTCGCTCAAGCCTTCGTCACTGGTCCCGCCACCAAACGTTTCGGCGAGAAGCAGGCCATTATCGCCGGCATGGCGGCCGACGCGCTGGGCTACGTCTTGCTGGCGTTCGCGACGCGAGGCTGGATGGCCTTCCCCATTATGATTCTTCTCGCTTCCGGCGGCATCGGGATGCCCGCGTTGCAGGCCATGCTGTCCAGGCAGGTAGATGACGACCATCAGGGACAGCTTCAAGGATCGCTCGCGGCTCTTACCAGCCTAACTTCGATCACTGGACCGCTGATCGTCACGGCGATTTATGCCGCCTCGGCGAGCACATGGAACGGGTTGGCATGGATTGTAGGCGCCGCCCTATACCTTGTCTGCCTCCCCGCGTTGCGTCGCGGTGCATGGAGCCGGGCCACCTCGACCTGAATGGAAGCCGGCGGCACCTCGCTAACGGATTCACCACTCCAAGAATTGGAGCCAATCAATTCTTGCGGAGAACTGTGAATGCGCAAACCAACCCTTGGCAGAACATATCCATCGCGTCCGCCATCTCCAGCAGCCGCACGCGGCGCATCTCGGGCAGCGTTGGGTCCTGGCCACGGGTGCGCATGATCGTGCTCCTGTCGTTGAGGACCCGGCTAGGCTGGCGGGGTTGCCTTACTGGTTAGCAGAATGAATCACCGATACGCGAGCGAACGTGAAGCGACTGCTGCTGCAAAACGTCTGCGACCTGAGCAACAACATGAATGGTCTTCGGTTTCCGTGTTTCGTAAAGTCTGGAAACGCGGAAGTCAGCGCCCTGCACCATTATGTTCCGGATCTGCATCGCAGGATGCTGCTGGCTACCCTGTGGAACACCTACATCTGTATTAACGAAGCGCTGGCATTGACCCTGAGTGATTTTTCTCTGGTCCCGCCGCATCCATACCGCCAGTTGTTTACCCTCACAACGTTCCAGTAACCGGGCATGTTCATCATCAGTAACCCGTATCGTGAGCATCCTCTCTCGTTTCATCGGTATCATTACCCCCATGAACAGAAATCCCCCTTACACGGAGGCATCAGTGACCAAACAGGAAAAAACCGCCCTTAACATGGCCCGCTTTATCAGAAGCCAGACATTAACGCTTCTGGAGAAACTCAACGAGCTGGACGCGGATGAACAGGCAGACATCTGTGAATCGCTTCACGACCACGCTGATGAGCTTTACCGCAGCTGCCTCGCGCGTTTCGGTGATGACGGTGAAAACCTCTGACACATGCAGCTCCCGGAGACGGTCACAGCTTGTCTGTAAGCGGATGCCGGGAGCAGACAAGCCCGTCAGGGCGCGTCAGCGGGTGTTGGCGGGTGTCGGGGCGCAGCCATGACCCAGTCACGTAGCGATAGCGGAGTGTATACTGGCTTAACTATGCGGCATCAGAGCAGATTGTACTGAGAGTGCACCATATGCGGTGTGAAATACCGCACAGATGCGTAAGGAGAAAATACCGCATCAGGCGCTCTTCCGCTTCCTCGCTCACTGACTCGCTGCGCTCGGTCGTTCGGCTGCGGCGAGCGGTATCAGCTCACTCAAAGGCGGTAATACGGTTATCCACAGAATCAGGGGATAACGCAGGAAAGAACATGTGAGCAAAAGGCCAGCAAAAGGCCAGGAACCGTAAAAAGGCCGCGTTGCTGGCGTTTTTCCATAGGCTCCGCCCCCCTGACGAGCATCACAAAAATCGACGCTCAAGTCAGAGGTGGCGAAACCCGACAGGACTATAAAGATACCAGGCGTTTCCCCCTGGAAGCTCCCTCGTGCGCTCTCCTGTTCCGACCCTGCCGCTTACCGGATACCTGTCCGCCTTTCTCCCTTCGGGAAGCGTGGCGCTTTCTCATAGCTCACGCTGTAGGTATCTCAGTTCGGTGTAGGTCGTTCGCTCCAAGCTGGGCTGTGTGCACGAACCCCCCGTTCAGCCCGACCGCTGCGCCTTATCCGGTAACTATCGTCTTGAGTCCAACCCGGTAAGACACGACTTATCGCCACTGGCAGCAGCCACTGGTAACAGGATTAGCAGAGCGAGGTATGTAGGCGGTGCTACAGAGTTCTTGAAGTGGTGGCCTAACTACGGCTACACTAGAAGGACAGTATTTGGTATCTGCGCTCTGCTGAAGCCAGTTACCTTCGGAAAAAGAGTTGGTAGCTCTTGATCCGGCAAACAAACCACCGCTGGTAGCGGTGGTTTTTTTGTTTGCAAGCAGCAGATTACGCGCAGAAAAAAAGGATCTCAAGAAGATCCTTTGATCTTTTCTACGGGGTCTGACGCTCAGTGGAACGAAAACTCACGTTAAGGGATTTTGGTCATGAGATTATCAAAAAGGATCTTCACCTAGATCCTTTTAAATTAAAAATGAAGTTTTAAATCAATCTAAAGTATATATGAGTAAACTTGGTCTGACAGTTACCAATGCTTAATCAGTGAGGCACCTATCTCAGCGATCTGTCTATTTCGTTCATCCATAGTTGCCTGACTCCCCGTCGTGTAGATAACTACGATACGGGAGGGCTTACCATCTGGCCCCAGTGCTGCAATGATACCGCGAGACCCACGCTCACCGGCTCCAGATTTATCAGCAATAAACCAGCCAGCCGGAAGGGCCGAGCGCAGAAGTGGTCCTGCAACTTTATCCGCCTCCATCCAGTCTATTAATTGTTGCCGGGAAGCTAGAGTAAGTAGTTCGCCAGTTAATAGTTTGCGCAACGTTGTTGCCATTGCTGCAGGCATCGTGGTGTCACGCTCGTCGTTTGGTATGGCTTCATTCAGCTCCGGTTCCCAACGATCAAGGCGAGTTACATGATCCCCCATGTTGTGCAAAAAAGCGGTTAGCTCCTTCGGTCCTCCGATCGTTGTCAGAAGTAAGTTGGCCGCAGTGTTATCACTCATGGTTATGGCAGCACTGCATAATTCTCTTACTGTCATGCCATCCGTAAGATGCTTTTCTGTGACTGGTGAGTACTCAACCAAGTCATTCTGAGAATAGTGTATGCGGCGACCGAGTTGCTCTTGCCCGGCGTCAACACGGGATAATACCGCGCCACATAGCAGAACTTTAAAAGTGCTCATCATTGGAAAACGTTCTTCGGGGCGAAAACTCTCAAGGATCTTACCGCTGTTGAGATCCAGTTCGATGTAACCCACTCGTGCACCCAACTGATCTTCAGCATCTTTTACTTTCACCAGCGTTTCTGGGTGAGCAAAAACAGGAAGGCAAAATGCCGCAAAAAAGGGAATAAGGGCGACACGGAAATGTTGAATACTCATACTCTTCCTTTTTCAATATTATTGAAGCATTTATCAGGGTTATTGTCTCATGAGCGGATACATATTTGAATGTATTTAGAAAAATAAACAAATAGGGGTTCCGCGCACATTTCCCCGAAAAGTGCCACCTGACGTCTAAGAAACCATTATTATCATGACATTAACCTATAAAAATAGGCGTATCACGAGGCCCTTTCGTCTTCAAGAA
+  topology: circular
+  length_bp: 4361
+annotation:
+- type: misc_binding
+  start: 24
+  end: 27
+  strand: +
+  qualifiers:
+    bound_moiety: echinomycin
+- type: regulatory
+  start: 27
+  end: 33
+  strand: '-'
+  qualifiers:
+    regulatory_class: promoter
+    note: promoter P1 (6)
+- type: misc_binding
+  start: 39
+  end: 42
+  strand: +
+  qualifiers:
+    bound_moiety: echinomycin
+- type: regulatory
+  start: 43
+  end: 49
+  strand: +
+  qualifiers:
+    regulatory_class: promoter
+    note: promoter P2 (6)
+- type: misc_binding
+  start: 53
+  end: 56
+  strand: +
+  qualifiers:
+    bound_moiety: echinomycin
+- type: misc_binding
+  start: 67
+  end: 70
+  strand: +
+  qualifiers:
+    bound_moiety: echinomycin
+- type: misc_binding
+  start: 80
+  end: 83
+  strand: +
+  qualifiers:
+    bound_moiety: echinomycin
+- type: gene
+  start: 86
+  end: 1276
+  strand: +
+  qualifiers:
+    gene: tet
+- type: CDS
+  start: 86
+  end: 1276
+  strand: +
+  qualifiers:
+    gene: tet
+    codon_start: '1'
+    transl_table: '11'
+    product: tetracycline resistance protein
+    protein_id: AAB59735.1
+    translation: MKSNNALIVILGTVTLDAVGIGLVMPVLPGLLRDIVHSDSIASH YGVLLALYALMQFLCAPVLGALSDRFGRRPVLLASLLGATIDYAIMATTPVLWILYAG RIVAGITGATGAVAGAYIADITDGEDRARHFGLMSACFGVGMVAGPVAGGLLGAISLH
+      APFLAAAVLNGLNLLLGCFLMQESHKGERRPMPLRAFNPVSSFRWARGMTIVAALMTV FFIMQLVGQVPAALWVIFGEDRFRWSATMIGLSLAVFGILHALAQAFVTGPATKRFGE
+      KQAIIAGMAADALGYVLLAFATRGWMAFPIMILLASGGIGMPALQAMLSRQVDDDHQG QLQGSLAALTSLTSITGPLIVTAIYAASASTWNGLAWIVGAALYLVCLPALRRGAWSR
+      ATST
+- type: misc_feature
+  start: 141
+  end: 142
+  strand: '-'
+  qualifiers:
+    note: Endo.Sce I cleavage site coordinated with site at base 146 (10)
+- type: misc_feature
+  start: 146
+  end: 147
+  strand: +
+  qualifiers:
+    gene: tet
+    note: Endo.Sce I cleavage site coordinated with site at base 142 (10)
+- type: misc_binding
+  start: 411
+  end: 414
+  strand: +
+  qualifiers:
+    gene: tet
+    bound_moiety: echinomycin
+- type: misc_difference
+  start: 426
+  end: 426
+  strand: +
+  qualifiers:
+    gene: tet
+    note: conflict
+    citation: '[11]'
+    replace: ''
+- type: misc_binding
+  start: 469
+  end: 472
+  strand: +
+  qualifiers:
+    gene: tet
+    bound_moiety: echinomycin
+- type: old_sequence
+  start: 526
+  end: 528
+  strand: +
+  qualifiers:
+    gene: tet
+    citation: '[17]'
+- type: repeat_region
+  start: 1515
+  end: 1519
+  strand: '-'
+  qualifiers:
+    note: gamma-delta insertion target sequence
+    rpt_type: direct
+- type: misc_feature
+  start: 1636
+  end: 1762
+  strand: +
+  qualifiers:
+    note: from pSC101 (bp 1860-1986)
+- type: repeat_region
+  start: 1788
+  end: 1792
+  strand: '-'
+  qualifiers:
+    note: gamma-delta insertion target sequence
+    rpt_type: direct
+- type: misc_difference
+  start: 1891
+  end: 1892
+  strand: +
+  qualifiers:
+    note: conflict
+    citation: '[23]'
+    replace: att
+- type: old_sequence
+  start: 1892
+  end: 1893
+  strand: +
+  qualifiers:
+    citation: '[22]'
+- type: regulatory
+  start: 1905
+  end: 1910
+  strand: +
+  qualifiers:
+    regulatory_class: ribosome_binding_site
+- type: regulatory
+  start: 1905
+  end: 1909
+  strand: +
+  qualifiers:
+    regulatory_class: ribosome_binding_site
+    note: Shine-Dalgarno sequence
+- type: misc_difference
+  start: 1913
+  end: 1914
+  strand: +
+  qualifiers:
+    note: conflict
+    citation: '[23]'
+    replace: caa
+- type: old_sequence
+  start: 1914
+  end: 1915
+  strand: +
+  qualifiers:
+    citation: '[17]'
+- type: CDS
+  start: 1915
+  end: 2106
+  strand: +
+  qualifiers:
+    codon_start: '1'
+    transl_table: '11'
+    product: ROP protein
+    protein_id: AAB59736.1
+    translation: MTKQEKTALNMARFIRSQTLTLLEKLNELDADEQADICESLHDH ADELYRSCLARFGDDGENL
+- type: misc_feature
+  start: 2011
+  end: 2167
+  strand: +
+  qualifiers:
+    note: H-strand Y effector site
+    citation: '[5]'
+- type: repeat_region
+  start: 2245
+  end: 2249
+  strand: '-'
+  qualifiers:
+    note: gamma-delta insertion target sequence
+    rpt_type: direct
+- type: misc_feature
+  start: 2351
+  end: 2414
+  strand: '-'
+  qualifiers:
+    note: L-strand Y effector site
+    citation: '[5]'
+- type: misc_binding
+  start: 2439
+  end: 2447
+  strand: +
+  qualifiers:
+    bound_moiety: dnaA
+- type: rep_origin
+  start: 2535
+  end: 2535
+  strand: +
+  qualifiers: {}
+- type: old_sequence
+  start: 2729
+  end: 2730
+  strand: +
+  qualifiers:
+    note: revision according to (17)
+    citation: '[17]'
+    replace: at
+- type: old_sequence
+  start: 2729
+  end: 2729
+  strand: +
+  qualifiers:
+    citation: '[17]'
+- type: old_sequence
+  start: 2730
+  end: 2730
+  strand: +
+  qualifiers:
+    note: revision according to (16)
+    citation: '[17]'
+    replace: t
+- type: mobile_element
+  start: 3148
+  end: 4361
+  strand: +
+  qualifiers:
+    mobile_element_type: transposon:Tn3
+- type: repeat_region
+  start: 3148
+  end: 3185
+  strand: +
+  qualifiers:
+    note: corresponds to one of the 38bp repeats found in Tn3 (bp 1-38 and complement (4920-4957))
+    rpt_type: inverted
+- type: gene
+  start: 3293
+  end: 4153
+  strand: '-'
+  qualifiers:
+    gene: bla
+- type: CDS
+  start: 3293
+  end: 4153
+  strand: '-'
+  qualifiers:
+    gene: bla
+    note: E-286
+    codon_start: '1'
+    transl_table: '11'
+    product: beta-lactamase
+    protein_id: AAB59737.1
+    translation: MSIQHFRVALIPFFAAFCLPVFAHPETLVKVKDAEDQLGARVGY IELDLNSGKILESFRPEERFPMMSTFKVLLCGAVLSRVDAGQEQLGRRIHYSQNDLVE YSPVTEKHLTDGMTVRELCSAAITMSDNTAANLLLTTIGGPKELTAFLHNMGDHVTRL
+      DRWEPELNEAIPNDERDTTMPAAMATTLRKLLTGELLTLASRQQLIDWMEADKVAGPL LRSALPAGWFIADKSGAGERGSRGIIAALGPDGKPSRIVVIYTTGSQATMDERNRQIA
+      EIGASLIKHW
+- type: sig_peptide
+  start: 4085
+  end: 4153
+  strand: '-'
+  qualifiers:
+    gene: bla
+- type: mat_peptide
+  start: 3296
+  end: 4084
+  strand: '-'
+  qualifiers:
+    gene: bla
+    product: beta-lactamase
+- type: regulatory
+  start: 4161
+  end: 4165
+  strand: '-'
+  qualifiers:
+    regulatory_class: ribosome_binding_site
+    note: Shine-Dalgarno sequence
+- type: regulatory
+  start: 4188
+  end: 4194
+  strand: '-'
+  qualifiers:
+    regulatory_class: promoter
+    note: promoter P3 (6)
+- type: misc_binding
+  start: 4268
+  end: 4271
+  strand: '-'
+  qualifiers:
+    bound_moiety: echinomycin
+- type: misc_binding
+  start: 4280
+  end: 4283
+  strand: '-'
+  qualifiers:
+    bound_moiety: echinomycin
+- type: misc_binding
+  start: 4285
+  end: 4288
+  strand: '-'
+  qualifiers:
+    bound_moiety: echinomycin
+- type: misc_binding
+  start: 4296
+  end: 4299
+  strand: '-'
+  qualifiers:
+    bound_moiety: echinomycin
+- type: misc_binding
+  start: 4311
+  end: 4314
+  strand: '-'
+  qualifiers:
+    bound_moiety: echinomycin
+- type: misc_binding
+  start: 4317
+  end: 4320
+  strand: '-'
+  qualifiers:
+    bound_moiety: echinomycin
+- type: misc_binding
+  start: 4331
+  end: 4334
+  strand: '-'
+  qualifiers:
+    bound_moiety: echinomycin
+provenance:
+  source: ncbi_genbank
+  accession_or_url: https://www.ncbi.nlm.nih.gov/nuccore/J01749
+  retrieved_at: '2026-05-23'
+  retrieved_by: T-1404 scientific-advisor curation via NCBI eutils efetch (rettype=gb)
+  definition: Cloning vector pBR322, complete sequence
+  organism: Cloning vector pBR322
+  pmids:
+  - '358200'
+  - '383387'
+  - '388421'
+  - '6263753'
+  - '6279609'
+  - '6178738'
+  - '6291045'
+  - '6760191'
+  - '6307828'
+  - '6300094'
+  - '6337373'
+  - '6196777'
+  - '6417654'
+  - '6091903'
+  - '6327214'
+  - '6086259'
+  - '6209275'
+  - '6150042'
+  - '6089341'
+  - '3063608'
+  notes: 'Machine-fetched from NCBI eutils efetch 2026-05-23; raw GenBank cached at /tmp/genbank/. Parser: tools/corpus/genbank_to_corpus_record.py.
+    SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: NCBI-PD
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: false
+    commercial_use_allowed: true
+    source_text_url: https://www.ncbi.nlm.nih.gov/home/about/policies/
+    notes: 'INSDC public-domain sequence policy: GenBank/ENA/DDBJ sequence records are released under no-restriction terms.
+      See IP-audit § 4.1 (NCBI/EBI/DDBJ tier-1 allowlist).'
+  annotation_license:
+    spdx_id: NCBI-PD
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: false
+    commercial_use_allowed: true
+    source_text_url: https://www.ncbi.nlm.nih.gov/home/about/policies/
+    notes: INSDC submitter-deposited annotations are released under the same no-restriction terms as the sequence. Curator-authored
+      annotation overlays (if any) are handled per IP-audit § 5.2.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: pBR322
+  discrepancy_resolution: 'Cross-check pending. Per BR-16 NORMATIVE this is a human-in-browser step; no automated SnapGene
+    access. Curator: open pBR322 in browser, visually compare sequence + key annotations against this record''s NCBI-fetched
+    bases, log result in crosscheck_log.yaml.'
+host_topology:
+  host_class: ecoli
+  replicon: pMB1
+  copy_number_class: medium
+intended_use_category:
+- cloning
+- subcloning
+- dual_selection
+checksum:
+  algorithm: sha256
+  value: 536042a7485bdabdf49c4d21a306213a098d77d19bdba57a1c6adc76ce2b8372

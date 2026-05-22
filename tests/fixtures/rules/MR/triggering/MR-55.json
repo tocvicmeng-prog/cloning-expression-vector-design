@@ -1,0 +1,12 @@
+{
+  "__rule_id__": "MR-55",
+  "__fixture_kind__": "triggering",
+  "__rationale__": "Triggering fixture for MR-55: methylation-aware restriction-enzyme planning. Construct describes an XbaI digest planned on plasmid DNA prepared from a dam+ host (DH5alpha); XbaI is dam-blocked at GATC-overlapping sites, so the digest will fail. Expected eventual outcome (Phase 5/6 executable): HARD block; v0.2 stub returns INFO.",
+  "expected_stub_severity": "INFO",
+  "construct": {
+    "id": "fixture.MR-55.triggering",
+    "category": "MR",
+    "minimal": true,
+    "notes": "T-414 fixture asserts rule-registry coverage for MR-55. Phase 5/6 replaces stub semantics with executable predicate expectations (digest plan vs host.methylation_phenotype cross-check)."
+  }
+}

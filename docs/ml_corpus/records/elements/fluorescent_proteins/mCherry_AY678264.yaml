@@ -1,0 +1,68 @@
+id: corpus.element.fluorescent_protein.mcherry
+category: fluorescent_protein
+sequence:
+  bases: ATGGTGAGCAAGGGCGAGGAGGATAACATGGCCATCATCAAGGAGTTCATGCGCTTCAAGGTGCACATGGAGGGCTCCGTGAACGGCCACGAGTTCGAGATCGAGGGCGAGGGCGAGGGCCGCCCCTACGAGGGCACCCAGACCGCCAAGCTGAAGGTGACCAAGGGTGGCCCCCTGCCCTTCGCCTGGGACATCCTGTCCCCTCAGTTCATGTACGGCTCCAAGGCCTACGTGAAGCACCCCGCCGACATCCCCGACTACTTGAAGCTGTCCTTCCCCGAGGGCTTCAAGTGGGAGCGCGTGATGAACTTCGAGGACGGCGGCGTGGTGACCGTGACCCAGGACTCCTCCCTGCAGGACGGCGAGTTCATCTACAAGGTGAAGCTGCGCGGCACCAACTTCCCCTCCGACGGCCCCGTAATGCAGAAGAAGACCATGGGCTGGGAGGCCTCCTCCGAGCGGATGTACCCCGAGGACGGCGCCCTGAAGGGCGAGATCAAGCAGAGGCTGAAGCTGAAGGACGGCGGCCACTACGACGCTGAGGTCAAGACCACCTACAAGGCCAAGAAGCCCGTGCAGCTGCCCGGCGCCTACAACGTCAACATCAAGTTGGACATCACCTCCCACAACGAGGACTACACCATCGTGGAACAGTACGAACGCGCCGAGGGCCGCCACTCCACCGGCGGCATGGACGAGCTGTACAAGTAA
+  topology: linear
+  length_bp: 711
+annotation:
+- type: CDS
+  start: 1
+  end: 711
+  strand: +
+  qualifiers:
+    note: mCherry; engineered variant of monomeric red fluorescent protein mRFP1 in GenBank Accession Number AF506027; N-
+      and C-termini replaced with equivalent residues from EGFP
+    codon_start: '1'
+    transl_table: '11'
+    product: monomeric red fluorescent protein
+    protein_id: AAV52164.1
+    translation: MVSKGEEDNMAIIKEFMRFKVHMEGSVNGHEFEIEGEGEGRPYE GTQTAKLKVTKGGPLPFAWDILSPQFMYGSKAYVKHPADIPDYLKLSFPEGFKWERVM NFEDGGVVTVTQDSSLQDGEFIYKVKLRGTNFPSDGPVMQKKTMGWEASSERMYPEDG
+      ALKGEIKQRLKLKDGGHYDAEVKTTYKAKKPVQLPGAYNVNIKLDITSHNEDYTIVEQ YERAEGRHSTGGMDELYK
+provenance:
+  source: ncbi_genbank
+  accession_or_url: https://www.ncbi.nlm.nih.gov/nuccore/AY678264
+  retrieved_at: '2026-05-23'
+  retrieved_by: T-1404 scientific-advisor curation via NCBI eutils efetch (rettype=gb)
+  definition: Synthetic construct monomeric red fluorescent protein gene, complete cds
+  organism: synthetic construct
+  pmids:
+  - '15558047'
+  notes: 'Machine-fetched from NCBI eutils efetch 2026-05-23; raw GenBank cached at /tmp/genbank/. Parser: tools/corpus/genbank_to_corpus_record.py.
+    SnapGene cross-check pending per BR-16 NORMATIVE.'
+license:
+  sequence_license:
+    spdx_id: NCBI-PD
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: false
+    commercial_use_allowed: true
+    source_text_url: https://www.ncbi.nlm.nih.gov/home/about/policies/
+    notes: 'INSDC public-domain sequence policy: GenBank/ENA/DDBJ sequence records are released under no-restriction terms.
+      See IP-audit § 4.1 (NCBI/EBI/DDBJ tier-1 allowlist).'
+  annotation_license:
+    spdx_id: NCBI-PD
+    redistribution_allowed: true
+    ml_training_allowed: true
+    attribution_required: false
+    commercial_use_allowed: true
+    source_text_url: https://www.ncbi.nlm.nih.gov/home/about/policies/
+    notes: INSDC submitter-deposited annotations are released under the same no-restriction terms as the sequence. Curator-authored
+      annotation overlays (if any) are handled per IP-audit § 5.2.
+snapgene_crosscheck:
+  checked: false
+  checker: pending_human_curation
+  snapgene_record_name: mCherry
+  discrepancy_resolution: 'Cross-check pending. Per BR-16 NORMATIVE this is a human-in-browser step; no automated SnapGene
+    access. Curator: open mCherry in browser, visually compare sequence + key annotations against this record''s NCBI-fetched
+    bases, log result in crosscheck_log.yaml.'
+host_topology:
+  host_class: multi
+  replicon: ''
+  copy_number_class: 'null'
+intended_use_category:
+- fluorescent_reporter
+- red_fp
+- monomeric
+checksum:
+  algorithm: sha256
+  value: 8af4208438ce1704a507ad663baa2cbc8ea2046bd53a97359c7f7c42de7b9f1d

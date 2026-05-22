@@ -25,6 +25,7 @@ JsonObject: TypeAlias = dict[str, object]
 _SCHEMA_BY_FILE: dict[str, str] = {
     "parts.yaml": "parts.schema.json",
     "hosts.yaml": "hosts.schema.json",
+    "markers.yaml": "markers.schema.json",  # v0.2 Enrichment Amendment (T-408)
     "enzymes.yaml": "enzymes.schema.json",
     "enzyme_buffer_compat.yaml": "enzyme_buffer_compat.schema.json",
     "export_profiles.yaml": "export_profiles.schema.json",

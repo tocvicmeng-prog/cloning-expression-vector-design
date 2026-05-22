@@ -45,7 +45,19 @@ DEFAULT_ROUTES: tuple[UiRoute, ...] = (
 
 
 def project_root_from_module() -> Path:
-    """Return the repository root inferred from this source module."""
+    """Return the repository root inferred from this source module.
+
+    Walks upwards from this file's directory looking for the `ui/package.json`
+    marker. This is robust against the project's `uv sync --no-editable` install
+    layout where the module also exists under `.venv/Lib/site-packages/interface/`
+    — a fixed `parents[2]` walks to `.venv/Lib/` and breaks resolution. The
+    marker-file walk-up resolves to the repo root regardless of install layout.
+    """
+    here = Path(__file__).resolve().parent
+    for candidate in (here, *here.parents):
+        if (candidate / "ui" / "package.json").is_file():
+            return candidate
+    # Fallback to the historical parents[2] behaviour for the src/-layout case.
     return Path(__file__).resolve().parents[2]
 
 
