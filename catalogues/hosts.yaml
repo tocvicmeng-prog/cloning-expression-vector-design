@@ -961,3 +961,294 @@ items:
     biosafety_tier: "BSL-1"
     citation: *cite_phage_vlp_hosts
     maintenance: *item_maintenance
+  # ----- v0.2 Enrichment Amendment new strain records (T-411, 2026-05-23) -----
+  # Per REQUIREMENTS.md § 11.3, ARCHITECTURE.md § 9.1; schema bumped to v1.1 with
+  # additive optional phenotype fields (T-407). Existing records retained unchanged.
+  - id: "host.ecoli_origami_de3"
+    name: "E. coli Origami(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "Δ(ara-leu)7697 ΔlacX74 ΔphoA PvuII phoR araD139 ahpC galE galK rpsL F'[lac+ lacIq pro] (DE3) gor522::Tn10 trxB (KanR, TetR)"
+    supplier_reference: "Novagen / Merck Millipore catalogue 70203 (verify lot)."
+    replicons_supported: ["ColE1", "pMB1", "p15A"]
+    expression_features: ["oxidising cytoplasm (trxB-/gor-)", "T7 RNAP under lacUV5", "disulfide-bond formation in cytoplasm"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "LB + 12.5 μg/mL tetracycline + 15 μg/mL kanamycin to maintain trxB/gor disruption markers; standard E. coli propagation"
+    biosafety_tier: "BSL-1"
+    t7_lysogen: true
+    protease_status: {lon: "present", ompT: "present"}
+    disulfide_environment: {cytoplasm_state: "oxidising", trxB_status: "deleted", gor_status: "deleted"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "none"
+    recombination_phenotype: {recA: "wt", endA: "wt", recBCD_status: "wt"}
+    methylation_phenotype: {dam: "wt", dcm: "wt", hsdRMS: "K12_pattern"}
+    recommended_selection_markers: ["marker.ampicillin", "marker.kanamycin", "marker.chloramphenicol"]
+    vendor_strain_refs:
+      - vendor: "Novagen / Merck Millipore"
+        catalogue_id: "70203"
+        accessed: "2026-05-23"
+    citation:
+      text: "Bessette et al. 1999 (Proc Natl Acad Sci USA 96:13703-13708)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "10570136"
+    maintenance: *item_maintenance
+  - id: "host.ecoli_origami_b_de3"
+    name: "E. coli Origami B(DE3)"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "B-strain background (lon-, ompT-) + trxB-/gor- (DE3); descended from BL21 with the Origami trxB/gor disruptions."
+    supplier_reference: "Novagen / Merck Millipore catalogue 70837 (verify lot)."
+    replicons_supported: ["ColE1", "pMB1", "p15A"]
+    expression_features: ["B-strain proteolysis-low (lon-/ompT-)", "oxidising cytoplasm (trxB-/gor-)", "T7 RNAP under lacUV5", "combined protease + disulfide host"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "LB + selection markers per institution SOP"
+    biosafety_tier: "BSL-1"
+    t7_lysogen: true
+    protease_status: {lon: "deleted", ompT: "deleted"}
+    disulfide_environment: {cytoplasm_state: "oxidising", trxB_status: "deleted", gor_status: "deleted"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "none"
+    recombination_phenotype: {recA: "wt", endA: "wt", recBCD_status: "wt"}
+    methylation_phenotype: {dam: "wt", dcm: "wt", hsdRMS: "B_pattern"}
+    recommended_selection_markers: ["marker.ampicillin", "marker.kanamycin", "marker.chloramphenicol"]
+    vendor_strain_refs:
+      - vendor: "Novagen / Merck Millipore"
+        catalogue_id: "70837"
+        accessed: "2026-05-23"
+    citation:
+      text: "Bessette et al. 1999 (PNAS 96:13703-13708) for Origami background; B-strain proteolysis posture from Studier 1990 / Phillips & Page 1990."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "10570136"
+    maintenance: *item_maintenance
+  - id: "host.ecoli_rosetta_de3_plyss"
+    name: "E. coli Rosetta(DE3)pLysS"
+    chassis_class: "bacterial"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "BL21(DE3) carrying pLysS (low T7-lysozyme load, Cm) and pRARE (supplemental tRNAs for argU, argW, ileX, glyT, leuW, proL; Cm)."
+    supplier_reference: "Novagen / Merck Millipore catalogue 70956 (verify lot)."
+    replicons_supported: ["ColE1", "pMB1", "p15A"]
+    expression_features: ["B-strain (lon-/ompT-)", "T7 RNAP under lacUV5", "low T7-lysozyme (pLysS)", "rare-codon tRNA supplementation (pRARE)"]
+    codon_usage_table_id: "ecoli_k12"
+    growth_conditions: "LB + 34 μg/mL chloramphenicol to maintain pLysS + pRARE; standard E. coli propagation"
+    biosafety_tier: "BSL-1"
+    t7_lysogen: true
+    protease_status: {lon: "deleted", ompT: "deleted"}
+    disulfide_environment: {cytoplasm_state: "reducing_default", trxB_status: "wt", gor_status: "wt"}
+    rare_codon_supplementation: ["pRARE:argU,argW,ileX,glyT,leuW,proL"]
+    plasmid_addons:
+      - id: "pLysS"
+        function: "low T7-lysozyme load — moderates leaky T7 expression"
+        antibiotic: "chloramphenicol (34 μg/mL)"
+      - id: "pRARE"
+        function: "supplemental rare-codon tRNAs (argU, argW, ileX, glyT, leuW, proL)"
+        antibiotic: "chloramphenicol (34 μg/mL; same plasmid family as pLysS)"
+        notes: "In Rosetta(DE3)pLysS the pLysS and pRARE functions are sometimes combined on a single Cm-resistant plasmid; verify against vendor lot."
+    t7_lysozyme_load: "pLysS_low"
+    recombination_phenotype: {recA: "wt", endA: "wt", recBCD_status: "wt"}
+    methylation_phenotype: {dam: "wt", dcm: "wt", hsdRMS: "B_pattern"}
+    recommended_selection_markers: ["marker.ampicillin", "marker.kanamycin", "marker.chloramphenicol"]
+    vendor_strain_refs:
+      - vendor: "Novagen / Merck Millipore"
+        catalogue_id: "70956"
+        accessed: "2026-05-23"
+    citation:
+      text: "Novagen pET System manual TB055 (current edition); Kane 1995 PMID 7493997 for rare-codon supplementation rationale."
+      grade: "B2"
+      accessed: "2026-05-23"
+    maintenance: *item_maintenance
+  - id: "host.kphaffii_pichiapink_series"
+    name: "Komagataella phaffii (Pichia pastoris) PichiaPink series (PP1-PP4)"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "ade2 background with stepwise protease knockouts: PP1 = ade2; PP2 = ade2 pep4Δ; PP3 = ade2 prb1Δ; PP4 = ade2 pep4Δ prb1Δ. Mut+ (methanol-utilization-plus) parental."
+    supplier_reference: "Thermo Fisher / Invitrogen PichiaPink Expression System (verify current catalogue ID)."
+    replicons_supported: ["AOX1 locus integration", "GAP locus integration", "TRP2 integrative"]
+    expression_features: ["secretory expression (α-factor signal)", "selectable on ade2-Δ → pink colony color when ADE2+ rescue achieved", "stepwise vacuolar protease deletion reduces target proteolysis"]
+    codon_usage_table_id: "kphaffii"
+    growth_conditions: "YPD + adenine supplementation; AOX1 induction with methanol per Invitrogen K1710 manual"
+    biosafety_tier: "BSL-1"
+    aliases: ["Pichia pastoris"]
+    t7_lysogen: null
+    protease_status: {lon: "null", ompT: "null"}
+    disulfide_environment: {cytoplasm_state: "null", trxB_status: "null", gor_status: "null"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "null"
+    recombination_phenotype: {recA: "null", endA: "null", recBCD_status: "null"}
+    methylation_phenotype: {dam: "null", dcm: "null", hsdRMS: "null"}
+    recommended_selection_markers: ["marker.zeocin_bacterial", "marker.blepmx_zeocin", "marker.kanmx_g418"]
+    vendor_strain_refs:
+      - vendor: "Thermo Fisher / Invitrogen"
+        catalogue_id: "PichiaPink Expression Kit"
+        accessed: "2026-05-23"
+    citation:
+      text: "Invitrogen PichiaPink Expression System user manual (current edition); Cregg et al. 2000 (Mol Biotechnol 16:23-52) for Pichia background."
+      grade: "B2"
+      accessed: "2026-05-23"
+      pmid: "11098467"
+    maintenance: *item_maintenance
+  - id: "host.kphaffii_km71"
+    name: "Komagataella phaffii (Pichia pastoris) KM71"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "his4 arg4 aox1::SARG4 (AOX1 locus disrupted by SARG4); Mut(S) phenotype — slow methanol utilization due to loss of major AOX1, dependent on weaker AOX2."
+    supplier_reference: "Thermo Fisher / Invitrogen Pichia Expression Kit K1710."
+    replicons_supported: ["AOX1 locus integration", "HIS4 integrative"]
+    expression_features: ["Mut(S) — slow methanol metabolism; useful for slow-induction strategies", "his4 auxotrophy enables HIS4-marker selection"]
+    codon_usage_table_id: "kphaffii"
+    growth_conditions: "YPD; AOX1 induction with methanol per Invitrogen K1710 manual (Mut(S) growth is slower than wild-type X-33 / GS115)"
+    biosafety_tier: "BSL-1"
+    aliases: ["Pichia pastoris"]
+    t7_lysogen: null
+    protease_status: {lon: "null", ompT: "null"}
+    disulfide_environment: {cytoplasm_state: "null", trxB_status: "null", gor_status: "null"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "null"
+    recombination_phenotype: {recA: "null", endA: "null", recBCD_status: "null"}
+    methylation_phenotype: {dam: "null", dcm: "null", hsdRMS: "null"}
+    recommended_selection_markers: ["marker.zeocin_bacterial", "marker.blepmx_zeocin"]
+    vendor_strain_refs:
+      - vendor: "Thermo Fisher / Invitrogen"
+        catalogue_id: "K1710"
+        accessed: "2026-05-23"
+    citation:
+      text: "Cregg et al. 1985 (Mol Cell Biol 5:3376-3385) for AOX1 disruption strategy; Invitrogen Pichia Expression Kit K1710 manual."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "3915774"
+    maintenance: *item_maintenance
+  - id: "host.kphaffii_smd1168h"
+    name: "Komagataella phaffii (Pichia pastoris) SMD1168H"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["expression"]
+    genotype: "his4 pep4Δ; HIS4 restored as compared to SMD1168 — designated 'H' for histidine-prototroph rescued background. Major vacuolar protease (PEP4/PrA) deletion reduces secreted-protein proteolysis."
+    supplier_reference: "Thermo Fisher / Invitrogen Pichia Expression Kit K1710."
+    replicons_supported: ["AOX1 locus integration"]
+    expression_features: ["pep4Δ — reduced vacuolar proteolysis", "HIS4-restored prototroph", "Mut+ phenotype"]
+    codon_usage_table_id: "kphaffii"
+    growth_conditions: "YPD; AOX1 induction with methanol per Invitrogen K1710 manual"
+    biosafety_tier: "BSL-1"
+    aliases: ["Pichia pastoris"]
+    t7_lysogen: null
+    protease_status: {lon: "null", ompT: "null"}
+    disulfide_environment: {cytoplasm_state: "null", trxB_status: "null", gor_status: "null"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "null"
+    recombination_phenotype: {recA: "null", endA: "null", recBCD_status: "null"}
+    methylation_phenotype: {dam: "null", dcm: "null", hsdRMS: "null"}
+    recommended_selection_markers: ["marker.zeocin_bacterial", "marker.blepmx_zeocin"]
+    vendor_strain_refs:
+      - vendor: "Thermo Fisher / Invitrogen"
+        catalogue_id: "K1710"
+        accessed: "2026-05-23"
+    citation:
+      text: "Invitrogen Pichia Expression Kit K1710 manual; Cregg et al. 2000 (Mol Biotechnol 16:23-52)."
+      grade: "B2"
+      accessed: "2026-05-23"
+      pmid: "11098467"
+    maintenance: *item_maintenance
+  - id: "host.scerevisiae_ah109"
+    name: "S. cerevisiae AH109 (yeast two-hybrid host)"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["two_hybrid_reporter"]
+    genotype: "MATa, trp1-901, leu2-3,112, ura3-52, his3-200, gal4Δ, gal80Δ, LYS2 :: GAL1UAS-GAL1TATA-HIS3, GAL2UAS-GAL2TATA-ADE2, URA3 :: MEL1UAS-MEL1TATA-lacZ, MEL1"
+    supplier_reference: "Clontech / Takara Y2H Matchmaker (verify current catalogue ID)."
+    replicons_supported: ["yeast 2μ (high-copy)", "CEN/ARS (low-copy)"]
+    expression_features: ["four reporters: HIS3 + ADE2 + MEL1 + lacZ; stringent quadruple selection for true Y2H interactions", "gal4Δ background so introduced GAL4-fusion baits drive reporters cleanly"]
+    codon_usage_table_id: "scerevisiae"
+    growth_conditions: "SD -Trp -Leu (bait + prey selection); SD -Trp -Leu -His -Ade (interaction selection); X-α-Gal for MEL1 readout"
+    biosafety_tier: "BSL-1"
+    t7_lysogen: null
+    protease_status: {lon: "null", ompT: "null"}
+    disulfide_environment: {cytoplasm_state: "null", trxB_status: "null", gor_status: "null"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "null"
+    recombination_phenotype: {recA: "null", endA: "null", recBCD_status: "null"}
+    methylation_phenotype: {dam: "null", dcm: "null", hsdRMS: "null"}
+    recommended_selection_markers: ["marker.trp1", "marker.leu2", "marker.his3"]
+    vendor_strain_refs:
+      - vendor: "Clontech / Takara"
+        catalogue_id: "Matchmaker AH109"
+        accessed: "2026-05-23"
+    citation:
+      text: "James et al. 1996 (Genetics 144:1425-1436)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "8978031"
+    maintenance: *item_maintenance
+  - id: "host.scerevisiae_y187"
+    name: "S. cerevisiae Y187 (yeast two-hybrid host)"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["two_hybrid_library_or_control"]
+    genotype: "MATα, ura3-52, his3-200, ade2-101, trp1-901, leu2-3,112, gal4Δ, gal80Δ, met-, URA3 :: GAL1UAS-GAL1TATA-lacZ, MEL1"
+    supplier_reference: "Clontech / Takara Matchmaker."
+    replicons_supported: ["yeast 2μ", "CEN/ARS"]
+    expression_features: ["MAT-α complement to AH109 for diploid-mating Y2H workflows", "lacZ + MEL1 reporters"]
+    codon_usage_table_id: "scerevisiae"
+    growth_conditions: "SD -Leu (prey vector); SD -Trp -Leu after mating to AH109; X-α-Gal / X-Gal for reporter readout"
+    biosafety_tier: "BSL-1"
+    t7_lysogen: null
+    protease_status: {lon: "null", ompT: "null"}
+    disulfide_environment: {cytoplasm_state: "null", trxB_status: "null", gor_status: "null"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "null"
+    recombination_phenotype: {recA: "null", endA: "null", recBCD_status: "null"}
+    methylation_phenotype: {dam: "null", dcm: "null", hsdRMS: "null"}
+    recommended_selection_markers: ["marker.leu2", "marker.trp1"]
+    vendor_strain_refs:
+      - vendor: "Clontech / Takara"
+        catalogue_id: "Matchmaker Y187"
+        accessed: "2026-05-23"
+    citation:
+      text: "Harper et al. 1993 (Cell 75:805-816) for the parental Y190/Y187 lineage; Clontech Matchmaker manual."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "8242751"
+    maintenance: *item_maintenance
+  - id: "host.scerevisiae_egy48"
+    name: "S. cerevisiae EGY48 (LexA-based yeast two-hybrid host)"
+    chassis_class: "yeast"
+    source_section: "6"
+    host_roles: ["two_hybrid_reporter"]
+    genotype: "MATα, ura3, his3, trp1, lexAop6-LEU2 (LEU2 reporter under LexA-operator control)"
+    supplier_reference: "Clontech DupLEX-A Yeast Two-Hybrid System."
+    replicons_supported: ["yeast 2μ", "CEN/ARS"]
+    expression_features: ["LexA-operator-driven LEU2 reporter (LexA bait fusion rather than GAL4)", "compatible with pSH18-34 lacZ reporter plasmid for dual-readout"]
+    codon_usage_table_id: "scerevisiae"
+    growth_conditions: "SD -Ura -His -Trp (vector selection); SD -Ura -His -Trp -Leu (interaction selection)"
+    biosafety_tier: "BSL-1"
+    t7_lysogen: null
+    protease_status: {lon: "null", ompT: "null"}
+    disulfide_environment: {cytoplasm_state: "null", trxB_status: "null", gor_status: "null"}
+    rare_codon_supplementation: []
+    plasmid_addons: []
+    t7_lysozyme_load: "null"
+    recombination_phenotype: {recA: "null", endA: "null", recBCD_status: "null"}
+    methylation_phenotype: {dam: "null", dcm: "null", hsdRMS: "null"}
+    recommended_selection_markers: ["marker.leu2", "marker.trp1", "marker.his3", "marker.ura3"]
+    vendor_strain_refs:
+      - vendor: "Clontech / OriGene"
+        catalogue_id: "DupLEX-A EGY48"
+        accessed: "2026-05-23"
+    citation:
+      text: "Estojak, Brent & Golemis 1995 (Mol Cell Biol 15:5820-5829)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "7565735"
+    maintenance: *item_maintenance

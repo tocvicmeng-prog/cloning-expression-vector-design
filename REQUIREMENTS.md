@@ -3,10 +3,10 @@
 
 **Document type:** Software Requirements Specification (SRS)
 **Drafted by:** Scientific Advisor (Senior Molecular Biology scientist role)
-**Date:** 2026-05-13
-**Status:** Draft v0.1 — for architect / dev-orchestrator review and consolidation
-**Project root:** `C:\Users\tocvi\OneDrive\文档\Project_Code\Cloning_Expression_Vector_Design\`
-**Source-of-truth documents:** `Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md` (machine-actionable), `Cloning_Expression_Vector_Design_White_Paper.md` (conceptual), `ROADMAP.md` (phasing).
+**Date:** 2026-05-13 (v0.1); 2026-05-23 (v0.2 Enrichment Amendment — see § 11)
+**Status:** v0.2 — Enrichment Amendment pending acceptance of the three-skill joint plan (cadence step 7). The v0.1 body remains authoritative for v0.1.0-shipped behaviour; § 11 captures the additive Enrichment Amendment landed on 2026-05-23 per the standing 10-step project working principle.
+**Project root:** `C:\Users\tocvi\OneDrive\文档\Project_Code\Cloning_Expression_Vector_Design - Codex\`
+**Source-of-truth documents:** `Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md` (machine-actionable), `Cloning_Expression_Vector_Design_White_Paper.md` (conceptual), `ROADMAP.md` (phasing). For v0.2 amendment context: the initial advisory report, architect analysis, and IP-auditor analysis under `docs/handover/2026-05-23_host_marker_ml_corpus_*.md`.
 
 ---
 
@@ -112,6 +112,9 @@ These are the requirements stated directly by the project sponsor. Every one bec
 | **UR-09** *(added per ARCHITECTURE v1.2 sponsor sharpening, 2026-05-13)* | The biosafety / operational-protocol **hard gate** must be **administrator-controlled**, not user-self-declared. Only the software developer (system level) and the institutional administrator (deployment level) may create, modify, or revoke a user's authorisation profile. The user **declares** an intent (which SOP library to bind to, which biosafety approval ID applies, which role-of-operation they are operating in) but those declarations are validated against the administrator-granted profile; declarations that exceed the profile are rejected. The user has no path to grant themselves operational-protocol rights, no path to lift a biosafety gate, and no path to widen their declared role. | See FR-AUTH-01 … FR-AUTH-12 below. |
 | **UR-10** *(added per ARCHITECTURE v1.3 sponsor clarification on role hierarchy, 2026-05-13)* | The role hierarchy must be **asymmetric**: `Administrator` capabilities **⊇** `Reviewer` capabilities (an Administrator may perform every Reviewer action, including per-construct sign-off on `WATCHLIST` and `MANUAL_REVIEW_REQUIRED` screening verdicts); `Reviewer` capabilities **⊄** `Administrator` capabilities (a Reviewer may not mint / modify / revoke `AuthorisationProfile` records, may not author institutional SOPs, may not mutate the audit log). The practical consequence is that **an institution may complete the entire authorisation workflow with an Administrator alone**, without a separate Reviewer being appointed. The audit trail must record whether each sign-off was performed by a dedicated `Reviewer` or by an `Administrator` acting in reviewer capacity. | See FR-AUTH-13 / FR-AUTH-14 below. |
 | **UR-11** *(added per ARCHITECTURE v1.5 sponsor strengthening of B3, 2026-05-14)* | Advisory warnings emitted by the `BiosafetyClassificationLayer` (B3 mitigation) **must be active, auditable, and tied to the design record**. The Administrator must receive an **explicit warning**, and the **approval trace must be logged**. The system **must not rely on passive UI warnings** — a banner that can be dismissed without action is forbidden. Every advisory of severity `caution` or `strong_caution` requires an explicit signed acknowledgement (justification text + cryptographic signature) before any operational-protocol authorisation can fire; declines and escalations are first-class governance events; the full chain (presentation → acknowledgement / decline / escalation → authorisation decision) is persisted in the immutable governance audit stream and replayable from the audit log. | See FR-ADV-01 … FR-ADV-07 and BR-14 below. |
+| **UR-12** *(added per Enrichment Amendment v0.2, 2026-05-23)* | The host catalogue MUST support a richer phenotype model covering T7 lysogeny, cytoplasmic protease status (lon / ompT), cytoplasmic redox / disulfide environment (trxB / gor), rare-codon supplementation, plasmid-borne add-ons (pLysS / pLysE / pRARE), recombination phenotype (recA / endA / recBCD), methylation phenotype (dam / dcm / hsdRMS), and an explicit cross-link to compatible selection markers. The new fields MUST be additive and backward-compatible (existing host records remain valid). The host catalogue MUST cover the 30-strain expansion enumerated in § 11.3. | See § 11.2, FR-HOST-13 … FR-HOST-20 below. |
+| **UR-13** *(added per Enrichment Amendment v0.2, 2026-05-23)* | A standalone **selection-markers catalogue** MUST be provided as `catalogues/markers.yaml` with `schemas/markers.schema.json`, replacing the historical `parts.yaml::markers` block through a dual-read migration window. Each marker MUST carry per-host working concentrations (μg/mL min/typical/max with medium and Sambrook 4th ed. Appendix A1 citation by default), counter-selection options where applicable, incompatibilities, use-cases, and audit-grade citations. Bacterial markers (Amp/Carb, Kan, Cm, Tet, Spec, Zeo, Gen, Hyg, Erm), yeast auxotrophic markers (URA3, LEU2, HIS3, TRP1, MET15/17, LYS2), dominant yeast markers (KanMX/G418, HphMX/Hyg, NatMX/clonNAT, BleMX/Zeo), and the corresponding mammalian markers MUST be covered in v0.2. | See § 11.4, FR-MARK-01 … FR-MARK-12 below. |
+| **UR-14** *(added per Enrichment Amendment v0.2, 2026-05-23)* | The project MUST maintain a curated **ML training corpus** of plasmid backbones and modular design elements under `docs/ml_corpus/` (sibling folder, not under `catalogues/`), isolated from runtime configuration by an `import-linter` contract. Each record MUST carry separate sequence- and annotation-license blocks, source provenance, retrieval timestamp, sha-256 checksum, and a SnapGene manual cross-check record. SnapGene access is **index-only with manual cross-check via a human in a browser** — no automated extraction, scraping, or redistribution of SnapGene content from any tool the project runs. CC-BY-SA-licensed records MUST be routed to `docs/ml_corpus/records/cc-by-sa/`, with the corpus manifest maintaining `partition: full` and `partition: sa_free` variants so a future commercial-deployment decision can select the share-alike-free training partition. | See § 11.5, FR-ML-01 … FR-ML-15, BR-15 … BR-17 below. |
 
 The remainder of this document expands each `UR` into specific testable `FR`/`MR`/`WR`/`SR`/`BR`/`NFR` items, then adds the common-essential requirements that any responsible molecular-biology software must implement.
 
@@ -679,6 +682,154 @@ These items require decisions from the project sponsor or the architect during P
 
 ---
 
+## 11. Enrichment Amendment v0.2 — Host / Marker / ML-Corpus (landed 2026-05-23)
+
+### 11.0 Provenance and cadence
+
+This amendment is produced under the project's standing 10-step working-principle cadence (see `feedback/cev-workflow-discipline` in project memory; canonical phrasing in initial report § 0). The cadence steps completed so far:
+
+| Step | Owner | Artefact | Status |
+|---|---|---|---|
+| 1 | `/scientific-advisor` | `docs/handover/2026-05-23_host_marker_ml_corpus_initial_report.md` | ✅ Accepted |
+| 2 | User | — | ✅ Report accepted |
+| 3 | `/architect` | `docs/handover/2026-05-23_host_marker_ml_corpus_architect_analysis.md` | ✅ Accepted |
+| 4 | `/ip-auditor` | `docs/handover/2026-05-23_host_marker_ml_corpus_ip_audit.md` | ✅ Accepted |
+| 5 | User | — | ✅ Both analyses accepted |
+| **6** | **`/scientific-advisor`** | **This section + UR-12 / UR-13 / UR-14 above** | **🟡 In progress (this update)** |
+| 7 | `/scientific-advisor` + `/dev-orchestrator` + `/architect` | Three-skill joint development plan | ⏳ Pending |
+| 8 | `/architect` | `ARCHITECTURE.md` update | ⏳ Pending |
+| 9 | `/dev-orchestrator` | `CODING_AGENDA.md` task-card additions | ⏳ Pending |
+| 10 | `/dev-orchestrator` | `TASK_BOARD.md` update + implementation begins | ⏳ Pending |
+
+### 11.1 User-stated requirements added in v0.2
+
+UR-12 (host phenotype expansion), UR-13 (markers catalogue split), UR-14 (ML training corpus) — captured inline at § 2 above.
+
+### 11.2 Host phenotype model expansion (FR-HOST-13 … FR-HOST-20)
+
+| ID | Priority | Requirement | Verification |
+|---|---|---|---|
+| **FR-HOST-13** *(v0.2)* | MUST | The host schema MUST be bumped to v1.1 with the additional optional fields specified in architect § 2.1.2: `aliases[]`, `t7_lysogen`, `protease_status{lon, ompT}`, `disulfide_environment{cytoplasm_state, trxB_status, gor_status}`, `rare_codon_supplementation[]`, `plasmid_addons[]`, `t7_lysozyme_load`, `recombination_phenotype{recA, endA, recBCD_status}`, `methylation_phenotype{dam, dcm, hsdRMS}`, `recommended_selection_markers[]`, `vendor_strain_refs[]`. All fields MUST be optional so existing records remain valid. | JSONSchema validation + backward-compatibility test on existing `hosts.yaml`. |
+| **FR-HOST-14** *(v0.2)* | MUST | The schema MUST support the *Pichia pastoris* ↔ *Komagataella phaffii* alias relationship via the `aliases[]` field. Canonical genus + species is **Komagataella phaffii**; `Pichia pastoris` is a registered alias resolvable case-insensitively. Resolver MUST surface both names in any user-facing listing. | Alias-resolution unit test; UAT with legacy `Pichia pastoris` user input. |
+| **FR-HOST-15** *(v0.2)* | MUST | The schema MUST link to the markers catalogue via `recommended_selection_markers[]` whose entries match `^marker\.[a-z0-9_]+$` and resolve to existing marker IDs in `catalogues/markers.yaml`. Link integrity MUST be enforced by the `host-marker-link-integrity-check` CI gate. | Static CI test; runtime resolver test. |
+| **FR-HOST-16** *(v0.2)* | MUST | The host catalogue MUST include the 30 strains enumerated in § 11.3 — including 4 not currently in FR-HOST-01 (Origami(DE3), Origami B(DE3), Rosetta(DE3)pLysS, PichiaPink series, KM71, SMD1168H, AH109, Y187, EGY48). Existing strain entries that overlap (BL21(DE3), BL21 Star, Rosetta(DE3), C41(DE3), C43(DE3), BL21(DE3)pLysS, BL21(DE3)pLysE, Stbl3, Stbl4, JM109, TOP10, DH5α, GS115, X-33, KM71H, SMD1168, BY4741, BY4742, INVSc1) MUST be either retained as-is OR enriched with v1.1 phenotype fields — backfill schedule deferred to architect § 6 Q4 / the joint plan. | Inventory check. |
+| **FR-HOST-17** *(v0.2)* | MUST | Every v1.1 phenotype field SHOULD be cited to a primary publication where available (Studier & Moffatt 1986 for T7 system, Miroux & Walker 1996 PMID 8676386 for C41/C43, Bessette 1999 PMID 10590025 for Origami trxB-gor, Cregg et al. 2000 for Pichia, Brachmann et al. 1998 PMID 9483801 for BY4741/BY4742, Sikorski & Hieter 1989 for yeast auxotrophic markers, Wach et al. 1994 PMID 7747518 for KanMX, Goldstein & McCusker 1999 PMID 10618490 for HphMX/NatMX/BlepMX); vendor manuals (B2 grade) may be cited where primary literature is silent on the specific strain genotype. | Citation-presence CI check. |
+| **FR-HOST-18** *(v0.2)* | SHOULD | The catalogue SHOULD distinguish `chassis_class: "cell_free"` (PURE / myTXTL / S30 / TXTL) which are exempted from v1.1 host-phenotype backfill (no genome, no lon/ompT/trxB-gor applicable). | Schema test; backfill-script behaviour. |
+| **FR-HOST-19** *(v0.2)* | MUST | Host-record `biosafety_tier` MUST remain BSL-1 for all 30 strains added in v0.2; any future v0.3+ strain at BSL-2 or higher triggers the existing biosecurity advisory surface and is out of scope for this amendment. | Inventory check. |
+| **FR-HOST-20** *(v0.2)* | MUST | Yeast two-hybrid strains (AH109, Y187, EGY48) MUST document their reporter cassettes (HIS3, ADE2, MEL1, lacZ, LEU2 reporters) in `expression_features[]` since those constrain compatible marker choices for any plasmid co-transformed into these strains. | Content audit of new records. |
+
+### 11.3 Strain coverage delta (additions to FR-HOST-01 inventory)
+
+The user-confirmed 30-strain set:
+
+| Class | Strains |
+|---|---|
+| *E. coli* (15) | Stbl3, Stbl4, JM109, TOP10, DH5α, BL21(DE3), BL21 Star, Rosetta(DE3), Origami(DE3), Origami B(DE3), C41(DE3), C43(DE3), BL21(DE3)pLysS, BL21(DE3)pLysE, Rosetta(DE3)pLysS |
+| *Komagataella phaffii* (6) | PichiaPink series, X-33, GS115, KM71, KM71H, SMD1168, SMD1168H |
+| *S. cerevisiae* (5) | BY4741, BY4742, AH109, Y187, EGY48, INVSc1 |
+
+(Some strains are already listed in FR-HOST-01 v0.1 inventory. The new-to-v0.2 additions are Origami(DE3), Origami B(DE3), Rosetta(DE3)pLysS, PichiaPink series, KM71, SMD1168H, AH109, Y187, EGY48. All others are pre-existing names that must now be enriched with v1.1 phenotype fields.)
+
+### 11.4 Selection-markers catalogue requirements (FR-MARK-01 … FR-MARK-12)
+
+| ID | Priority | Requirement | Verification |
+|---|---|---|---|
+| **FR-MARK-01** *(v0.2)* | MUST | A standalone `catalogues/markers.yaml` MUST be provided, validated by `schemas/markers.schema.json` v1.0 (per architect § 2.2). Each marker entry MUST carry: `id` (`^marker\.[a-z0-9_]+$`), `name`, `class` (`bacterial_antibiotic` / `yeast_auxotrophic` / `yeast_dominant` / `mammalian_antibiotic` / `counterselection`), `gene`, `mechanism`, `plasmid_borne` (bool), `chromosomal` (bool), `working_concentrations[]` (one entry per applicable host class), `incompatibilities[]`, `use_cases[]`, `citation`, `maintenance`. | JSONSchema validation; inventory completeness check. |
+| **FR-MARK-02** *(v0.2)* | MUST | Each `working_concentrations[]` entry MUST carry: `host_class` ∈ {ecoli, scerevisiae, kphaffii, mammalian, insect, plant}; `agent`; `concentration_ugml` {min, typical, max}; `medium`; optional `carbon_source_qualifier`; `citation`. | Schema test. |
+| **FR-MARK-03** *(v0.2)* | MUST | Counter-selection markers (sacB, ccdB, pheS\*, rpsL, MazF, URA3-5FOA, LYS2-αAA) MUST carry a `counter_selection` block with `agent`, `selection_medium`, `notes`, `citation`. | Schema test. |
+| **FR-MARK-04** *(v0.2)* | MUST | Yeast auxotrophic markers (URA3, LEU2, HIS3, TRP1, MET15/17, LYS2) MUST carry `host_genotype_requirement` (e.g., `ura3-Δ`) and use the sentinel `concentration_ugml: {min: 0, typical: 0, max: 0}` with `medium` carrying the dropout-medium identity (e.g., `SD -Ura (CSM-Ura)`) and `notes` documenting that the marker is auxotrophic-by-dropout, not concentration-based. | Schema test + dedicated auxotrophic-sanity CI check. |
+| **FR-MARK-05** *(v0.2)* | MUST | Bacterial markers covered at v0.2 minimum: Ampicillin / Carbenicillin (bla, TEM-1), Kanamycin (neo / aph), Chloramphenicol (cat), Tetracycline (tetA / tetR), Spectinomycin (aadA), Zeocin (ble-Sh), Gentamicin (aac3), Hygromycin B (hph), Erythromycin (ermC). | Inventory check. |
+| **FR-MARK-06** *(v0.2)* | MUST | Yeast auxotrophic markers covered at v0.2 minimum: URA3, LEU2, HIS3, TRP1, MET15 / MET17, LYS2. | Inventory check. |
+| **FR-MARK-07** *(v0.2)* | MUST | Dominant yeast markers covered at v0.2 minimum: KanMX (G418), HphMX (Hygromycin B), NatMX (clonNAT / nourseothricin), BlepMX (Zeocin). Per Goldstein & McCusker 1999 and Wach et al. 1994. | Inventory check. |
+| **FR-MARK-08** *(v0.2)* | SHOULD | Mammalian markers SHOULD be covered at v0.2 (architect IPQ-10 in-scope): Puromycin (pac), Blasticidin (bsr / bsd), Hygromycin B (hph-mammalian / Hph), G418 / Geneticin (neo, mammalian context, distinct concentration range from bacterial). | Inventory check. |
+| **FR-MARK-09** *(v0.2)* | MUST | The canonical antibiotic working-concentration source is **Sambrook 4th ed. Appendix A1** (B2 grade) for bacterial markers. Primary literature is preferred where divergent (e.g., Bessette 1999 for Origami-specific kanamycin posture; Goldstein & McCusker 1999 for KanMX/NatMX/HphMX in *S. cerevisiae*). Vendor manuals supplement where Sambrook is silent on vendor-specific strains. | Citation-presence CI check + manual audit. |
+| **FR-MARK-10** *(v0.2)* | MUST | A new `MarkersCataloguePort` (read-only, slotting in as canonical port #51 per architect § 3.1) MUST be provided. Existing `engine.compatibility` and `engine.validation` MUST be migrated from `parts.yaml::markers` to this port through a **dual-read window of one release cycle** (per architect § 3.3). The migration MUST be data-driven — closing the dual-read window requires zero shim-hit log entries during a full release cycle. | Migration plan in CODING_AGENDA step 9; runtime test. |
+| **FR-MARK-11** *(v0.2)* | MUST | A new `markers-citation-presence-check` CI gate MUST be added per architect § 4.1. A new `host-marker-link-integrity-check` CI gate MUST be added per architect § 4.2. Both land in `enforced` mode in the same PR as their dependent data files. | CI test. |
+| **FR-MARK-12** *(v0.2)* | MUST | The MR-05 rule predicate (selectable marker working concentration appropriate for chosen host) is now machine-checkable via `MarkersCataloguePort.working_concentration(marker_id, host_class)`. A new advisory event `MR-MARKER-MISMATCH` MUST be emitted when a host's `recommended_selection_markers[]` includes a marker whose `working_concentrations[].host_class` does not match the host's `chassis_class`. | Rule test. |
+
+### 11.5 ML training corpus requirements (FR-ML-01 … FR-ML-15)
+
+| ID | Priority | Requirement | Verification |
+|---|---|---|---|
+| **FR-ML-01** *(v0.2)* | MUST | The ML training corpus MUST live under `docs/ml_corpus/` (sibling folder, not under `catalogues/`), with the canonical folder layout in architect § 5.1: `README.md`, `corpus_manifest.yaml`, `exclusions.yaml`, `crosscheck_log.yaml`, `schemas/corpus_record.schema.json`, `records/backbones/{ecoli,kphaffii,scerevisiae,mammalian}/`, `records/elements/{promoters,terminators,rbs_kozak,polyA,ires_2a,mcs,tags,fluorescent_proteins,selection_cassettes,insulators,introns_wpre}/`, `records/cc-by-sa/` (CC-BY-SA-routed records per IP-auditor § 6.3). | Folder-layout test. |
+| **FR-ML-02** *(v0.2)* | MUST | Each corpus record MUST validate against `docs/ml_corpus/schemas/corpus_record.schema.json` v1.0, structured per architect § 2.3 with the IP-auditor § 5.2 amendment that splits `license` into `sequence_license` + `annotation_license`. | JSONSchema validation. |
+| **FR-ML-03** *(v0.2)* | MUST | Every corpus record MUST carry: `id` (`^corpus\.[a-z0-9_.-]+$`), `category`, `sequence{bases, topology, length_bp}`, `annotation[]` (GFF3-style), `provenance{source, accession_or_url, retrieved_at, retrieved_by}`, **`license{sequence_license, annotation_license}`** (both blocks present), `snapgene_crosscheck`, `host_topology`, `intended_use_category[]`, `checksum{algorithm, value}`. | Schema validation. |
+| **FR-ML-04** *(v0.2)* | MUST | The `provenance.source` enum MUST be drawn from the IP-auditor § 8.1 allowlist: `ncbi_genbank`, `ebi_ena`, `ddbj`, `igem_registry`, `jbei_ice`, `dnasu`, `vendor_published_map`, `primary_literature`, `fpbase`. **`addgene_metadata_only` is NOT a default-allow source** — any Addgene-sourced record requires per-case clearance and goes through `exclusions.yaml` with explicit override. | Schema test (enum) + per-record provenance audit. |
+| **FR-ML-05** *(v0.2)* | MUST | Each license block (`sequence_license` and `annotation_license`) MUST carry: `spdx_id`, `redistribution_allowed` (bool, explicit), `ml_training_allowed` (bool, explicit), `attribution_required` (bool), optional `attribution_text`, `commercial_use_allowed` (bool), `source_text_url`, optional `notes`. Missing-or-default is a hard CI failure (default-deny). | Schema test + `ml-corpus-license-check` CI gate. |
+| **FR-ML-06** *(v0.2)* | MUST | Records with **either** `sequence_license.spdx_id` **or** `annotation_license.spdx_id` matching `CC-BY-SA-*` MUST be stored under `docs/ml_corpus/records/cc-by-sa/`. The `corpus_manifest.yaml` MUST maintain two effective training-set partitions: `partition: full` (all records) and `partition: sa_free` (excludes the cc-by-sa subfolder). Any model release MUST declare which partition trained it. | File-tree CI check; manifest-completeness CI check. |
+| **FR-ML-07** *(v0.2)* | MUST | The ingestion pipeline MUST enforce the rule that a record's effective ingestable license is the **minimum** (least permissive) of `sequence_license` and `annotation_license`. When `annotation_license.ml_training_allowed = false` but `sequence_license.ml_training_allowed = true`, the record enters the training corpus **with annotation stripped** (sequence-only); each strip event is logged for auditability. | Ingestion-pipeline unit test. |
+| **FR-ML-08** *(v0.2)* | MUST | The `snapgene_crosscheck` block MUST carry `checked: bool`; when `checked: true`, MUST additionally carry `checked_at`, `checker`, `snapgene_record_name`, `snapgene_record_url`, `match: bool`, and (on mismatch) `discrepancy_resolution` (≤ 200 chars, researcher-authored, factual, no verbatim quotation of SnapGene-authored content). When `checked: false`, the record is admitted but a CI **warning** is raised; the aggregate `corpus_manifest.yaml::crosscheck_coverage` reports the fraction checked. | Schema test + `ml-corpus-license-check` CI gate (extension). |
+| **FR-ML-09** *(v0.2)* | MUST | A new `ml-corpus-license-check` CI gate MUST be added per architect § 4.3, enforcing default-deny on missing license blocks AND tracking dual-read shim-hit telemetry for the FR-MARK-10 migration window. | CI test. |
+| **FR-ML-10** *(v0.2)* | MUST | The runtime engine (`src/*`) MUST NOT import from `docs/ml_corpus/*`. Enforced by an `import-linter` contract per architect § 5.3 ("ml-corpus-is-not-runtime", forbidden contract). | Static CI test. |
+| **FR-ML-11** *(v0.2)* | MUST | The SnapGene cross-check is **process-only**, not a runtime gate. No pipeline that this project runs MAY access `snapgene.com` via any non-browser tool — no `curl`, no `wget`, no headless browser, no scraping framework, no MCP web-fetch. Cross-check is performed by a human in a browser, recorded into `crosscheck_log.yaml`, and the corpus record's `snapgene_crosscheck.checked` is updated by the same human. | Process audit; CI gate that scans pipeline configs for forbidden tool invocations against `snapgene.com`. |
+| **FR-ML-12** *(v0.2)* | MUST | The `corpus_manifest.yaml` MUST expose a `license_aggregate` block (IP-auditor § 8.2) reporting `total_records`, `by_sequence_license`, `by_annotation_license`, `effective_license_distribution`, `partition_sa_free{record_count, fraction}`, `attribution_obligations{records_requiring_attribution, attribution_text_file}`, `cross_check_coverage{checked, unchecked, fraction_checked}`. | Manifest-completeness CI check. |
+| **FR-ML-13** *(v0.2)* | MUST | A separate `tools/release/corpus_release_gate.py` MUST enforce release-time criteria (not per-PR): `fraction_checked >= 0.90` (SnapGene cross-check coverage at release), `attribution_text_file` exists and is complete, no Tier-3 denylist sources present, no records with missing license blocks. | Release-gate test. |
+| **FR-ML-14** *(v0.2)* | SHOULD | Public-facing documentation that names SnapGene (README files, `traceability_index.md`, ML-corpus README, `crosscheck_log.yaml` header) MUST carry the nominative-use disclaimer drafted in IP-auditor § 3.4 (or counsel-approved equivalent). A canonical `LICENSES/THIRD_PARTY_NOTICES.md` MAY centralise the disclaimer with shorter references elsewhere. | Documentation audit. |
+| **FR-ML-15** *(v0.2)* | SHOULD | Aggregate training bundles (tar.gz of all records) SHOULD be tracked in Git LFS at release-tag time; per-record JSON files remain in-tree and unversioned by LFS (architect § 6 Q6). | Release-build test. |
+
+### 11.6 New molecular rules (MR-55 … MR-60)
+
+| ID | Predicate | Severity | Citation / rationale |
+|---|---|---|---|
+| **MR-55** *(v0.2)* | Methylation-aware restriction-enzyme planning: a digest that uses dam-methylation-blocked enzymes (XbaI, NheI, MboI, ClaI when overlapping GATC, etc.) on plasmid DNA from a `dam+` host triggers a HARD block; use of dcm-methylation-blocked enzymes (EcoRII, MvaI, ApyI subset) on `dcm+` DNA triggers a HARD block; DpnI requires `dam+` template; DpnII / Sau3AI require `dam-` template. | HARD | REBASE methylation table; Sambrook 4th ed. § 5. Catalogue-machine-checkable now that `methylation_phenotype` is a first-class host field (FR-HOST-13). |
+| **MR-56** *(v0.2)* | Disulfide-aware host selection: a cargo ORF with ≥ 3 predicted disulfide bonds (signal peptide + cytoplasmic or periplasmic target) in a host with `disulfide_environment.cytoplasm_state = "reducing_default"` SHOULD suggest switching to Origami(DE3) / Origami B(DE3) / SHuffle T7 (oxidising or shuffle-engineered cytoplasm). | SOFT | Bessette 1999 PMID 10590025; Lobstein 2012 PMID 22950704. |
+| **MR-57** *(v0.2)* | Protease-aware host selection: a cargo ORF with a known protease-sensitivity motif (PEST sequences, N-end-rule destabilising residues, IUPRED-disordered ≥ 30% content) in a host with `protease_status.lon = "present"` AND `protease_status.ompT = "present"` SHOULD suggest switching to BL21 lineage (`lon = "deleted"`, `ompT = "deleted"`). | SOFT | Gottesman 1996 PMID 8902478. |
+| **MR-58** *(v0.2)* | Rare-codon-aware host suggestion: a cargo ORF whose rare-codon (CAI in host < 0.5 for *E. coli* K12 codon table OR windowed 6-codon rare-cluster scan ≥ 2 clusters) load exceeds threshold, in a host with `rare_codon_supplementation = []`, SHOULD suggest Rosetta(DE3) / Rosetta(DE3)pLysS (supplied tRNAs `argU argW ileX glyT leuW proL`). | SOFT | Kane 1995 PMID 7493997. Refines existing MR-08 with first-class catalogue check. |
+| **MR-59** *(v0.2)* | Marker-host auxotrophic compatibility: an auxotrophic yeast marker (URA3 / LEU2 / HIS3 / TRP1 / MET15 / LYS2) requires the corresponding `host_genotype_requirement` (e.g., `ura3-Δ`) in the host's `genotype` field. A marker→host mismatch is HARD. | HARD | Sikorski & Hieter 1989; Brachmann 1998. Now machine-checkable via `MarkersCataloguePort.host_genotype_requirement`. |
+| **MR-60** *(v0.2)* | Yeast two-hybrid marker compatibility: when an AH109 / Y187 / EGY48 strain is in the host context, plasmid markers MUST NOT collide with the reporter cassette markers (HIS3 reporter, ADE2, MEL1, lacZ, LEU2 reporter); collision is HARD. | HARD | James 1996 PMID 8771697 (AH109); Harper 1993 (Y187 lineage); Estojak 1995 (EGY48). Now machine-checkable via FR-HOST-20 documenting reporter cassettes in `expression_features`. |
+
+### 11.7 New biosafety / IP rules (BR-15 … BR-17)
+
+| ID | Predicate | Severity | Rationale |
+|---|---|---|---|
+| **BR-15** *(v0.2)* | Every record in `docs/ml_corpus/records/**/*.json` MUST carry a complete license block (sequence_license + annotation_license, both with `redistribution_allowed` and `ml_training_allowed` explicitly set). Missing-or-default is a HARD CI fail (default-deny). Records without licence clearance MUST live in `docs/ml_corpus/exclusions.yaml`, not in `records/`. | HARD | IP-auditor § 8.1 Tier-3 denylist enforcement; default-deny posture. |
+| **BR-16** *(v0.2)* | No pipeline this project runs MAY access `snapgene.com` via any non-browser tool. SnapGene is index-only, accessed by humans in browsers, with cross-check results recorded in `crosscheck_log.yaml`. Any attempt to introduce automated SnapGene access into a build pipeline MUST be detected and blocked by CI. | HARD | IP-auditor § 3.3 SnapGene posture; user Decision #4 of initial report. |
+| **BR-17** *(v0.2)* | CC-BY-SA records routed to `docs/ml_corpus/records/cc-by-sa/` MUST be excluded from any model training intended for commercial deployment unless the share-alike obligation is explicitly accepted by the user and counsel review is documented. The corpus manifest MUST maintain `partition: sa_free` as the default training set; `partition: full` is opt-in. | HARD | IP-auditor § 6.3 contagion analysis; architect Q7. |
+
+### 11.8 New data-model entities (DR-11 … DR-13)
+
+| ID | Priority | Requirement |
+|---|---|---|
+| **DR-11** *(v0.2)* | MUST | A new `Marker` entity MUST be added with the fields enumerated in FR-MARK-01; resolved via `MarkersCataloguePort`; immutable at runtime. |
+| **DR-12** *(v0.2)* | MUST | A new `CorpusRecord` entity MUST be added with the fields enumerated in FR-ML-03; stored under `docs/ml_corpus/records/`; resolved by training pipelines only, never by the runtime engine. |
+| **DR-13** *(v0.2)* | MUST | A new `SnapGeneCrossCheckEntry` entity MUST be added as an append-only log row in `docs/ml_corpus/crosscheck_log.yaml` carrying `date`, `checker`, `corpus_record_id`, `snapgene_record_name`, `snapgene_record_url`, `match` (bool), `discrepancy_resolution` (optional, ≤ 200 chars). |
+
+### 11.9 New acceptance criteria (AC-08 … AC-11)
+
+| ID | Test |
+|---|---|
+| **AC-08** *(v0.2)* | All 30 strains enumerated in § 11.3 are present in `catalogues/hosts.yaml` under schema v1.1, with the new-to-v0.2 strains (Origami(DE3), Origami B(DE3), Rosetta(DE3)pLysS, PichiaPink series, KM71, SMD1168H, AH109, Y187, EGY48) fully populated for all v1.1 phenotype fields where applicable, and citations resolving to primary literature or Sambrook 4th ed. |
+| **AC-09** *(v0.2)* | `catalogues/markers.yaml` carries the v0.2 minimum marker set (9 bacterial + 6 yeast auxotrophic + 4 dominant yeast + 4 mammalian = 23 markers) with per-host `working_concentrations[]` populated and Sambrook 4th ed. citations. `host-marker-link-integrity-check` and `markers-citation-presence-check` CI gates pass. |
+| **AC-10** *(v0.2)* | The `docs/ml_corpus/` subsystem is operational: folder layout per FR-ML-01 exists; `corpus_record.schema.json` is committed; `import-linter` "ml-corpus-is-not-runtime" contract passes; `ml-corpus-license-check` CI gate passes; the `corpus_manifest.yaml::license_aggregate` block is populated; both `partition: full` and `partition: sa_free` partitions are queryable. |
+| **AC-11** *(v0.2)* | The `corpus_release_gate.py` (FR-ML-13) runs at release tag time and reports SnapGene cross-check coverage ≥ 90%, attribution-text-file present, no Tier-3 denylist sources, no records with missing license blocks. (This is a release-tag gate, not a per-PR gate.) |
+
+### 11.10 New compliance NFR (NFR-COMPLY-06)
+
+| ID | Priority | Requirement |
+|---|---|---|
+| **NFR-COMPLY-06** *(v0.2)* | MUST | ML training corpus license metadata MUST be machine-checkable and complete per record. The aggregate `corpus_manifest.yaml::license_aggregate` block enables release-time license-distribution reporting. A canonical `LICENSES/` directory under `docs/ml_corpus/` MUST contain the full text of every license referenced in the corpus (CC0, CC-BY-4.0, CC-BY-SA-4.0, etc., per SPDX best practice). |
+
+### 11.11 Cross-references to architect and IP-auditor analyses
+
+| v0.2 requirement | Maps to |
+|---|---|
+| UR-12 + FR-HOST-13..20 | Architect § 2.1 (hosts.schema v1.1 fields) |
+| UR-13 + FR-MARK-01..12 | Architect § 2.2 (markers.schema v1.0) + § 3 (MarkersCataloguePort) + § 4.1–4.2 (CI gates) |
+| FR-ML-02 + FR-ML-03 + FR-ML-05 | Architect § 2.3 (corpus_record.schema.json) + IP-auditor § 5 (sequence/annotation license split) |
+| FR-ML-01 + FR-ML-10 | Architect § 5.1 (folder layout) + § 5.3 (runtime/training boundary via import-linter) |
+| FR-ML-06 + BR-17 | IP-auditor § 6.3 (CC-BY-SA partition + sa_free strategy) |
+| FR-ML-11 + BR-16 | Architect § 5.2 (process-only artefact) + IP-auditor § 3.3 (SnapGene posture in AU + US) |
+| FR-ML-12 + FR-ML-13 | IP-auditor § 8.2 (license_aggregate manifest) + § 8.3 (counsel-reviewed release gate) |
+| FR-ML-14 | IP-auditor § 3.4 (nominative-use trademark disclaimer) |
+| MR-55..MR-60 | First-class catalogue fields from architect § 2.1.2 make existing rule families machine-checkable |
+| AC-08..AC-11 | Architect § 7 acceptance checklist + IP-auditor § 10 acceptance checklist |
+
+### 11.12 v0.2 sign-off (cadence-step gate)
+
+This Enrichment Amendment v0.2 advances the project's standing cadence from step 6 (this REQUIREMENTS.md update) to step 7 (the three-skill joint development plan). It does **not** authorise implementation. Implementation begins at step 10, after `ARCHITECTURE.md` (step 8), `CODING_AGENDA.md` (step 9), and `TASK_BOARD.md` (step 10) are each updated by their respective owners. The ten open questions (architect § 6 Q1–Q10) and ten IP open questions (IP-auditor § 9 IPQ-1 to IPQ-10) MUST be resolved in step 7.
+
+---
+
 ## Appendix A — Traceability matrix to v2.0 KB
 
 For audit purposes. Each requirement is mapped to the v2.0 KB section that justifies it.
@@ -709,13 +860,15 @@ For terms used in this document but not defined here, see the glossary in `Cloni
 
 ## Appendix C — Sign-off
 
-This requirements document is **Draft v0.1**. Recommended review path:
+This requirements document is at **v0.2 — Enrichment Amendment landed 2026-05-23**. The v0.1 body (UR-01 … UR-11, FR-* through BR-14, NFR-*, SC-*, DR-1..10, AC-1..7) was carried through the v0.1.0 software release. The v0.2 amendment (§ 11, UR-12 … UR-14, FR-HOST-13..20, FR-MARK-01..12, FR-ML-01..15, MR-55..60, BR-15..17, DR-11..13, AC-08..11, NFR-COMPLY-06) lands per the project's standing 10-step working principle.
 
-1. **Project sponsor** confirms UR-01 … UR-08 are correctly captured and the expanded set captures the intent.
-2. **`/architect`** uses this document plus the v2.0 KB to produce `docs/architecture.md` (ROADMAP Phase 1 exit criteria).
-3. **`/scientific-advisor`** (this skill) verifies each MR / WR / SR / BR rule against the v2.0 KB citation chain.
-4. **`/dev-orchestrator`** consumes the prioritised MoSCoW × ROADMAP table to assemble the module registry for Phases 2–7.
+Recommended review path:
+
+1. **Project sponsor** confirms UR-01 … UR-14 are correctly captured and the expanded set captures the intent. (UR-12 … UR-14 added 2026-05-23.)
+2. **`/architect`** uses this document plus the v2.0 KB to produce `ARCHITECTURE.md` updates — for v0.2, the update lands at cadence step 8, post-joint-plan.
+3. **`/scientific-advisor`** verifies each MR / WR / SR / BR rule against the v2.0 KB citation chain; v0.2 additions (MR-55..60, BR-15..17) reference Sambrook 4th ed. Appendix A1, Bessette 1999, Lobstein 2012, Goldstein & McCusker 1999, James 1996, the architect § 4 CI-gate set, and the IP-auditor § 8 source-tier list.
+4. **`/dev-orchestrator`** consumes the prioritised MoSCoW × ROADMAP table to assemble the module registry; for v0.2, new task cards land at cadence step 9 (CODING_AGENDA.md) following the three-skill joint plan at step 7.
 
 ---
 
-*End of Software Requirements Specification — v0.1.*
+*End of Software Requirements Specification — v0.2 Enrichment Amendment, 2026-05-23.*

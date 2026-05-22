@@ -5,6 +5,10 @@ root_packages =
     app
     adapter
     interface
+# v0.2 Enrichment Amendment (2026-05-23): enabled to support the
+# `ml-corpus-is-not-runtime` contract whose forbidden target `docs.ml_corpus`
+# is external (not a Python package; intentionally so per ARCHITECTURE.md § 9.3.3).
+include_external_packages = True
 
 [importlinter:contract:domain-boundary]
 name = Domain layer has no outward imports
@@ -40,3 +44,25 @@ source_modules =
     app.advisory_acknowledgement
 forbidden_modules =
     domain.types.sop_protected
+
+# v0.2 Enrichment Amendment (2026-05-23) per ARCHITECTURE.md § 9.3.3 — runtime engine
+# must not import from the ML training corpus subsystem. The architect's spec named
+# `docs.ml_corpus.*` as the forbidden target, but import-linter requires top-level
+# external packages (subpackages of externals are rejected). We forbid `docs` at the
+# top level — broader than strictly necessary but defensible because `docs/` is a
+# folder tree of documentation + data with no Python __init__.py by design; no
+# legitimate import path crosses this boundary. The contract codifies the
+# architectural intent and will catch any accidental conversion of `docs/ml_corpus/`
+# (or anywhere under `docs/`) into an importable package.
+[importlinter:contract:ml-corpus-is-not-runtime]
+name = Runtime engine does not import from the docs/ tree (incl. ML training corpus subsystem)
+type = forbidden
+source_modules =
+    domain
+    engine
+    app
+    adapter
+    interface
+forbidden_modules =
+    docs
+allow_indirect_imports = True

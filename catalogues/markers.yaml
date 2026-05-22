@@ -1,0 +1,618 @@
+# Selection-markers catalogue, v0.2 Enrichment Amendment (2026-05-23).
+# Populated at task T-410 per CODING_AGENDA.md § 2.4.2.5.
+# Authority: REQUIREMENTS.md FR-MARK-01..12; ARCHITECTURE.md § 9.1.
+# Canonical concentration reference: Sambrook & Russell, Molecular Cloning: A
+# Laboratory Manual, 4th ed. (Cold Spring Harbor Laboratory Press, 2001),
+# Appendix A1. Primary-literature citations are preferred where they diverge.
+catalogue_id: "cev.markers"
+schema_version: "1.0.0"
+maintenance:
+  retrieved_at: "2026-05-23"
+  valid_until: "2027-05-23"
+  source_url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#5.2"
+  review_required_after: "2026-11-23"
+item_maintenance: &item_maintenance
+  retrieved_at: "2026-05-23"
+  valid_until: "2027-05-23"
+  source_url: "Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#5.2"
+  review_required_after: "2026-11-23"
+citation_presets:
+  sambrook_a1: &cite_sambrook_a1
+    text: "Sambrook & Russell, Molecular Cloning: A Laboratory Manual 4th ed. (CSHL Press, 2001), Appendix A1."
+    grade: "B2"
+    accessed: "2026-05-23"
+items:
+  # ----- Bacterial antibiotic markers (9) -----
+  - id: "marker.ampicillin"
+    name: "Ampicillin / Carbenicillin (bla, TEM-1)"
+    class: "bacterial_antibiotic"
+    gene: "bla"
+    mechanism: "Class A β-lactamase TEM-1; hydrolyses the β-lactam ring of penicillin-family antibiotics."
+    plasmid_borne: true
+    chromosomal: false
+    working_concentrations:
+      - host_class: "ecoli"
+        agent: "ampicillin"
+        concentration_ugml: {min: 50, typical: 100, max: 200}
+        medium: "LB"
+        notes: "Carbenicillin (50-100 μg/mL) preferred for satellite-colony suppression in extended cultures; carbenicillin is more β-lactamase-stable."
+        citation: *cite_sambrook_a1
+    incompatibilities:
+      - "satellite colonies after extended incubation due to β-lactamase secretion"
+    use_cases: ["pUC", "pBR322", "pET", "pBAD", "pCDF", "pRSF", "pMAL", "pGEX", "pTrc"]
+    citation: *cite_sambrook_a1
+    maintenance: *item_maintenance
+  - id: "marker.kanamycin"
+    name: "Kanamycin / Neomycin (neo, aph(3')-Ia)"
+    class: "bacterial_antibiotic"
+    gene: "neo"
+    mechanism: "Aminoglycoside 3'-phosphotransferase; ATP-dependent O-phosphorylation of kanamycin/neomycin 3'-OH."
+    plasmid_borne: true
+    chromosomal: false
+    working_concentrations:
+      - host_class: "ecoli"
+        agent: "kanamycin"
+        concentration_ugml: {min: 25, typical: 50, max: 100}
+        medium: "LB"
+        citation: *cite_sambrook_a1
+    incompatibilities: []
+    use_cases: ["pET-28a/b/c", "pET-30", "pACYC177", "pBR325 derivatives"]
+    citation:
+      text: "Beck et al. 1982 (Gene 19:327-336); Sambrook 4th ed. Appendix A1."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "6296021"
+    maintenance: *item_maintenance
+  - id: "marker.chloramphenicol"
+    name: "Chloramphenicol (cat)"
+    class: "bacterial_antibiotic"
+    gene: "cat"
+    mechanism: "Chloramphenicol acetyl-transferase; acetyl-CoA-dependent acetylation inactivates chloramphenicol."
+    plasmid_borne: true
+    chromosomal: false
+    working_concentrations:
+      - host_class: "ecoli"
+        agent: "chloramphenicol"
+        concentration_ugml: {min: 10, typical: 34, max: 50}
+        medium: "LB"
+        notes: "34 μg/mL is the canonical pET-system pLysS/pRARE concentration."
+        citation: *cite_sambrook_a1
+    incompatibilities: []
+    use_cases: ["pACYC184", "pACYC177", "pLysS", "pLysE", "pRARE", "pCDFDuet", "pBAD33"]
+    citation:
+      text: "Shaw 1975 (Methods Enzymol 43:737-755); Sambrook 4th ed. Appendix A1."
+      grade: "A2"
+      accessed: "2026-05-23"
+      pmid: "1095"
+    maintenance: *item_maintenance
+  - id: "marker.tetracycline"
+    name: "Tetracycline (tetA, Tn10 lineage)"
+    class: "bacterial_antibiotic"
+    gene: "tetA"
+    mechanism: "TetA membrane efflux pump; tetR-regulated active export of tetracycline from cytoplasm."
+    plasmid_borne: true
+    chromosomal: false
+    working_concentrations:
+      - host_class: "ecoli"
+        agent: "tetracycline"
+        concentration_ugml: {min: 10, typical: 12.5, max: 25}
+        medium: "LB"
+        notes: "Light-sensitive; freshly prepared stocks; store dark."
+        citation: *cite_sambrook_a1
+    incompatibilities: ["light degradation", "chelation by divalent cations in MgSO4-rich media"]
+    use_cases: ["pBR322", "pACYC184", "pSC101 derivatives"]
+    citation:
+      text: "Sambrook 4th ed. Appendix A1 + Bertrand et al. 1983 mechanism."
+      grade: "B2"
+      accessed: "2026-05-23"
+    maintenance: *item_maintenance
+  - id: "marker.spectinomycin"
+    name: "Spectinomycin / Streptomycin (aadA, Tn7)"
+    class: "bacterial_antibiotic"
+    gene: "aadA"
+    mechanism: "Aminoglycoside 3''-adenylyltransferase; adenylylation of streptomycin/spectinomycin."
+    plasmid_borne: true
+    chromosomal: false
+    working_concentrations:
+      - host_class: "ecoli"
+        agent: "spectinomycin"
+        concentration_ugml: {min: 50, typical: 100, max: 100}
+        medium: "LB"
+        citation: *cite_sambrook_a1
+    incompatibilities: []
+    use_cases: ["pCDFDuet-1", "pRSFDuet-1", "pLacIQ"]
+    citation:
+      text: "Hollingshead & Vapnek 1985 (Plasmid 13:17-30)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "2987812"
+    maintenance: *item_maintenance
+  - id: "marker.zeocin_bacterial"
+    name: "Zeocin / Bleomycin (ble, Sh ble)"
+    class: "bacterial_antibiotic"
+    gene: "ble"
+    mechanism: "Sh ble protein binds and sequesters bleomycin/phleomycin/zeocin, preventing DNA strand-scission activity."
+    plasmid_borne: true
+    chromosomal: false
+    working_concentrations:
+      - host_class: "ecoli"
+        agent: "zeocin"
+        concentration_ugml: {min: 25, typical: 25, max: 50}
+        medium: "low-salt LB (NaCl ≤ 5 g/L)"
+        notes: "Salt sensitivity: high NaCl quenches Zeocin activity; use low-salt LB."
+        citation:
+          text: "Drocourt et al. 1990 (Nucleic Acids Res 18:4009)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "2370666"
+    incompatibilities: ["high-NaCl media quench activity"]
+    use_cases: ["pPICZ", "pVITRO-zeo"]
+    citation:
+      text: "Drocourt et al. 1990 (Nucleic Acids Res 18:4009); Invitrogen Zeocin manual."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "2370666"
+    maintenance: *item_maintenance
+  - id: "marker.gentamicin"
+    name: "Gentamicin (aac(3)-IV)"
+    class: "bacterial_antibiotic"
+    gene: "aac(3)-IV"
+    mechanism: "Aminoglycoside 3-N-acetyltransferase; N-acetylation of gentamicin."
+    plasmid_borne: true
+    chromosomal: false
+    working_concentrations:
+      - host_class: "ecoli"
+        agent: "gentamicin"
+        concentration_ugml: {min: 10, typical: 25, max: 50}
+        medium: "LB"
+        citation: *cite_sambrook_a1
+    incompatibilities: []
+    use_cases: ["broad-host-range vectors (IncP/IncQ)", "plant binary vectors"]
+    citation: *cite_sambrook_a1
+    maintenance: *item_maintenance
+  - id: "marker.hygromycin_bacterial"
+    name: "Hygromycin B (hph)"
+    class: "bacterial_antibiotic"
+    gene: "hph"
+    mechanism: "Hygromycin B phosphotransferase; ATP-dependent phosphorylation of hygromycin B at 4-OH."
+    plasmid_borne: true
+    chromosomal: false
+    working_concentrations:
+      - host_class: "ecoli"
+        agent: "hygromycin B"
+        concentration_ugml: {min: 100, typical: 200, max: 500}
+        medium: "LB"
+        notes: "Bacterial hph concentrations are markedly different from mammalian (50-200 μg/mL) due to lower uptake."
+        citation:
+          text: "Gritz & Davies 1983 (Gene 25:179-188)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "6313438"
+    incompatibilities: []
+    use_cases: ["broad-host vectors, plant binary vectors (T-DNA)"]
+    citation:
+      text: "Gritz & Davies 1983 (Gene 25:179-188)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "6313438"
+    maintenance: *item_maintenance
+  - id: "marker.erythromycin"
+    name: "Erythromycin (ermC, ermAM)"
+    class: "bacterial_antibiotic"
+    gene: "ermC"
+    mechanism: "23S rRNA N6-methyltransferase at A2058 (E. coli numbering); methylation blocks macrolide binding."
+    plasmid_borne: true
+    chromosomal: false
+    working_concentrations:
+      - host_class: "ecoli"
+        agent: "erythromycin"
+        concentration_ugml: {min: 100, typical: 150, max: 300}
+        medium: "LB"
+        notes: "Used primarily in Gram-positive workflows; concentrations for Lactococcus/Bacillus differ."
+        citation: *cite_sambrook_a1
+    incompatibilities: ["wild-type Gram-negative envelope barrier reduces uptake"]
+    use_cases: ["pE194", "Gram-positive shuttle vectors"]
+    citation: *cite_sambrook_a1
+    maintenance: *item_maintenance
+  # ----- Yeast auxotrophic markers (6) -----
+  - id: "marker.ura3"
+    name: "URA3 auxotrophic marker"
+    class: "yeast_auxotrophic"
+    gene: "URA3"
+    mechanism: "Orotidine-5'-phosphate decarboxylase (Ura3p); restores pyrimidine biosynthesis in ura3- host. Counter-selectable by 5-FOA (5-fluoroorotic acid)."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "uracil_dropout"
+        concentration_ugml: {min: 0, typical: 0, max: 0}
+        medium: "SD -Ura (CSM-Ura)"
+        notes: "Auxotrophic — selection on uracil-dropout medium, not concentration-based."
+        citation:
+          text: "Sikorski & Hieter 1989 (Genetics 122:19-27)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "2659436"
+    counter_selection:
+      agent: "5-FOA"
+      selection_medium: "SD +5-FOA (1 mg/mL 5-FOA + uracil)"
+      notes: "5-FOA is converted by Ura3p to toxic 5-fluoro-UMP; URA3+ cells die. Enables loss-of-function selection."
+      citation:
+        text: "Boeke et al. 1984 (Mol Gen Genet 197:345-346)."
+        grade: "A1"
+        accessed: "2026-05-23"
+        pmid: "6394957"
+    host_genotype_requirement: "ura3-Δ (e.g., BY4741, BY4742, INVSc1)"
+    incompatibilities: []
+    use_cases: ["pYES2", "pRS416", "p426GPD", "pYES2.1/V5-His", "MoBY-2.0 collection"]
+    citation:
+      text: "Sikorski & Hieter 1989 (Genetics 122:19-27)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "2659436"
+    maintenance: *item_maintenance
+  - id: "marker.leu2"
+    name: "LEU2 auxotrophic marker"
+    class: "yeast_auxotrophic"
+    gene: "LEU2"
+    mechanism: "β-isopropylmalate dehydrogenase (Leu2p); restores leucine biosynthesis in leu2-Δ host."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "leucine_dropout"
+        concentration_ugml: {min: 0, typical: 0, max: 0}
+        medium: "SD -Leu (CSM-Leu)"
+        notes: "LEU2-d (truncated promoter, leaky) is used for high-copy 2μ plasmids."
+        citation:
+          text: "Sikorski & Hieter 1989 (Genetics 122:19-27)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "2659436"
+    host_genotype_requirement: "leu2-Δ0 / leu2-3,112 (e.g., BY4741, AH109, Y187, EGY48)"
+    incompatibilities: []
+    use_cases: ["pRS425", "p425GPD", "YEplac181", "pYES1L"]
+    citation:
+      text: "Sikorski & Hieter 1989 (Genetics 122:19-27)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "2659436"
+    maintenance: *item_maintenance
+  - id: "marker.his3"
+    name: "HIS3 auxotrophic marker"
+    class: "yeast_auxotrophic"
+    gene: "HIS3"
+    mechanism: "Imidazoleglycerol-phosphate dehydratase (His3p); restores histidine biosynthesis in his3-Δ host."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "histidine_dropout"
+        concentration_ugml: {min: 0, typical: 0, max: 0}
+        medium: "SD -His (CSM-His)"
+        notes: "3-AT (3-amino-1,2,4-triazole) titration at 1-50 mM tightens HIS3-based selection in Y2H workflows (AH109 background)."
+        citation:
+          text: "Sikorski & Hieter 1989 (Genetics 122:19-27)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "2659436"
+    host_genotype_requirement: "his3-Δ1 / his3-200 (e.g., BY4741, AH109)"
+    incompatibilities: []
+    use_cases: ["pRS423", "p423GPD", "YEplac191", "Y2H prey vectors"]
+    citation:
+      text: "Sikorski & Hieter 1989 (Genetics 122:19-27); James 1996 PMID 8771697 (AH109 HIS3 reporter)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "2659436"
+    maintenance: *item_maintenance
+  - id: "marker.trp1"
+    name: "TRP1 auxotrophic marker"
+    class: "yeast_auxotrophic"
+    gene: "TRP1"
+    mechanism: "Phosphoribosyl-anthranilate isomerase (Trp1p); restores tryptophan biosynthesis in trp1-Δ host."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "tryptophan_dropout"
+        concentration_ugml: {min: 0, typical: 0, max: 0}
+        medium: "SD -Trp (CSM-Trp)"
+        notes: "AH109 uses TRP1 as the bait-vector marker in Y2H."
+        citation:
+          text: "Sikorski & Hieter 1989 (Genetics 122:19-27)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "2659436"
+    host_genotype_requirement: "trp1-Δ901 / trp1-289 (e.g., BY4741 is TRP1+ chromosomal; many Y2H bait vectors require trp1- recipient)"
+    incompatibilities: []
+    use_cases: ["pRS424", "p424GPD", "pGBKT7 (Y2H bait)"]
+    citation:
+      text: "Sikorski & Hieter 1989 (Genetics 122:19-27)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "2659436"
+    maintenance: *item_maintenance
+  - id: "marker.met15"
+    name: "MET15 / MET17 auxotrophic marker"
+    class: "yeast_auxotrophic"
+    gene: "MET15"
+    mechanism: "O-acetylhomoserine sulfhydrylase; restores methionine + cysteine biosynthesis in met15-Δ host. Counter-selectable by Pb(NO3)2 (lead-acetate plates turn met15- colonies brown)."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "methionine_dropout"
+        concentration_ugml: {min: 0, typical: 0, max: 0}
+        medium: "SD -Met (CSM-Met)"
+        citation:
+          text: "Brachmann et al. 1998 (Yeast 14:115-132)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "9483801"
+    host_genotype_requirement: "met15-Δ0 (e.g., BY4741)"
+    incompatibilities: []
+    use_cases: ["pRS411 series", "yeast genome library construction"]
+    citation:
+      text: "Brachmann et al. 1998 (Yeast 14:115-132)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "9483801"
+    maintenance: *item_maintenance
+  - id: "marker.lys2"
+    name: "LYS2 auxotrophic marker"
+    class: "yeast_auxotrophic"
+    gene: "LYS2"
+    mechanism: "α-aminoadipate reductase (Lys2p); restores lysine biosynthesis. Counter-selectable by α-aminoadipate (αAA): lys2+ cells die on αAA + lysine."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "lysine_dropout"
+        concentration_ugml: {min: 0, typical: 0, max: 0}
+        medium: "SD -Lys (CSM-Lys)"
+        citation:
+          text: "Chattoo et al. 1979 (Genetics 93:51-65)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "363676"
+    counter_selection:
+      agent: "α-aminoadipate (αAA)"
+      selection_medium: "SD + αAA (2 g/L) + lysine (30 mg/L)"
+      notes: "Counter-selection enables LYS2 loop-out workflows."
+      citation:
+        text: "Chattoo et al. 1979 (Genetics 93:51-65)."
+        grade: "A1"
+        accessed: "2026-05-23"
+        pmid: "363676"
+    host_genotype_requirement: "lys2-Δ"
+    incompatibilities: []
+    use_cases: ["pRS317", "Y187 background workflows"]
+    citation:
+      text: "Chattoo et al. 1979 (Genetics 93:51-65)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "363676"
+    maintenance: *item_maintenance
+  # ----- Dominant yeast markers (4) -----
+  - id: "marker.kanmx_g418"
+    name: "KanMX (TEF1p-kanMX-TEF1term; G418/geneticin resistance)"
+    class: "yeast_dominant"
+    gene: "kanMX (kanR / aph(3')-Ia under TEF1 promoter)"
+    mechanism: "Aminoglycoside 3'-phosphotransferase under heterologous TEF1 promoter; dominantly confers G418 resistance to yeast."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "G418 / geneticin"
+        concentration_ugml: {min: 100, typical: 200, max: 400}
+        medium: "YPD"
+        carbon_source_qualifier: "glucose"
+        notes: "Dose response shifts on glycerol vs glucose carbon source; YPGlycerol may require 300-500 μg/mL."
+        citation:
+          text: "Wach et al. 1994 (Yeast 10:1793-1808)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "7747518"
+      - host_class: "kphaffii"
+        agent: "G418 / geneticin"
+        concentration_ugml: {min: 100, typical: 250, max: 500}
+        medium: "YPD"
+        carbon_source_qualifier: "glucose"
+        citation:
+          text: "Cregg et al. 2000 (Mol Biotechnol 16:23-52)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "11098467"
+    incompatibilities: []
+    use_cases: ["pFA6a-kanMX6 (S. cerevisiae deletion cassettes)", "pYM-N/C series", "BAC integration"]
+    citation:
+      text: "Wach et al. 1994 (Yeast 10:1793-1808)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "7747518"
+    maintenance: *item_maintenance
+  - id: "marker.hphmx_hygromycin"
+    name: "HphMX (TEF1p-hph; hygromycin B resistance in yeast)"
+    class: "yeast_dominant"
+    gene: "hph (under TEF1 promoter)"
+    mechanism: "Hygromycin B phosphotransferase under heterologous TEF1 promoter; dominantly confers hygromycin B resistance to yeast."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "hygromycin B"
+        concentration_ugml: {min: 200, typical: 300, max: 500}
+        medium: "YPD"
+        citation:
+          text: "Goldstein & McCusker 1999 (Yeast 15:1541-1553)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "10618490"
+    incompatibilities: []
+    use_cases: ["pAG32 (HphMX cassette)", "pYM cassettes", "multi-marker S. cerevisiae deletion strain construction"]
+    citation:
+      text: "Goldstein & McCusker 1999 (Yeast 15:1541-1553)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "10618490"
+    maintenance: *item_maintenance
+  - id: "marker.natmx_clonnat"
+    name: "NatMX (TEF1p-nat1; nourseothricin / clonNAT resistance)"
+    class: "yeast_dominant"
+    gene: "nat1 (under TEF1 promoter)"
+    mechanism: "Streptothricin acetyltransferase under heterologous TEF1 promoter; dominantly confers nourseothricin resistance to yeast."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "clonNAT / nourseothricin"
+        concentration_ugml: {min: 75, typical: 100, max: 200}
+        medium: "YPD"
+        citation:
+          text: "Goldstein & McCusker 1999 (Yeast 15:1541-1553)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "10618490"
+    incompatibilities: []
+    use_cases: ["pAG25 (NatMX cassette)", "pYM cassettes", "multi-marker deletion strain construction"]
+    citation:
+      text: "Goldstein & McCusker 1999 (Yeast 15:1541-1553)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "10618490"
+    maintenance: *item_maintenance
+  - id: "marker.blepmx_zeocin"
+    name: "BlepMX / BleMX (TEF1p-ble; phleomycin / Zeocin resistance in yeast)"
+    class: "yeast_dominant"
+    gene: "ble (Sh ble under TEF1 promoter)"
+    mechanism: "Sh ble binding protein under heterologous TEF1 promoter; dominantly confers phleomycin/Zeocin resistance to yeast."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "scerevisiae"
+        agent: "zeocin / phleomycin"
+        concentration_ugml: {min: 100, typical: 100, max: 300}
+        medium: "YPD (low-salt)"
+        notes: "Same low-salt-medium requirement as bacterial Zeocin."
+        citation:
+          text: "Goldstein & McCusker 1999 (Yeast 15:1541-1553)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "10618490"
+      - host_class: "kphaffii"
+        agent: "zeocin"
+        concentration_ugml: {min: 100, typical: 100, max: 500}
+        medium: "YPD-S (low salt)"
+        notes: "Multicopy integration in Pichia: stepwise selection at 100, 250, 500, 1000 μg/mL Zeocin yields strains with progressively higher copy numbers (per Invitrogen Pichia kit)."
+        citation:
+          text: "Invitrogen Pichia Expression Kit K1710 user manual (current edition)."
+          grade: "B2"
+          accessed: "2026-05-23"
+    incompatibilities: ["high-NaCl media quench activity"]
+    use_cases: ["pAG31 (BleMX cassette)", "pPICZ-α-A (Pichia)", "pPICZ-B"]
+    citation:
+      text: "Goldstein & McCusker 1999 (Yeast 15:1541-1553)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "10618490"
+    maintenance: *item_maintenance
+  # ----- Mammalian antibiotic markers (4) -----
+  - id: "marker.puromycin_mammalian"
+    name: "Puromycin (pac)"
+    class: "mammalian_antibiotic"
+    gene: "pac"
+    mechanism: "Puromycin N-acetyltransferase; inactivates puromycin by N-acetylation. Puromycin is a tyrosyl-tRNA mimic that causes premature chain termination."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "mammalian"
+        agent: "puromycin"
+        concentration_ugml: {min: 1, typical: 2, max: 10}
+        medium: "DMEM / RPMI"
+        notes: "Cell-line-specific titration is mandatory; HEK293T tolerates 2 μg/mL, primary cells require 0.5-1 μg/mL; kill curve recommended."
+        citation:
+          text: "Vara et al. 1986 (Nucleic Acids Res 14:4617-4624)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "3014619"
+    incompatibilities: []
+    use_cases: ["pLKO.1-puro", "pBABE-puro", "pCDH-puro", "lentiviral selection cassettes"]
+    citation:
+      text: "Vara et al. 1986 (Nucleic Acids Res 14:4617-4624)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "3014619"
+    maintenance: *item_maintenance
+  - id: "marker.blasticidin"
+    name: "Blasticidin S (bsr / bsd)"
+    class: "mammalian_antibiotic"
+    gene: "bsr / bsd"
+    mechanism: "Blasticidin S deaminase; inactivates blasticidin S by deamination. Blasticidin S binds the 50S ribosomal subunit and inhibits peptide-bond formation."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "mammalian"
+        agent: "blasticidin S"
+        concentration_ugml: {min: 2, typical: 10, max: 20}
+        medium: "DMEM / RPMI"
+        notes: "Kill curve mandatory; ranges from 2-15 μg/mL across common cell lines."
+        citation:
+          text: "Izumi et al. 1991 (Exp Cell Res 197:229-233)."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "1959560"
+    incompatibilities: []
+    use_cases: ["pcDNA6.2/V5-DEST (Invitrogen)", "lentiviral cassettes", "Sleeping Beauty transposon"]
+    citation:
+      text: "Izumi et al. 1991 (Exp Cell Res 197:229-233)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "1959560"
+    maintenance: *item_maintenance
+  - id: "marker.hygromycin_mammalian"
+    name: "Hygromycin B (hph, mammalian context)"
+    class: "mammalian_antibiotic"
+    gene: "hph"
+    mechanism: "Hygromycin B phosphotransferase (same gene as bacterial marker.hygromycin_bacterial); inactivates hygromycin B by phosphorylation."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "mammalian"
+        agent: "hygromycin B"
+        concentration_ugml: {min: 50, typical: 200, max: 500}
+        medium: "DMEM / RPMI"
+        notes: "Mammalian concentrations are markedly lower than bacterial (100-500 μg/mL); kill curve mandatory."
+        citation:
+          text: "Gritz & Davies 1983 (Gene 25:179-188); cell-line-specific titration in mammalian standard practice."
+          grade: "A1"
+          accessed: "2026-05-23"
+          pmid: "6313438"
+    incompatibilities: []
+    use_cases: ["pcDNA3.1/Hygro", "pLenti-Hygro", "pCEP4 (EBNA1+OriP)"]
+    citation:
+      text: "Gritz & Davies 1983 (Gene 25:179-188)."
+      grade: "A1"
+      accessed: "2026-05-23"
+      pmid: "6313438"
+    maintenance: *item_maintenance
+  - id: "marker.geneticin_mammalian"
+    name: "G418 / Geneticin (neo, mammalian context)"
+    class: "mammalian_antibiotic"
+    gene: "neo (same gene as marker.kanamycin)"
+    mechanism: "Aminoglycoside 3'-phosphotransferase; same gene as bacterial Kan but used in mammalian context at distinct concentrations."
+    plasmid_borne: true
+    chromosomal: true
+    working_concentrations:
+      - host_class: "mammalian"
+        agent: "G418 / geneticin"
+        concentration_ugml: {min: 200, typical: 800, max: 1500}
+        medium: "DMEM / RPMI"
+        notes: "Mammalian concentrations are 10-30× higher than bacterial (50 μg/mL); kill curve mandatory per cell line. CHO often 400-800 μg/mL; HEK293 600-1000 μg/mL."
+        citation:
+          text: "Sambrook 4th ed. Appendix A1 + cell-line-specific standard practice."
+          grade: "B2"
+          accessed: "2026-05-23"
+    incompatibilities: []
+    use_cases: ["pcDNA3.1/Neo", "pBABE-neo", "lentiviral neo cassettes"]
+    citation: *cite_sambrook_a1
+    maintenance: *item_maintenance

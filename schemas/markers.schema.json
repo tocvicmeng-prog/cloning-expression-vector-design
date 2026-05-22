@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CEV selection-markers catalogue",
+  "type": "object",
+  "required": ["catalogue_id", "schema_version", "maintenance", "items"],
+  "properties": {
+    "catalogue_id": {"type": "string", "minLength": 1},
+    "schema_version": {"type": "string", "minLength": 1},
+    "maintenance": {
+      "type": "object",
+      "required": ["retrieved_at", "valid_until", "source_url", "review_required_after"],
+      "properties": {
+        "retrieved_at": {"type": "string", "format": "date"},
+        "valid_until": {"type": "string", "format": "date"},
+        "source_url": {"type": "string", "minLength": 1},
+        "review_required_after": {"type": "string", "format": "date"}
+      }
+    },
+    "item_maintenance": {
+      "type": "object",
+      "properties": {
+        "retrieved_at": {"type": "string", "format": "date"},
+        "valid_until": {"type": "string", "format": "date"},
+        "source_url": {"type": "string", "minLength": 1},
+        "review_required_after": {"type": "string", "format": "date"}
+      }
+    },
+    "citation_presets": {"type": "object"},
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "class",
+          "gene",
+          "mechanism",
+          "plasmid_borne",
+          "chromosomal",
+          "working_concentrations",
+          "incompatibilities",
+          "use_cases",
+          "citation",
+          "maintenance"
+        ],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "class": {
+            "type": "string",
+            "enum": [
+              "bacterial_antibiotic",
+              "yeast_auxotrophic",
+              "yeast_dominant",
+              "mammalian_antibiotic",
+              "counterselection"
+            ]
+          },
+          "gene": {"type": "string", "minLength": 1},
+          "mechanism": {"type": "string", "minLength": 1},
+          "plasmid_borne": {"type": "boolean"},
+          "chromosomal": {"type": "boolean"},
+          "working_concentrations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["host_class", "agent", "concentration_ugml", "medium", "citation"],
+              "properties": {
+                "host_class": {
+                  "type": "string",
+                  "enum": ["ecoli", "scerevisiae", "kphaffii", "mammalian", "insect", "plant"]
+                },
+                "agent": {"type": "string", "minLength": 1},
+                "concentration_ugml": {
+                  "type": "object",
+                  "required": ["min", "typical", "max"],
+                  "properties": {
+                    "min": {"type": "number"},
+                    "typical": {"type": "number"},
+                    "max": {"type": "number"}
+                  }
+                },
+                "medium": {"type": "string", "minLength": 1},
+                "carbon_source_qualifier": {"type": "string"},
+                "notes": {"type": "string"},
+                "citation": {
+                  "type": "object",
+                  "required": ["text", "grade", "accessed"],
+                  "properties": {
+                    "text": {"type": "string", "minLength": 1},
+                    "grade": {"type": "string", "enum": ["A1", "A2", "A3", "B1", "B2", "C"]},
+                    "accessed": {"type": "string", "format": "date"},
+                    "pmid": {"type": "string"},
+                    "doi": {"type": "string"},
+                    "url": {"type": "string"},
+                    "source_registry_ids": {"type": "array", "items": {"type": "string"}}
+                  }
+                }
+              }
+            }
+          },
+          "counter_selection": {
+            "type": "object",
+            "properties": {
+              "agent": {"type": "string", "minLength": 1},
+              "selection_medium": {"type": "string", "minLength": 1},
+              "notes": {"type": "string"},
+              "citation": {
+                "type": "object",
+                "required": ["text", "grade", "accessed"],
+                "properties": {
+                  "text": {"type": "string", "minLength": 1},
+                  "grade": {"type": "string", "enum": ["A1", "A2", "A3", "B1", "B2", "C"]},
+                  "accessed": {"type": "string", "format": "date"},
+                  "pmid": {"type": "string"},
+                  "doi": {"type": "string"},
+                  "url": {"type": "string"}
+                }
+              }
+            }
+          },
+          "host_genotype_requirement": {"type": "string"},
+          "incompatibilities": {"type": "array", "items": {"type": "string"}},
+          "use_cases": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "citation": {
+            "type": "object",
+            "required": ["text", "grade", "accessed"],
+            "properties": {
+              "text": {"type": "string", "minLength": 1},
+              "grade": {"type": "string", "enum": ["A1", "A2", "A3", "B1", "B2", "C"]},
+              "accessed": {"type": "string", "format": "date"},
+              "pmid": {"type": "string"},
+              "doi": {"type": "string"},
+              "url": {"type": "string"},
+              "source_registry_ids": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "maintenance": {
+            "type": "object",
+            "required": ["retrieved_at", "valid_until", "source_url", "review_required_after"],
+            "properties": {
+              "retrieved_at": {"type": "string", "format": "date"},
+              "valid_until": {"type": "string", "format": "date"},
+              "source_url": {"type": "string", "minLength": 1},
+              "review_required_after": {"type": "string", "format": "date"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

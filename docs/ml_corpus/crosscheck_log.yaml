@@ -1,0 +1,25 @@
+# ML Training Corpus — SnapGene cross-check log (process artefact, NOT a runtime gate)
+# Scaffolded at T-1401 (v0.2 Enrichment Amendment, 2026-05-23).
+# Append-only. Recorded by humans after a manual browser-based comparison
+# between an ingested corpus record (sequence/annotation from a cleaner-licensed source —
+# NCBI / EBI / iGEM / vendor primary publication) and the corresponding SnapGene reference record.
+#
+# NORMATIVE (per ARCHITECTURE.md § 9.3.5 + BR-16):
+#   1. No tool may automate access to snapgene.com — enforced by tools/ci/snapgene_pipeline_scan.py (T-1406).
+#   2. The cross-check is human judgement; not a runtime gate; not a CI hard fail.
+#   3. Coverage is reported in corpus_manifest.yaml::license_aggregate.cross_check_coverage.
+#   4. Release-gate threshold = 90% at research release; 95% at commercial fork release.
+#   5. discrepancy_resolution text MUST be researcher-authored, factual, ≤ 200 characters,
+#      with no verbatim quotation of SnapGene-authored annotation content.
+crosscheck_log_id: cev.ml_corpus.crosscheck_log
+schema_version: "0.0.0"  # Empty shell.
+
+# Format of each cross-check entry:
+# - corpus_record_id: "corpus.<category>.<slug>"
+#   snapgene_record_name: "<community-standard plasmid/element name as displayed on snapgene.com>"
+#   snapgene_record_url: "<URL slug, e.g., snapgene.com/plasmids/pet_and_duet_vectors/pet-28a(+)>"
+#   match: <bool>
+#   discrepancy_resolution: "<researcher-authored, factual, ≤ 200 chars; empty if match: true>"
+#   checked_at: "<ISO 8601 UTC>"
+#   checker: "<researcher identifier>"
+checks: []

@@ -23,11 +23,12 @@ TASK_MANIFEST = ROOT / "docs" / "task_manifest.yaml"
 PORT_MANIFEST = ROOT / "docs" / "port_manifest.yaml"
 MODULE_MANIFEST = ROOT / "docs" / "module_manifest.yaml"
 
-EXPECTED_PHASES = ["2", "3", "4", "5", "6", "7", "8a", "9a", "10", "8b", "9b", "11", "12", "13"]
+EXPECTED_PHASES = ["2", "3", "4", "4.2", "5", "6", "7", "8a", "9a", "10", "8b", "9b", "11", "12", "13", "14"]
 EXPECTED_COUNTS = {
     "2": 5,
     "3": 19,
     "4": 8,
+    "4.2": 10,
     "5": 4,
     "6": 5,
     "7": 5,
@@ -39,8 +40,9 @@ EXPECTED_COUNTS = {
     "11": 4,
     "12": 3,
     "13": 3,
+    "14": 11,
 }
-EXPECTED_TOTAL = 71
+EXPECTED_TOTAL = 92
 EXPECTED_PHASE3 = [
     "T-301",
     "T-302",
@@ -63,7 +65,32 @@ EXPECTED_PHASE3 = [
     "T-315",
 ]
 EXPECTED_PHASE4 = ["T-401", "T-402", "T-403", "T-404", "T-405", "T-406", "T-316c", "T-316b"]
-STALE_IDS = ["T-309a", "T-309b", "T-312", "T-313", "T-314", "T-316", "T-1103"]
+EXPECTED_PHASE_4_2 = [
+    "T-407",
+    "T-408",
+    "T-408a",
+    "T-409",
+    "T-410",
+    "T-411",
+    "T-412",
+    "T-413",
+    "T-414",
+    "T-415",
+]
+EXPECTED_PHASE14 = [
+    "T-1401",
+    "T-1402",
+    "T-1403",
+    "T-1404",
+    "T-1405",
+    "T-1406",
+    "T-1407",
+    "T-1408",
+    "T-1409",
+    "T-1410",
+    "T-1411",
+]
+STALE_IDS = ["T-309a", "T-309b", "T-312", "T-313", "T-314", "T-316", "T-1103", "T-MARKERS-SHIM"]
 
 
 def fail(errors: list[str], message: str) -> None:
@@ -78,8 +105,15 @@ def section(text: str, start: str, end: str | None = None) -> str:
 
 def task_headings(section2: str) -> list[tuple[str, str, str]]:
     headings: list[tuple[str, str, str]] = []
+    # v0.2 Enrichment Amendment (2026-05-23): extended phase pattern to accept
+    # decimal sub-phase tokens like "4.2" in addition to the v1.5 patterns
+    # ("2", "3", "4", "5", "6", "7", "8a", "8b", "9a", "9b", "10", "11", "12", "13", "14").
+    # Alternation order matters: try \d+\.\d+ (e.g. "4.2") first so it consumes
+    # the dot before the bare-digit alternative matches just "4".
     for match in re.finditer(
-        r"^#### 2\.(?P<phase>\d+[ab]?)\.(?P<num>\d+) `(?P<task>T-[^`]+)`", section2, flags=re.M
+        r"^#### 2\.(?P<phase>\d+\.\d+|\d+[ab]?)\.(?P<num>\d+) `(?P<task>T-[^`]+)`",
+        section2,
+        flags=re.M,
     ):
         headings.append((match.group("phase"), match.group("num"), match.group("task")))
     return headings
@@ -136,6 +170,19 @@ def main() -> int:
     if by_phase["4"] != EXPECTED_PHASE4:
         fail(errors, f"phase 4 task order is {by_phase['4']}, expected {EXPECTED_PHASE4}")
 
+    # v0.2 Enrichment Amendment (2026-05-23): per-phase task-order checks for the two new phases.
+    if by_phase.get("4.2") != EXPECTED_PHASE_4_2:
+        fail(
+            errors,
+            f"phase 4.2 task order is {by_phase.get('4.2')}, expected {EXPECTED_PHASE_4_2}",
+        )
+
+    if by_phase.get("14") != EXPECTED_PHASE14:
+        fail(
+            errors,
+            f"phase 14 task order is {by_phase.get('14')}, expected {EXPECTED_PHASE14}",
+        )
+
     range_heading = [task_id for task_id in task_ids if ".." in task_id]
     if range_heading != ["T-601a..k"]:
         fail(errors, f"unexpected range headings: {range_heading}")
@@ -149,10 +196,12 @@ def main() -> int:
         if hits:
             fail(errors, f"stale task id {stale} appears {len(hits)} time(s) in active agenda text")
 
-    if "Total: 50 canonical ports" not in text:
-        fail(errors, "canonical port total is not 50")
-    if "imports each of the 50 canonical ports" not in text:
-        fail(errors, "port inventory test expectation is not 50")
+    # v0.2 Enrichment Amendment (2026-05-23): canonical port count bumped 50 → 51
+    # (MarkersCataloguePort lands as port #51 per ARCHITECTURE.md § 9.2).
+    if "Total: 51 canonical ports" not in text:
+        fail(errors, "canonical port total is not 51")
+    if "imports each of the 51 canonical ports" not in text:
+        fail(errors, "port inventory test expectation is not 51")
     if "SopProtocolGenerator(sop_template_read_port)" not in text:
         fail(
             errors, "composition root does not wire SopProtocolGenerator to sop_template_read_port"
@@ -178,7 +227,7 @@ def main() -> int:
         if manifest_task_ids != task_ids:
             fail(errors, "task manifest order does not match CODING_AGENDA.md Section 2 headings")
         if f"active_task_card_count: {EXPECTED_TOTAL}" not in task_manifest:
-            fail(errors, "task manifest active_task_card_count is not 71")
+            fail(errors, "task manifest active_task_card_count is not 92")
         if f"phase_order: {quoted_list(EXPECTED_PHASES)}" not in task_manifest:
             fail(errors, "task manifest phase_order does not match expected phase order")
         for phase, expected in EXPECTED_COUNTS.items():
@@ -201,17 +250,22 @@ def main() -> int:
             int(value) for value in re.findall(r"^\s+- port_id: (\d+)$", port_manifest, flags=re.M)
         ]
         port_names = re.findall(r'^\s+port_name: "([^"]+)"', port_manifest, flags=re.M)
-        if port_ids != list(range(1, 51)):
-            fail(errors, f"port manifest ids are {port_ids}, expected 1..50")
-        if len(port_names) != 50 or len(set(port_names)) != 50:
-            fail(errors, "port manifest does not contain 50 unique port names")
-        if "canonical_port_count: 50" not in port_manifest:
-            fail(errors, "port manifest canonical_port_count is not 50")
+        # v0.2 Enrichment Amendment (2026-05-23) — MarkersCataloguePort lands as port #51
+        # per ARCHITECTURE.md § 9. Bumped 50 → 51 atomically with port_manifest.yaml.
+        # The CODING_AGENDA.md text expectations above (lines 152-155 "50 canonical ports")
+        # stay at 50 until step 9 updates CODING_AGENDA.md to the new count.
+        if port_ids != list(range(1, 52)):
+            fail(errors, f"port manifest ids are {port_ids}, expected 1..51")
+        if len(port_names) != 51 or len(set(port_names)) != 51:
+            fail(errors, "port manifest does not contain 51 unique port names")
+        if "canonical_port_count: 51" not in port_manifest:
+            fail(errors, "port manifest canonical_port_count is not 51")
         for required_port in [
             "SopTemplateReadPort",
             "AdminAuditAppendPort",
             "AdminServiceClientPort",
             "ReviewQueueAdminPort",
+            "MarkersCataloguePort",
         ]:
             if f'port_name: "{required_port}"' not in port_manifest:
                 fail(errors, f"port manifest missing {required_port}")
@@ -275,7 +329,7 @@ def main() -> int:
 
     message = (
         f"agenda consistency check passed: {EXPECTED_TOTAL} active task headings, "
-        "50 canonical ports"
+        "51 canonical ports"
     )
     print(message)
     return 0

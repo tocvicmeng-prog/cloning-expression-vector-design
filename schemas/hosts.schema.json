@@ -68,6 +68,103 @@
               "source_url": {"type": "string", "minLength": 1},
               "review_required_after": {"type": "string", "format": "date"}
             }
+          },
+          "_v1_1_amendment_note": {
+            "type": "string",
+            "description": "v0.2 Enrichment Amendment (2026-05-23) — the fields below (aliases through vendor_strain_refs) are additive and OPTIONAL. The `required` array above is unchanged from v1.0; existing host records remain valid under v1.1. See ARCHITECTURE.md § 9.1 and REQUIREMENTS.md § 11.2 FR-HOST-13..20 for the design rationale. Implementing task: T-407."
+          },
+          "aliases": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "description": "Alternate species/genus names. Example for K. phaffii: ['Pichia pastoris']. Resolver matches aliases case-insensitively."
+          },
+          "t7_lysogen": {
+            "type": ["boolean", "null"],
+            "description": "True for (DE3) lysogens carrying T7 RNA polymerase under lacUV5. Null for hosts where T7 lysogeny is N/A (yeasts, cell-free)."
+          },
+          "protease_status": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "lon": {"type": "string", "enum": ["present", "deleted", "null"]},
+              "ompT": {"type": "string", "enum": ["present", "deleted", "null"]}
+            },
+            "description": "lon (cytoplasmic ATP-dependent) and ompT (outer-membrane) protease phenotypes. BL21 lineage is lon-/ompT-; K12 lineage is lon+/ompT+."
+          },
+          "disulfide_environment": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "cytoplasm_state": {"type": "string", "enum": ["reducing_default", "oxidising", "shuffle_engineered", "null"]},
+              "trxB_status": {"type": "string", "enum": ["wt", "deleted", "null"]},
+              "gor_status": {"type": "string", "enum": ["wt", "deleted", "null"]}
+            },
+            "description": "Cytoplasmic redox phenotype. Origami: trxB-/gor- oxidising. SHuffle: trxB-/gor-/DsbC+. Default E. coli: reducing."
+          },
+          "rare_codon_supplementation": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "description": "List of supplied rare-codon tRNA genes or the plasmid that carries them. Example for Rosetta: ['pRARE:argU,argW,ileX,glyT,leuW,proL']."
+          },
+          "plasmid_addons": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "function", "antibiotic"],
+              "additionalProperties": false,
+              "properties": {
+                "id": {"type": "string", "minLength": 1},
+                "function": {"type": "string", "minLength": 1},
+                "antibiotic": {"type": "string", "minLength": 1},
+                "notes": {"type": "string"}
+              }
+            },
+            "description": "Plasmid-borne host add-ons. Examples: pLysS (T7 lysozyme low, Cm), pLysE (T7 lysozyme high, Cm), pRARE (rare-codon tRNAs, Cm), pRARE2, pLacIQ (extra lacI, Cm/Spec)."
+          },
+          "t7_lysozyme_load": {
+            "type": "string",
+            "enum": ["none", "pLysS_low", "pLysE_high", "null"],
+            "description": "Encoded T7 lysozyme load (derived from plasmid_addons but kept first-class for rule-engine convenience)."
+          },
+          "recombination_phenotype": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "recA": {"type": "string", "enum": ["wt", "deleted", "null"]},
+              "endA": {"type": "string", "enum": ["wt", "deleted", "null"]},
+              "recBCD_status": {"type": "string", "enum": ["wt", "deleted", "modified", "null"]}
+            },
+            "description": "Homologous-recombination and exonuclease phenotype. recA- endA- = stable propagation; recBCD-modified strains (Stbl2, Stbl3, Stbl4, JC8679) support direct repeats / lentiviral LTRs."
+          },
+          "methylation_phenotype": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "dam": {"type": "string", "enum": ["wt", "deleted", "null"]},
+              "dcm": {"type": "string", "enum": ["wt", "deleted", "null"]},
+              "hsdRMS": {"type": "string", "enum": ["wt", "deleted", "K12_pattern", "B_pattern", "null"]}
+            },
+            "description": "DNA-methylation phenotype. Affects which restriction enzymes can cut plasmid prep (e.g., DpnI vs DpnII vs MboI; XbaI/NheI blocked by dam; PstI blocked by dcm)."
+          },
+          "recommended_selection_markers": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1, "pattern": "^marker\\.[a-z0-9_]+$"},
+            "description": "Cross-link to markers catalogue. Each entry must resolve to an existing marker id in catalogues/markers.yaml (enforced by host-marker-link-integrity-check CI gate at T-415)."
+          },
+          "vendor_strain_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["vendor", "catalogue_id", "accessed"],
+              "additionalProperties": false,
+              "properties": {
+                "vendor": {"type": "string", "minLength": 1},
+                "catalogue_id": {"type": "string", "minLength": 1},
+                "url": {"type": "string"},
+                "accessed": {"type": "string", "format": "date"}
+              }
+            },
+            "description": "Vendor SKU references for the strain. Example for BL21(DE3): [{vendor: 'NEB', catalogue_id: 'C2527H', accessed: '2026-05-23'}, {vendor: 'Sigma-Aldrich', catalogue_id: 'CMC0014', accessed: '2026-05-23'}]."
           }
         }
       }

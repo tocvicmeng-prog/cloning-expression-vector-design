@@ -1,0 +1,27 @@
+# ML Training Corpus — exclusions log
+# Records considered for inclusion but rejected, with reason.
+# Scaffolded at T-1401 (v0.2 Enrichment Amendment, 2026-05-23).
+# Append-only at runtime; one entry per rejection. Reasons must match a known exclusion category.
+exclusions_log_id: cev.ml_corpus.exclusions
+schema_version: "0.0.0"  # Empty shell.
+
+# Categories permitted in `reason` field. Add new categories only via formal review.
+permitted_reasons:
+  - tier_3_denylist_source           # SnapGene .dna files; SnapGene-authored annotations; paywalled journal figures/text
+  - missing_license_block             # default-deny per BR-15
+  - missing_provenance_source         # provenance.source must be in IP-auditor § 8.1 allowlist
+  - addgene_metadata_only_source      # default-deny per FR-ML-04 (case-by-case override only)
+  - commercial_use_disallowed         # for commercial-fork-targeted ingestion only
+  - sequence_legitimacy_in_doubt      # sequence does not match its claimed provenance accession
+  - vendor_annotation_verbatim        # caught by corpus-annotation-provenance-check (IPQ-9)
+  - duplicate_of_existing_record      # already represented under a different ID
+  - counsel_review_pending            # awaiting IP-auditor / counsel sign-off
+
+# Format of each exclusion entry:
+# - record_id: "corpus.proposed.<slug>"
+#   reason: "<one of permitted_reasons>"
+#   notes: "<short researcher-authored description>"
+#   rejected_at: "<ISO 8601 UTC>"
+#   rejected_by: "<researcher identifier>"
+#   evidence_url: "<optional pointer>"
+exclusions: []

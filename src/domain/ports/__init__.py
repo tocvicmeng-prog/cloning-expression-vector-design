@@ -57,6 +57,7 @@ __all__ = [
     "KozakScorer",
     "LLMConstraintTranslator",
     "Lifecycle",
+    "MarkersCataloguePort",
     "PartCatalogue",
     "PluginManifestRegistry",
     "ProjectStore",
@@ -100,6 +101,21 @@ class HostCatalogue(Protocol):
 class EnzymeCatalogue(Protocol):
     def get_enzyme(self, enzyme_id: str) -> Payload: ...
     def list_enzymes(self) -> PayloadSequence: ...
+
+
+class MarkersCataloguePort(Protocol):
+    """Read-only port over the selection-markers catalogue.
+
+    Added by v0.2 Enrichment Amendment (2026-05-23, task T-409) as canonical
+    port #51 per ARCHITECTURE.md § 9.2. Replaces the deprecated
+    `parts.yaml::markers` block during the dual-read migration window.
+    Backing data: `catalogues/markers.yaml` validated by
+    `schemas/markers.schema.json` v1.0.
+    """
+
+    def get_marker(self, marker_id: str) -> Payload: ...
+    def list_markers(self) -> PayloadSequence: ...
+    def list_compatible_with_host_class(self, host_class: str) -> PayloadSequence: ...
 
 
 class RuleRegistry(Protocol):

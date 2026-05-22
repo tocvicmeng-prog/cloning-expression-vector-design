@@ -1,0 +1,53 @@
+# ML Training Corpus — aggregate manifest
+# Scaffolded at T-1401 (v0.2 Enrichment Amendment, 2026-05-23).
+# Populated by tools/corpus/manifest_generator.py at T-1407.
+# Schema authority: docs/ml_corpus/schemas/corpus_record.schema.json (lands at T-1402).
+corpus_id: cev.ml_corpus
+schema_version: "0.0.0"  # Empty shell; bumped to 1.0.0 when T-1402 schema lands and T-1404/T-1405 populate records.
+maintenance:
+  scaffolded_at: "2026-05-23"
+  scaffolding_task: "T-1401"
+  next_population_task: "T-1404 (backbones) + T-1405 (modular elements)"
+  manifest_generator_task: "T-1407"
+
+# v0.2 IPQ-1 resolution: research-primary, commercial-fork-possible.
+# `partition: sa_free` is the DEFAULT training partition (not opt-in).
+partition_default: "sa_free"
+partitions:
+  full:
+    description: "All records including cc-by-sa/. Opt-in for research-only training runs that accept share-alike."
+    record_count: 0
+  sa_free:
+    description: "Default partition. Excludes records routed to cc-by-sa/. Surviving partition for any commercial fork."
+    record_count: 0
+
+# Aggregate fields populated by tools/corpus/manifest_generator.py at T-1407.
+license_aggregate:
+  total_records: 0
+  by_sequence_license: {}
+  by_annotation_license: {}
+  effective_license_distribution: {}
+  partition_sa_free:
+    record_count: 0
+    fraction: 0.0
+  attribution_obligations:
+    records_requiring_attribution: 0
+    attribution_text_file: "LICENSES/THIRD_PARTY_NOTICES.md"  # populated at T-1410
+  cross_check_coverage:
+    checked: 0
+    unchecked: 0
+    fraction_checked: 0.0
+
+# Release-gate thresholds (enforced at release-tag time by tools/release/corpus_release_gate.py at T-1409).
+release_gate:
+  research_release:
+    min_cross_check_coverage: 0.90
+    min_attribution_completeness: 1.00
+    deny_tier_3_sources: true
+  commercial_fork_release:  # see ARCHITECTURE.md § 9.6.2
+    min_cross_check_coverage: 0.95
+    require_commercial_use_allowed: true
+    require_counsel_review_certificate: true
+    partition: "sa_free"  # commercial fork uses sa_free ONLY
+
+records: []  # populated by T-1404 + T-1405; manifest_generator.py at T-1407 cross-references docs/ml_corpus/records/**/*.json

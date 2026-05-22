@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CEV ML training corpus record",
+  "type": "object",
+  "required": [
+    "id",
+    "category",
+    "sequence",
+    "annotation",
+    "provenance",
+    "license",
+    "snapgene_crosscheck",
+    "host_topology",
+    "intended_use_category",
+    "checksum"
+  ],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "category": {
+      "type": "string",
+      "enum": [
+        "backbone",
+        "promoter",
+        "terminator",
+        "rbs",
+        "kozak",
+        "polyA",
+        "ires",
+        "2a_peptide",
+        "mcs",
+        "tag",
+        "fluorescent_protein",
+        "selection_cassette",
+        "insulator",
+        "wpre",
+        "intron"
+      ]
+    },
+    "sequence": {
+      "type": "object",
+      "required": ["bases", "topology", "length_bp"],
+      "properties": {
+        "bases": {"type": "string", "minLength": 1},
+        "topology": {"type": "string", "enum": ["circular", "linear"]},
+        "length_bp": {"type": "integer"}
+      }
+    },
+    "annotation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "start", "end", "strand"],
+        "properties": {
+          "type": {"type": "string"},
+          "start": {"type": "integer"},
+          "end": {"type": "integer"},
+          "strand": {"type": "string", "enum": ["+", "-", "."]},
+          "qualifiers": {"type": "object"}
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source", "accession_or_url", "retrieved_at", "retrieved_by"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": [
+            "ncbi_genbank",
+            "ebi_ena",
+            "ddbj",
+            "igem_registry",
+            "jbei_ice",
+            "dnasu",
+            "vendor_published_map",
+            "primary_literature",
+            "fpbase"
+          ]
+        },
+        "accession_or_url": {"type": "string", "minLength": 1},
+        "retrieved_at": {"type": "string", "minLength": 1},
+        "retrieved_by": {"type": "string", "minLength": 1}
+      }
+    },
+    "license": {
+      "type": "object",
+      "required": ["sequence_license", "annotation_license"],
+      "properties": {
+        "sequence_license": {
+          "type": "object",
+          "required": [
+            "spdx_id",
+            "redistribution_allowed",
+            "ml_training_allowed",
+            "attribution_required",
+            "commercial_use_allowed",
+            "source_text_url"
+          ],
+          "properties": {
+            "spdx_id": {"type": "string", "minLength": 1},
+            "redistribution_allowed": {"type": "boolean"},
+            "ml_training_allowed": {"type": "boolean"},
+            "attribution_required": {"type": "boolean"},
+            "attribution_text": {"type": "string"},
+            "commercial_use_allowed": {"type": "boolean"},
+            "source_text_url": {"type": "string", "minLength": 1},
+            "notes": {"type": "string"}
+          }
+        },
+        "annotation_license": {
+          "type": "object",
+          "required": [
+            "spdx_id",
+            "redistribution_allowed",
+            "ml_training_allowed",
+            "attribution_required",
+            "commercial_use_allowed",
+            "source_text_url"
+          ],
+          "properties": {
+            "spdx_id": {"type": "string", "minLength": 1},
+            "redistribution_allowed": {"type": "boolean"},
+            "ml_training_allowed": {"type": "boolean"},
+            "attribution_required": {"type": "boolean"},
+            "attribution_text": {"type": "string"},
+            "commercial_use_allowed": {"type": "boolean"},
+            "source_text_url": {"type": "string", "minLength": 1},
+            "notes": {"type": "string"}
+          }
+        }
+      }
+    },
+    "snapgene_crosscheck": {
+      "type": "object",
+      "required": ["checked"],
+      "properties": {
+        "checked": {"type": "boolean"},
+        "checked_at": {"type": "string"},
+        "checker": {"type": "string"},
+        "snapgene_record_name": {"type": "string"},
+        "snapgene_record_url": {"type": "string"},
+        "match": {"type": "boolean"},
+        "discrepancy_resolution": {"type": "string"}
+      }
+    },
+    "host_topology": {
+      "type": "object",
+      "required": ["host_class"],
+      "properties": {
+        "host_class": {"type": "string", "minLength": 1},
+        "replicon": {"type": "string"},
+        "copy_number_class": {
+          "type": "string",
+          "enum": ["high", "medium", "low", "single", "null"]
+        }
+      }
+    },
+    "intended_use_category": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string"}
+    },
+    "checksum": {
+      "type": "object",
+      "required": ["algorithm", "value"],
+      "properties": {
+        "algorithm": {"type": "string", "enum": ["sha256", "sha512"]},
+        "value": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

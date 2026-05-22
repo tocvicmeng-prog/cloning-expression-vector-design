@@ -279,7 +279,7 @@ Each module declares: purpose, public API, inputs, outputs, dependencies, model 
 | **`engine.primer`** | Per-strategy primer design. Accepts `PrimerDesignParameters`. Off-target scan against full plasmid. | `domain.types`, `engine.sequence_analysis`, Primer3 port | FR-PRIM-* |
 | **`engine.assembly`** | Strategy hierarchy emitting typed `AssemblyPlan` subclasses. | `domain.types`, `engine.sequence_analysis` | M3, MR-37..41 |
 | **`engine.overhang`** | Golden Gate / Type IIS overhang optimiser (Pryor 2020 / Potapov 2018). | `domain.types`, overhang-fidelity dataset | FR-CORE-13 |
-| **`engine.compatibility`** | Role-keyed host ↔ design compatibility. Iterates over `HostContext` roles; rules declare which host roles they read. | `domain.types`, HostCatalogue port | C4, FR-HOST-* |
+| **`engine.compatibility`** | Role-keyed host ↔ design compatibility. Iterates over `HostContext` roles; rules declare which host roles they read. **v0.2 (2026-05-23):** adds `MarkersCataloguePort` dependency for marker-host link resolution per the v0.2 Enrichment Amendment (§ 9); host-marker mismatch surfaces as `MR-MARKER-MISMATCH` advisory. Dual-read shim against `parts.yaml::markers` during the migration window (closes when shim hit-rate observed at zero for one full release cycle). | `domain.types`, `HostCataloguePort`, `MarkersCataloguePort` (v0.2) | C4, FR-HOST-*, FR-MARK-12, MR-55..60 |
 | **`engine.design_plan`** (NEW) | `DesignRealisationPlan` generator: assembly route, required inputs, QC checkpoints, expected verification artefacts, institutional-approvals list, biosafety classification. Always renderable. | `domain.types`, `engine.assembly`, `engine.primer`, `engine.sequence_analysis` | C1 (design half), FR-PROTO-DESIGN-* |
 | **`engine.sop_protocol`** (NEW) | `SopLinkedProtocol` generator: gated to institution-supplied SOP templates; renders only when authorisation gates pass. | `domain.types`, `engine.design_plan`, `SopTemplateReadPort` port | C1 (operational half), FR-PROTO-SOP-* |
 | **`engine.controls`** (NEW) | First-class control designs (positive / negative / process / library-specific). v1.4 adds mechanistic validation rules tied to host role and chemistry (N8). | `domain.types`, `engine.assembly`, `engine.primer` | Moderate 12; N8 |
@@ -318,7 +318,7 @@ Each module declares: purpose, public API, inputs, outputs, dependencies, model 
 |---|---|
 | `adapter.io` | `SequenceReader`, `SequenceWriter` for GenBank / FASTA / SBOL 3.1.x / SnapGene `.dna` (read-only) / EMBL / GFF3. |
 | `adapter.biology` | `RnaFolder` (ViennaRNA), `SplicePredictor` (SpliceAI / NetGene2 / NNSplice), `SignalPeptidePredictor` (SignalP), `KozakScorer` (Noderer PWM), `TIRPredictor` (RBS Calc v2), `CodonAlgorithm` (CAI / %MinMax / CHARMING / avoid_only). |
-| `adapter.catalogue` | `PartCatalogue` (read-only), `HostCatalogue`, `EnzymeCatalogue`, `RuleRegistry`, vendor / screening profile loaders. SOP-template YAML files are bootstrap input only; runtime reads use signed `SopTemplateReadPort` backed by `SqliteSopTemplateStore`. |
+| `adapter.catalogue` | `PartCatalogue` (read-only), `HostCatalogue`, `EnzymeCatalogue`, `RuleRegistry`, vendor / screening profile loaders. SOP-template YAML files are bootstrap input only; runtime reads use signed `SopTemplateReadPort` backed by `SqliteSopTemplateStore`. **v0.2 enrichment amendment (2026-05-23, § 9)** adds `MarkersCataloguePort` (canonical port #51) backed by `catalogues/markers.yaml` + `schemas/markers.schema.json`; hosts schema is concurrently bumped to v1.1 with additive optional phenotype fields (T7 lysogen, protease, disulfide environment, methylation, recombination, plasmid_addons, recommended_selection_markers cross-link). |
 | `adapter.vendor` | `SynthesisVendorAdapter` (Twist, IDT, GenScript) with `check`, `auto_partition`, `estimate_cost(*, product_type, scale, cloning_option, currency, quote_date_utc)`. |
 | `adapter.screening` | `ScreeningAdapter` (IGSC v3, IBBIS Common Mechanism, SecureDNA, internal blacklist) with `screen` and `screen_batch` returning typed verdicts. |
 | `adapter.snapgene` | `SnapGeneFileWatcher` (UR-01a, MUST, Phase 9); `SnapGeneApiClient` (UR-01b, SHOULD, Phase 12). |
@@ -845,6 +845,27 @@ class HostCatalogue(Protocol):
 class EnzymeCatalogue(Protocol):
     def get(self, enzyme_id: EnzymeId) -> Enzyme: ...
     def compatible_pairs(self, e1: EnzymeId, e2: EnzymeId) -> BufferCompatibility: ...
+
+
+class MarkersCataloguePort(Protocol):
+    """Read-only port over the selection-markers catalogue.
+
+    Added by v0.2 Enrichment Amendment (2026-05-23, § 9) as canonical port #51.
+    Replaces the deprecated `parts.yaml::markers` block; runtime reads go through
+    this port exclusively after the dual-read migration window closes.
+    Owning task: T-409. Backing data: `catalogues/markers.yaml`
+    validated by `schemas/markers.schema.json`.
+    """
+    def get_by_id(self, marker_id: MarkerId) -> Marker: ...
+    def list_all(self) -> tuple[Marker, ...]: ...
+    def list_by_class(self, marker_class: MarkerClass) -> tuple[Marker, ...]: ...
+    def list_compatible_with_host(self, host_id: HostId) -> tuple[Marker, ...]: ...
+    def working_concentration(
+        self,
+        marker_id: MarkerId,
+        host_class: HostClass,
+        agent: str | None = None,
+    ) -> WorkingConcentration | None: ...
 
 
 class RuleRegistry(Protocol):
@@ -2478,4 +2499,235 @@ The recommended migration order for unsettled residual risks is:
 
 ---
 
-*End of ARCHITECTURE.md v1.5 — Universal Cloning/Expression Vector Design Platform.*
+## 9. v0.2 Enrichment Amendment (2026-05-23)
+
+**Status:** Landed at cadence step 8 per the project's standing 10-step working principle ([[cev-workflow-discipline]]). This section is the binding architectural delta for the host / marker / ML-corpus enrichment. The § 4 architecture body remains authoritative for v0.1.0-shipped behaviour; § 9 captures additive design that goes live with v0.2.
+
+### 9.0 Cadence provenance
+
+| Step | Owner | Artefact | Status |
+|---|---|---|---|
+| 1 | `/scientific-advisor` | `docs/handover/2026-05-23_host_marker_ml_corpus_initial_report.md` | ✅ |
+| 2 | User | (acceptance of initial report) | ✅ |
+| 3 | `/architect` | `docs/handover/2026-05-23_host_marker_ml_corpus_architect_analysis.md` | ✅ |
+| 4 | `/ip-auditor` | `docs/handover/2026-05-23_host_marker_ml_corpus_ip_audit.md` | ✅ |
+| 5 | User | (acceptance of both analyses) | ✅ |
+| 6 | `/scientific-advisor` | `REQUIREMENTS.md` v0.2 (§ 11 Enrichment Amendment) | ✅ |
+| 7 | `/scientific-advisor` + `/dev-orchestrator` + `/architect` | `docs/handover/2026-05-23_host_marker_ml_corpus_development_plan.md` | ✅ |
+| **8** | **`/architect`** | **This § 9** | **🟡 landing** |
+| 9 | `/dev-orchestrator` | `CODING_AGENDA.md` task-card additions + new CI gates | ⏳ |
+| 10 | `/dev-orchestrator` | `TASK_BOARD.md` update + implementation kickoff | ⏳ |
+
+### 9.1 Architectural deltas (summary)
+
+| # | Delta | Source / target |
+|---|---|---|
+| 1 | `hosts.yaml` schema bumped v1.0 → **v1.1** (additive optional phenotype fields: `aliases[]`, `t7_lysogen`, `protease_status`, `disulfide_environment`, `rare_codon_supplementation[]`, `plasmid_addons[]`, `t7_lysozyme_load`, `recombination_phenotype`, `methylation_phenotype`, `recommended_selection_markers[]`, `vendor_strain_refs[]`). Backward-compatible — existing records remain valid. | Implementing task: **T-407** |
+| 2 | New standalone markers catalogue `catalogues/markers.yaml` + `schemas/markers.schema.json` v1.0 (split from the legacy `parts.yaml::markers` block via a dual-read migration window). | Implementing tasks: **T-408, T-410, T-412, T-413** |
+| 3 | New `MarkersCataloguePort` (read-only) — **canonical port #51** (see § 9.2). Protocol stub now lives in § 4.5. Wired into `engine.compatibility` and `engine.validation` via composition-root injection. | Implementing task: **T-409** |
+| 4 | IP-auditor § 5.2 amendment folded in (no step-3 re-issue per joint plan Q8 / IPQ-6): the ML-corpus `corpus_record` schema's `license` block splits into `{sequence_license, annotation_license}` — sequence is factual (*Feist*, *Telstra*) and not copyrightable; annotation may be copyrightable curator expression. Ingestion takes the **least-permissive** of the two; annotation-restricted records may enter the corpus with annotation stripped and the sequence retained. | See § 9.3. |
+| 5 | New ML training corpus subsystem at `docs/ml_corpus/` (out-of-runtime; see § 9.3). | Implementing tasks: **T-1401..T-1411** (Phase 14) |
+| 6 | New CI gates: `markers-citation-presence-check`, `host-marker-link-integrity-check`, `ml-corpus-license-check`, `snapgene-pipeline-scan` (BR-16), `corpus-annotation-provenance-check` (IPQ-9). Plus extensions to `agenda_consistency_check.py`. | See § 4.10 amendments folded in by step 9. |
+| 7 | New MR rules MR-55..60, BR rules BR-15..17, DR entities DR-11..13, NFR-COMPLY-06, AC-08..11 (all in `REQUIREMENTS.md` § 11). | See `REQUIREMENTS.md` § 11. |
+| 8 | New repo-root artefacts: `IP_POLICY.md` (counsel-facing IP/ToS policy), `LICENSES/THIRD_PARTY_NOTICES.md` (canonical trademark / attribution disclaimers, incl. SnapGene nominative-use). | Implementing task: **T-1410** |
+| 9 | Quarterly ToS re-check schedule. | See § 9.4. |
+| 10 | NORMATIVE Fork-Readiness Memorandum. | See § 9.6. |
+
+### 9.2 MarkersCataloguePort + canonical port-count correction
+
+**Canonical port count: 50 → 51.** `docs/port_manifest.yaml` is updated atomically with this amendment to add port #51 `MarkersCataloguePort` (category `catalogue`, owning task `T-409`).
+
+**Memory-drift correction (NORMATIVE).** Earlier session memory referenced "56 canonical ports" with six speculative biological catalogue ports (`FusionElementCatalogue`, `PolycistronicElementCatalogue`, `CodonUsageTableCatalogue`, `CounterSelectionMarkerCatalogue`, `RiboswitchCatalogue`, `IsElementSequenceCatalogue`) attributed to a planned v1.6 biological-completeness amendment. **Those six ports never landed in `docs/port_manifest.yaml`, never landed in `src/`, and never landed in any CI-checked artefact.** They are not part of v0.1.0. They are not in scope for this v0.2 amendment. Any future session that recalls "56 canonical ports" is operating from stale memory; the binding number is 51 (after this amendment).
+
+The architect § 4.4 enforcement check that asserts `len(port_manifest.yaml::ports) == ARCHITECTURE.md § 4.5 canonical-port-count` will be implemented in T-415 and will hard-fail any future divergence.
+
+**`engine.compatibility`** (§ 4.2) now depends on `MarkersCataloguePort` in addition to `HostCataloguePort`; rule predicates that previously read markers from `parts.yaml` are migrated through a dual-read shim during the v0.2 migration window (close criterion: zero shim hits observed for one full release cycle). The MR-MARKER-MISMATCH advisory (REQUIREMENTS § 11.6 FR-MARK-12) fires when a host's `recommended_selection_markers[]` references a marker whose `working_concentrations[].host_class` does not match the host's `chassis_class`.
+
+### 9.3 ML Training Corpus Subsystem (out-of-runtime)
+
+This subsystem is **training data, not runtime configuration.** The runtime engine cannot import from it; this is enforced at three layers (file tree, `import-linter` contract, divergent manifest shape).
+
+#### 9.3.1 Folder layout (canonical)
+
+```
+docs/ml_corpus/
+├── README.md                          # purpose, scope, license matrix, working-principle preamble, nominative-use disclaimer
+├── corpus_manifest.yaml               # license_aggregate + cross_check_coverage + partition counts
+├── exclusions.yaml                    # records considered + rejected, with reason
+├── crosscheck_log.yaml                # append-only SnapGene cross-check log (process artefact, not a runtime gate)
+├── schemas/
+│   └── corpus_record.schema.json      # per-record schema with split sequence/annotation license
+└── records/
+    ├── backbones/{ecoli,kphaffii,scerevisiae,mammalian}/
+    ├── elements/{promoters,terminators,rbs_kozak,polyA,ires_2a,mcs,tags,
+    │             fluorescent_proteins,selection_cassettes,insulators,introns_wpre}/
+    └── cc-by-sa/                       # CC-BY-SA-routed records (per IPQ-1 / IP-auditor § 6.3)
+```
+
+#### 9.3.2 Schema (split license)
+
+Each `corpus_record.schema.json` v1.0 record carries (per joint plan § 11.1 #4 + IP-auditor § 5.2 fold-in):
+
+```
+license:
+  sequence_license:
+    spdx_id, redistribution_allowed (bool, explicit), ml_training_allowed (bool, explicit),
+    attribution_required (bool), commercial_use_allowed (bool), source_text_url, notes?
+  annotation_license:
+    (same fields; allowed to differ from sequence_license)
+
+snapgene_crosscheck:
+  checked (bool); when true also: checked_at, checker, snapgene_record_name,
+  snapgene_record_url, match (bool), discrepancy_resolution (≤200 chars,
+  researcher-authored, factual, no verbatim quotation of SnapGene-authored content).
+```
+
+**Ingestion rule (NORMATIVE):** the effective ingestable license is the **minimum** (least permissive) of `sequence_license` and `annotation_license`. When `annotation_license.ml_training_allowed = false` but `sequence_license.ml_training_allowed = true`, the record enters the corpus **with the annotation stripped** (sequence-only). Each strip event is logged.
+
+#### 9.3.3 Runtime / training-data boundary (NORMATIVE)
+
+1. **File tree:** `docs/ml_corpus/` sits outside `catalogues/` and outside `schemas/`.
+2. **`import-linter` contract** (in `pyproject.toml`):
+
+   ```toml
+   [[tool.importlinter.contracts]]
+   name = "ml-corpus-is-not-runtime"
+   type = "forbidden"
+   source_modules = ["src.*"]
+   forbidden_modules = ["docs.ml_corpus.*"]
+   ```
+
+3. **Manifest shape:** `corpus_manifest.yaml` uses `records:` keyed by id with metadata-heavy structure — structurally different from runtime catalogue manifests (which use `items:` arrays).
+
+#### 9.3.4 Partition strategy + `partition: sa_free` DEFAULT
+
+Per IPQ-1 resolution (user decision 2026-05-23): the trained model is research-primary with a planned commercial-fork path. Consequence:
+
+- **`partition: sa_free` is the DEFAULT training partition.** Records with `sequence_license.spdx_id` or `annotation_license.spdx_id` matching `CC-BY-SA-*` are routed to `docs/ml_corpus/records/cc-by-sa/` and excluded from this partition.
+- **`partition: full`** exists for research-only training runs that explicitly accept share-alike. It is opt-in.
+- The corpus_manifest exposes both partitions and a `partition_default: sa_free` field.
+- Every model release ships with a manifest declaring which partition it was trained on. The release gate (`tools/release/corpus_release_gate.py`, T-1409) verifies this declaration.
+
+#### 9.3.5 SnapGene cross-check — process-only artefact (NORMATIVE)
+
+The SnapGene cross-check is a **process-only artefact, NOT a runtime gate, NOT a CI hard fail**. This decision is binding per the architect step-3 analysis § 5.2 and re-affirmed here:
+
+1. Cross-check is human judgement against a third-party tool whose ToS forbids automated extraction; it cannot be automated.
+2. CI gates must be deterministic from in-tree data; "look this up on SnapGene" is not reproducible from a clean checkout.
+3. It is QC, not validation logic.
+4. Coverage is tracked in `corpus_manifest.yaml::cross_check_coverage`; release-gate threshold is **90% at research release**, **≥ 95% at commercial fork release** (see § 9.6).
+
+**Tooling boundary (NORMATIVE per BR-16):** No pipeline this project runs may access `snapgene.com` via any non-browser tool — no `curl`, `wget`, `httpx`, `requests`, `playwright`, `selenium`, headless browser, or MCP web-fetch. The `snapgene-pipeline-scan` CI gate (T-1406) lands `enforced` from day one as a defensive default-deny scanner of pipeline configs.
+
+### 9.4 Quarterly ToS re-check schedule (operational concerns)
+
+Per IPQ-4: vendor ToS pages relevant to corpus ingestion (snapgene.com, addgene.org, vendor manual hosting sites, INSDC/NCBI/EBI/DDBJ policy pages, iGEM Registry policy, FPbase) are re-verified quarterly.
+
+| Aspect | Setting |
+|---|---|
+| Cadence | Quarterly |
+| First snapshot due | **2026-Q3 — by 2026-09-30** |
+| Archive location | `docs/ip_policy/tos_snapshots/{YYYY-QQ}/` |
+| Archive method | perma.cc snapshots (or equivalent timestamped immutable archival) |
+| Owner: runs the check | `/dev-orchestrator` |
+| Owner: reviews findings | `/ip-auditor` |
+| Drift-detected action | If a vendor adds an explicit ML-training prohibition or scraping clause that conflicts with current posture, halt the corresponding ingestion stream and re-issue an IP-auditor analysis. |
+
+### 9.5 Repo-root document inventory (additions)
+
+| File | Purpose | Created by |
+|---|---|---|
+| `IP_POLICY.md` | Counsel-facing IP/ToS policy: source tier list, SnapGene index-only posture, CC-BY-SA partition strategy, fork-readiness memo pointer, quarterly ToS re-check schedule. | T-1410 |
+| `LICENSES/THIRD_PARTY_NOTICES.md` | Canonical trademark / attribution disclaimers, incl. the SnapGene nominative-use disclaimer (per IP-auditor § 3.4 + IPQ-8 one-canonical-file decision). | T-1410 |
+
+These files are referenced here at step 8; they are created at step 10 (implementation phase, T-1410).
+
+### 9.6 NORMATIVE — Fork-Readiness Memorandum
+
+**Status:** NORMATIVE for any future commercial-fork attempt. This memorandum is the binding checklist that a fork maintainer must consult before any commercial release of a model trained on this project's corpus.
+
+**Origin:** User decision 2026-05-23 in response to IPQ-1: "The trained model will be used for scientific-research purposes and may later be forked into a commercially deployable version." This memorandum specifies which components, datasets, workflows, and design elements must be **removed, substituted, or re-engineered** to ensure the commercial fork complies with licensing, IP ownership, data-usage restrictions, and regulatory requirements.
+
+**Audience:** A future engineer + counsel team initiating a commercial fork. They must verify each line below, document compliance, and obtain counsel sign-off before any commercial release tag.
+
+#### 9.6.1 (a) Datasets — exclude or substitute
+
+| Class | Action |
+|---|---|
+| Records under `docs/ml_corpus/records/cc-by-sa/` | **Exclude entirely** from the commercial corpus. CC-BY-SA share-alike obligation precludes commercial-friendly redistribution of derived works. |
+| Records with `sequence_license.commercial_use_allowed == false` | Exclude entirely. |
+| Records with `annotation_license.commercial_use_allowed == false` | **Strip annotation; retain sequence** (per § 9.3.2 stripping rule). |
+| Records with `sequence_license.ml_training_allowed == false` | Exclude entirely. |
+| Records with `annotation_license.ml_training_allowed == false` | Strip annotation; retain sequence. |
+| Records with `provenance.source == addgene_metadata_only` | Already default-deny per FR-ML-04; re-verify at fork-creation. |
+| Records added after the last counsel-reviewed corpus snapshot | Quarantine until counsel-reviewed for the fork's commercial context. |
+
+#### 9.6.2 (b) Workflows — relax or tighten
+
+| Workflow | Research posture | **Commercial-fork posture** |
+|---|---|---|
+| Default training partition | `partition: sa_free` (per IPQ-1) | **`partition: sa_free` ONLY** — `partition: full` is unavailable. |
+| Release-tag gate | `corpus_release_gate.py` enforces 90% cross-check, attribution complete, no Tier-3 sources | **+ commercial criteria:** 100% records have `commercial_use_allowed: true` on both sequence and annotation licenses; counsel-review certificate attached; cross-check ≥ 95% (tightened). |
+| SnapGene cross-check coverage threshold | ≥ 90% | **≥ 95%** — liability profile is higher. |
+| ToS re-check cadence | Quarterly (§ 9.4) | **Re-run immediately on fork creation, then continue quarterly with commercial-lens questions added.** |
+| Counsel review | Optional / advisory | **MANDATORY before every commercial release.** Architect step-3 analysis § 8.3 #5 explicit. |
+| Vendor license outreach (deferred IPQ-3) | Deferred | **Complete before commercial release** — proactive vendor ML-training licenses unlock cleaner vendor-manual content. |
+
+#### 9.6.3 (c) Design elements — re-point
+
+| Element | Re-point action |
+|---|---|
+| `corpus_manifest.yaml::partition_default` | Lock to `sa_free`; remove `partition: full` from the commercial fork's manifest entirely. |
+| Trained-model checkpoints | Any checkpoint produced from `partition: full` is **not distributable** in the commercial fork. Only `partition: sa_free`-trained checkpoints survive the fork. |
+| Training manifests | Must declare `partition` + `counsel_review_passed: true` + `counsel_review_date`. |
+| Trademark / branding | Distinct trademark / product name from "Cloning Expression Vector Design Toolkit" (which may read as research-product branding). |
+| Project root `IP_POLICY.md` | Replaced with a commercial-edition `IP_POLICY.md` referencing this memorandum. |
+| Repo-root LICENSES | Inherits GPL-3.0 on toolkit code (see § 9.6.4). Model weights are a separate artefact with a separate licensing decision. |
+
+#### 9.6.4 (d) License + IP posture for the fork
+
+| Surface | Posture |
+|---|---|
+| Toolkit code license | GPL-3.0 inherited as-is. The toolkit *code* on the fork remains GPL-3.0; this is independent of training-data + model licensing. |
+| Trained-model weights | Released under a commercially-friendly license — **Apache-2.0, MIT, or proprietary.** **Not** CC-BY-SA, **not** GPL. (GPL on model weights is a known-risk posture in the community.) |
+| Attribution requirements | Aggregate via fork's `THIRD_PARTY_NOTICES.md`. Every CC-BY record's attribution preserved. |
+| Trademark posture | SnapGene nominative-use disclaimer retained (per IP-auditor § 3.4). New fork's own branding documented. Any vendor trademark used in fork branding requires separate counsel review. |
+| Fresh ToS re-check | All vendor ToS pages re-verified at fork-creation time AND at every commercial release; archived under `docs/ip_policy/tos_snapshots/`. |
+| Counsel review certificate | Mandatory before every commercial release tag; one full-corpus + full-model pass per release. |
+
+#### 9.6.5 (e) Regulatory posture for commercial release
+
+| Surface | Action / verify |
+|---|---|
+| Biosafety floor (MS-01..MS-06) | Already in place; sufficient for research. **Re-evaluate for commercial deployment** when the tool is used at scale by external parties; consider strengthening unconditional predicates if commercial scale raises misuse risk. |
+| US Export Administration Regulations (EAR) | Biotechnology software may fall under **ECCN 1E001** (technology for production of microorganisms) or related. Verify with US export counsel before US commercial export. |
+| NIH DURC (Dual Use Research of Concern) | Commercial use at scale may attract NIH OSP DURC review. Engage NIH Office of Science Policy if US-based commercial release. |
+| Australian biosecurity legislation | GPL distribution for research is generally fine. **Commercial distribution from an Australian entity (GMExpression / GMES) may trigger Defence Trade Controls Act 2012 review.** Verify with AU counsel. |
+| EU AI Act + EU GPAI obligations | If the commercial fork is offered in EU, the AI Act's GPAI requirements (transparency, training-data summaries, copyright respect) apply. Out of project's stated jurisdictions (AU + US) but **relevant if commercial scope is global**. |
+| Quarterly re-check of all regulatory items | Same cadence as ToS re-check (§ 9.4). |
+
+#### 9.6.6 Sign-off requirement
+
+No commercial release tag is valid unless:
+
+1. All § 9.6.1–9.6.5 items have been verified for the specific release candidate.
+2. A counsel-review certificate is attached to the release manifest.
+3. The release gate (`tools/release/corpus_release_gate.py`) has run green with commercial criteria enabled.
+4. The fork maintainer's name and the counsel reviewer's name are recorded in the release notes.
+
+### 9.7 Hand-off to step 9 (`/dev-orchestrator` updates `CODING_AGENDA.md`)
+
+Step 9 picks up next per the standing cadence. The dev-orchestrator must:
+
+1. Add a new **Phase 4.2** section to `CODING_AGENDA.md` with **T-407 … T-415** (9 task cards; runtime catalogue extension).
+2. Add a new **Phase 14** section with **T-1401 … T-1411** (11 task cards; ML training corpus subsystem).
+3. Bump `tools/agenda_consistency_check.py::EXPECTED_TOTAL` 71 → 91, add phase counts, add new phase IDs and task lists, add `STALE_IDS` for the markers shim.
+4. Add the six new CI gates to the lifecycle table (per joint plan § 8 ordering).
+5. Add `IP_POLICY.md` and `LICENSES/THIRD_PARTY_NOTICES.md` to the Files-list under Phase 14.
+6. Confirm `agenda_consistency_check.py` reports `91 active task headings, 51 canonical ports` and stays green.
+
+After step 9, step 10 updates `TASK_BOARD.md` and triggers implementation kickoff at the M-A entry-point tasks T-407 + T-1401.
+
+---
+
+*End of ARCHITECTURE.md v1.5 + v0.2 Enrichment Amendment (2026-05-23) — Universal Cloning/Expression Vector Design Platform.*

@@ -1,13 +1,14 @@
 # Seed task manifest for Codex-driven implementation.
-# Generated from CODING_AGENDA.md v1.5; T-204 owns the production generator.
+# Generated from CODING_AGENDA.md v1.5 + v0.2 Enrichment Amendment (2026-05-23); T-204 owns the production generator.
 generated_from: CODING_AGENDA.md
-agenda_version: v1.5
-active_task_card_count: 71
-phase_order: ["2", "3", "4", "5", "6", "7", "8a", "9a", "10", "8b", "9b", "11", "12", "13"]
+agenda_version: v1.5 + v0.2-enrichment
+active_task_card_count: 92
+phase_order: ["2", "3", "4", "4.2", "5", "6", "7", "8a", "9a", "10", "8b", "9b", "11", "12", "13", "14"]
 phase_counts:
   "2": 5
   "3": 19
   "4": 8
+  "4.2": 10
   "5": 4
   "6": 5
   "7": 5
@@ -19,6 +20,7 @@ phase_counts:
   "11": 4
   "12": 3
   "13": 3
+  "14": 11
 tasks:
   - task_id: "T-201"
     phase: "2"
@@ -308,6 +310,96 @@ tasks:
     expanded_task_ids: []
     depends_on: []
     owning_modules: []
+  - task_id: "T-407"
+    phase: "4.2"
+    section: "2.4.2.1"
+    title: "Host schema v1.1 amendment (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 30 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: ["schemas.hosts"]
+  - task_id: "T-408"
+    phase: "4.2"
+    section: "2.4.2.2"
+    title: "Markers schema v1.0 (new file; v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 25 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-407"]
+    owning_modules: ["schemas.markers"]
+  - task_id: "T-408a"
+    phase: "4.2"
+    section: "2.4.2.3"
+    title: "Existing host-record v1.1 backfill (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 30 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-407", "T-410", "T-411"]
+    owning_modules: ["catalogues.hosts"]
+  - task_id: "T-409"
+    phase: "4.2"
+    section: "2.4.2.4"
+    title: "MarkersCataloguePort + adapter + domain types (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 45 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-408"]
+    owning_modules: ["domain.ports.markers_catalogue", "domain.types.markers", "adapter.catalogue.yaml_markers_catalogue"]
+  - task_id: "T-410"
+    phase: "4.2"
+    section: "2.4.2.5"
+    title: "markers.yaml content population (v0.2)"
+    model_tier: "Opus"
+    context_budget: "≤ 60 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-409"]
+    owning_modules: ["catalogues.markers"]
+  - task_id: "T-411"
+    phase: "4.2"
+    section: "2.4.2.6"
+    title: "New hosts.yaml strain entries (9 new; v0.2)"
+    model_tier: "Opus"
+    context_budget: "≤ 65 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-407", "T-410"]
+    owning_modules: ["catalogues.hosts"]
+  - task_id: "T-412"
+    phase: "4.2"
+    section: "2.4.2.7"
+    title: "engine.compatibility migration to MarkersCataloguePort (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-409", "T-410", "T-411"]
+    owning_modules: ["engine.compatibility"]
+  - task_id: "T-413"
+    phase: "4.2"
+    section: "2.4.2.8"
+    title: "engine.validation migration to MarkersCataloguePort (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-409", "T-412"]
+    owning_modules: ["engine.validation"]
+  - task_id: "T-414"
+    phase: "4.2"
+    section: "2.4.2.9"
+    title: "New MR-55..60 rule predicates (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 45 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-410", "T-411", "T-413"]
+    owning_modules: ["catalogues.rules.MR", "engine.validation.predicates"]
+  - task_id: "T-415"
+    phase: "4.2"
+    section: "2.4.2.10"
+    title: "CI gates landing for Tracks A+B (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 35 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-410", "T-411"]
+    owning_modules: ["tools.ci.markers_citation_presence_check", "tools.ci.host_marker_link_integrity_check", "tools.agenda_consistency_check"]
   - task_id: "T-501"
     phase: "5"
     section: "2.5.1"
@@ -659,3 +751,102 @@ tasks:
     expanded_task_ids: []
     depends_on: []
     owning_modules: []
+  - task_id: "T-1401"
+    phase: "14"
+    section: "2.14.1"
+    title: "docs/ml_corpus/ scaffold + import-linter contract (v0.2)"
+    model_tier: "Haiku"
+    context_budget: "≤ 15 k tokens"
+    expanded_task_ids: []
+    depends_on: []
+    owning_modules: ["docs.ml_corpus"]
+  - task_id: "T-1402"
+    phase: "14"
+    section: "2.14.2"
+    title: "Corpus record schema v1.0 (split license; v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 30 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1401"]
+    owning_modules: ["docs.ml_corpus.schemas.corpus_record"]
+  - task_id: "T-1403"
+    phase: "14"
+    section: "2.14.3"
+    title: "ml-corpus-license-check CI gate (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 30 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1402"]
+    owning_modules: ["tools.ci.ml_corpus_license_check"]
+  - task_id: "T-1404"
+    phase: "14"
+    section: "2.14.4"
+    title: "Backbone corpus seed (~40 records; v0.2)"
+    model_tier: "Opus"
+    context_budget: "≤ 70 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1402", "T-1403"]
+    owning_modules: ["docs.ml_corpus.records.backbones"]
+  - task_id: "T-1405"
+    phase: "14"
+    section: "2.14.5"
+    title: "Modular-element corpus seed (~80 records; v0.2)"
+    model_tier: "Opus"
+    context_budget: "≤ 75 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1402", "T-1403"]
+    owning_modules: ["docs.ml_corpus.records.elements"]
+  - task_id: "T-1406"
+    phase: "14"
+    section: "2.14.6"
+    title: "BR-16 snapgene-pipeline-scan CI gate (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 25 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1401"]
+    owning_modules: ["tools.ci.snapgene_pipeline_scan"]
+  - task_id: "T-1407"
+    phase: "14"
+    section: "2.14.7"
+    title: "CC-BY-SA partition routing + manifest generation (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 40 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1404", "T-1405"]
+    owning_modules: ["tools.corpus.partition_router", "tools.corpus.manifest_generator"]
+  - task_id: "T-1408"
+    phase: "14"
+    section: "2.14.8"
+    title: "IPQ-9 corpus-annotation-provenance-check CI gate (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 30 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1404", "T-1405"]
+    owning_modules: ["tools.ci.corpus_annotation_provenance_check"]
+  - task_id: "T-1409"
+    phase: "14"
+    section: "2.14.9"
+    title: "corpus_release_gate.py (release-tag time; v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 35 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1407"]
+    owning_modules: ["tools.release.corpus_release_gate"]
+  - task_id: "T-1410"
+    phase: "14"
+    section: "2.14.10"
+    title: "IP_POLICY.md + LICENSES/THIRD_PARTY_NOTICES.md (v0.2)"
+    model_tier: "Sonnet"
+    context_budget: "≤ 35 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1407", "T-1409"]
+    owning_modules: ["IP_POLICY", "LICENSES.THIRD_PARTY_NOTICES"]
+  - task_id: "T-1411"
+    phase: "14"
+    section: "2.14.11"
+    title: "Operational fork-readiness checklist (v0.2)"
+    model_tier: "Opus"
+    context_budget: "≤ 60 k tokens"
+    expanded_task_ids: []
+    depends_on: ["T-1410"]
+    owning_modules: ["docs.fork-readiness.checklist", "tools.fork_readiness"]

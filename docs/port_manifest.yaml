@@ -1,7 +1,7 @@
-# Seed port manifest for the 50 canonical ports in CODING_AGENDA.md v1.5.
-generated_from: CODING_AGENDA.md
-agenda_version: v1.5
-canonical_port_count: 50
+# Seed port manifest. Base count from CODING_AGENDA.md v1.5 (50 ports); v0.2 Enrichment Amendment (2026-05-23) adds MarkersCataloguePort as port #51 per ARCHITECTURE.md § 9.
+generated_from: CODING_AGENDA.md + ARCHITECTURE.md § 9 (v0.2 Enrichment Amendment)
+agenda_version: v1.5 + v0.2-enrichment
+canonical_port_count: 51
 ports:
   - port_id: 1
     port_name: "PartCatalogue"
@@ -253,3 +253,9 @@ ports:
     category: "runtime"
     owning_task: "T-203"
     architecture_section: "4.5"
+  - port_id: 51
+    port_name: "MarkersCataloguePort"
+    category: "catalogue"
+    owning_task: "T-409"
+    architecture_section: "4.5"
+    added_in: "v0.2-enrichment-2026-05-23"
