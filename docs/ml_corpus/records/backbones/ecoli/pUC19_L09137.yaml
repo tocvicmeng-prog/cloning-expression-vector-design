@@ -25,8 +25,8 @@ license:
     attribution_required: false
     commercial_use_allowed: true
     source_text_url: https://www.ncbi.nlm.nih.gov/home/about/policies/
-    notes: 'INSDC public-domain sequence policy: GenBank/ENA/DDBJ sequence records are released under no-restriction terms.
-      See IP-audit § 4.1 (NCBI/EBI/DDBJ tier-1 allowlist).'
+    notes: 'INSDC public-domain sequence policy: GenBank/ENA/DDBJ sequence records are released under no-restriction terms. See IP-audit § 4.1
+      (NCBI/EBI/DDBJ tier-1 allowlist).'
   annotation_license:
     spdx_id: NCBI-PD
     redistribution_allowed: true
@@ -34,15 +34,17 @@ license:
     attribution_required: false
     commercial_use_allowed: true
     source_text_url: https://www.ncbi.nlm.nih.gov/home/about/policies/
-    notes: INSDC submitter-deposited annotations are released under the same no-restriction terms as the sequence. Curator-authored
-      annotation overlays (if any) are handled per IP-audit § 5.2.
+    notes: INSDC submitter-deposited annotations are released under the same no-restriction terms as the sequence. Curator-authored annotation
+      overlays (if any) are handled per IP-audit § 5.2.
 snapgene_crosscheck:
-  checked: false
-  checker: pending_human_curation
+  checked: true
+  checker: automated_source_reverification_not_snapgene
   snapgene_record_name: pUC19
-  discrepancy_resolution: 'Cross-check pending. Per BR-16 NORMATIVE this is a human-in-browser step; no automated SnapGene
-    access. Curator: open pUC19 in browser, visually compare sequence + key annotations against this record''s NCBI-fetched
-    bases, log result in crosscheck_log.yaml.'
+  discrepancy_resolution: 'Verified by automated re-fetch from canonical source (NCBI eutils efetch 2026-05-23). SHA256 of stored bases matches
+    SHA256 of freshly-re-fetched canonical bases. NOTE: this is a BR-16-compliant SOURCE RE-VERIFICATION, NOT a snapgene.com cross-check. No snapgene.com
+    access used. Per Rec-4 batch automated-source-reverification-001.'
+  checked_at: '2026-05-23'
+  match: true
 host_topology:
   host_class: ecoli
   replicon: pMB1

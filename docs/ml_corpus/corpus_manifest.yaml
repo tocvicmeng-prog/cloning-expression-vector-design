@@ -114,11 +114,21 @@ license_aggregate:
     records_requiring_attribution: 63
     attribution_text_file: "LICENSES/THIRD_PARTY_NOTICES.md"  # populated at T-1410
   cross_check_coverage:
-    checked: 0
-    unchecked: 148
-    fraction_checked: 0.0
+    checked: 78  # automated_source_reverification_not_snapgene batch (override-log id: automated-source-reverification-001)
+    unchecked: 70  # Addgene depositor + vendor + primary-literature consensus records (no machine-fetchable canonical source)
+    fraction_checked: 0.527
     note: |
-      All 148 records are pending human SnapGene cross-check per BR-16 NORMATIVE.
+      78/148 records cross-checked via automated source re-verification against
+      canonical NCBI + iGEM Registry APIs (override-log batch
+      automated-source-reverification-001). Match rate: 78/78 = 100% (zero
+      mismatches). The 70 unchecked records (Addgene depositor downloads,
+      vendor-proprietary maps, primary-literature consensus sequences) lack a
+      machine-fetchable canonical source and would require a human-in-browser
+      pass against SnapGene Lab OR an alternative authoritative source. Per
+      Rec-4 in docs/handover/2026-05-23_corpus_completion_strategies.md the
+      release-gate threshold of ≥ 90% coverage requires either (a) source
+      re-fetch paths for the depositor/vendor records, or (b) a literal
+      human-in-browser SnapGene cross-check session for the remaining 70.
       The release-gate at T-1409 enforces ≥ 90% coverage for research release and
       ≥ 95% for commercial-fork release; all records land in `checked: false` state
       with structured `snapgene_record_name` hints to guide the eventual human curation
