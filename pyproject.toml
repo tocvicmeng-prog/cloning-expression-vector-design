@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cloning-expression-vector-design"
-version = "0.1.0"
+version = "0.2.1"
 description = "Local-first cloning and expression vector design platform."
 readme = "README.md"
 requires-python = ">=3.11.15,<3.12"

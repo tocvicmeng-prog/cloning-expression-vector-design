@@ -41,3 +41,8 @@ Thumbs.db
 .idea/
 .vscode/
 .gstack/
+
+# v0.2.1 release artefacts (dist/) — distributed via GitHub Releases, not git
+dist/cev-toolkit-*.zip
+dist/cloning_expression_vector_design-*.whl
+dist/cloning_expression_vector_design-*.tar.gz
