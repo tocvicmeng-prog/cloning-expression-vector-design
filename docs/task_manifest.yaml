@@ -872,3 +872,4 @@ audit_fix_task_ids:
   - "audit-fix-M3"  # G3 reports deferred to v0.3 cadence design
   - "audit-fix-M4"  # doc-numeric-consistency CI gate
   - "audit-fix-M5"  # Screening value types relocated to domain.types.screening
+  - "T-FIRST-EDITION"  # Cloning & Expression Vector Design Toolkit — First Edition user-guide PDF builder + UI integration

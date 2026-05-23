@@ -24,6 +24,21 @@ describe('Vector design workspace', () => {
     expect(screen.getByText(/For Research Use Only/)).toBeInTheDocument();
   });
 
+  it('exposes the First-Edition user-guide PDF from the upper-right nav', () => {
+    render(<App />);
+
+    const guideLink = screen.getByRole('link', {
+      name: /First Edition user guide/i
+    });
+    expect(guideLink).toHaveAttribute(
+      'href',
+      '/Cloning_Expression_Vector_Design_Toolkit_First_Edition.pdf'
+    );
+    expect(guideLink).toHaveAttribute('target', '_blank');
+    expect(guideLink).toHaveAttribute('rel', 'noreferrer');
+    expect(guideLink).toHaveAttribute('title', 'User Guide — First Edition (PDF)');
+  });
+
   it('renders the workflow-grade wet-lab planning surfaces', () => {
     render(<App />);
 

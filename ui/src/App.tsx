@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Activity, FlaskConical, LayoutDashboard, ShieldCheck } from 'lucide-react';
+import { Activity, BookOpen, FlaskConical, LayoutDashboard, ShieldCheck } from 'lucide-react';
 import { AdvisoryActions } from './components/AdvisoryActions';
 import { AdminConsole } from './components/AdminConsole';
 import { AuditTrail } from './components/AuditTrail';
@@ -29,6 +29,7 @@ import {
 type AdvisoryAction = 'acknowledge' | 'decline' | 'escalate';
 
 const GMEXPRESSION_LOGO_URL = 'https://shop.gmexpression.com/image/catalog/logo/GMExpression_logo.png?v=1.3';
+const FIRST_EDITION_PDF_URL = '/Cloning_Expression_Vector_Design_Toolkit_First_Edition.pdf';
 
 function App() {
   const [steps, setSteps] = useState(wizardSteps);
@@ -76,6 +77,16 @@ function App() {
           </a>
           <a className="nav-icon-link" href="#advisory-heading" aria-label="Advisory review">
             <ShieldCheck size={19} />
+          </a>
+          <a
+            className="nav-icon-link nav-icon-link--user-guide"
+            href={FIRST_EDITION_PDF_URL}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open the Cloning &amp; Expression Vector Design Toolkit — First Edition user guide (PDF)"
+            title="User Guide — First Edition (PDF)"
+          >
+            <BookOpen size={19} />
           </a>
           <a
             className="gmexpression-link"
