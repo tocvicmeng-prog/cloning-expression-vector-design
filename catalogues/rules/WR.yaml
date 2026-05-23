@@ -6,1157 +6,1065 @@ maintenance:
   source_url: REQUIREMENTS.md#4.2
   review_required_after: '2026-11-14'
 rules:
-- rule_id: WR-01
-  predicate_name: wr_01
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-01.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-01: Taq introduces too many errors for downstream use. Source rule from
-      REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-01.json
-    passing: tests/fixtures/rules/WR/passing/WR-01.json
-  suggested_remediation: Review WR-01 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: The chosen polymerase is high-fidelity (Phusion / Q5 / KAPA HiFi /
-    PrimeSTAR) when the PCR product will be cloned; Taq is not used for cloning amplicons.
-- rule_id: WR-02
-  predicate_name: wr_02
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-02.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-02: Affects cycle count and DpnI step. Source rule from REQUIREMENTS.md#4.2;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-02.json
-    passing: tests/fixtures/rules/WR/passing/WR-02.json
-  suggested_remediation: Review WR-02 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: PCR template type is declared (plasmid / genomic / cDNA / synthetic).
-- rule_id: WR-03
-  predicate_name: wr_03
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-03.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-03: Otherwise empty parental vector dominates the colony pool. Source
-      rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-03.json
-    passing: tests/fixtures/rules/WR/passing/WR-03.json
-  suggested_remediation: Review WR-03 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: If template is plasmid, DpnI digestion of the PCR product is included
-    before transformation to remove template carry-over.
-- rule_id: WR-04
-  predicate_name: wr_04
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-04.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-04: Avoids carry-over of un-cut vector. Source rule from REQUIREMENTS.md#4.2;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-04.json
-    passing: tests/fixtures/rules/WR/passing/WR-04.json
-  suggested_remediation: Review WR-04 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For restriction-ligation, vector and insert are gel-purified before
-    ligation (or PCR-cleaned if both produce clean amplicons).
-- rule_id: WR-05
-  predicate_name: wr_05
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-05.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-05: Self-religation is the dominant background. Source rule from REQUIREMENTS.md#4.2;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-05.json
-    passing: tests/fixtures/rules/WR/passing/WR-05.json
-  suggested_remediation: Review WR-05 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For single-cut linearised vectors, dephosphorylation (CIP / rSAP /
-    Antarctic phosphatase) is included to suppress religation.
-- rule_id: WR-06
-  predicate_name: wr_06
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-06.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-06: FR-ENZ-09. Source rule from REQUIREMENTS.md#4.2; calibrated against
-      KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-06.json
-    passing: tests/fixtures/rules/WR/passing/WR-06.json
-  suggested_remediation: Review WR-06 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For double-digest, both enzymes are buffer-compatible (or sequential
-    digestion is specified).
-- rule_id: WR-07
-  predicate_name: wr_07
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-07.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-07: v2.0 \xA7 7.2. Source rule from REQUIREMENTS.md#4.2; calibrated\
-      \ against KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-07.json
-    passing: tests/fixtures/rules/WR/passing/WR-07.json
-  suggested_remediation: Review WR-07 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For methylation-sensitive enzymes, the host genotype is dam+ / dcm+\
-    \ or dam\u2212 / dcm\u2212 as required by the enzyme."
-- rule_id: WR-08
-  predicate_name: wr_08
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-08.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-08: NEBuilder optimisation guide. Source rule from REQUIREMENTS.md#4.2;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-08.json
-    passing: tests/fixtures/rules/WR/passing/WR-08.json
-  suggested_remediation: Review WR-08 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For Gibson assembly, fragments are mixed at 1:1 molar ratio (or 1:3\
-    \ vector:insert for 2-piece); total DNA 50\u2013100 ng."
-- rule_id: WR-09
-  predicate_name: wr_09
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-09.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-09: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-09.json
-    passing: tests/fixtures/rules/WR/passing/WR-09.json
-  suggested_remediation: Review WR-09 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For Golden Gate, BsaI/BsmBI/SapI/BbsI is paired with T4 DNA ligase
-    in the same reaction (one-pot).
-- rule_id: WR-10
-  predicate_name: wr_10
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-10.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-10: Engler 2008. Source rule from REQUIREMENTS.md#4.2; calibrated against
-      KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-10.json
-    passing: tests/fixtures/rules/WR/passing/WR-10.json
-  suggested_remediation: Review WR-10 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For Golden Gate, the cycling programme alternates 37 \xB0C and 16\
-    \ \xB0C and ends with a heat-inactivation step (60\u201380 \xB0C)."
-- rule_id: WR-11
-  predicate_name: wr_11
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-11.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-11: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-11.json
-    passing: tests/fixtures/rules/WR/passing/WR-11.json
-  suggested_remediation: Review WR-11 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For Gateway BP / LR, Proteinase K stop step is included before transformation.
-- rule_id: WR-12
-  predicate_name: wr_12
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-12.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-12: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-12.json
-    passing: tests/fixtures/rules/WR/passing/WR-12.json
-  suggested_remediation: Review WR-12 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Transformation step specifies competent-cell type (chemical vs electro)\
-    \ and matches it to expected transformation efficiency target (\u2265 10\u2078\
-    \ cfu/\xB5g for high-throughput Golden Gate libraries; \u2265 10\u2076 acceptable\
-    \ for routine cloning)."
-- rule_id: WR-13
-  predicate_name: wr_13
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-13.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-13: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-13.json
-    passing: tests/fixtures/rules/WR/passing/WR-13.json
-  suggested_remediation: Review WR-13 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Selection plate antibiotic concentration matches the host \xD7 marker\
-    \ matrix (FR-HOST-09)."
-- rule_id: WR-14
-  predicate_name: wr_14
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-14.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-14: Mismatched results highlight chimeric clones. Source rule from REQUIREMENTS.md#4.2;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-14.json
-    passing: tests/fixtures/rules/WR/passing/WR-14.json
-  suggested_remediation: Review WR-14 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Colony screening includes both colony PCR (rapid) and diagnostic restriction
-    digest (more reliable).
-- rule_id: WR-15
-  predicate_name: wr_15
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-15.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-15: FR-PRIM-09. Source rule from REQUIREMENTS.md#4.2; calibrated against
-      KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-15.json
-    passing: tests/fixtures/rules/WR/passing/WR-15.json
-  suggested_remediation: Review WR-15 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Sequencing strategy covers every junction with \u2265 50 bp upstream\
-    \ and \u2265 50 bp downstream within Sanger read length."
-- rule_id: WR-16
-  predicate_name: wr_16
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-16.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-16: Sanger cannot bridge such constructs reliably. Source rule from
-      REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-16.json
-    passing: tests/fixtures/rules/WR/passing/WR-16.json
-  suggested_remediation: Review WR-16 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Constructs > 8 kb or containing repeats > 100 bp are sequenced by long-read
-    (Nanopore / PacBio whole plasmid).
-- rule_id: WR-17
-  predicate_name: wr_17
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-17.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-17: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-17.json
-    passing: tests/fixtures/rules/WR/passing/WR-17.json
-  suggested_remediation: Review WR-17 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Glycerol stocks are made at 15\u201325 % glycerol final and stored\
-    \ at \u221280 \xB0C."
-- rule_id: WR-18
-  predicate_name: wr_18
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-18.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-18: LTRs and ITRs recombine in standard hosts. Source rule from REQUIREMENTS.md#4.2;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-18.json
-    passing: tests/fixtures/rules/WR/passing/WR-18.json
-  suggested_remediation: Review WR-18 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For lentiviral and AAV transfer plasmid amplification, use a recombination-deficient
-    host (Stbl3, Stbl4, NEB Stable).
-- rule_id: WR-19
-  predicate_name: wr_19
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-19.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-19: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-19.json
-    passing: tests/fixtures/rules/WR/passing/WR-19.json
-  suggested_remediation: Review WR-19 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For BAC propagation, use DH10B / EPI300 (recA-) at 30 \xB0C if instability\
-    \ is observed."
-- rule_id: WR-20
-  predicate_name: wr_20
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-20.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-20: Chemical transformation efficiency drops sharply > 15 kb. Source
-      rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-20.json
-    passing: tests/fixtures/rules/WR/passing/WR-20.json
-  suggested_remediation: Review WR-20 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For very large constructs, use electroporation rather than chemical
-    transformation.
-- rule_id: WR-21
-  predicate_name: wr_21
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockCompile
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-21.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-21: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-21.json
-    passing: tests/fixtures/rules/WR/passing/WR-21.json
-  suggested_remediation: Review WR-21 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For ccdB-bearing destination vectors, propagate in DB3.1 or ccdB Survival
-    2 only.
-- rule_id: WR-22
-  predicate_name: wr_22
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-22.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-22: Francis & Page 2010. Source rule from REQUIREMENTS.md#4.2; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-22.json
-    passing: tests/fixtures/rules/WR/passing/WR-22.json
-  suggested_remediation: Review WR-22 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For toxic-protein expression, the inducer is added when OD\u2086\u2080\
-    \u2080 \u2248 0.5\u20130.8, then growth at 16\u201325 \xB0C overnight for solubility."
-- rule_id: WR-23
-  predicate_name: wr_23
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-23.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-23: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-23.json
-    passing: tests/fixtures/rules/WR/passing/WR-23.json
-  suggested_remediation: Review WR-23 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For disulfide-containing proteins, use SHuffle / Origami or co-express
-    DsbC.
-- rule_id: WR-24
-  predicate_name: wr_24
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-24.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-24: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-24.json
-    passing: tests/fixtures/rules/WR/passing/WR-24.json
-  suggested_remediation: Review WR-24 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For mammalian transient transfection, plate cells at 60\u201380 %\
-    \ confluence the day before; DNA:PEI mass ratio 1:3, 1 \xB5g DNA per 1 \xD7 10\u2076\
-    \ cells (default; per cell line)."
-- rule_id: WR-25
-  predicate_name: wr_25
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-25.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-25: Dull 1998. Source rule from REQUIREMENTS.md#4.2; calibrated against
-      KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-25.json
-    passing: tests/fixtures/rules/WR/passing/WR-25.json
-  suggested_remediation: Review WR-25 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For lentivirus packaging, use HEK293T at 70\u201390 % confluence;\
-    \ co-transfect transfer + psPAX2 + pMD2.G; collect supernatant 48\u201372 h post-transfection."
-- rule_id: WR-26
-  predicate_name: wr_26
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-26.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-26: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-26.json
-    passing: tests/fixtures/rules/WR/passing/WR-26.json
-  suggested_remediation: Review WR-26 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For agroinfiltration, OD\u2086\u2080\u2080 of Agrobacterium in infiltration\
-    \ buffer is typically 0.3\u20130.8; co-infiltrate p19 silencing suppressor at\
-    \ 1:1."
-- rule_id: WR-27
-  predicate_name: wr_27
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-27.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: 'WR-27: First ~ 30 bp of a Sanger trace are unreliable. Source rule from
-      REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-27.json
-    passing: tests/fixtures/rules/WR/passing/WR-27.json
-  suggested_remediation: Review WR-27 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For Sanger sequencing, sequencing primers anneal 50\u2013100 bp upstream\
-    \ of the region of interest."
-- rule_id: WR-28
-  predicate_name: wr_28
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-28.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-28: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-28.json
-    passing: tests/fixtures/rules/WR/passing/WR-28.json
-  suggested_remediation: Review WR-28 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "DNA quality for sequencing must be > 50 ng/\xB5L and A260/A280 in\
-    \ [1.8, 2.0]."
-- rule_id: WR-29
-  predicate_name: wr_29
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-29.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-29: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-29.json
-    passing: tests/fixtures/rules/WR/passing/WR-29.json
-  suggested_remediation: Review WR-29 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "For chemical transformation, heat shock at 42 \xB0C for 30\u201345\
-    \ s, then 2-min ice, then SOC recovery."
-- rule_id: WR-30
-  predicate_name: wr_30
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - assembly_plan
-  - construct
-  - host_context
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.wr-30.result
-  invalidates: []
-  preconditions: []
-  target_context: assembly_plan
-  external_adapters: []
-  threshold_profile: thresholds.workflow.default
-  citation:
-    text: "WR-30: \u2013 Source rule from REQUIREMENTS.md#4.2; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - WR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/WR/triggering/WR-30.json
-    passing: tests/fixtures/rules/WR/passing/WR-30.json
-  suggested_remediation: Review WR-30 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: For electroporation, DNA in salt-free buffer; cuvette gap matches voltage
-    setting (1 mm = 1.8 kV, 2 mm = 2.5 kV).
+  - rule_id: WR-01
+    predicate_name: wr_01
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-01.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-01: Taq introduces too many errors for downstream use. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-01.json
+      passing: tests/fixtures/rules/WR/passing/WR-01.json
+    suggested_remediation: Review WR-01 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: The chosen polymerase is high-fidelity (Phusion / Q5 / KAPA HiFi / PrimeSTAR) when the PCR product will be cloned; Taq is not used for cloning amplicons.
+    runtime_dispatch: real
+  - rule_id: WR-02
+    predicate_name: wr_02
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-02.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-02: Affects cycle count and DpnI step. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-02.json
+      passing: tests/fixtures/rules/WR/passing/WR-02.json
+    suggested_remediation: Review WR-02 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: PCR template type is declared (plasmid / genomic / cDNA / synthetic).
+    runtime_dispatch: real
+  - rule_id: WR-03
+    predicate_name: wr_03
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-03.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-03: Otherwise empty parental vector dominates the colony pool. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-03.json
+      passing: tests/fixtures/rules/WR/passing/WR-03.json
+    suggested_remediation: Review WR-03 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: If template is plasmid, DpnI digestion of the PCR product is included before transformation to remove template carry-over.
+    runtime_dispatch: real
+  - rule_id: WR-04
+    predicate_name: wr_04
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-04.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-04: Avoids carry-over of un-cut vector. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-04.json
+      passing: tests/fixtures/rules/WR/passing/WR-04.json
+    suggested_remediation: Review WR-04 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For restriction-ligation, vector and insert are gel-purified before ligation (or PCR-cleaned if both produce clean amplicons).
+    runtime_dispatch: real
+  - rule_id: WR-05
+    predicate_name: wr_05
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-05.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-05: Self-religation is the dominant background. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-05.json
+      passing: tests/fixtures/rules/WR/passing/WR-05.json
+    suggested_remediation: Review WR-05 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For single-cut linearised vectors, dephosphorylation (CIP / rSAP / Antarctic phosphatase) is included to suppress religation.
+    runtime_dispatch: real
+  - rule_id: WR-06
+    predicate_name: wr_06
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-06.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-06: FR-ENZ-09. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-06.json
+      passing: tests/fixtures/rules/WR/passing/WR-06.json
+    suggested_remediation: Review WR-06 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For double-digest, both enzymes are buffer-compatible (or sequential digestion is specified).
+    runtime_dispatch: real
+  - rule_id: WR-07
+    predicate_name: wr_07
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-07.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-07: v2.0 § 7.2. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-07.json
+      passing: tests/fixtures/rules/WR/passing/WR-07.json
+    suggested_remediation: Review WR-07 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For methylation-sensitive enzymes, the host genotype is dam+ / dcm+ or dam− / dcm− as required by the enzyme."
+    runtime_dispatch: real
+  - rule_id: WR-08
+    predicate_name: wr_08
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-08.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-08: NEBuilder optimisation guide. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-08.json
+      passing: tests/fixtures/rules/WR/passing/WR-08.json
+    suggested_remediation: Review WR-08 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For Gibson assembly, fragments are mixed at 1:1 molar ratio (or 1:3 vector:insert for 2-piece); total DNA 50–100 ng."
+    runtime_dispatch: stub
+  - rule_id: WR-09
+    predicate_name: wr_09
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-09.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-09: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-09.json
+      passing: tests/fixtures/rules/WR/passing/WR-09.json
+    suggested_remediation: Review WR-09 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For Golden Gate, BsaI/BsmBI/SapI/BbsI is paired with T4 DNA ligase in the same reaction (one-pot).
+    runtime_dispatch: stub
+  - rule_id: WR-10
+    predicate_name: wr_10
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-10.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-10: Engler 2008. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-10.json
+      passing: tests/fixtures/rules/WR/passing/WR-10.json
+    suggested_remediation: Review WR-10 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For Golden Gate, the cycling programme alternates 37 °C and 16 °C and ends with a heat-inactivation step (60–80 °C)."
+    runtime_dispatch: stub
+  - rule_id: WR-11
+    predicate_name: wr_11
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-11.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-11: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-11.json
+      passing: tests/fixtures/rules/WR/passing/WR-11.json
+    suggested_remediation: Review WR-11 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For Gateway BP / LR, Proteinase K stop step is included before transformation.
+    runtime_dispatch: real
+  - rule_id: WR-12
+    predicate_name: wr_12
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-12.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-12: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-12.json
+      passing: tests/fixtures/rules/WR/passing/WR-12.json
+    suggested_remediation: Review WR-12 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Transformation step specifies competent-cell type (chemical vs electro) and matches it to expected transformation efficiency target (≥ 10⁸ cfu/µg for high-throughput Golden Gate libraries; ≥ 10⁶ acceptable for routine cloning)."
+    runtime_dispatch: real
+  - rule_id: WR-13
+    predicate_name: wr_13
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-13.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-13: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-13.json
+      passing: tests/fixtures/rules/WR/passing/WR-13.json
+    suggested_remediation: Review WR-13 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Selection plate antibiotic concentration matches the host × marker matrix (FR-HOST-09)."
+    runtime_dispatch: real
+  - rule_id: WR-14
+    predicate_name: wr_14
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-14.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-14: Mismatched results highlight chimeric clones. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-14.json
+      passing: tests/fixtures/rules/WR/passing/WR-14.json
+    suggested_remediation: Review WR-14 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Colony screening includes both colony PCR (rapid) and diagnostic restriction digest (more reliable).
+    runtime_dispatch: real
+  - rule_id: WR-15
+    predicate_name: wr_15
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-15.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-15: FR-PRIM-09. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-15.json
+      passing: tests/fixtures/rules/WR/passing/WR-15.json
+    suggested_remediation: Review WR-15 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Sequencing strategy covers every junction with ≥ 50 bp upstream and ≥ 50 bp downstream within Sanger read length."
+    runtime_dispatch: real
+  - rule_id: WR-16
+    predicate_name: wr_16
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-16.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-16: Sanger cannot bridge such constructs reliably. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-16.json
+      passing: tests/fixtures/rules/WR/passing/WR-16.json
+    suggested_remediation: Review WR-16 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Constructs > 8 kb or containing repeats > 100 bp are sequenced by long-read (Nanopore / PacBio whole plasmid).
+    runtime_dispatch: real
+  - rule_id: WR-17
+    predicate_name: wr_17
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-17.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-17: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-17.json
+      passing: tests/fixtures/rules/WR/passing/WR-17.json
+    suggested_remediation: Review WR-17 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Glycerol stocks are made at 15–25 % glycerol final and stored at −80 °C."
+    runtime_dispatch: real
+  - rule_id: WR-18
+    predicate_name: wr_18
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-18.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-18: LTRs and ITRs recombine in standard hosts. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-18.json
+      passing: tests/fixtures/rules/WR/passing/WR-18.json
+    suggested_remediation: Review WR-18 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For lentiviral and AAV transfer plasmid amplification, use a recombination-deficient host (Stbl3, Stbl4, NEB Stable).
+    runtime_dispatch: real
+  - rule_id: WR-19
+    predicate_name: wr_19
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-19.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-19: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-19.json
+      passing: tests/fixtures/rules/WR/passing/WR-19.json
+    suggested_remediation: Review WR-19 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For BAC propagation, use DH10B / EPI300 (recA-) at 30 °C if instability is observed."
+    runtime_dispatch: real
+  - rule_id: WR-20
+    predicate_name: wr_20
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-20.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-20: Chemical transformation efficiency drops sharply > 15 kb. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-20.json
+      passing: tests/fixtures/rules/WR/passing/WR-20.json
+    suggested_remediation: Review WR-20 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For very large constructs, use electroporation rather than chemical transformation.
+    runtime_dispatch: real
+  - rule_id: WR-21
+    predicate_name: wr_21
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockCompile
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-21.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-21: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-21.json
+      passing: tests/fixtures/rules/WR/passing/WR-21.json
+    suggested_remediation: Review WR-21 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For ccdB-bearing destination vectors, propagate in DB3.1 or ccdB Survival 2 only.
+    runtime_dispatch: real
+  - rule_id: WR-22
+    predicate_name: wr_22
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-22.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-22: Francis & Page 2010. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-22.json
+      passing: tests/fixtures/rules/WR/passing/WR-22.json
+    suggested_remediation: Review WR-22 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For toxic-protein expression, the inducer is added when OD₆₀₀ ≈ 0.5–0.8, then growth at 16–25 °C overnight for solubility."
+    runtime_dispatch: stub
+  - rule_id: WR-23
+    predicate_name: wr_23
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-23.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-23: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-23.json
+      passing: tests/fixtures/rules/WR/passing/WR-23.json
+    suggested_remediation: Review WR-23 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For disulfide-containing proteins, use SHuffle / Origami or co-express DsbC.
+    runtime_dispatch: stub
+  - rule_id: WR-24
+    predicate_name: wr_24
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-24.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-24: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-24.json
+      passing: tests/fixtures/rules/WR/passing/WR-24.json
+    suggested_remediation: Review WR-24 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For mammalian transient transfection, plate cells at 60–80 % confluence the day before; DNA:PEI mass ratio 1:3, 1 µg DNA per 1 × 10⁶ cells (default; per cell line)."
+    runtime_dispatch: stub
+  - rule_id: WR-25
+    predicate_name: wr_25
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-25.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-25: Dull 1998. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-25.json
+      passing: tests/fixtures/rules/WR/passing/WR-25.json
+    suggested_remediation: Review WR-25 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For lentivirus packaging, use HEK293T at 70–90 % confluence; co-transfect transfer + psPAX2 + pMD2.G; collect supernatant 48–72 h post-transfection."
+    runtime_dispatch: stub
+  - rule_id: WR-26
+    predicate_name: wr_26
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-26.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-26: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-26.json
+      passing: tests/fixtures/rules/WR/passing/WR-26.json
+    suggested_remediation: Review WR-26 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For agroinfiltration, OD₆₀₀ of Agrobacterium in infiltration buffer is typically 0.3–0.8; co-infiltrate p19 silencing suppressor at 1:1."
+    runtime_dispatch: stub
+  - rule_id: WR-27
+    predicate_name: wr_27
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-27.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: 'WR-27: First ~ 30 bp of a Sanger trace are unreliable. Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-27.json
+      passing: tests/fixtures/rules/WR/passing/WR-27.json
+    suggested_remediation: Review WR-27 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For Sanger sequencing, sequencing primers anneal 50–100 bp upstream of the region of interest."
+    runtime_dispatch: stub
+  - rule_id: WR-28
+    predicate_name: wr_28
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-28.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-28: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-28.json
+      passing: tests/fixtures/rules/WR/passing/WR-28.json
+    suggested_remediation: Review WR-28 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "DNA quality for sequencing must be > 50 ng/µL and A260/A280 in [1.8, 2.0]."
+    runtime_dispatch: stub
+  - rule_id: WR-29
+    predicate_name: wr_29
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-29.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-29: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-29.json
+      passing: tests/fixtures/rules/WR/passing/WR-29.json
+    suggested_remediation: Review WR-29 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "For chemical transformation, heat shock at 42 °C for 30–45 s, then 2-min ice, then SOC recovery."
+    runtime_dispatch: stub
+  - rule_id: WR-30
+    predicate_name: wr_30
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - assembly_plan
+      - construct
+      - host_context
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.wr-30.result
+    invalidates: []
+    preconditions: []
+    target_context: assembly_plan
+    external_adapters: []
+    threshold_profile: thresholds.workflow.default
+    citation:
+      text: "WR-30: – Source rule from REQUIREMENTS.md#4.2; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - WR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/WR/triggering/WR-30.json
+      passing: tests/fixtures/rules/WR/passing/WR-30.json
+    suggested_remediation: Review WR-30 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: For electroporation, DNA in salt-free buffer; cuvette gap matches voltage setting (1 mm = 1.8 kV, 2 mm = 2.5 kV).
+    runtime_dispatch: stub

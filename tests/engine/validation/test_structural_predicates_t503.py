@@ -16,7 +16,7 @@ from domain.types.validation_rule import ValidationRule
 from engine.validation.predicates import IMPLEMENTED_PREDICATE_REGISTRY
 from engine.validation.predicates.frame import mr_10_reading_frame, mr_11_tandem_stop
 from engine.validation.predicates.host import host_compatibility_report_clear
-from engine.validation.predicates.internal_sites import mr_22_forbidden_internal_sites
+from engine.validation.predicates.internal_sites import forbidden_internal_sites_predicate
 from engine.validation.validation_context import ValidationContext
 
 
@@ -82,10 +82,15 @@ def test_frame_predicates_evaluate_orf_start_stop_and_tandem_stop_strategy() -> 
 
 
 def test_internal_site_predicate_uses_sequence_analysis_site_finder() -> None:
-    rule = _rule("MR-22", "mr_22")
+    # v0.2.1 audit fix C4 — predicate renamed from mr_22_forbidden_internal_sites
+    # to forbidden_internal_sites_predicate (no longer bound to MR-22; MR-22
+    # declares WPRE wild-type detection which is different biology). The
+    # forbidden-internal-sites logic is preserved as a reusable helper here;
+    # this test continues to exercise it with a generic rule-id stand-in.
+    rule = _rule("FORBIDDEN-SITES", "forbidden_internal_sites_predicate")
 
     assert (
-        mr_22_forbidden_internal_sites(
+        forbidden_internal_sites_predicate(
             ValidationContext(
                 design_payload={
                     "sequence": "AAAGAATTCCCC",
@@ -99,7 +104,7 @@ def test_internal_site_predicate_uses_sequence_analysis_site_finder() -> None:
         is Severity.HARD
     )
     assert (
-        mr_22_forbidden_internal_sites(
+        forbidden_internal_sites_predicate(
             ValidationContext(
                 design_payload={
                     "sequence": "AAAACCCCGGGG",

@@ -17,31 +17,20 @@ from typing import TypeAlias, cast
 from adapter.catalogue import load_catalogue, schema_for_catalogue
 from domain.canonicalisation import canonical_sha256
 from domain.sequence import DnaSequence, Sha256, sha256_text
+# v0.2.1 audit fix M5 — value types moved to domain.types.screening to fix the
+# hexagonal-layering inversion the Architect audit § 1.2 Finding 1.3 surfaced
+# (App layer was structurally bound to adapter.* via these imports).
+# Re-exported here for backward compatibility with existing direct callers.
+from domain.types.screening import (
+    NotApplicableReason,
+    ScreeningProviderPolicy,
+    ScreeningScope,
+    ScreeningTrustPolicy,
+    ScreeningVerdict,
+)
 
 EvidencePayload: TypeAlias = tuple[tuple[str, str], ...]
 BatchScreeningOutcome: TypeAlias = tuple["ScreeningResult | ScreeningError", ...]
-
-
-class ScreeningVerdict(Enum):
-    CLEAR = "CLEAR"
-    WATCHLIST = "WATCHLIST"
-    HIT = "HIT"
-    UNAVAILABLE = "UNAVAILABLE"
-    NOT_APPLICABLE = "NOT_APPLICABLE"
-    MANUAL_REVIEW_REQUIRED = "MANUAL_REVIEW_REQUIRED"
-
-
-class NotApplicableReason(Enum):
-    BELOW_MINIMUM_LENGTH = "below_minimum_length"
-    POLICY_EXCLUDED_FRAGMENT = "policy_excluded_fragment"
-    POLICY_EXCLUDED_ORF = "policy_excluded_orf"
-    UNSUPPORTED_SCOPE = "unsupported_scope"
-
-
-class ScreeningScope(Enum):
-    ASSEMBLED_PRODUCT = "assembled_product"
-    ORDER_FRAGMENT = "order_fragment"
-    TRANSLATED_ORF = "translated_orf"
 
 
 class ScreeningAdapterFailureClass(Enum):
@@ -83,76 +72,9 @@ class ScreeningRequest:
         return sha256_text(self.sequence.body)
 
 
-@dataclass(frozen=True)
-class ScreeningProviderPolicy:
-    provider_id: str
-    name: str
-    trust_level: str
-    query_privacy_mode: str
-    accepted_verdicts: frozenset[ScreeningVerdict]
-    canonical_at_this_scope: bool
-
-    def __post_init__(self) -> None:
-        if not self.provider_id:
-            raise ValueError("provider_id cannot be empty")
-        if not self.accepted_verdicts:
-            raise ValueError("provider policy requires at least one accepted verdict")
-
-
-@dataclass(frozen=True)
-class ScreeningTrustPolicy:
-    policy_id: str
-    policy_version: str
-    minimum_synthetic_na_nt: int
-    screen_assembled_product: bool
-    screen_order_fragments: bool
-    screen_translated_orfs_when_applicable: bool
-    preserve_query_privacy_when_supported: bool
-    verdict_blocks: Mapping[ScreeningVerdict, frozenset[str]]
-    providers: Mapping[str, ScreeningProviderPolicy]
-    policy_content_hash: Sha256
-
-    def __post_init__(self) -> None:
-        if not self.policy_id:
-            raise ValueError("policy_id cannot be empty")
-        if self.minimum_synthetic_na_nt <= 0:
-            raise ValueError("minimum_synthetic_na_nt must be positive")
-
-    def provider_policy(self, provider_id: str, scope: ScreeningScope) -> ScreeningProviderPolicy:
-        try:
-            provider = self.providers[provider_id]
-        except KeyError as exc:
-            raise ValueError(f"unknown screening provider: {provider_id}") from exc
-        return ScreeningProviderPolicy(
-            provider_id=provider.provider_id,
-            name=provider.name,
-            trust_level=provider.trust_level,
-            query_privacy_mode=provider.query_privacy_mode,
-            accepted_verdicts=provider.accepted_verdicts,
-            canonical_at_this_scope=self._canonical_for(provider, scope),
-        )
-
-    def scope_applicable(self, scope: ScreeningScope) -> tuple[bool, NotApplicableReason | None]:
-        if scope is ScreeningScope.ASSEMBLED_PRODUCT:
-            return self.screen_assembled_product, NotApplicableReason.UNSUPPORTED_SCOPE
-        if scope is ScreeningScope.ORDER_FRAGMENT:
-            return self.screen_order_fragments, NotApplicableReason.POLICY_EXCLUDED_FRAGMENT
-        if scope is ScreeningScope.TRANSLATED_ORF:
-            return (
-                self.screen_translated_orfs_when_applicable,
-                NotApplicableReason.POLICY_EXCLUDED_ORF,
-            )
-        return False, NotApplicableReason.UNSUPPORTED_SCOPE
-
-    def _canonical_for(
-        self,
-        provider: ScreeningProviderPolicy,
-        scope: ScreeningScope,
-    ) -> bool:
-        scope_applicable, _reason = self.scope_applicable(scope)
-        if not scope_applicable:
-            return False
-        return provider.provider_id != "institutional_blacklist"
+# ScreeningProviderPolicy + ScreeningTrustPolicy moved to domain.types.screening
+# (v0.2.1 audit fix M5). Re-exported via the `from domain.types.screening import ...`
+# block at the top of this file for backward compatibility.
 
 
 @dataclass(frozen=True)

@@ -199,6 +199,12 @@ def _allowed_task_ids(root: Path) -> frozenset[str]:
         expanded = task.get("expanded_task_ids", [])
         if isinstance(expanded, list):
             allowed.update(str(task_id) for task_id in expanded)
+    # v0.2.1 audit-fix umbrella: read audit_fix_task_ids extension key (top-level,
+    # outside tasks:) so the active_task_card_count stays at 92 (v0.2 cadence
+    # scope) while letting traceability headers reference audit-fix-* IDs.
+    audit_fix_ids = manifest.get("audit_fix_task_ids", [])
+    if isinstance(audit_fix_ids, list):
+        allowed.update(str(t) for t in audit_fix_ids)
     return frozenset(allowed)
 
 

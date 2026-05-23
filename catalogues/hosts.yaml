@@ -512,7 +512,7 @@ items:
     chassis_class: "yeast"
     source_section: "6"
     host_roles: ["cloning_propagation", "expression"]
-    genotype: "S288C-derived haploid auxotrophic background; verify source genotype."
+    genotype: "MATa his3Δ1 leu2Δ0 met15Δ0 ura3Δ0 (Brachmann et al. 1998, S288C-derived; PMID 9483801; v0.2.1 audit fix C5 — canonical Brachmann genotype tokens enable MR-59 host_genotype_requirement matching against auxotrophic markers HIS3, LEU2, MET15, URA3)"
     supplier_reference: "EUROSCARF/ATCC/vendor equivalent; verify source."
     replicons_supported: ["2micron", "CEN/ARS"]
     expression_features: ["auxotrophic-marker compatibility", "GAL1/TEF1/PGK1 expression"]
@@ -526,7 +526,7 @@ items:
     chassis_class: "yeast"
     source_section: "6"
     host_roles: ["cloning_propagation", "expression"]
-    genotype: "S288C-derived haploid auxotrophic background; verify source genotype."
+    genotype: "MATα his3Δ1 leu2Δ0 lys2Δ0 ura3Δ0 (Brachmann et al. 1998, S288C-derived; PMID 9483801; v0.2.1 audit fix C5 — canonical Brachmann genotype tokens enable MR-59 host_genotype_requirement matching against auxotrophic markers HIS3, LEU2, LYS2, URA3)"
     supplier_reference: "EUROSCARF/ATCC/vendor equivalent; verify source."
     replicons_supported: ["2micron", "CEN/ARS"]
     expression_features: ["auxotrophic-marker compatibility", "GAL1/TEF1/PGK1 expression"]
@@ -540,7 +540,7 @@ items:
     chassis_class: "yeast"
     source_section: "6"
     host_roles: ["cloning_propagation", "expression"]
-    genotype: "W303 lab background; verify source genotype."
+    genotype: "MATa/α leu2-3,112 trp1-1 can1-100 ura3-1 ade2-1 his3-11,15 (haploids W303-1A MATa and W303-1B MATα share auxotrophic loci; Thomas & Rothstein 1989 lineage; v0.2.1 audit fix C5 — canonical genotype tokens enable MR-59 host_genotype_requirement matching against LEU2, TRP1, URA3, ADE2, HIS3)"
     supplier_reference: "academic/vendor source; verify source."
     replicons_supported: ["2micron", "CEN/ARS"]
     expression_features: ["auxotrophic-marker compatibility", "GAL1/TEF1/PGK1 expression"]
@@ -554,7 +554,7 @@ items:
     chassis_class: "yeast"
     source_section: "6"
     host_roles: ["cloning_propagation", "expression"]
-    genotype: "S288C reference background; verify source genotype."
+    genotype: "MATα SUC2 gal2 mal mel flo1 flo8-1 hap1 ho bio1 bio6 (Mortimer & Johnston 1986 reference yeast genome strain; near-prototrophic background; v0.2.1 audit fix C5 — canonical Mortimer/Johnston genotype tokens; note this is the GENOME REFERENCE background and is largely prototrophic — wet-lab users wanting auxotrophic-marker complementation should use BY4741/BY4742 instead)"
     supplier_reference: "academic/vendor source; verify source."
     replicons_supported: ["2micron", "CEN/ARS"]
     expression_features: ["reference yeast background", "GAL1/TEF1/PGK1 expression"]
@@ -568,7 +568,7 @@ items:
     chassis_class: "yeast"
     source_section: "6"
     host_roles: ["cloning_propagation", "expression"]
-    genotype: "commercial auxotrophic expression background; verify supplier genotype."
+    genotype: "MATa/α his3Δ1/his3Δ1 leu2/leu2 trp1-289/trp1-289 ura3-52/ura3-52 (Invitrogen K1010 commercial diploid; v0.2.1 audit fix C5 — canonical Invitrogen-published genotype tokens enable MR-59 host_genotype_requirement matching against HIS3, LEU2, TRP1, URA3)"
     supplier_reference: "commercial INVSc1 or equivalent; verify supplier lot."
     replicons_supported: ["2micron", "CEN/ARS"]
     expression_features: ["auxotrophic-marker compatibility", "GAL1 expression"]
@@ -582,7 +582,7 @@ items:
     chassis_class: "yeast"
     source_section: "6"
     host_roles: ["expression", "screening_assay"]
-    genotype: "yeast surface-display strain; verify source genotype."
+    genotype: "MATa AGA1::GAL1-AGA1::URA3 ura3-52 trp1 leu2Δ1 his3Δ200 pep4::HIS3 prb1Δ1.6R can1 GAL (Boder & Wittrup 1997 PMID 9181586 yeast surface-display strain; v0.2.1 audit fix C5 — canonical Boder/Wittrup genotype tokens enable MR-59 host_genotype_requirement matching against URA3, TRP1, LEU2; note HIS3 is occupied by pep4::HIS3 integration)"
     supplier_reference: "academic/vendor source; verify source."
     replicons_supported: ["2micron", "CEN/ARS"]
     expression_features: ["surface display", "Aga2 fusion compatibility"]

@@ -6,682 +6,623 @@ maintenance:
   source_url: REQUIREMENTS.md#4.3
   review_required_after: '2026-11-14'
 rules:
-- rule_id: SR-01
-  predicate_name: sr_01
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockVendorSubmission
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-01.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-01: min_length, max_length. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-01.json
-    passing: tests/fixtures/rules/SR/passing/SR-01.json
-  suggested_remediation: Review SR-01 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Total synthesis length within vendor-specific bounds. Twist gene fragments:\
-    \ 300\u20135 000 bp. Twist clonal genes: 300\u20135 000 bp. IDT gBlocks: 125\u2013\
-    3 000 bp. IDT gBlocks HiFi: \u2264 5 000 bp. GenScript standard gene: \u2264 ~10\
-    \ 000 bp."
-- rule_id: SR-02
-  predicate_name: sr_02
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockVendorSubmission
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-02.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-02: min_gc, max_gc. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-02.json
-    passing: tests/fixtures/rules/SR/passing/SR-02.json
-  suggested_remediation: Review SR-02 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Global GC content within vendor bounds. Twist: 25\u201365 %. IDT:\
-    \ 25\u201375 %. GenScript: 30\u201370 %."
-- rule_id: SR-03
-  predicate_name: sr_03
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockVendorSubmission
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-03.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-03: windowed_gc_min, windowed_gc_max, gc_delta_max. Source rule from
-      REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-03.json
-    passing: tests/fixtures/rules/SR/passing/SR-03.json
-  suggested_remediation: Review SR-03 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Per-50-bp-window GC within bounds. Twist Express: 35\u201365 %, GC\
-    \ delta \u2264 52 %."
-- rule_id: SR-04
-  predicate_name: sr_04
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockVendorSubmission
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-04.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-04: max_homopolymer_AT, max_homopolymer_GC. Source rule from REQUIREMENTS.md#4.3;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-04.json
-    passing: tests/fixtures/rules/SR/passing/SR-04.json
-  suggested_remediation: Review SR-04 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Homopolymer runs: Twist: hard ban on \u2265 14 bp. IDT: \u2264 10\
-    \ nt A/T, \u2264 6 nt G/C."
-- rule_id: SR-05
-  predicate_name: sr_05
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockVendorSubmission
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-05.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-05: max_repeat. Source rule from REQUIREMENTS.md#4.3; calibrated against
-      KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-05.json
-    passing: tests/fixtures/rules/SR/passing/SR-05.json
-  suggested_remediation: Review SR-05 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Direct repeats: \u2265 20 bp flagged; \u2265 40 bp rejected (most\
-    \ vendors)."
-- rule_id: SR-06
-  predicate_name: sr_06
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-06.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-06: hairpin_max_negDG. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-06.json
-    passing: tests/fixtures/rules/SR/passing/SR-06.json
-  suggested_remediation: Review SR-06 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Inverted repeats / hairpins: strong hairpins (\u0394G \u2264 -20 kcal/mol\
-    \ on ViennaRNA) rejected."
-- rule_id: SR-07
-  predicate_name: sr_07
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockVendorSubmission
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-07.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-07: flanking_5p, flanking_3p, flanking_handling. Source rule from REQUIREMENTS.md#4.3;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-07.json
-    passing: tests/fixtures/rules/SR/passing/SR-07.json
-  suggested_remediation: Review SR-07 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Vendor-mandated 5\u2032 / 3\u2032 adapter sequences for certain products\
-    \ (e.g., Twist eBlocks have universal flanking; IDT gBlocks have no fixed flanking;\
-    \ clonal genes have vendor-specific cloning-site flanks). The system MUST include\
-    \ or strip these flanks based on vendor profile and intended assembly chemistry."
-- rule_id: SR-08
-  predicate_name: sr_08
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockVendorSubmission
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-08.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-08: mandatory_sites. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-08.json
-    passing: tests/fixtures/rules/SR/passing/SR-08.json
-  suggested_remediation: Review SR-08 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Vendor-mandated restriction sites for cloning into the supplied vector
-    (e.g., a vendor's "ready-to-clone" service requires EcoRV blunt ends or specific
-    Type IIS sites for direct subcloning).
-- rule_id: SR-09
-  predicate_name: sr_09
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockVendorSubmission
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-09.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-09: forbidden_patterns[]. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-09.json
-    passing: tests/fixtures/rules/SR/passing/SR-09.json
-  suggested_remediation: Review SR-09 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Vendor-forbidden patterns (vendor blacklists, IP-protected sequences,
-    known toxic motifs).
-- rule_id: SR-10
-  predicate_name: sr_10
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-10.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-10: complexity_threshold. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-10.json
-    passing: tests/fixtures/rules/SR/passing/SR-10.json
-  suggested_remediation: Review SR-10 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Sequence complexity / linguistic complexity (vendor ML-based scoring;
-    for software, a low-complexity windowed filter approximation).
-- rule_id: SR-11
-  predicate_name: sr_11
-  severity: INFO
-  severity_policy: report_only
-  blocks: []
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-11.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-11: pricing_tiers. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-11.json
-    passing: tests/fixtures/rules/SR/passing/SR-11.json
-  suggested_remediation: Review SR-11 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Cost / price-tier thresholds (length, complexity, turnaround). The
-    system MUST estimate the cost tier and warn before order.
-- rule_id: SR-12
-  predicate_name: sr_12
-  severity: INFO
-  severity_policy: report_only
-  blocks: []
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-12.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-12: delivery_format. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-12.json
-    passing: tests/fixtures/rules/SR/passing/SR-12.json
-  suggested_remediation: Review SR-12 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: 'Pre-cloned vs linear-fragment: the user MUST be informed whether the
-    vendor delivers the fragment ligated into a plasmid, or as a linear PCR-amplifiable
-    fragment.'
-- rule_id: SR-13
-  predicate_name: sr_13
-  severity: INFO
-  severity_policy: report_only
-  blocks: []
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-13.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-13: screening_protocol. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-13.json
-    passing: tests/fixtures/rules/SR/passing/SR-13.json
-  suggested_remediation: Review SR-13 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Synthesis-vendor-side sequence screening (IGSC v3.0 compliant). The
-    user is informed that the vendor will screen and may reject.
-- rule_id: SR-14
-  predicate_name: sr_14
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-14.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: "SR-14: \u2013 Source rule from REQUIREMENTS.md#4.3; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-14.json
-    passing: tests/fixtures/rules/SR/passing/SR-14.json
-  suggested_remediation: Review SR-14 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: 'Codon-level rescue: if a sequence fails vendor constraints, the system
-    MUST attempt synonymous-codon rewriting within the ORF to fix the violation without
-    changing the protein, then re-check.'
-- rule_id: SR-15
-  predicate_name: sr_15
-  severity: INFO
-  severity_policy: report_only
-  blocks: []
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-15.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-15: lead_time_days. Source rule from REQUIREMENTS.md#4.3; calibrated
-      against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-15.json
-    passing: tests/fixtures/rules/SR/passing/SR-15.json
-  suggested_remediation: Review SR-15 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: "Vendor turnaround time displayed (Twist: ~ 2 weeks; IDT: 1\u20132\
-    \ weeks; GenScript: 2\u20133 weeks)."
-- rule_id: SR-16
-  predicate_name: sr_16
-  severity: INFO
-  severity_policy: report_only
-  blocks: []
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-16.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: 'SR-16: service_tier_eligibility. Source rule from REQUIREMENTS.md#4.3;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-16.json
-    passing: tests/fixtures/rules/SR/passing/SR-16.json
-  suggested_remediation: Review SR-16 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Twist Express-tier vs standard-tier eligibility (Express requires stricter
-    GC, fewer repeats, no exotic adapters).
-- rule_id: SR-17
-  predicate_name: sr_17
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - construct
-  - vendor_profile
-  - synthesis_request
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.sr-17.result
-  invalidates: []
-  preconditions: []
-  target_context: screening
-  external_adapters:
-  - vendor_profile
-  threshold_profile: thresholds.synthesis.default
-  citation:
-    text: "SR-17: \u2013 Source rule from REQUIREMENTS.md#4.3; calibrated against\
-      \ KB v2.0 section 18 where applicable."
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - SR
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/SR/triggering/SR-17.json
-    passing: tests/fixtures/rules/SR/passing/SR-17.json
-  suggested_remediation: Review SR-17 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: If the construct exceeds any vendor's clonal-gene maximum, the system
-    MUST automatically partition it into orderable fragments and design the assembly
-    route (Gibson or Golden Gate).
+  - rule_id: SR-01
+    predicate_name: sr_01
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockVendorSubmission
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-01.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-01: min_length, max_length. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-01.json
+      passing: tests/fixtures/rules/SR/passing/SR-01.json
+    suggested_remediation: Review SR-01 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Total synthesis length within vendor-specific bounds. Twist gene fragments: 300–5 000 bp. Twist clonal genes: 300–5 000 bp. IDT gBlocks: 125–3 000 bp. IDT gBlocks HiFi: ≤ 5 000 bp. GenScript standard gene: ≤ ~10 000 bp."
+    runtime_dispatch: stub
+  - rule_id: SR-02
+    predicate_name: sr_02
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockVendorSubmission
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-02.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-02: min_gc, max_gc. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-02.json
+      passing: tests/fixtures/rules/SR/passing/SR-02.json
+    suggested_remediation: Review SR-02 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Global GC content within vendor bounds. Twist: 25–65 %. IDT: 25–75 %. GenScript: 30–70 %."
+    runtime_dispatch: stub
+  - rule_id: SR-03
+    predicate_name: sr_03
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockVendorSubmission
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-03.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-03: windowed_gc_min, windowed_gc_max, gc_delta_max. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-03.json
+      passing: tests/fixtures/rules/SR/passing/SR-03.json
+    suggested_remediation: Review SR-03 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Per-50-bp-window GC within bounds. Twist Express: 35–65 %, GC delta ≤ 52 %."
+    runtime_dispatch: stub
+  - rule_id: SR-04
+    predicate_name: sr_04
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockVendorSubmission
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-04.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-04: max_homopolymer_AT, max_homopolymer_GC. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-04.json
+      passing: tests/fixtures/rules/SR/passing/SR-04.json
+    suggested_remediation: Review SR-04 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Homopolymer runs: Twist: hard ban on ≥ 14 bp. IDT: ≤ 10 nt A/T, ≤ 6 nt G/C."
+    runtime_dispatch: stub
+  - rule_id: SR-05
+    predicate_name: sr_05
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockVendorSubmission
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-05.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-05: max_repeat. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-05.json
+      passing: tests/fixtures/rules/SR/passing/SR-05.json
+    suggested_remediation: Review SR-05 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Direct repeats: ≥ 20 bp flagged; ≥ 40 bp rejected (most vendors)."
+    runtime_dispatch: stub
+  - rule_id: SR-06
+    predicate_name: sr_06
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-06.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-06: hairpin_max_negDG. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-06.json
+      passing: tests/fixtures/rules/SR/passing/SR-06.json
+    suggested_remediation: Review SR-06 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Inverted repeats / hairpins: strong hairpins (ΔG ≤ -20 kcal/mol on ViennaRNA) rejected."
+    runtime_dispatch: stub
+  - rule_id: SR-07
+    predicate_name: sr_07
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockVendorSubmission
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-07.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-07: flanking_5p, flanking_3p, flanking_handling. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-07.json
+      passing: tests/fixtures/rules/SR/passing/SR-07.json
+    suggested_remediation: Review SR-07 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Vendor-mandated 5′ / 3′ adapter sequences for certain products (e.g., Twist eBlocks have universal flanking; IDT gBlocks have no fixed flanking; clonal genes have vendor-specific cloning-site flanks). The system MUST include or strip these flanks based on vendor profile and intended assembly chemistry."
+    runtime_dispatch: stub
+  - rule_id: SR-08
+    predicate_name: sr_08
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockVendorSubmission
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-08.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-08: mandatory_sites. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-08.json
+      passing: tests/fixtures/rules/SR/passing/SR-08.json
+    suggested_remediation: Review SR-08 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Vendor-mandated restriction sites for cloning into the supplied vector (e.g., a vendor's "ready-to-clone" service requires EcoRV blunt ends or specific Type IIS sites for direct subcloning).
+    runtime_dispatch: stub
+  - rule_id: SR-09
+    predicate_name: sr_09
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockVendorSubmission
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-09.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-09: forbidden_patterns[]. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-09.json
+      passing: tests/fixtures/rules/SR/passing/SR-09.json
+    suggested_remediation: Review SR-09 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Vendor-forbidden patterns (vendor blacklists, IP-protected sequences, known toxic motifs).
+    runtime_dispatch: stub
+  - rule_id: SR-10
+    predicate_name: sr_10
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-10.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-10: complexity_threshold. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-10.json
+      passing: tests/fixtures/rules/SR/passing/SR-10.json
+    suggested_remediation: Review SR-10 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Sequence complexity / linguistic complexity (vendor ML-based scoring; for software, a low-complexity windowed filter approximation).
+    runtime_dispatch: stub
+  - rule_id: SR-11
+    predicate_name: sr_11
+    severity: INFO
+    severity_policy: report_only
+    blocks: []
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-11.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-11: pricing_tiers. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-11.json
+      passing: tests/fixtures/rules/SR/passing/SR-11.json
+    suggested_remediation: Review SR-11 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Cost / price-tier thresholds (length, complexity, turnaround). The system MUST estimate the cost tier and warn before order.
+    runtime_dispatch: stub
+  - rule_id: SR-12
+    predicate_name: sr_12
+    severity: INFO
+    severity_policy: report_only
+    blocks: []
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-12.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-12: delivery_format. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-12.json
+      passing: tests/fixtures/rules/SR/passing/SR-12.json
+    suggested_remediation: Review SR-12 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: 'Pre-cloned vs linear-fragment: the user MUST be informed whether the vendor delivers the fragment ligated into a plasmid, or as a linear PCR-amplifiable fragment.'
+    runtime_dispatch: stub
+  - rule_id: SR-13
+    predicate_name: sr_13
+    severity: INFO
+    severity_policy: report_only
+    blocks: []
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-13.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-13: screening_protocol. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-13.json
+      passing: tests/fixtures/rules/SR/passing/SR-13.json
+    suggested_remediation: Review SR-13 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Synthesis-vendor-side sequence screening (IGSC v3.0 compliant). The user is informed that the vendor will screen and may reject.
+    runtime_dispatch: stub
+  - rule_id: SR-14
+    predicate_name: sr_14
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-14.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: "SR-14: – Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-14.json
+      passing: tests/fixtures/rules/SR/passing/SR-14.json
+    suggested_remediation: Review SR-14 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: 'Codon-level rescue: if a sequence fails vendor constraints, the system MUST attempt synonymous-codon rewriting within the ORF to fix the violation without changing the protein, then re-check.'
+    runtime_dispatch: stub
+  - rule_id: SR-15
+    predicate_name: sr_15
+    severity: INFO
+    severity_policy: report_only
+    blocks: []
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-15.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-15: lead_time_days. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-15.json
+      passing: tests/fixtures/rules/SR/passing/SR-15.json
+    suggested_remediation: Review SR-15 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: "Vendor turnaround time displayed (Twist: ~ 2 weeks; IDT: 1–2 weeks; GenScript: 2–3 weeks)."
+    runtime_dispatch: stub
+  - rule_id: SR-16
+    predicate_name: sr_16
+    severity: INFO
+    severity_policy: report_only
+    blocks: []
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-16.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: 'SR-16: service_tier_eligibility. Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-16.json
+      passing: tests/fixtures/rules/SR/passing/SR-16.json
+    suggested_remediation: Review SR-16 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Twist Express-tier vs standard-tier eligibility (Express requires stricter GC, fewer repeats, no exotic adapters).
+    runtime_dispatch: stub
+  - rule_id: SR-17
+    predicate_name: sr_17
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - construct
+      - vendor_profile
+      - synthesis_request
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.sr-17.result
+    invalidates: []
+    preconditions: []
+    target_context: screening
+    external_adapters:
+      - vendor_profile
+    threshold_profile: thresholds.synthesis.default
+    citation:
+      text: "SR-17: – Source rule from REQUIREMENTS.md#4.3; calibrated against KB v2.0 section 18 where applicable."
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - SR
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/SR/triggering/SR-17.json
+      passing: tests/fixtures/rules/SR/passing/SR-17.json
+    suggested_remediation: Review SR-17 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: If the construct exceeds any vendor's clonal-gene maximum, the system MUST automatically partition it into orderable fragments and design the assembly route (Gibson or Golden Gate).
+    runtime_dispatch: stub

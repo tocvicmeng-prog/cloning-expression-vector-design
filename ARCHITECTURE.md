@@ -2719,12 +2719,12 @@ No commercial release tag is valid unless:
 
 Step 9 picks up next per the standing cadence. The dev-orchestrator must:
 
-1. Add a new **Phase 4.2** section to `CODING_AGENDA.md` with **T-407 … T-415** (9 task cards; runtime catalogue extension).
+1. Add a new **Phase 4.2** section to `CODING_AGENDA.md` with **T-407 … T-415 + T-408a** (10 task cards; runtime catalogue extension; T-408a is a separate top-level heading per the joint plan's explicit "+T-408a" enumeration).
 2. Add a new **Phase 14** section with **T-1401 … T-1411** (11 task cards; ML training corpus subsystem).
-3. Bump `tools/agenda_consistency_check.py::EXPECTED_TOTAL` 71 → 91, add phase counts, add new phase IDs and task lists, add `STALE_IDS` for the markers shim.
+3. Bump `tools/agenda_consistency_check.py::EXPECTED_TOTAL` 71 → **92** (10 Phase 4.2 + 11 Phase 14 = 21 new cards; this paragraph originally said "91" before the T-408a-as-its-own-heading decision; reconciled at v0.2.1 audit fix M4), add phase counts, add new phase IDs and task lists, add `STALE_IDS` for the markers shim.
 4. Add the six new CI gates to the lifecycle table (per joint plan § 8 ordering).
 5. Add `IP_POLICY.md` and `LICENSES/THIRD_PARTY_NOTICES.md` to the Files-list under Phase 14.
-6. Confirm `agenda_consistency_check.py` reports `91 active task headings, 51 canonical ports` and stays green.
+6. Confirm `agenda_consistency_check.py` reports `92 active task headings, 51 canonical ports` and stays green.
 
 After step 9, step 10 updates `TASK_BOARD.md` and triggers implementation kickoff at the M-A entry-point tasks T-407 + T-1401.
 

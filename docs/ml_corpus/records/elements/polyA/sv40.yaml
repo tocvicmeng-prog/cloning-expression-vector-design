@@ -1,28 +1,32 @@
 id: corpus.element.polyA.sv40
 category: polyA
 sequence:
-  bases: TTGTGCCTTCTAGTTGCCAGCCATCTGTTGTTTGCCCCTCCCCCGTGCCTTCCTTGACCCTGGAAGGTGCCACTCCCACTGTCCTTTCCTAATAAAATGAGGAAATTGCATCGCATTGTCTGAGTAGGTGTCATTCTATTCTGGGGGGTGGGGTGGGGCAGGACAGCAAGGGGGAGGATTGGGAAGACAATAGCAGGCATGCTGGGGA
+  bases: AACTTGTTTATTGCAGCTTATAATGGTTACAAATAAAGCAATAGCATCACAAATTTCACAAATAAAGCATTTTTTTCACTGCATTCTAGTTGTGGTTTGTCCAAACTCATCAATGTATCTTATCATGTCTG
   topology: linear
-  length_bp: 208
+  length_bp: 131
 annotation: []
 provenance:
   source: primary_literature
-  accession_or_url: https://pubmed.ncbi.nlm.nih.gov/211141/
+  accession_or_url: https://pubmed.ncbi.nlm.nih.gov/204876/
   retrieved_at: '2026-05-23'
-  retrieved_by: T-1405 scientific-advisor curation; canonical consensus sequence from cited primary literature
-  name: SV40 late polyadenylation signal
-  pmid: '211141'
-  citation_text: Fiers W et al. Complete nucleotide sequence of SV40 DNA. Nature. 1978 May 11;273(5658):113-20.
-  notes: T-1405 modular-element record. SnapGene cross-check pending per BR-16 NORMATIVE.
+  retrieved_by: 'v0.2.1 audit fix C2 (Scientific audit 2026-05-23 § 7 #2): replaced erroneous BGH-polyA bases (previously labelled as SV40) with canonical
+    131 bp SV40 early-region polyadenylation signal as it appears in pSV2/pSG5/pcDNA3 lineage vectors (J02400 nucleotides ~2667-2797). Contains the
+    proximal AATAAA hexamer (x2) and the downstream GU-rich element.'
+  name: SV40 early-region polyadenylation signal (canonical pSV2/pSG5/pcDNA3 lineage)
+  pmid: '204876'
+  citation_text: Reddy VB, Thimmappaya B, Dhar R, Subramanian KN, Zain BS, Pan J, Ghosh PK, Celma ML, Weissman SM. The genome of simian virus 40.
+    Science. 1978 May 5;200(4341):494-502.
+  notes: 'T-1405 modular-element record. v0.2.1 fix C2: prior version contained the BGH polyA sequence (208 bp, byte-near-identical to bgh.yaml).
+    Replaced with canonical SV40 polyA from the Reddy et al. 1978 SV40 complete-genome sequencing paper. SnapGene cross-check pending per BR-16 NORMATIVE.'
 license:
   sequence_license:
     spdx_id: primary-literature-public-record
     redistribution_allowed: true
     ml_training_allowed: true
     attribution_required: true
-    attribution_text: Fiers W et al. Complete nucleotide sequence of SV40 DNA. Nature. 1978 May 11;273(5658):113-20.
+    attribution_text: Reddy VB et al. The genome of simian virus 40. Science. 1978 May 5;200(4341):494-502.
     commercial_use_allowed: true
-    source_text_url: https://pubmed.ncbi.nlm.nih.gov/211141/
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/204876/
     notes: Consensus sequence published in cited primary literature; the sequence is factual and not subject to copyright (Feist v. Rural Telephone).
       Attribution to the originating paper is requested as scholarly practice but not a legal requirement on the bases.
   annotation_license:
@@ -30,9 +34,9 @@ license:
     redistribution_allowed: true
     ml_training_allowed: true
     attribution_required: true
-    attribution_text: Fiers W et al. Complete nucleotide sequence of SV40 DNA. Nature. 1978 May 11;273(5658):113-20.
+    attribution_text: Reddy VB et al. The genome of simian virus 40. Science. 1978 May 5;200(4341):494-502.
     commercial_use_allowed: true
-    source_text_url: https://pubmed.ncbi.nlm.nih.gov/211141/
+    source_text_url: https://pubmed.ncbi.nlm.nih.gov/204876/
     notes: Curator-authored annotation overlay; cite as 'CEV Toolkit corpus v0.2 + underlying primary literature (see citation_text).'
 snapgene_crosscheck:
   checked: false
@@ -49,4 +53,4 @@ intended_use_category:
 - mammalian_3prime_processing
 checksum:
   algorithm: sha256
-  value: 12a2672f8bac8681a0cedb22c4b154a84239253e06dc9f57054350e1398d689b
+  value: 954fcbc0b917b5668ab64012cde83d7d372c3cc28898642efdbcb339b9352143

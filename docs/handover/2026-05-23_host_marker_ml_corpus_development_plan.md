@@ -79,7 +79,7 @@ This plan is produced under the project's standing 10-step cadence ([[cev-workfl
 
 ## 4. Phase + task-card design
 
-20 new task cards total: 9 in Phase 4.2, 11 in Phase 14. All cards follow the existing `T-NNN` convention. Total post-v0.2: 71 + 20 = **91 task cards**.
+21 new task cards total: **10** in Phase 4.2 (T-407..T-415 + T-408a backfill, where T-408a is its own top-level heading), 11 in Phase 14. All cards follow the existing `T-NNN` convention. Total post-v0.2: 71 + 21 = **92 task cards**. (v0.2.1 audit fix M4 — original "20 + 91" wording was a pre-T-408a-decision count; the actual landed total is 92 per `agenda_consistency_check.py::EXPECTED_TOTAL`.)
 
 ### 4.1 Phase 4.2 — Catalogue extension (Tracks A + B)
 
@@ -317,10 +317,10 @@ The architect must, at step 8:
 
 The dev-orchestrator must, at step 9:
 
-1. **Add Phase 4.2 section** with T-407..T-415 (9 tasks).
+1. **Add Phase 4.2 section** with T-407..T-415 + T-408a (10 tasks per the explicit "+T-408a" enumeration in § 4.1; the original "9 tasks" wording predates the T-408a decision and was reconciled at v0.2.1 audit fix M4).
 2. **Add Phase 14 section** with T-1401..T-1411 (11 tasks).
-3. **Update `EXPECTED_TOTAL`** in `tools/agenda_consistency_check.py`: 71 → 91.
-4. **Update `EXPECTED_COUNTS`**: add `"4.2": 9` and `"14": 11`.
+3. **Update `EXPECTED_TOTAL`** in `tools/agenda_consistency_check.py`: 71 → **92** (was originally specified as 91 before T-408a became its own top-level heading; reconciled at v0.2.1 audit fix M4).
+4. **Update `EXPECTED_COUNTS`**: add `"4.2": 10` and `"14": 11`.
 5. **Update `EXPECTED_PHASES`**: insert `"4.2"` after `"4"`; append `"14"`.
 6. **Update `EXPECTED_PHASE4_2`** = ["T-407", "T-408", "T-408a", "T-409", "T-410", "T-411", "T-412", "T-413", "T-414", "T-415"].
    (Note: T-408a is a sub-task numerically inserted; agenda's range grammar supports this.)

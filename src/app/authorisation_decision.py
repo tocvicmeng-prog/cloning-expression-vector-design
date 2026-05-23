@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from typing import Protocol
 
-from adapter.screening import ScreeningScope, ScreeningTrustPolicy, ScreeningVerdict
+from domain.types.screening import ScreeningScope, ScreeningTrustPolicy, ScreeningVerdict
 from app.advisory_acknowledgement import all_required_advisories_acknowledged
 from app.review_queue_service import ReviewQueueService, ReviewQueueSubmissionResult
 from domain.canonicalisation import canonical_sha256

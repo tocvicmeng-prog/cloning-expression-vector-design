@@ -850,3 +850,25 @@ tasks:
     expanded_task_ids: []
     depends_on: ["T-1410"]
     owning_modules: ["docs.fork-readiness.checklist", "tools.fork_readiness"]
+# v0.2.1 audit-fix top-level extension: 15 audit-fix IDs added as a
+# separate `audit_fix_task_ids` key (NOT inside `tasks:`) so that
+# active_task_card_count stays at 92 (v0.2 cadence is what it is — the
+# audit-fix items are post-release maintenance landed 2026-05-23, not v0.2
+# scope). `tools/ci_gates/audit_traceability_check.py::_allowed_task_ids`
+# unions this list into its allowed set so traceability headers can use them.
+audit_fix_task_ids:
+  - "audit-fix-C1"  # EYFP frameshift fix (corpus record)
+  - "audit-fix-C2"  # sv40 polyA mislabel fix (corpus record)
+  - "audit-fix-C3"  # MarkersCataloguePort composition-root wiring
+  - "audit-fix-C4"  # mr_22 predicate/rule semantic mismatch
+  - "audit-fix-C5"  # canonical yeast genotype tokens
+  - "audit-fix-H1"  # ml_corpus_license_check promoted enforced
+  - "audit-fix-H2"  # gitleaks-style credential scanner
+  - "audit-fix-H3"  # PMID verifier tool + sweep report
+  - "audit-fix-H4"  # MR-59 real predicate (marker-host auxotrophic compat)
+  - "audit-fix-H5"  # implementation_status / runtime_dispatch metadata sweep
+  - "audit-fix-M1"  # task-brief deferred-by-design notes
+  - "audit-fix-M2"  # sbol3 extras documented as release-notes prereq
+  - "audit-fix-M3"  # G3 reports deferred to v0.3 cadence design
+  - "audit-fix-M4"  # doc-numeric-consistency CI gate
+  - "audit-fix-M5"  # Screening value types relocated to domain.types.screening

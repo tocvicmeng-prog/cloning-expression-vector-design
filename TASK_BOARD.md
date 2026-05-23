@@ -80,6 +80,35 @@ This dashboard was regenerated for v1.3:
 | **M-B** — Core implementations | T-409, T-410 (Opus), T-411 (Opus), T-412, T-413, T-414, T-1403, T-1404 (Opus), T-1405 (Opus) | (M-A exit → continuation session) | **✅ M-B COMPLETE 2026-05-23.** 23 markers committed; 9 new strain records committed; 91 corpus records committed (T-1404 28/40 + T-1405 63/80 — partial scope, Tier-1/Tier-2 INSDC constraint kept vendor-only plasmids out, documented as backlog); `engine.markers_resolver` dual-read shim landed with 7 coverage tests; MR-55..60 manifests + 12 fixture shells + numbered_predicates bumped 54→60 (real predicate semantics deferred to Phase 5/6 per project convention). |
 | **M-C** — CI gates + policy (release-readiness) | T-415, T-408a, T-1407, T-1408 (informational at v0.2), T-1409, T-1410, T-1411 (Opus) | (M-B exit → continuation session) | **✅ M-C COMPLETE 2026-05-23.** All six new CI gates green and lifecycle-stamped; `corpus_manifest.yaml::license_aggregate` populated (total 91, sa_free 91, attribution_required 63); `partition: sa_free` default; fork-readiness operational checklist drafted; `IP_POLICY.md` + `LICENSES/THIRD_PARTY_NOTICES.md` landed. T-408a (7-record host backfill) closed the v0.1.0 host-stub residue. |
 
+### G3 six-dimension audit coverage for v0.2 cards (audit-fix M3, 2026-05-23)
+
+The 2026-05-23 dev-orchestrator audit (§ 0 issue #5) flagged that per-module
+G3 six-dimension audit reports — required by the dev-orchestrator framework's
+Quality Gate G3 — are not surfaced per card in this module registry. The
+v0.2.1 audit-fix-M3 decision (recorded in the collaborative-audit synthesis
+§ 3 + user acceptance 2026-05-23) was to **defer per-card G3 reports to v0.3
+cadence design** rather than back-fill 21 reports retroactively.
+
+For v0.2 cards (T-407..T-415 + T-408a + T-1401..T-1411), G3 audit coverage
+is provided by the **collaborative three-role audit** at:
+
+- `docs/handover/2026-05-23_v0.2_collaborative_audit_architecture.md`
+  (`/architect` six-dimension framework applied as cross-cutting overlay)
+- `docs/handover/2026-05-23_v0.2_collaborative_audit_scientific.md`
+  (`/scientific-advisor` first-principles + wet-lab-executability lens)
+- `docs/handover/2026-05-23_v0.2_collaborative_audit_orchestration.md`
+  (`/dev-orchestrator` cadence-discipline + quality-gate compliance lens)
+- `docs/handover/2026-05-23_v0.2_collaborative_audit_synthesis.md`
+  (cross-cutting + priority queue + acceptance verdict)
+
+**For v0.3 cadence:** the standing 10-step working principle
+([[cev-workflow-discipline]]) will be extended with a **step-11 per-module
+G3 audit phase**. Each new task card lands with its own self-contained six-
+dimension audit before being marked APPROVED in the registry. This closes the
+audit's M3 finding via process-design (forward-looking, every new card carries
+its own G3) rather than retroactive back-fill (one-time effort against
+already-shipped artefacts).
+
 ---
 
 ## 2. Current bottlenecks (top 5)
@@ -348,7 +377,7 @@ Legend: ✅ mitigated and verified in CI; 🟡 mitigation planned with task owne
 | **`agenda-consistency-port-count` (v0.2)** | `enforced` | T-204 (extended at step 8/9) + T-415 | local `python tools/agenda_consistency_check.py` (port_manifest assertions bumped 50 → 51 at step 8; CODING_AGENDA-text assertions bumped at step 9) | local green 2026-05-23 |
 | **`markers-citation-presence-check` (v0.2)** | **`informational`** (landed at T-415 2026-05-23; promotes to `enforced` after T-410 populates `markers.yaml`) | T-415 | local `python -m tools.ci_gates.markers_citation_presence_check --enforce` (PYTHONPATH=.) | local green 2026-05-23 — vacuous on absent `markers.yaml` |
 | **`host-marker-link-integrity-check` (v0.2)** | **`informational`** (landed at T-415 2026-05-23; promotes to `enforced` after T-411 + T-408a populate `recommended_selection_markers[]`) | T-415 | local `python -m tools.ci_gates.host_marker_link_integrity_check --enforce` (PYTHONPATH=.) | local green 2026-05-23 — vacuous (no host records carry the field yet) |
-| **`ml-corpus-license-check` (v0.2)** | **`informational`** (landed at T-1403; promotes to `enforced` after T-1407) | T-1403 / T-1407 | local `python -m tools.ci_gates.ml_corpus_license_check --enforce` (requires PYTHONPATH=. on Windows) | local green 2026-05-23 — vacuous pass on empty v0.2 corpus (BR-15 default-deny baseline) |
+| **`ml-corpus-license-check` (v0.2)** | **`enforced`** (promoted 2026-05-23 v0.2.1 audit fix H1; corpus at 148 records, 0 license-block defects) | T-1403 / T-1407 / audit-fix-H1 | local `python -m tools.ci_gates.ml_corpus_license_check --enforce` (requires PYTHONPATH=. on Windows) | local green 2026-05-23 — 148/148 records carry complete license blocks; BR-15 default-deny held |
 | **`snapgene-pipeline-scan` (v0.2 BR-16)** | **`enforced-green`** from day one (defensive default-deny per BR-16) | T-1406 | local `python -m tools.ci_gates.snapgene_pipeline_scan --enforce` (requires PYTHONPATH=. on Windows local runs) | local green 2026-05-23 — no forbidden invocations in real codebase |
 | **`corpus-annotation-provenance-check` (v0.2 IPQ-9)** | **`informational`** at v0.2 (landed at T-1408 2026-05-23); promotes to `enforced` in v0.3 after FP-rate observation | T-1408 | local `python -m tools.ci_gates.corpus_annotation_provenance_check` (PYTHONPATH=.) | local green 2026-05-23 — vacuous on empty corpus |
 | **`corpus_release_gate.py` (v0.2; release-tag time only)** | **`enforced at release-tag`** (landed at T-1409 2026-05-23); PR merges unaffected; --research / --commercial modes | T-1409 | local `python -m tools.release.corpus_release_gate --tag X.Y.Z --research` (PYTHONPATH=.) | local green 2026-05-23 — vacuous on empty corpus baseline |

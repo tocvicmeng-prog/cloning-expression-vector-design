@@ -33,7 +33,14 @@ provenance:
   organism: synthetic construct
   pmids: []
   notes: 'Machine-fetched from NCBI eutils efetch 2026-05-23; raw GenBank cached at /tmp/genbank/. Parser: tools/corpus/genbank_to_corpus_record.py.
-    SnapGene cross-check pending per BR-16 NORMATIVE.'
+    SnapGene cross-check pending per BR-16 NORMATIVE.
+
+    ⚠ HOST-CLASS WARNING (Scientific audit 2026-05-23, fix C1): this CDS uses a Mycoplasma-style transl_except declaration at pos:172..174 (codon 58),
+    where TGA is interpreted as Trp (NCBI translation table 4) rather than as a stop codon (tables 1/11). The bases as deposited contain TGA at that
+    position. A wet-lab user expressing this CDS in any host that uses standard translation (E. coli table 11, mammalian/yeast table 1) without
+    a recoded TGA→TGG substitution will obtain a 57-aa N-terminal truncation product, not a functional fluorescent protein. For standard-codon
+    EYFP-class expression use mVenus (LC716765, EYFP F46L/F64L/M153T/V163A/S175G variant) instead. host_class has been narrowed from `multi` to
+    `mycoplasma` to reflect this constraint.'
 license:
   sequence_license:
     spdx_id: NCBI-PD
@@ -63,13 +70,15 @@ snapgene_crosscheck:
   checked_at: '2026-05-23'
   match: true
 host_topology:
-  host_class: multi
+  host_class: mycoplasma
   replicon: ''
   copy_number_class: 'null'
 intended_use_category:
 - fluorescent_reporter
 - yellow_fp
 - fret_acceptor
+- mycoplasma_codon_table_warning
+- recoding_required_for_standard_table_expression
 checksum:
   algorithm: sha256
   value: a2035bedb83add7128d64cbcb65aafcb2e52c4e61fd01a288f876057aae0ecd6

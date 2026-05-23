@@ -25,6 +25,7 @@ from domain.sequence import Sha256
 from domain.types.ids import MetricId, RuleId
 from domain.types.validation_rule import FieldPath, ValidationRule
 from engine.dependencies import DependencyGraph, build_dependency_graph
+from engine.markers_resolver import MarkersResolver  # v0.2.1 audit fix C3
 from engine.validation import ValidationContext, ValidationReport, WorkerPoolFactory, validate
 from engine.validation.predicates import IMPLEMENTED_PREDICATE_REGISTRY, PREDICATE_REGISTRY
 from engine.validation.predicates._stub import Predicate
@@ -191,6 +192,14 @@ class ValidationOrchestrator:
         max_metric_workers: int = 4,
         tier2_budget_ms: float = 250.0,
         validation_worker_pool_factory: WorkerPoolFactory | None = None,
+        # v0.2.1 audit fix C3 (collaborative-audit Architect § 1.3 Finding 1.4 HIGH).
+        # Optional resolver over MarkersCataloguePort. When provided, it is passed
+        # through to every ValidationContext constructed by validate_design(),
+        # making marker payloads (working concentration, host_genotype_requirement,
+        # citations) available to MR-55..60 predicates. The dual-read shim path
+        # in engine.markers_resolver.MarkersResolver handles port→legacy→None
+        # fallback with structured telemetry. None preserves the v0.1.0 baseline.
+        markers_resolver: MarkersResolver | None = None,
     ) -> None:
         if max_metric_workers < 1:
             raise ValueError("max_metric_workers must be >= 1")
@@ -202,6 +211,7 @@ class ValidationOrchestrator:
         self._max_metric_workers = max_metric_workers
         self._tier2_budget_ms = tier2_budget_ms
         self._validation_worker_pool_factory = validation_worker_pool_factory
+        self._markers_resolver = markers_resolver
 
     def validate_design(
         self,
@@ -242,6 +252,7 @@ class ValidationOrchestrator:
             threshold_profile=threshold_profile,
             derivation_environment_hash=environment_hash,
             random_seed=random_seed,
+            markers_resolver=self._markers_resolver,  # v0.2.1 audit fix C3
         )
         report = validate(
             context,

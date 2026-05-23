@@ -6,280 +6,259 @@ maintenance:
   source_url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17
   review_required_after: '2026-11-14'
 rules:
-- rule_id: MS-01
-  predicate_name: ms_01
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockOperationalProtocol
-  reads:
-  - construct
-  - vlp_policy
-  - risk_advisory_report
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.ms-01.result
-  invalidates: []
-  preconditions: []
-  target_context: construct
-  external_adapters:
-  - vlp_policy
-  threshold_profile: thresholds.ms2_vlp.default
-  citation:
-    text: 'MS-01: KB v2.0 section 17.2 item 1. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - MS
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/MS/triggering/MS-01.json
-    passing: tests/fixtures/rules/MS/passing/MS-01.json
-  suggested_remediation: Review MS-01 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: MS2 coat-protein reference sequence is locked; every variant is represented
-    as explicit deltas with checksum.
-- rule_id: MS-02
-  predicate_name: ms_02
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockOperationalProtocol
-  reads:
-  - construct
-  - vlp_policy
-  - risk_advisory_report
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.ms-02.result
-  invalidates: []
-  preconditions: []
-  target_context: construct
-  external_adapters:
-  - vlp_policy
-  threshold_profile: thresholds.ms2_vlp.default
-  citation:
-    text: 'MS-02: KB v2.0 section 17.1 and 17.2 item 2. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - MS
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/MS/triggering/MS-02.json
-    passing: tests/fixtures/rules/MS/passing/MS-02.json
-  suggested_remediation: Review MS-02 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Single-chain MS2 dimer insertions are restricted to the tolerated AB-loop
-    half and preserve the V75E/A81G variant declaration.
-- rule_id: MS-03
-  predicate_name: ms_03
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockOperationalProtocol
-  reads:
-  - construct
-  - vlp_policy
-  - risk_advisory_report
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.ms-03.result
-  invalidates: []
-  preconditions: []
-  target_context: construct
-  external_adapters:
-  - vlp_policy
-  threshold_profile: thresholds.ms2_vlp.default
-  citation:
-    text: 'MS-03: KB v2.0 section 17.1 and 17.2 item 3. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - MS
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/MS/triggering/MS-03.json
-    passing: tests/fixtures/rules/MS/passing/MS-03.json
-  suggested_remediation: Review MS-03 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: MS2 pac/hairpin cargo tag is present, copy number is declared, and
-    the consensus-critical residues are preserved.
-- rule_id: MS-04
-  predicate_name: ms_04
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - construct
-  - vlp_policy
-  - risk_advisory_report
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.ms-04.result
-  invalidates: []
-  preconditions: []
-  target_context: construct
-  external_adapters:
-  - vlp_policy
-  threshold_profile: thresholds.ms2_vlp.default
-  citation:
-    text: 'MS-04: KB v2.0 section 17.1 item 4. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - MS
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/MS/triggering/MS-04.json
-    passing: tests/fixtures/rules/MS/passing/MS-04.json
-  suggested_remediation: Review MS-04 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: PP7, Qbeta, and MS2 coat-protein families are not mixed with the wrong
-    pac/hairpin tag unless an orthogonality override is documented.
-- rule_id: MS-05
-  predicate_name: ms_05
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - construct
-  - vlp_policy
-  - risk_advisory_report
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.ms-05.result
-  invalidates: []
-  preconditions: []
-  target_context: construct
-  external_adapters:
-  - vlp_policy
-  threshold_profile: thresholds.ms2_vlp.default
-  citation:
-    text: 'MS-05: KB v2.0 section 17.2 item 5. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - MS
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/MS/triggering/MS-05.json
-    passing: tests/fixtures/rules/MS/passing/MS-05.json
-  suggested_remediation: Review MS-05 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Display/conjugation strategy is declared when Spy/Snoop/sortase/click
-    ports are present.
-- rule_id: MS-06
-  predicate_name: ms_06
-  severity: HARD
-  severity_policy: block
-  blocks:
-  - BlockOperationalProtocol
-  reads:
-  - construct
-  - vlp_policy
-  - risk_advisory_report
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.ms-06.result
-  invalidates: []
-  preconditions: []
-  target_context: construct
-  external_adapters:
-  - vlp_policy
-  threshold_profile: thresholds.ms2_vlp.default
-  citation:
-    text: 'MS-06: KB v2.0 section 17.2 item 6. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - MS
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/MS/triggering/MS-06.json
-    passing: tests/fixtures/rules/MS/passing/MS-06.json
-  suggested_remediation: Review MS-06 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: Host-range, tropism, replication, cargo-delivery, or antimicrobial-payload
-    functions require stricter biosafety review.
-- rule_id: MS-07
-  predicate_name: ms_07
-  severity: SOFT
-  severity_policy: warn_acknowledge
-  blocks: []
-  reads:
-  - construct
-  - vlp_policy
-  - risk_advisory_report
-  depends_on_metrics: []
-  produces_metrics:
-  - metric.ms-07.result
-  invalidates: []
-  preconditions: []
-  target_context: construct
-  external_adapters:
-  - vlp_policy
-  threshold_profile: thresholds.ms2_vlp.default
-  citation:
-    text: 'MS-07: KB v2.0 sections 6 and 17. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17;
-      calibrated against KB v2.0 section 18 where applicable.'
-    grade: B2
-    accessed: '2026-05-14'
-    url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
-    source_registry_ids:
-    - KB18.1
-    - KB18.2
-    - MS
-  last_reviewed: '2026-05-14'
-  reviewed_by: scientific-advisor
-  implementation_status: stub
-  test_fixtures:
-    triggering: tests/fixtures/rules/MS/triggering/MS-07.json
-    passing: tests/fixtures/rules/MS/passing/MS-07.json
-  suggested_remediation: Review MS-07 violation against the design context and adjust
-    the affected construct, host, workflow, vendor, or governance declaration before
-    proceeding.
-  description: VLP validation package declares intended assembly verification readouts
-    such as SEC, TEM, or native PAGE metadata.
+  - rule_id: MS-01
+    predicate_name: ms_01
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockOperationalProtocol
+    reads:
+      - construct
+      - vlp_policy
+      - risk_advisory_report
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.ms-01.result
+    invalidates: []
+    preconditions: []
+    target_context: construct
+    external_adapters:
+      - vlp_policy
+    threshold_profile: thresholds.ms2_vlp.default
+    citation:
+      text: 'MS-01: KB v2.0 section 17.2 item 1. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - MS
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/MS/triggering/MS-01.json
+      passing: tests/fixtures/rules/MS/passing/MS-01.json
+    suggested_remediation: Review MS-01 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: MS2 coat-protein reference sequence is locked; every variant is represented as explicit deltas with checksum.
+    runtime_dispatch: stub
+  - rule_id: MS-02
+    predicate_name: ms_02
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockOperationalProtocol
+    reads:
+      - construct
+      - vlp_policy
+      - risk_advisory_report
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.ms-02.result
+    invalidates: []
+    preconditions: []
+    target_context: construct
+    external_adapters:
+      - vlp_policy
+    threshold_profile: thresholds.ms2_vlp.default
+    citation:
+      text: 'MS-02: KB v2.0 section 17.1 and 17.2 item 2. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - MS
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/MS/triggering/MS-02.json
+      passing: tests/fixtures/rules/MS/passing/MS-02.json
+    suggested_remediation: Review MS-02 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Single-chain MS2 dimer insertions are restricted to the tolerated AB-loop half and preserve the V75E/A81G variant declaration.
+    runtime_dispatch: stub
+  - rule_id: MS-03
+    predicate_name: ms_03
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockOperationalProtocol
+    reads:
+      - construct
+      - vlp_policy
+      - risk_advisory_report
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.ms-03.result
+    invalidates: []
+    preconditions: []
+    target_context: construct
+    external_adapters:
+      - vlp_policy
+    threshold_profile: thresholds.ms2_vlp.default
+    citation:
+      text: 'MS-03: KB v2.0 section 17.1 and 17.2 item 3. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - MS
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/MS/triggering/MS-03.json
+      passing: tests/fixtures/rules/MS/passing/MS-03.json
+    suggested_remediation: Review MS-03 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: MS2 pac/hairpin cargo tag is present, copy number is declared, and the consensus-critical residues are preserved.
+    runtime_dispatch: stub
+  - rule_id: MS-04
+    predicate_name: ms_04
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - construct
+      - vlp_policy
+      - risk_advisory_report
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.ms-04.result
+    invalidates: []
+    preconditions: []
+    target_context: construct
+    external_adapters:
+      - vlp_policy
+    threshold_profile: thresholds.ms2_vlp.default
+    citation:
+      text: 'MS-04: KB v2.0 section 17.1 item 4. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - MS
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/MS/triggering/MS-04.json
+      passing: tests/fixtures/rules/MS/passing/MS-04.json
+    suggested_remediation: Review MS-04 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: PP7, Qbeta, and MS2 coat-protein families are not mixed with the wrong pac/hairpin tag unless an orthogonality override is documented.
+    runtime_dispatch: stub
+  - rule_id: MS-05
+    predicate_name: ms_05
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - construct
+      - vlp_policy
+      - risk_advisory_report
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.ms-05.result
+    invalidates: []
+    preconditions: []
+    target_context: construct
+    external_adapters:
+      - vlp_policy
+    threshold_profile: thresholds.ms2_vlp.default
+    citation:
+      text: 'MS-05: KB v2.0 section 17.2 item 5. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - MS
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/MS/triggering/MS-05.json
+      passing: tests/fixtures/rules/MS/passing/MS-05.json
+    suggested_remediation: Review MS-05 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Display/conjugation strategy is declared when Spy/Snoop/sortase/click ports are present.
+    runtime_dispatch: stub
+  - rule_id: MS-06
+    predicate_name: ms_06
+    severity: HARD
+    severity_policy: block
+    blocks:
+      - BlockOperationalProtocol
+    reads:
+      - construct
+      - vlp_policy
+      - risk_advisory_report
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.ms-06.result
+    invalidates: []
+    preconditions: []
+    target_context: construct
+    external_adapters:
+      - vlp_policy
+    threshold_profile: thresholds.ms2_vlp.default
+    citation:
+      text: 'MS-06: KB v2.0 section 17.2 item 6. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - MS
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/MS/triggering/MS-06.json
+      passing: tests/fixtures/rules/MS/passing/MS-06.json
+    suggested_remediation: Review MS-06 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: Host-range, tropism, replication, cargo-delivery, or antimicrobial-payload functions require stricter biosafety review.
+    runtime_dispatch: stub
+  - rule_id: MS-07
+    predicate_name: ms_07
+    severity: SOFT
+    severity_policy: warn_acknowledge
+    blocks: []
+    reads:
+      - construct
+      - vlp_policy
+      - risk_advisory_report
+    depends_on_metrics: []
+    produces_metrics:
+      - metric.ms-07.result
+    invalidates: []
+    preconditions: []
+    target_context: construct
+    external_adapters:
+      - vlp_policy
+    threshold_profile: thresholds.ms2_vlp.default
+    citation:
+      text: 'MS-07: KB v2.0 sections 6 and 17. Source rule from Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#17; calibrated against KB v2.0 section 18 where applicable.'
+      grade: B2
+      accessed: '2026-05-14'
+      url: Cloning_and_Expression_Vector_Design_Knowledge_Base_v2_0.md#18
+      source_registry_ids:
+        - KB18.1
+        - KB18.2
+        - MS
+    last_reviewed: '2026-05-14'
+    reviewed_by: scientific-advisor
+    implementation_status: stub
+    test_fixtures:
+      triggering: tests/fixtures/rules/MS/triggering/MS-07.json
+      passing: tests/fixtures/rules/MS/passing/MS-07.json
+    suggested_remediation: Review MS-07 violation against the design context and adjust the affected construct, host, workflow, vendor, or governance declaration before proceeding.
+    description: VLP validation package declares intended assembly verification readouts such as SEC, TEM, or native PAGE metadata.
+    runtime_dispatch: stub

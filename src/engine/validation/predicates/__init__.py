@@ -15,6 +15,7 @@ from engine.validation.predicates import (
     host,
     internal_sites,
     kozak,
+    marker_host_compat,  # v0.2.1 audit fix H4
     mr,
     ms,
     premature_polya,
@@ -48,6 +49,10 @@ IMPLEMENTED_PREDICATE_REGISTRY: dict[str, Predicate] = {
     **splice.SPLICE_PREDICATES,
     **cpg.CPG_PREDICATES,
     **signal_peptide.SIGNAL_PEPTIDE_PREDICATES,
+    # v0.2.1 audit fix H4 — MR-59 real predicate (marker-host auxotrophic compat).
+    # Overrides the structural-metric stub for mr_59. MR-55 + MR-60 remain INFO
+    # stubs at v0.2.1 (deferred to v0.3 — each needs additional supporting data).
+    **marker_host_compat.MARKER_HOST_COMPAT_PREDICATES,
 }
 
 

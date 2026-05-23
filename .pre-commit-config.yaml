@@ -18,3 +18,13 @@ repos:
         entry: python -m uv run --no-editable mypy src tools tests
         language: system
         pass_filenames: false
+
+      # v0.2.1 audit fix H2 (collaborative-audit synthesis § 4, Orchestrator § 11 top recommendation).
+      # Scans the working tree for credential / secret patterns (AWS keys, GitHub PATs,
+      # PEM private keys, plaintext password assignments, credentials in URLs, etc.).
+      # Single highest-leverage process improvement per the 2026-05-23 audit.
+      - id: credential-scan
+        name: credential-scan (gitleaks-style)
+        entry: python -m tools.ci_gates.credential_scan_check
+        language: system
+        pass_filenames: false

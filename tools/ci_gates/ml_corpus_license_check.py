@@ -2,7 +2,7 @@
 module_id: tools.ci_gates.ml_corpus_license_check
 file: tools/ci_gates/ml_corpus_license_check.py
 task_id: T-1403
-lifecycle_state: informational
+lifecycle_state: enforced
 owning_task_id: T-1403
 architecture_refs: § 9.3 ML Training Corpus Subsystem; § 9.3.2 split sequence/annotation license schema
 requirements_refs: FR-ML-05, FR-ML-08, FR-ML-09; BR-15
@@ -27,8 +27,10 @@ Auxiliary: also reports SnapGene cross-check coverage from
 and emits a WARN-level note when coverage < 60% (research v0.2 floor;
 release-gate at T-1409 enforces ≥ 90% at release-tag time).
 
-**Lifecycle: `informational` at landing.** Promoted to `enforced` after T-1407
-lands the populated corpus and the dual-read shim-hit baseline is established.
+**Lifecycle: `enforced` from v0.2.1** (audit fix H1 — promoted from `informational` per
+Architect audit § 0 #2 / Scientific synthesis § 1.1; FR-ML-09 is MUST + BR-15 is HARD,
+so the gate's lifecycle posture must agree with its own contract). Corpus now at 148
+records with 0 license-block defects, so the promotion is safe.
 
 Behaviour on empty corpus (the v0.2 state where T-1404/T-1405 haven't yet run):
 returns PASS with an "empty corpus" message. The gate becomes meaningful as

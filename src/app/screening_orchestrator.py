@@ -18,8 +18,8 @@ from adapter.screening import (
     ScreeningError,
     ScreeningRequest,
     ScreeningResult,
-    ScreeningVerdict,
 )
+from domain.types.screening import ScreeningVerdict
 from domain.canonicalisation import canonical_json, canonical_sha256
 from domain.events import DomainEvent, ReviewerSignedOff, ScreeningCompleted
 from domain.ports.audit_append import AuditAppendPort, AuditEntry, AuditEntryId
